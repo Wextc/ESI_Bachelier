@@ -143,34 +143,41 @@ Autorisation : déterminer ce qu’il a le droit de faire.
 ---
 
 Q19. Que signifie la “traçabilité” (Accountability) ?
+
 R : Pouvoir savoir qui a fait quoi dans le système.
 
 ---
 
 Q20. Quelle est la triade AAA ?
+
 R : Authentication, Authorisation, Accountability.
 
 ## ⚖️ 6. Principes de base de la sécurité
 
 Q21. Que signifie le principe du moindre privilège ?
+
 R : Chaque utilisateur ne doit avoir accès qu’aux ressources nécessaires à sa fonction.
 
 ---
 
 Q22. En quoi consiste la défense en profondeur ?
+
 R : Utiliser plusieurs couches de sécurité successives pour renforcer la protection.
 
 ---
 
 Q23. Pourquoi la sécurité ne doit-elle pas dépendre du secret de la méthode ?
+
 R : Parce que la sécurité doit résider dans la solidité du système, pas dans le secret de son fonctionnement (principe de transparence).
 
 ---
 
 Q24. Pourquoi faut-il privilégier la simplicité dans un système sécurisé ?
+
 R : Plus un système est complexe, plus il est vulnérable aux erreurs et failles.
 
 ---
 
 Q25. Que veut dire “séparation des responsabilités” ?
+
 R : Aucune personne ne doit avoir le contrôle total du système, pour éviter les abus ou les erreurs critiques.
