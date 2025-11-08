@@ -733,3 +733,333 @@ R : Parce qu’elle ne prouve pas l’identité du détenteur d’une clé publi
 Q34. Quel rôle joue la PKI dans l’écosystème de la sécurité ?
 
 R : Elle relie les clés aux identités via des certificats, établissant ainsi la confiance nécessaire pour la cryptographie à grande échelle (ex. web).
+
+# 🧭 Chapitre 4 – Authentication
+
+## ⚙️ 1. Introduction générale
+
+Q1. Quel est le but principal de l’authentification ?
+
+R : Prouver qu’une entité est bien celle qu’elle prétend être.
+
+---
+
+Q2. Quelles notions précèdent l’étude de l’authentification ?
+
+R : Les objectifs de sécurité, les outils cryptographiques et la PKI.
+
+---
+
+Q3. Quelle question centrale pose ce chapitre ?
+
+R : “Comment prouver son identité dans un système sécurisé ?”
+
+---
+
+## 👤 2. Qu’est-ce que l’authentification ?
+
+Q4. Quelle est la définition de l’authentification ?
+
+R : C’est le processus par lequel un système vérifie l’identité d’un utilisateur.
+
+---
+
+Q5. Sur quoi repose l’authentification ?
+
+R : Sur la présentation de preuves d’identité appelées credentials.
+
+---
+
+Q6. Quelles sont les deux étapes du processus ?
+
+R :
+
+Identification → “Je suis Alice.”
+
+Authentification → “Voici la preuve que je suis bien Alice.”
+
+---
+
+Q7. Quelle règle importante doit être respectée ?
+
+R : Ne pas dépendre d’un système externe non contrôlé (ex. : un email non sécurisé).
+
+## 🔑 3. Types de facteurs d’authentification
+
+Q8. Quels sont les trois types de facteurs d’authentification ?
+
+R :
+
+Facteur de connaissance (ce que je sais)
+
+Facteur de possession (ce que je possède)
+
+Facteur d’inhérence (ce que je suis)
+
+---
+
+Q9. Donne un exemple pour chaque facteur.
+
+R :
+
+Connaissance → mot de passe, code PIN
+
+Possession → carte, clé USB, token
+
+Inhérence → empreinte digitale, reconnaissance faciale
+
+## 🧩 4. Principe de base
+
+Q10. Que fait l’utilisateur pendant l’authentification ?
+
+R : Il présente ses identifiants et preuves d’identité au système.
+
+---
+
+Q11. Quelle est la faiblesse du mot de passe classique ?
+
+R : Le secret doit être transmis au système, donc il peut être intercepté ou volé.
+
+## 🧮 5. Multi-Factor Authentication (MFA)
+
+Q12. Que signifie MFA ?
+
+R : Multi-Factor Authentication : utilisation de plusieurs preuves d’identité.
+
+Q13. Quelle est la différence entre 2FA et MFA ?
+
+R :
+
+2FA utilise deux preuves.
+
+MFA en combine deux ou plus.
+
+---
+
+Q14. Donne deux exemples concrets d’authentification à plusieurs facteurs.
+
+R :
+
+Distributeur bancaire : carte + code PIN.
+
+Connexion Google : mot de passe + code SMS ou OTP.
+
+---
+
+Q15. Quel est l’objectif du MFA ?
+
+R : Augmenter le niveau de confiance en rendant plus difficile l’usurpation d’identité.
+
+---
+
+## 🧠 6. MFA vs. Social Engineering
+
+Q16. Qu’est-ce que le social engineering ?
+
+R : L’art de manipuler une personne pour qu’elle compromette la sécurité (ex. : révéler un mot de passe).
+
+---
+
+Q17. Pourquoi dit-on que c’est “l’attaque la plus humaine” ?
+
+R : Parce qu’elle exploite la confiance et les erreurs humaines plutôt que des failles techniques.
+
+---
+
+Q18. Comment le MFA protège-t-il contre ces attaques ?
+
+R : Même si un facteur est volé, l’attaquant doit encore contourner les autres.
+
+## 🧩 7. Challenge-Response Authentication
+
+Q19. Quel problème résout cette méthode ?
+
+R : Elle évite de révéler le secret (mot de passe) à chaque connexion.
+
+---
+
+Q20. Quel est le principe du challenge-response ?
+
+R :
+
+Le serveur envoie un challenge (valeur aléatoire).
+
+L’utilisateur le chiffre ou le signe.
+
+Le serveur vérifie la réponse.
+
+---
+
+Q21. Quelle est la nature de cette preuve ?
+
+R : C’est une preuve à connaissance nulle (zero-knowledge proof).
+
+Q22. Donne un exemple de mise en œuvre.
+
+R : Authentification par signature numérique (RSA ou ECC).
+
+## 🔐 8. Token-Based Authentication
+
+Q23. Quel est le but de cette méthode ?
+
+R : Éviter de réauthentifier l’utilisateur à chaque requête.
+
+---
+
+Q24. Comment fonctionne l’authentification par token ?
+
+R :
+
+L’utilisateur s’authentifie une fois.
+
+Le serveur génère un token signé.
+
+L’utilisateur réutilise ce token pour accéder aux ressources.
+
+---
+
+Q25. Quels sont ses avantages ?
+
+R :
+
+Pas besoin d’envoyer le mot de passe à chaque fois.
+
+Les tokens peuvent expirer ou être révoqués.
+
+Compatible avec plusieurs services (SSO).
+
+---
+
+Q26. Cite trois types de tokens.
+
+R : JWT, OAuth 2.0 tokens, SAML assertions.
+
+## 🔁 9. Single Sign-On (SSO)
+
+Q27. Qu’est-ce que le SSO ?
+
+R : Un système permettant de se connecter une seule fois pour accéder à plusieurs services.
+
+---
+
+Q28. Comment fonctionne-t-il ?
+
+R :
+
+L’utilisateur s’authentifie auprès d’un Identity Provider (IdP).
+
+L’IdP délivre une preuve d’identité.
+
+Les autres services font confiance à cet IdP.
+
+---
+
+Q29. Quel est l’avantage principal ?
+
+R : L’utilisateur n’a besoin de se connecter qu’une seule fois.
+
+---
+
+Q30. Quel est le risque majeur ?
+
+R : Si l’IdP est compromis, tous les services le sont → single point of failure.
+
+## 🏛️ 10. Identity and Access Management (IAM)
+
+Q31. Que signifie IAM ?
+
+R : Identity and Access Management — Gestion des identités et des accès.
+
+---
+
+Q32. Que regroupe l’IAM ?
+
+R :
+
+Création/suppression d’utilisateurs
+
+Politiques d’accès
+
+Authentification
+
+Autorisation
+
+Traçabilité
+
+---
+
+Q33. Quelle est la différence entre authentification et autorisation ?
+
+R :
+
+Authentification → vérifier qui est l’utilisateur.
+
+Autorisation → décider ce qu’il peut faire.
+
+---
+
+Q34. Quel est l’objectif principal de l’IAM ?
+
+R : Garantir la cohérence et la sécurité des accès dans toute l’organisation.
+
+---
+
+## 🔗 11. Protocoles modernes d’authentification
+
+Q35. Qu’est-ce qu’un JWT ?
+
+R : JSON Web Token : un format signé pour transporter des informations d’identité.
+
+---
+
+Q36. À quoi sert OAuth 2.0 ?
+
+R : À déléguer l’accès à un service sans partager le mot de passe.
+
+---
+
+Q37. Donne un exemple d’utilisation d’OAuth 2.0.
+
+R : “Se connecter avec Google / GitHub”.
+
+---
+
+Q38. Qu’est-ce que WebAuthn ?
+
+R : Un standard d’authentification sans mot de passe utilisant des clés asymétriques et la biométrie.
+
+---
+
+Q39. Donne un exemple de périphérique compatible WebAuthn.
+
+R : YubiKey, empreinte digitale, reconnaissance faciale.
+
+## ⚖️ 12. Résumé synthétique
+
+Q40. Quelles sont les trois étapes de l’accès utilisateur ?
+
+R : Identification → Authentification → Autorisation.
+
+---
+
+Q41. Quels sont les trois types de facteurs d’authentification ?
+
+R : Connaissance, possession, inhérence.
+
+---
+
+Q42. Quelles sont les principales menaces liées à l’authentification ?
+
+R : Social engineering, vol d’identifiants, point de défaillance unique.
+
+---
+
+Q43. Quels sont les protocoles clés modernes ?
+
+R : JWT, OAuth 2.0, WebAuthn.
+
+---
+
+Q44. Quel est le message clé du chapitre ?
+
+R : Une bonne authentification combine plusieurs preuves et s’intègre dans une gestion centralisée des identités.
