@@ -62,12 +62,12 @@ Falsification : modifier une information réelle de manière frauduleuse.
 
 Contrefaçon : créer une fausse donnée ou une fausse signature.
 
----
-
 ## 🎣 3. Exemple concret : le phishing
 
 Q9. Quel est le principe du phishing ?
 R : Tromper la victime pour obtenir ses informations sensibles (mots de passe, numéros de carte, etc.).
+
+---
 
 Q10. Quelles sont les étapes typiques d’une attaque de phishing ?
 R :
@@ -80,8 +80,12 @@ Envoi du piège
 
 Récupération des informations
 
+---
+
 Q11. Pourquoi la sensibilisation seule n’est-elle pas suffisante contre le phishing ?
 R : Parce que les attaques sont souvent sophistiquées et nécessitent aussi des protections techniques.
+
+---
 
 Q12. Cite quelques outils de défense contre le phishing.
 R : Anti-phishing, anti-malware, authentification multifacteur (MFA), filtrage des mails inconnus.
@@ -91,12 +95,16 @@ R : Anti-phishing, anti-malware, authentification multifacteur (MFA), filtrage d
 Q13. Que signifie la phrase “When in doubt, use brute force” ?
 R : Certains systèmes reposent sur la difficulté mathématique à résoudre des problèmes sans les clés, rendant les attaques par force brute inefficaces.
 
+---
+
 Q14. Donne deux exemples de problèmes mathématiques “durs”.
 R :
 
 La factorisation de grands nombres
 
 L’inversion de fonctions complexes
+
+---
 
 Q15. Pourquoi ces contraintes mathématiques sont-elles importantes ?
 R : Elles rendent les attaques impossibles ou trop longues, garantissant la robustesse du système.
@@ -118,8 +126,12 @@ Integrity (Intégrité)
 
 Confidentiality (Confidentialité)
 
+---
+
 Q17. Que garantit la disponibilité ?
 R : Que le système reste accessible et fonctionnel.
+
+---
 
 Q18. Quelle est la différence entre “Authentification” et “Autorisation” ?
 R :
@@ -128,8 +140,12 @@ Authentification : identifier qui est l’utilisateur.
 
 Autorisation : déterminer ce qu’il a le droit de faire.
 
+---
+
 Q19. Que signifie la “traçabilité” (Accountability) ?
 R : Pouvoir savoir qui a fait quoi dans le système.
+
+---
 
 Q20. Quelle est la triade AAA ?
 R : Authentication, Authorisation, Accountability.
@@ -139,14 +155,22 @@ R : Authentication, Authorisation, Accountability.
 Q21. Que signifie le principe du moindre privilège ?
 R : Chaque utilisateur ne doit avoir accès qu’aux ressources nécessaires à sa fonction.
 
+---
+
 Q22. En quoi consiste la défense en profondeur ?
 R : Utiliser plusieurs couches de sécurité successives pour renforcer la protection.
+
+---
 
 Q23. Pourquoi la sécurité ne doit-elle pas dépendre du secret de la méthode ?
 R : Parce que la sécurité doit résider dans la solidité du système, pas dans le secret de son fonctionnement (principe de transparence).
 
+---
+
 Q24. Pourquoi faut-il privilégier la simplicité dans un système sécurisé ?
 R : Plus un système est complexe, plus il est vulnérable aux erreurs et failles.
+
+---
 
 Q25. Que veut dire “séparation des responsabilités” ?
 R : Aucune personne ne doit avoir le contrôle total du système, pour éviter les abus ou les erreurs critiques.
