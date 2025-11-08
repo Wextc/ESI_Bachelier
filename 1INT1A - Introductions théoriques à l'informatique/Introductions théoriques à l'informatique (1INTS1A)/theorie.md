@@ -59,35 +59,35 @@ Savoir ce qu’est l’authentification et pourquoi elle est cruciale.
 
 Quelques ouvrages et ressources de référence :
 
-    • W. Du, Computer and Internet Security: A Hands-On Approach, 2ᵉ éd., 2019
+W. Du, Computer and Internet Security: A Hands-On Approach, 2ᵉ éd., 2019
 
-    • J. Pelzl & C. Paar, Understanding Cryptography, Springer, 2010
+J. Pelzl & C. Paar, Understanding Cryptography, Springer, 2010
 
-    • B. Schneier, Secrets and Lies: Digital Security in a Networked World, Wiley, 2015
+B. Schneier, Secrets and Lies: Digital Security in a Networked World, Wiley, 2015
 
-    • OWASP — https://owasp.org
+OWASP — https://owasp.org
 
-    • NIST — https://www.nist.gov
+NIST — https://www.nist.gov
 
 ## 6. 🧾 Modalités d’évaluation
 
 Première session :
 
-    • Pas d’évaluation intermédiaire
+Pas d’évaluation intermédiaire
 
-    • Examen en janvier : 100 % de la note
+Examen en janvier : 100 % de la note
 
 Seconde session :
 
-    • Examen en août : 100 % de la note
+Examen en août : 100 % de la note
 
 Format :
 
-    • QCM (Questions à choix multiples)
+QCM (Questions à choix multiples)
 
-        ◦ Peu de points négatifs
+Peu de points négatifs
 
-        ◦ Format choisi pour des raisons de logistique (nombre élevé d’étudiants)
+ormat choisi pour des raisons de logistique (nombre élevé d’étudiants)
 
 # 🧭 Chapitre 1 – Introduction à la sécurité
 
@@ -105,11 +105,11 @@ Une sécurité forte est souvent contraignante et lourde à mettre en œuvre.
 
 Il faut analyser les risques :
 
-    • Identifier chaque menace
+Identifier chaque menace
 
-    • Évaluer sa probabilité
+Évaluer sa probabilité
 
-    • Adapter la stratégie de sécurité en conséquence
+Adapter la stratégie de sécurité en conséquence
 
 👉 Ne pas “tuer les moustiques avec une bombe nucléaire” — autrement dit, il faut un niveau de sécurité proportionné au risque.
 
@@ -143,9 +143,9 @@ Créer de fausses données ou fausses signatures
 
 Pour chaque risque :
 
-    • Plusieurs types d’attaques existent
+Plusieurs types d’attaques existent
 
-    • Plusieurs contre-mesures sont possibles
+Plusieurs contre-mesures sont possibles
 
 ## 3. 🎣 Exemple concret : le phishing
 
@@ -155,13 +155,13 @@ L’attaquant exploite la confiance de la victime pour lui soutirer des informat
 
 Étapes typiques :
 
-    1. Identification de la cible
+Identification de la cible
 
-    2. Préparation de l’appât (email, lien, page web…)
+Préparation de l’appât (email, lien, page web…)
 
-    3. Envoi du message/piège
+Envoi du message/piège
 
-    4. Récupération des informations
+Récupération des informations
 
 Défenses :
 
