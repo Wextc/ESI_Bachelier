@@ -186,7 +186,7 @@ Q25. Que veut dire “séparation des responsabilités” ?
 
 R : Aucune personne ne doit avoir le contrôle total du système, pour éviter les abus ou les erreurs critiques.
 
-🧭 Chapitre 2 – Cryptographic Tools
+# 🧭 Chapitre 2 – Cryptographic Tools
 
 ## ⚙️ 1. Introduction
 
@@ -471,3 +471,265 @@ R : Les clés cryptographiques.
 Q43. Que signifie “la cryptographie ne crée pas la confiance, elle la matérialise” ?
 
 R : Elle fournit les preuves techniques de la confiance (authenticité, intégrité), mais la confiance initiale vient d’ailleurs (PKI, certificats…).
+
+---
+
+# 🧭 Chapitre 3 – Certificates & Public Key Infrastructure (PKI)
+
+## ⚙️ 1. Introduction
+
+Q1. Quels sont les trois grands outils cryptographiques vus précédemment et leurs rôles ?
+
+R :
+
+Hachage → Intégrité
+
+Chiffrement → Confidentialité
+
+Signature numérique → Non-répudiation
+
+---
+
+Q2. Quel est le problème fondamental non résolu par ces outils ?
+
+R : Savoir si la clé publique utilisée appartient bien à la bonne personne.
+
+---
+
+Q3. Quelle est la solution à ce problème d’identité ?
+
+R : La PKI (Public Key Infrastructure), qui établit un lien de confiance entre clé publique et identité.
+
+---
+
+## 🧩 2. Le problème d’identité
+
+Q4. Dans le scénario du chiffrement, quel est le risque pour Alice lorsqu’elle veut envoyer un message à Oscar ?
+
+R : Qu’un imposteur se fasse passer pour Oscar avec une fausse clé publique.
+
+---
+
+Q5. Dans le scénario de la signature, pourquoi la vérification peut-elle être trompeuse ?
+
+R : Si la clé publique provient d’un imposteur, la signature n’a aucune valeur.
+
+---
+
+## 🕵️ 3. Besoin d’un tiers de confiance
+
+Q6. Quel est le rôle du tiers de confiance dans la PKI ?
+
+R : Lier de manière fiable une clé publique à l’identité de son propriétaire.
+
+---
+
+Q7. Pourquoi ne peut-on pas vérifier manuellement toutes les identités sur Internet ?
+
+R : Parce qu’il existe trop d’utilisateurs et le système doit être automatisé et scalable.
+
+---
+
+Q8. Quelle est la nature de la PKI ?
+
+R : Un système de confiance décentralisé mais hiérarchisé.
+
+---
+
+Q9. Quelles sont les trois missions principales des acteurs d’une PKI ?
+
+R :
+
+Définir des règles communes
+
+Identifier qui est digne de confiance
+
+Être eux-mêmes reconnus comme fiables
+
+---
+
+## 🔒 4. Public Key Infrastructure (PKI)
+
+Q10. Qu’est-ce qu’une Autorité de Certification (CA) ?
+
+R : C’est un organisme de confiance qui vérifie les identités et signe les clés publiques.
+
+---
+
+Q11. Quelle est la fonction du certificat signé par une CA ?
+
+R : Il relie une clé publique à l’identité vérifiée de son propriétaire.
+
+---
+
+Q12. Que permet à Alice la vérification d’un certificat signé ?
+
+R : S’assurer que la clé publique d’Oscar est authentique et n’a pas été altérée.
+
+---
+
+## 📜 5. Le certificat numérique
+
+Q13. Qu’est-ce qu’un certificat numérique ?
+
+R : Un document électronique signé par une CA, contenant l’identité, la clé publique et des métadonnées.
+
+---
+
+Q14. Cite quelques éléments contenus dans un certificat numérique.
+
+R :
+
+Nom du propriétaire
+
+Clé publique
+
+Nom de la CA
+
+Période de validité
+
+Numéro de série
+
+Signature de la CA
+
+---
+
+Q15. Quel est le standard le plus utilisé pour les certificats sur Internet ?
+
+R : Le format X.509.
+
+---
+
+Q16. Dans quels protocoles trouve-t-on ce format ?
+
+R : HTTPS, TLS, S/MIME, etc.
+
+---
+
+## 🪜 6. La chaîne de confiance
+
+Q17. Quelle est la structure d’une chaîne de confiance ?
+
+R :
+
+Root CA (racine)
+
+Intermediate CA (intermédiaire)
+
+Serveur ou utilisateur final
+
+---
+
+Q18. Pourquoi parle-t-on de “chaîne” de confiance ?
+
+R : Parce que chaque certificat est signé par une autorité au-dessus, jusqu’à une racine reconnue par tous.
+
+---
+
+Q19. Comment un navigateur vérifie-t-il la validité d’un certificat ?
+
+R : Il remonte la chaîne de signatures jusqu’à une CA racine de confiance.
+
+---
+
+## ⚔️ 7. Man-in-the-Middle Attack (MITM)
+
+Q20. En quoi consiste une attaque Man-in-the-Middle ?
+
+R : Un attaquant intercepte la communication et remplace les clés publiques pour lire ou modifier les messages.
+
+---
+
+Q21. Comment les certificats signés empêchent-ils ce type d’attaque ?
+
+R : Ils permettent de vérifier que la clé publique appartient bien au vrai destinataire, grâce à la signature d’une CA reconnue.
+
+---
+
+## 🧰 8. Exemples d’autorités de certification (CA)
+
+Q22. Donne un exemple de CA gratuite et automatisée.
+
+R : Let’s Encrypt.
+
+---
+
+Q23. Cite des exemples de CA commerciales.
+
+R : DigiCert, GlobalSign, Sectigo, etc.
+
+---
+
+Q24. Pourquoi certaines entreprises créent-elles leur propre CA ?
+
+R : Pour gérer la sécurité interne de leur réseau privé (intranet, VPN).
+
+---
+
+## 🧾 9. Révocation et validité
+
+Q25. Pourquoi un certificat peut-il être révoqué ?
+
+R : En cas de compromission, de fraude ou à la fin de sa validité.
+
+---
+
+Q26. Quelles sont les deux méthodes principales pour vérifier la révocation ?
+
+R :
+
+CRL (Certificate Revocation List)
+
+OCSP (Online Certificate Status Protocol)
+
+---
+
+Q27. Comment les navigateurs utilisent-ils ces mécanismes ?
+
+R : Ils consultent régulièrement la liste ou le service OCSP avant d’accepter une connexion.
+
+---
+
+## 🧩 10. Résumé synthétique
+
+Q28. Quel est le problème fondamental que résout la PKI ?
+
+R : Garantir que la clé publique appartient bien à son propriétaire.
+
+---
+
+Q29. Quel est l’acteur clé de la PKI ?
+
+R : L’Autorité de Certification (CA).
+
+---
+
+Q30. Quel outil relie clé et identité ?
+
+R : Le certificat numérique (X.509).
+
+---
+
+Q31. Contre quels types d’attaques la PKI protège-t-elle ?
+
+R : Usurpation d’identité, falsification, et attaques MITM.
+
+---
+
+Q32. Quelle est la base de la confiance dans la PKI ?
+
+R : La chaîne de confiance, du certificat serveur jusqu’à la CA racine.
+
+---
+
+## ⚖️ 11. Message clé à retenir
+
+Q33. Pourquoi la cryptographie seule ne suffit-elle pas ?
+
+R : Parce qu’elle ne prouve pas l’identité du détenteur d’une clé publique.
+
+---
+
+Q34. Quel rôle joue la PKI dans l’écosystème de la sécurité ?
+
+R : Elle relie les clés aux identités via des certificats, établissant ainsi la confiance nécessaire pour la cryptographie à grande échelle (ex. web).
