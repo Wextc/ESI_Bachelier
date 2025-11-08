@@ -165,17 +165,17 @@ Récupération des informations
 
 Défenses :
 
-    • Sensibiliser les utilisateurs ne suffit pas toujours
+Sensibiliser les utilisateurs ne suffit pas toujours
 
-    • Outils techniques nécessaires :
+Outils techniques nécessaires :
 
-        ◦ Anti-phishing
+Anti-phishing
 
-        ◦ Anti-malware
+Anti-malware
 
-        ◦ Authentification multifacteur (MFA, voir Ch.4)
+Authentification multifacteur (MFA, voir Ch.4)
 
-        ◦ Filtrage des mails inconnus
+Filtrage des mails inconnus
 
 ## 4. 🧮 Contraintes et calculs
 
@@ -185,11 +185,11 @@ Beaucoup de systèmes de sécurité reposent sur des problèmes mathématiques d
 
 Exemples de problèmes “durs” :
 
-    • Factorisation de grands nombres
+Factorisation de grands nombres
 
-    • Inversion de fonctions complexes
+Inversion de fonctions complexes
 
-    • Optimisation combinatoire ou stochastique
+Optimisation combinatoire ou stochastique
 
 Ces contraintes rendent les attaques incomputables ou trop longues, garantissant ainsi la robustesse des systèmes.
 (Les détails mathématiques sont laissés de côté dans ce cours.)
@@ -234,15 +234,15 @@ Les trois premiers — Authentication, Authorisation, Accountability — forment
 
 Quelques principes fondamentaux guident la mise en place d’un système sécurisé :
 
-    • Principe du moindre privilège : un utilisateur ne doit avoir accès qu’à ce dont il a besoin.
+Principe du moindre privilège : un utilisateur ne doit avoir accès qu’à ce dont il a besoin.
 
-    • Principe de défense en profondeur : multiplier les couches de sécurité.
+Principe de défense en profondeur : multiplier les couches de sécurité.
 
-    • Principe de transparence : la sécurité ne doit pas dépendre du secret de la méthode.
+Principe de transparence : la sécurité ne doit pas dépendre du secret de la méthode.
 
-    • Principe de simplicité : plus un système est complexe, plus il est vulnérable.
+Principe de simplicité : plus un système est complexe, plus il est vulnérable.
 
-    • Principe de séparation des responsabilités : aucune personne ne doit contrôler tout le système.
+Principe de séparation des responsabilités : aucune personne ne doit contrôler tout le système.
 
 (Ces principes sont développés plus en détail dans la suite du cours.)
 
@@ -286,11 +286,11 @@ C’est une fonction à sens unique : il est impossible de retrouver le message 
 
 ⚙️ Propriétés essentielles : 1. Unidirectionnalité : il n’existe pas d’inverse de la fonction.
 
-    2. Résistance à la préimage : impossible de retrouver le message à partir du hash.
+Résistance à la préimage : impossible de retrouver le message à partir du hash.
 
-     3. Résistance aux collisions : impossible de trouver deux messages différents ayant le même hash.
+Résistance aux collisions : impossible de trouver deux messages différents ayant le même hash.
 
-      4. Effet avalanche : une minuscule différence d’entrée produit un hash complètement différent.
+Effet avalanche : une minuscule différence d’entrée produit un hash complètement différent.
 
 💡 Exemple :
 
@@ -302,11 +302,11 @@ et le hash à un autre.
 
 🧮 Exemples de fonctions de hachage :
 
-• MD5 (obsolète)
+MD5 (obsolète)
 
-• SHA-1 (obsolète)
+SHA-1 (obsolète)
 
-• SHA-2 / SHA-3 (actuels)
+SHA-2 / SHA-3 (actuels)
 
 ## 3. 🔐 Algorithmes de chiffrement (Cipher algorithms)
 
@@ -414,13 +414,13 @@ Mais si la clé circule sur le réseau, elle peut être interceptée.
 
 ✅ Solution : Diffie–Hellman Key Exchange (DHKE)
 
-- Alice et Bob échangent des valeurs publiques dérivées de leurs secrets.
+Alice et Bob échangent des valeurs publiques dérivées de leurs secrets.
 
-- Ils calculent chacun la même clé partagée localement.
+Ils calculent chacun la même clé partagée localement.
 
-- Un espion qui intercepte les données ne peut pas reconstruire la clé.
+Un espion qui intercepte les données ne peut pas reconstruire la clé.
 
-  💡 Ce mécanisme est la base de la confidentialité éphémère dans TLS.
+💡 Ce mécanisme est la base de la confidentialité éphémère dans TLS.
 
 ## 6. ✍️ Signatures numériques
 
@@ -430,13 +430,13 @@ Garantir l’authenticité et la non-répudiation.
 
 🔍 Principe : 1.
 
-    L’émetteur calcule le hash du message.
+L’émetteur calcule le hash du message.
 
-    2. Il chiffre le hash avec sa clé privée → c’est la signature numérique.
+Il chiffre le hash avec sa clé privée → c’est la signature numérique.
 
-     3. Le destinataire déchiffre la signature avec la clé publique de l’émetteur.
+Le destinataire déchiffre la signature avec la clé publique de l’émetteur.
 
-     4. Il recalcule le hash du message et compare les deux.
+Il recalcule le hash du message et compare les deux.
 
 → S’ils sont identiques : le message est authentique et intègre.
 
@@ -444,11 +444,11 @@ Garantir l’authenticité et la non-répudiation.
 
 De nombreux algorithmes reposent sur des problèmes impossibles à résoudre efficacement sans clé :
 
-- RSA → factorisation de grands nombres
+RSA → factorisation de grands nombres
 
-- Diffie-Hellman → logarithme discret
+Diffie-Hellman → logarithme discret
 
-- ECC (Elliptic Curve Cryptography) → équations elliptiques complexes
+ECC (Elliptic Curve Cryptography) → équations elliptiques complexes
 
 Ces problèmes assurent la robustesse des systèmes cryptographiques modernes.
 
@@ -486,34 +486,37 @@ TLS, VPNs
 
 # 9. ⚖️ Principes clés à retenir
 
-1.  🔁 Toujours combiner les outils cryptographiques pour une sécurité complète.
+🔁 Toujours combiner les outils cryptographiques pour une sécurité complète.
 
-2.  🚫 Ne jamais inventer son propre algorithme — utiliser les standards reconnus.
+🚫 Ne jamais inventer son propre algorithme — utiliser les standards reconnus.
 
-3.  ⏳ La force d’un système dépend du temps nécessaire à le casser.
+⏳ La force d’un système dépend du temps nécessaire à le casser.
 
-4.  🔐 Les clés sont plus importantes que les algorithmes : bien les protéger !
+🔐 Les clés sont plus importantes que les algorithmes : bien les protéger !
 
-5.  🧱 La cryptographie ne crée pas la confiance, elle la matérialise — la PKI (Ch.3) vient ensuite.
+🧱 La cryptographie ne crée pas la confiance, elle la matérialise — la PKI (Ch.3) vient ensuite.
 
 ## 10. 🧩 Résumé synthétique
 
-    Élément
+Élément
 
-    Description
+Description
 
-    But du chapitre
+But du chapitre
 
-    Présenter les outils cryptographiques de base et leurs usages en sécurité
-    Outils étudiés
+Présenter les outils cryptographiques de base et leurs usages en sécurité
 
-    Fonctions de hachage, chiffrements symétriques/asymétriques, signatures numériques
-    Concepts clés
+Outils étudiés
 
-    Avalanche effect, block vs stream cipher, Diffie-Hellman, clé publique/privée
-    Message clé
+Fonctions de hachage, chiffrements symétriques/asymétriques, signatures numériques
 
-    🔐 La cryptographie est le socle de toute sécurité : elle protège les données, prouve leur intégrité et garantit l’identité de leurs auteurs.
+Concepts clés
+
+Avalanche effect, block vs stream cipher, Diffie-Hellman, clé publique/privée
+
+Message clé
+
+🔐 La cryptographie est le socle de toute sécurité : elle protège les données, prouve leur intégrité et garantit l’identité de leurs auteurs.
 
 # Chapitre 3 – Certificates & Public Key Infrastructure (PKI)
 
@@ -521,11 +524,11 @@ TLS, VPNs
 
 Dans le chapitre précédent, on a vu les outils cryptographiques :
 
-- hachage → intégrité
+hachage → intégrité
 
-- chiffrement → confidentialité
+chiffrement → confidentialité
 
-- signatures → non-répudiation
+signatures → non-répudiation
 
 Mais… un problème fondamental subsiste :
 
@@ -537,11 +540,11 @@ C’est ici qu’intervient la PKI (Public Key Infrastructure).
 
 🎯 Scénario 1 : chiffrement
 
-- Alice veut envoyer un message secret à Oscar.
+Alice veut envoyer un message secret à Oscar.
 
-- Elle chiffre le message avec la clé publique d’Oscar.
+Elle chiffre le message avec la clé publique d’Oscar.
 
-- Seul le détenteur de la clé privée correspondante (Oscar) pourra le déchiffrer.
+Seul le détenteur de la clé privée correspondante (Oscar) pourra le déchiffrer.
 
 ❗ Mais : n’importe qui peut créer une paire de clés et prétendre être Oscar.
 
@@ -549,9 +552,11 @@ C’est ici qu’intervient la PKI (Public Key Infrastructure).
 
 🎯 Scénario 2 : signature
 
-- Oscar signe un message avec sa clé privée.
-- Alice vérifie la signature avec la clé publique d’Oscar.
-  ❗ Même problème : si cette clé publique vient d’un imposteur, la vérification n’a aucune valeur.
+Oscar signe un message avec sa clé privée.
+
+Alice vérifie la signature avec la clé publique d’Oscar.
+
+❗ Même problème : si cette clé publique vient d’un imposteur, la vérification n’a aucune valeur.
 
 ## 3. 🕵️ Besoin d’un tiers de confiance
 
@@ -575,20 +580,19 @@ Une PKI (infrastructure à clés publiques) repose sur un tiers de confiance app
 
 Exemple d’interaction :
 
-1.  Oscar se présente à la CA et lui fournit sa clé publique.
+Oscar se présente à la CA et lui fournit sa clé publique.
 
-2.  La CA vérifie son identité (selon des procédures précises).
+La CA vérifie son identité (selon des procédures précises).
 
-3.  La CA signe numériquement la clé publique d’Oscar :
-    → cela devient un certificat.
+La CA signe numériquement la clé publique d’Oscar \_\_\_\_cela devient un certificat.
 
-4.  Alice, en recevant ce certificat, peut :
+Alice, en recevant ce certificat, peut :
 
-- Vérifier qu’il n’a pas été altéré ;
+Vérifier qu’il n’a pas été altéré ;
 
-- Vérifier qu’il a bien été signé par une CA reconnue.
+Vérifier qu’il a bien été signé par une CA reconnue.
 
-  Ainsi, Alice peut faire confiance à la clé publique sans connaître Oscar personnellement.
+Ainsi, Alice peut faire confiance à la clé publique sans connaître Oscar personnellement.
 
 ## 5. 📜 Le certificat numérique
 
@@ -596,17 +600,17 @@ Un certificat est donc un document électronique signé par une CA.
 
 Contient typiquement :
 
-- Identité du propriétaire (nom, domaine, etc.)
+Identité du propriétaire (nom, domaine, etc.)
 
-- Sa clé publique
+Sa clé publique
 
-- Nom de la CA émettrice
+Nom de la CA émettrice
 
-- Période de validité
+Période de validité
 
-- Numéro de série
+Numéro de série
 
-- Algorithme et signature de la CA
+Algorithme et signature de la CA
 
 Exemple : certificat X.509 (standard Internet)
 
@@ -618,39 +622,39 @@ Principe :
 
 Les certificats ne sont pas isolés ; ils forment une chaîne hiérarchique : 1. Racine de confiance (Root CA)
 
-– Entité suprême, connue de tous (préinstallée dans les navigateurs). 2. Intermediate CA
+Entité suprême, connue de tous (préinstallée dans les navigateurs). 2. Intermediate CA
 
-– Émet des certificats pour les serveurs ou sous-autorités. 3. Serveur / utilisateur final
+Émet des certificats pour les serveurs ou sous-autorités. 3. Serveur / utilisateur final
 
-– Certificat signé par une CA intermédiaire.
+Certificat signé par une CA intermédiaire.
 
 Vérification d’une chaîne :
 
 Pour faire confiance à un certificat :
 
-• On vérifie la signature de la CA intermédiaire.
+On vérifie la signature de la CA intermédiaire.
 
-• Puis la signature de la CA racine.
+Puis la signature de la CA racine.
 
-• Si la chaîne est ininterrompue et valide, la confiance est établie.
+Si la chaîne est ininterrompue et valide, la confiance est établie.
 
 ## 7. ⚔️ Man-in-the-Middle Attack (MITM)
 
 Situation normale :
 
-- Alice ↔ Oscar
+Alice ↔ Oscar
 
-- Les messages sont chiffrés avec la clé publique d’Oscar.
+Les messages sont chiffrés avec la clé publique d’Oscar.
 
 Attaque MITM :
 
-- Eve intercepte les communications.
+Eve intercepte les communications.
 
-- Elle remplace la clé publique d’Oscar par la sienne.
+Elle remplace la clé publique d’Oscar par la sienne.
 
-- Alice chiffre son message avec la clé d’Eve → Eve le déchiffre.
+Alice chiffre son message avec la clé d’Eve → Eve le déchiffre.
 
-- Eve le rechiffre avec la clé d’Oscar et le transfère.
+Eve le rechiffre avec la clé d’Oscar et le transfère.
 
 ➡️ Alice et Oscar croient communiquer ensemble,
 
@@ -662,67 +666,67 @@ Alice vérifiera que la clé publique d’Oscar est bien certifiée par une auto
 
 ## 8. 🧰 Exemples d’autorités de certification (CA)
 
-- Let’s Encrypt → CA gratuite et automatisée.
+Let’s Encrypt → CA gratuite et automatisée.
 
-- DigiCert, GlobalSign, Sectigo, etc. → CA commerciales.
+DigiCert, GlobalSign, Sectigo, etc. → CA commerciales.
 
-- Institutions internes → certaines entreprises créent leur propre CA pour leur réseau privé.
+Institutions internes → certaines entreprises créent leur propre CA pour leur réseau privé.
 
 ## 9. 🧾 Révocation et validité des certificats
 
 Les certificats ne sont pas éternels :
 
-- Chaque certificat a une date de validité (expiration).
+Chaque certificat a une date de validité (expiration).
 
-- En cas de compromission, il peut être révoqué via :
+En cas de compromission, il peut être révoqué via :
 
-- CRL (Certificate Revocation List)
+CRL (Certificate Revocation List)
 
-- OCSP (Online Certificate Status Protocol)
+OCSP (Online Certificate Status Protocol)
 
 Les navigateurs vérifient régulièrement ces statuts avant d’accepter une connexion.
 
 ## 10. 🧩 Résumé synthétique
 
-    Élément
+Élément
 
-    Description
+Description
 
-    Problème
+Problème
 
-    Comment garantir qu’une clé publique appartient bien à son propriétaire ?
+Comment garantir qu’une clé publique appartient bien à son propriétaire ?
 
-    Solution
+Solution
 
-    Utiliser une infrastructure de confiance (PKI) avec des certificats signés
+Utiliser une infrastructure de confiance (PKI) avec des certificats signés
 
-    Acteur clé
+Acteur clé
 
-    Certification Authority (CA)
+Certification Authority (CA)
 
-    Outil
+Outil
 
-    Certificat numérique (ex. : X.509)
+Certificat numérique (ex. : X.509)
 
-    Protection contre
+Protection contre
 
-    Usurpation d’identité, falsification, attaque MITM
+Usurpation d’identité, falsification, attaque MITM
 
-    Principe fondamental
+Principe fondamental
 
-    La chaîne de confiance : du serveur jusqu’à la racine reconnue par tous
+La chaîne de confiance : du serveur jusqu’à la racine reconnue par tous
 
-    Utilisations typiques
+Utilisations typiques
 
-    HTTPS / TLS, VPN, signature de code, email sécurisé
+HTTPS / TLS, VPN, signature de code, email sécurisé
 
 ## 11. ⚖️ Message clé à retenir
 
-    🔐 La cryptographie seule ne suffit pas.
+🔐 La cryptographie seule ne suffit pas.
 
-    Il faut un système de confiance pour relier les clés aux identités.
+Il faut un système de confiance pour relier les clés aux identités.
 
-    La PKI et les certificats assurent cette confiance, permettant à la cryptographie de fonctionner à grande échelle (comme sur le web).
+La PKI et les certificats assurent cette confiance, permettant à la cryptographie de fonctionner à grande échelle (comme sur le web).
 
 # 🧭 Chapitre 4 – Authentication
 
@@ -730,11 +734,11 @@ Les navigateurs vérifient régulièrement ces statuts avant d’accepter une co
 
 Les chapitres précédents ont présenté :
 
-- Les objectifs de la sécurité (disponibilité, intégrité, confidentialité, etc.)
+des objectifs de la sécurité (disponibilité, intégrité, confidentialité, etc.)
 
-- Les outils cryptographiques (hachage, chiffrement, signatures)
+Les outils cryptographiques (hachage, chiffrement, signatures)
 
-- Les certificats et la PKI
+Les certificats et la PKI
 
 🎯 Ce chapitre aborde un concept fondamental :
 
@@ -787,11 +791,11 @@ Empreinte digitale, reconnaissance faciale, voix
 
 Lors de l’authentification :
 
-- L’utilisateur présente ses identifiants (identifiant + preuve)
+L’utilisateur présente ses identifiants (identifiant + preuve)
 
-- Le système vérifie la validité des preuves
+Le système vérifie la validité des preuves
 
-- Si la vérification est réussie → accès autorisé
+Si la vérification est réussie → accès autorisé
 
 Exemple simple :
 
@@ -831,9 +835,9 @@ Augmenter le niveau de confiance dans le processus d’authentification.
 ➡️ Plus un attaquant doit fournir de preuves, plus il lui est difficile d’usurper une identité.
 Exemples concrets :
 
-- 🏧 Distributeur bancaire : carte + code PIN
+🏧 Distributeur bancaire : carte + code PIN
 
-- 🌐 Google / Steam / Facebook : mot de passe + code à usage unique (OTP)
+🌐 Google / Steam / Facebook : mot de passe + code à usage unique (OTP)
 
 ## 6. 🧠 MFA vs. Social Engineering
 
@@ -841,11 +845,11 @@ Exemples concrets :
 
 L’art de manipuler les gens pour qu’ils trahissent eux-mêmes la sécurité :
 
-- Révéler un mot de passe
+Révéler un mot de passe
 
-- Cliquer sur un lien
+Cliquer sur un lien
 
-- Accorder un accès
+Accorder un accès
 
 C’est “l’attaque la plus humaine” — et donc la plus fréquente.
 
@@ -853,9 +857,9 @@ C’est “l’attaque la plus humaine” — et donc la plus fréquente.
 
 Le MFA protège contre ces attaques :
 
-- Un attaquant doit tromper l’utilisateur et dérober un second facteur.
+Un attaquant doit tromper l’utilisateur et dérober un second facteur.
 
-- Une seule interaction malveillante ne suffit plus.
+Une seule interaction malveillante ne suffit plus.
 
 👉 Le MFA est la meilleure défense contre l’erreur humaine.
 
@@ -889,19 +893,19 @@ Authentification par signature numérique (RSA, ECC).
 
 ⚙️ Avantages :
 
-- L’utilisateur ne renvoie plus son mot de passe.
+L’utilisateur ne renvoie plus son mot de passe.
 
-- Les tokens peuvent expirer ou être révoqués.
+Les tokens peuvent expirer ou être révoqués.
 
-- Utilisable sur plusieurs services (SSO).
+Utilisable sur plusieurs services (SSO).
 
 🔐 Types de tokens :
 
-- JWT (JSON Web Token)
+JWT (JSON Web Token)
 
-- OAuth 2.0 tokens
+OAuth 2.0 tokens
 
-- SAML assertions
+SAML assertions
 
 ## 9. 🔁 Single Sign-On (SSO)
 
@@ -913,84 +917,84 @@ Mécanisme permettant à un utilisateur de se connecter une seule fois pour acc�
 
 ⚠️ Inconvénient :
 
-- Si l’IdP est compromis, tous les services le sont → point unique de défaillance.
+Si l’IdP est compromis, tous les services le sont → point unique de défaillance.
 
 ✅ Avantage :
 
-- Améliore l’expérience utilisateur et la gestion centralisée des accès.
+Améliore l’expérience utilisateur et la gestion centralisée des accès.
 
 ## 10. 🏛️ Identity and Access Management (IAM)
 
-    L’authentification n’est qu’une partie d’un écosystème plus large :
+L’authentification n’est qu’une partie d’un écosystème plus large :
 
-    ➡️ la gestion des identités et des accès.
+➡️ la gestion des identités et des accès.
 
-    IAM englobe :
+IAM englobe :
 
-    -  Création, gestion et suppression d’utilisateurs
+Création, gestion et suppression d’utilisateurs
 
-    - Politiques d’accès
+Politiques d’accès
 
-    - Authentification (vérifier qui)
+Authentification (vérifier qui)
 
-    - Autorisation (décider quoi)
+Autorisation (décider quoi)
 
-    - Traçabilité (journaliser qui a fait quoi)
+Traçabilité (journaliser qui a fait quoi)
 
-    💡 Objectif : garantir la cohérence et la sécurité à travers toute l’organisation.
+💡 Objectif : garantir la cohérence et la sécurité à travers toute l’organisation.
 
 ## 11. 🔗 Protocoles modernes d’authentification
 
-    🌐 JSON Web Token (JWT)
+🌐 JSON Web Token (JWT)
 
-     - Format standard pour transporter les informations d’identité.
+Format standard pour transporter les informations d’identité.
 
-     - Signé (voire chiffré) pour éviter la falsification.
+Signé (voire chiffré) pour éviter la falsification.
 
-     - Utilisé dans les APIs et applications web modernes.
+Utilisé dans les APIs et applications web modernes.
 
-    🔑 OAuth 2.0
+🔑 OAuth 2.0
 
-     - Standard pour déléguer l’accès sans partager le mot de passe.
+Standard pour déléguer l’accès sans partager le mot de passe.
 
-     - Exemple : “Se connecter avec Google / GitHub”.
+Exemple : “Se connecter avec Google / GitHub”.
 
-    🧬 WebAuthn
+🧬 WebAuthn
 
-     - Standard du W3C pour authentification sans mot de passe.
+Standard du W3C pour authentification sans mot de passe.
 
-     - Utilise des clés asymétriques et des périphériques biométriques (ex. YubiKey, empreinte).
+Utilise des clés asymétriques et des périphériques biométriques (ex. YubiKey, empreinte).
 
 ## 12. ⚖️ Résumé synthétique
 
-    Élément
+Élément
 
-    Description
+Description
 
-    But du chapitre
+But du chapitre
 
-    Comprendre les mécanismes d’authentification et leurs modèles modernes
+Comprendre les mécanismes d’authentification et leurs modèles modernes
 
-    Étapes
+Étapes
 
-    Identification → Authentification → Autorisation
+Identification → Authentification → Autorisation
 
-    Facteurs
+Facteurs
 
-    Connaissance, possession, inhérence
+Connaissance, possession, inhérence
 
-    Techniques
+Techniques
 
-    Mot de passe, MFA, challenge-response, tokens, SSO
+Mot de passe, MFA, challenge-response, tokens, SSO
 
-    Protocoles clés
+Protocoles clés
 
-    JWT, OAuth 2.0, WebAuthn
+JWT, OAuth 2.0, WebAuthn
 
-    Menaces principales
+Menaces principales
 
-    Social engineering, vol d’identifiants, point de défaillance unique
+Social engineering, vol d’identifiants, point de défaillance unique
 
-    Message clé
+Message clé
 
-    🔐 Une bonne authentification repose sur la combinaison de plusieurs preuves et sur la gestion centralisée des identités.
+🔐 Une bonne authentification repose sur la combinaison de plusieurs preuves et sur la gestion centralisée des identités.
