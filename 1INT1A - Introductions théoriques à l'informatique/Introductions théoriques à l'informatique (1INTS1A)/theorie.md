@@ -14,9 +14,9 @@ Le cours s’appuie sur des démonstrations et des exemples concrets, mais les �
 
 ## 2. 👩‍🏫 Les enseignants
 
-    • R. Absil (ABS)
+R. Absil (ABS)
 
-    • J. Dossogne (JDS)
+J. Dossogne (JDS)
 
 Deux enseignants accessibles et disponibles : « Si vous avez une question, demandez. Nous ne mordons pas… trop souvent ! »
 
@@ -24,9 +24,9 @@ Deux enseignants accessibles et disponibles : « Si vous avez une question, dema
 
 La sécurité informatique est partout :
 
-    • Comptes bancaires, jeux en ligne, réseaux sociaux.
+Comptes bancaires, jeux en ligne, réseaux sociaux.
 
-    • Systèmes administratifs : vote électronique, fiscalité, santé, etc.
+ystèmes administratifs : vote électronique, fiscalité, santé, etc.
 
 ➡️ Ces applications manipulent des données sensibles : authentification, contrôle d’accès, stockage ou transmission sécurisée.
 
@@ -41,17 +41,17 @@ Citation clé :
 
 À la fin du cours, l’étudiant doit :
 
-    • Comprendre les caractéristiques désirées de la sécurité : confidentialité, intégrité, authentification, etc.
+Comprendre les caractéristiques désirées de la sécurité : confidentialité, intégrité, authentification, etc.
 
-    • Connaître les outils cryptographiques de base :
+Connaître les outils cryptographiques de base :
 
-        ◦ Fonctions de hachage
+Fonctions de hachage
 
-        ◦ Algorithmes de chiffrement
+Algorithmes de chiffrement
 
-        ◦ Signatures et certificats numériques
+Signatures et certificats numériques
 
-    • Savoir ce qu’est l’authentification et pourquoi elle est cruciale.
+Savoir ce qu’est l’authentification et pourquoi elle est cruciale.
 
 ➡️ Les notions avancées seront approfondies plus tard (en 3ᵉ année ou au master).
 
