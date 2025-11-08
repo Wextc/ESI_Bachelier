@@ -1,115 +1,33 @@
-🧭 Chapitre 1 – Introduction à la sécurité
+# Chapitre 0 – Introduction
 
-⚙️ Introduction
+Le cours fait partie du module INT1 et dure deux heures par semaine. La présence est qualifiée d’« optionnelle », mais dans les faits la réussite dépend fortement de l’assiduité et de la participation en classe. L’objectif global est de fournir une introduction à la sécurité informatique en expliquant les concepts, les terminologies et les outils de base, sans exiger de mise en pratique complexe. Le cours s’appuie sur des démonstrations et des exemples concrets, mais les étudiants ne sont pas tenus de les reproduire.
+Il est enseigné par R. Absil (ABS) et J. Dossogne (JDS), deux enseignants accessibles et disponibles qui encouragent les questions. La sécurité informatique est omniprésente, qu’il s’agisse de comptes bancaires, de jeux en ligne, de réseaux sociaux ou de systèmes administratifs comme le vote électronique, la fiscalité et la santé. Ces applications manipulent des données sensibles et mobilisent des mécanismes d’authentification, de contrôle d’accès et de protection lors du stockage ou de la transmission. Il est donc essentiel d’en comprendre les principes. Comme le rappelle la citation souvent attribuée aux défenseurs de la vie privée, dire que l’on ne se soucie pas de la vie privée parce qu’on n’a rien à cacher revient à dire qu’on ne se soucie pas de la liberté d’expression parce qu’on n’a rien à dire : la vie privée est un droit fondamental, pas un luxe.
+À la fin du cours, l’étudiant doit comprendre les caractéristiques désirées d’un système sécurisé (confidentialité, intégrité, authentification, etc.), connaître les outils cryptographiques de base (fonctions de hachage, algorithmes de chiffrement, signatures et certificats numériques) et saisir l’importance de l’authentification. Les notions avancées seront approfondies ultérieurement, en troisième année ou au master. Pour aller plus loin, des références recommandées incluent notamment les ouvrages de Wenliang Du, de Pelzl et Paar, ainsi que de Bruce Schneier, et les ressources de l’OWASP et du NIST.
+L’évaluation repose entièrement sur un examen QCM. Il n’y a pas d’évaluation intermédiaire. En première session, l’examen a lieu en janvier et compte pour cent pour cent de la note ; en seconde session, l’examen d’août compte également pour cent pour cent. Quelques points négatifs peuvent exister, et le format est choisi pour des raisons de logistique compte tenu du nombre d’étudiants. En résumé, il s’agit d’une introduction théorique et conceptuelle visant la compréhension des bases, des enjeux et des outils cryptographiques ; la responsabilité individuelle face à la sécurité et à la vie privée en constitue le fil conducteur.
 
-Depuis la Seconde Guerre mondiale, la nécessité de protéger les systèmes informatiques s’est imposée.
-Les menaces se sont multipliées, et chaque type de menace demande une protection adaptée.
+# Chapitre 1 – Introduction à la sécurité
 
-💡 Problème :
-Une sécurité forte est souvent contraignante et lourde à mettre en œuvre.
+Depuis la Seconde Guerre mondiale, la nécessité de protéger les systèmes informatiques s’est imposée à mesure que les menaces se sont multipliées. Une sécurité très forte est souvent coûteuse et contraignante ; c’est pourquoi il faut analyser les risques, identifier les menaces, évaluer leur probabilité et adapter la stratégie de protection en conséquence. L’idée centrale est la proportionnalité : ne pas « tuer les moustiques avec une bombe nucléaire ».
+Dans ce cours, cinq grandes familles de risques sont étudiées. L’accès non autorisé consiste à pénétrer une ressource ou un service restreint. L’usurpation d’identité revient à se faire passer pour quelqu’un d’autre. L’accès à des données confidentielles vise la lecture d’informations sensibles sans autorisation. La falsification consiste à modifier des informations de manière frauduleuse. La contrefaçon ou la forgerie renvoie à la création de fausses données ou de fausses signatures. Pour chaque risque, il existe plusieurs types d’attaques et plusieurs contre-mesures possibles.
+Le phishing illustre ces problématiques. L’attaquant exploite la confiance de la victime pour lui soutirer des informations sensibles. Typiquement, il identifie une cible, prépare un appât (courriel, lien, page web), l’envoie puis récupère les informations. La sensibilisation des utilisateurs ne suffit pas toujours ; des outils techniques, comme les solutions anti-phishing, anti-malware, la mise en place d’une authentification multifacteur et le filtrage des expéditeurs inconnus, sont nécessaires.
+Beaucoup de mécanismes de sécurité s’appuient sur des problèmes mathématiques difficiles à résoudre sans la clé, comme la factorisation de grands nombres ou l’inversion de fonctions complexes. Ces contraintes rendent les attaques irréalistes en pratique, car trop longues ou incomputables. Le chapitre rappelle enfin les objectifs fondamentaux de la sécurité : assurer la disponibilité des systèmes, authentifier correctement les entités, autoriser les actions appropriées, garantir la traçabilité des opérations, préserver l’intégrité des données et protéger leur confidentialité. Les principes de base recommandent le moindre privilège, la défense en profondeur, la transparence des méthodes, la simplicité et la séparation des responsabilités. La sécurité parfaite n’existe pas : tout est affaire d’équilibre entre risque, coût et performance.
 
-🧩 Solution :
-Il faut analyser les risques :
+# Chapitre 2 – Cryptographic Tools
 
-Identifier chaque menace
+La cryptographie constitue la boîte à outils principale de la sécurité. Elle permet d’atteindre la confidentialité grâce au chiffrement, l’intégrité grâce aux fonctions de hachage et l’authenticité — ainsi que la non-répudiation — grâce aux signatures numériques. L’objectif n’est pas d’entrer dans les détails mathématiques, mais de comprendre les concepts et leur rôle pratique.
+Les fonctions de hachage prennent une entrée de longueur arbitraire et produisent un condensat de longueur fixe. Elles doivent être à sens unique et résister à la préimage, aux collisions et manifester un effet avalanche. Un exemple pédagogique consiste à déposer le texte d’un testament chez un notaire et son hash chez un autre : toute modification du texte sera détectée par discordance des condensats. Parmi les fonctions connues, MD5 et SHA-1 sont désormais considérées comme obsolètes, tandis que SHA-2 et SHA-3 sont d’usage courant.
+Les algorithmes de chiffrement assurent la confidentialité en transformant un message clair en message chiffré à l’aide d’une clé. En chiffrement symétrique, la même clé sert à chiffrer et déchiffrer, ce qui est très rapide mais complique la distribution des clés ; AES en est l’exemple emblématique. En chiffrement asymétrique, une clé publique et une clé privée sont utilisées, ce qui facilite la distribution mais augmente le coût de calcul ; RSA et l’ECC en sont des exemples. Les chiffrements symétriques peuvent fonctionner en mode bloc, où le message est découpé en blocs de taille fixe avec éventuel bourrage, ou en mode flux, où l’on traite bit par bit ou octet par octet ; on recherche là encore un fort effet avalanche.
+Le problème de l’échange de clés en contexte symétrique est résolu par l’échange de clés de Diffie–Hellman, où chaque partie calcule localement la même clé partagée à partir d’informations publiques, fondant la confidentialité éphémère de TLS. Les signatures numériques, quant à elles, consistent à hacher le message, signer ce hash avec la clé privée de l’émetteur, puis à le vérifier avec sa clé publique en comparant avec le hash recalculé. Elles s’appliquent aux certificats, à la signature de code et de documents et à l’authentification dans les protocoles réseau. De nombreux schémas cryptographiques reposent sur des problèmes mathématiques réputés difficiles, comme la factorisation pour RSA, le logarithme discret pour Diffie–Hellman et des équations sur courbes elliptiques pour l’ECC. En pratique, il faut combiner les outils, éviter d’inventer ses propres algorithmes, comprendre que la force dépend du temps nécessaire à casser, protéger d’abord les clés et admettre que la cryptographie matérialise la confiance — la PKI viendra ensuite relier les clés aux identités.
 
-Évaluer sa probabilité
+# Chapitre 3 – Certificates & Public Key Infrastructure (PKI)
 
-Adapter la stratégie de sécurité en conséquence
+Même avec de bons outils cryptographiques, un problème persiste : comment être sûr que la clé publique utilisée appartient bien à la personne visée ? La réponse passe par une infrastructure de confiance. La PKI repose sur l’existence d’autorités de certification qui vérifient des identités selon des procédures établies, puis signent les clés publiques sous forme de certificats. Lorsque Alice reçoit le certificat d’Oscar, elle peut vérifier qu’il n’a pas été altéré et qu’il a été signé par une autorité reconnue, ce qui lui permet de faire confiance à la clé publique sans connaître Oscar personnellement.
+Un certificat numérique, souvent au format X.509, contient l’identité du propriétaire, sa clé publique, l’autorité émettrice, une période de validité, un numéro de série, ainsi que l’algorithme et la signature de la CA. Les certificats forment des chaînes de confiance : une racine de confiance préinstallée dans les navigateurs délègue à des autorités intermédiaires, qui signent à leur tour des certificats pour des serveurs ou des utilisateurs finaux. La vérification remonte cette chaîne jusqu’à la racine. Ce mécanisme prévient notamment les attaques de l’homme-du-milieu, dans lesquelles un attaquant remplacerait la clé publique d’un correspondant pour lire et modifier les messages. Des autorités de certification existent tant dans le monde public — comme Let’s Encrypt, DigiCert, GlobalSign ou Sectigo — que dans des contextes privés où des organisations gèrent leur propre CA. Les certificats expirent et peuvent être révoqués ; des mécanismes comme les listes de révocation (CRL) et l’OCSP permettent de vérifier leur statut. Le message clé est que la cryptographie seule ne suffit pas : il faut un système de confiance pour relier les clés aux identités, ce que fournissent la PKI et les certificats.
 
-👉 Ne pas “tuer les moustiques avec une bombe nucléaire” — autrement dit, il faut un niveau de sécurité proportionné au risque.
+# Chapitre 4 – Authentication
 
-⚠️ Types de risques étudiés dans le cours
-
-Le cours se concentre sur cinq grandes familles de risques :
-
-🔐 Accès non autorisé : accéder à une ressource ou un service restreint
-
-🕵️ Usurpation d’identité : se faire passer pour quelqu’un d’autre
-
-🧾 Accès à des données confidentielles : lire des données sensibles sans autorisation
-
-✏️ Falsification : modifier des informations de manière frauduleuse
-
-🧠 Contrefaçon / Forgerie : créer de fausses données ou fausses signatures
-
-Pour chaque risque, plusieurs types d’attaques existent et plusieurs contre-mesures sont possibles.
-
-🎣 Exemple concret : le phishing
-
-Principe :
-L’attaquant exploite la confiance de la victime pour lui soutirer des informations sensibles (mots de passe, numéros de carte, etc.).
-
-Étapes typiques :
-
-Identification de la cible
-
-Préparation de l’appât (email, lien, page web…)
-
-Envoi du message/piège
-
-Récupération des informations
-
-Défenses :
-Sensibiliser les utilisateurs ne suffit pas toujours.
-Des outils techniques sont nécessaires :
-
-Anti-phishing
-
-Anti-malware
-
-Authentification multifacteur (MFA, voir chapitre 4)
-
-Filtrage des mails inconnus
-
-🧮 Contraintes et calculs
-
-“When in doubt, use brute force.”
-
-Beaucoup de systèmes de sécurité reposent sur des problèmes mathématiques difficiles à résoudre sans les clés appropriées.
-
-Exemples de problèmes complexes :
-
-Factorisation de grands nombres
-
-Inversion de fonctions complexes
-
-Optimisation combinatoire ou stochastique
-
-Ces contraintes rendent les attaques incomputables ou trop longues, garantissant ainsi la robustesse des systèmes.
-(Les détails mathématiques sont laissés de côté dans ce cours.)
-
-🎯 Objectifs fondamentaux de la sécurité
-
-Le chapitre présente les six objectifs principaux de la sécurité informatique, souvent regroupés dans la triade CIA + AAA :
-
-🕒 Availability (Disponibilité) : s’assurer que le système est fonctionnel et accessible
-
-👤 Authentication (Authentification) : identifier correctement “qui est qui”
-
-🧾 Authorisation (Autorisation) : déterminer “qui peut faire quoi”
-
-🧍‍♂️ Accountability (Traçabilité) : savoir “qui a fait quoi”
-
-🧩 Integrity (Intégrité) : détecter toute modification non autorisée des données
-
-🔒 Confidentiality (Confidentialité) : empêcher la divulgation d’informations sensibles
-
-💡 Remarque :
-Les trois premiers — Authentication, Authorisation, Accountability — forment le modèle AAA.
-
-⚖️ Principes de base de la sécurité
-
-Quelques principes fondamentaux guident la mise en place d’un système sécurisé :
-
-Principe du moindre privilège : un utilisateur ne doit avoir accès qu’à ce dont il a besoin.
-
-Principe de défense en profondeur : multiplier les couches de sécurité.
-
-Principe de transparence : la sécurité ne doit pas dépendre du secret de la méthode.
-
-Principe de simplicité : plus un système est complexe, plus il est vulnérable.
-
-Principe de séparation des responsabilités : aucune personne ne doit contrôler tout le système.
-
-(Ces principes sont développés plus en détail dans la suite du cours.)
+Après les objectifs de sécurité, les outils cryptographiques et la PKI, l’authentification traite la question de prouver qu’une entité est bien celle qu’elle prétend être. Elle repose sur la présentation de preuves d’identité, appelées credentials, et se déroule en deux temps : l’identification, où l’on déclare qui l’on est, puis l’authentification, où l’on apporte la preuve correspondante. Une bonne authentification ne doit pas dépendre d’un système externe non maîtrisé.
+Les preuves d’identité se répartissent en trois catégories : ce que l’utilisateur sait (par exemple un mot de passe), ce qu’il possède (carte, jeton matériel, smartphone) et ce qu’il est (caractéristiques biométriques comme l’empreinte digitale, le visage ou la voix). Le mot de passe présente une faiblesse intrinsèque, car le secret est transmis au système et peut être intercepté. Pour renforcer la sécurité, l’authentification à facteurs multiples combine plusieurs preuves. Le 2FA ajoute un second facteur à un mot de passe, tandis que le MFA peut en combiner davantage, par exemple mot de passe, clé physique et biométrie. C’est un moyen efficace d’élever le niveau de confiance, car l’attaquant doit déjouer plusieurs barrières.
+Le social engineering, ou ingénierie sociale, exploite la dimension humaine en incitant les victimes à révéler des secrets, cliquer sur des liens ou accorder des accès. Le MFA atténue ces attaques en rendant insuffisante une seule interaction malveillante. Une alternative au mot de passe transmis est l’authentification par challenge-response, où le serveur envoie un défi aléatoire et où l’utilisateur prouve sa connaissance du secret en le signant, sans jamais le dévoiler. Cette logique se rapproche des preuves à connaissance nulle et se met en œuvre via des signatures numériques.
+Dans les systèmes distribués, l’authentification basée sur des jetons évite de réauthentifier l’utilisateur à chaque requête. Après une authententification initiale, le serveur délivre un jeton signé ou chifré qui fera foi temporairement et pourra expirer ou être révoqué ; ce mécanisme facilite aussi le SSO. Le Single Sign-On permet à un utilisateur de se connecter une fois auprès d’un fournisseur d’identité, puis d’accéder à plusieurs services partenaires qui lui font confiance. Il améliore l’expérience et la gestion centralisée, mais concentre un point unique de défaillance. Au-delà, la gestion des identités et des accès (IAM) englobe l’ensemble du cycle de vie des utilisateurs, les politiques d’accès, l’authentification, l’autorisation et la traçabilité, pour garantir cohérence et sécurité à l’échelle organisationnelle.
+Des protocoles modernes soutiennent ces approches : les JSON Web Tokens encapsulent des informations d’identité signées (et parfois chiffrées), OAuth 2.0 permet de déléguer l’accès sans partager un mot de passe et WebAuthn met en œuvre une authentification sans mot de passe fondée sur des paires de clés et, le cas échéant, la biométrie. Le message final est clair : une bonne authentification combine plusieurs preuves, limite l’exposition des secrets et s’inscrit dans une gestion centralisée et cohérente des identités et des accès.
