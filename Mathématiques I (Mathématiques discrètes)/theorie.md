@@ -182,22 +182,39 @@ Chemin fermé v1​=vk+1​ (avec sommets distincts pour “élémentaire”). A
 
 Arbre
 
-Graphe connexe et acyclique. Faits équivalents (classiques) : un arbre à n sommets a n−1 arêtes ; il existe un unique chemin entre deux sommets. (Section “Arbres” du chapitre.)
-3.3 Distances
+Graphe connexe et acyclique. Faits équivalents (classiques) : un arbre à n sommets a n−1 arêtes ; il existe un unique
+chemin entre deux sommets. (Section “Arbres” du chapitre.)
+
+## 3.3 Distances
+
 Distance
+
 ∣u,v∣G​ = longueur du plus court chemin entre u et v.
+
 Matrice des distances : tableau des ∣u,v∣G​.
+
 Diamètre
+
 D(G)=maxu,v∈V​∣u,v∣G​ (la plus grande de ces distances). (Défs groupées dans la section distance/diamètre.)
-3.4 Coloration
+
+## 3.4 Coloration
+
 Coloration
+
 Attribuer des couleurs aux sommets pour que deux adjacents n’aient pas la même couleur.
+
 Nombre chromatique
+
 χ(G) = nombre minimal de couleurs pour une coloration valide.
+
 (Rappel classique : les graphes planaires sont colorables en ≤ 4 couleurs — théorème cité dans le chapitre.)
 
 Mini-pense-bête (utilisation)
-• Transformer p⇒q en ¬p∨q simplifie souvent les tables de vérité et les preuves par équivalences.
-• Pour dé-négativer une formule : appliquer De Morgan jusqu’au bout.
-• En ensembles, pensez OU ↔ ∪, ET ↔ ∩, NON ↔ complémentaire.
-• En graphes, vérifier la connexité avant de parler de distances/diamètre ; la somme des degrés donne vite ∣E∣.
+
+Transformer p⇒q en ¬p∨q simplifie souvent les tables de vérité et les preuves par équivalences.
+
+Pour dé-négativer une formule : appliquer De Morgan jusqu’au bout.
+
+En ensembles, pensez OU ↔ ∪, ET ↔ ∩, NON ↔ complémentaire.
+
+En graphes, vérifier la connexité avant de parler de distances/diamètre ; la somme des degrés donne vite ∣E∣.
