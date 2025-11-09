@@ -288,43 +288,239 @@ Pourquoi Bash utilise-t-il / au lieu de \ pour séparer les répertoires ?
 ---
 
 Comment se déplacer de “Desktop/working/images” à “Desktop/working” sans écrire le chemin complet ?
+
 → Avec cd ..
 
+---
+
 Que signifie le signe ~ dans un chemin comme ~/Desktop ?
+
 → C’est un raccourci pour le dossier personnel (home) de l’utilisateur.
 
+---
+
 Quelle commande permet de revenir dans le répertoire précédent (celui d’avant le dernier cd) ?
+
 → cd -
 
+---
+
 Que se passe-t-il si une commande Bash est mal orthographiée (ex. : “LS” au lieu de “ls”) ?
+
 → Bash affiche une erreur, car il est sensible à la casse.
 
+---
+
 Que fait la commande ls -l \*.txt ?
+
 → Elle affiche les détails (droits, taille, date, etc.) de tous les fichiers terminant par .txt.
 
+---
+
 Pourquoi ls _.txt peut renvoyer “_.txt” sans rien d’autre ?
+
 → Parce qu’aucun fichier correspondant au motif n’a été trouvé.
 
+---
+
 Quelle commande peut-on utiliser pour tester une expansion de motif sans vraiment lister les fichiers ?
+
 → echo \*.txt
 
+---
+
 Pourquoi la commande echo _.txt affiche la liste des fichiers au lieu du motif _.txt ?
+
 → Parce que Bash remplace le motif avant d’exécuter la commande.
 
-Comment forcer Bash à reconnaître le caractère _ comme un texte littéral et non comme un motif ?
-→ En le protégant avec des guillemets ('_') ou un backslash (\*).
+---
+
+Comment forcer Bash à reconnaître le caractère \_ comme un texte littéral et non comme un motif ?
+
+→ En le protégant avec des guillemets ('\_') ou un backslash (\*).
+
+---
 
 Que se passe-t-il si on appuie deux fois sur la touche Tab ↹ ?
+
 → Bash affiche la liste de toutes les possibilités d’autocomplétion correspondantes.
 
+---
+
 Comment écrire correctement la commande pour afficher un fichier nommé “mon texte.txt” ?
+
 → ls 'mon texte.txt' ou ls mon\ texte.txt
 
+---
+
 Que se passe-t-il si un argument ou une option contient un espace non échappé ?
+
 → Bash le considère comme plusieurs éléments distincts, ce qui provoque souvent une erreur.
 
+---
+
 Pourquoi certaines commandes comme find ou dd ne respectent-elles pas les conventions d’options habituelles ?
+
 → Parce que les conventions (- ou --) ne sont pas obligatoires en Bash ; certaines commandes ont leur propre syntaxe.
 
+---
+
 Comment afficher la liste des options disponibles pour une commande comme ls ?
+
 → En tapant man ls (pour ouvrir le manuel) ou ls --help.
+
+---
+
+## Questions sur la visualisation de fichiers
+
+Quelle commande permet de visualiser le contenu d’un fichier texte sans le modifier ?
+
+→ less
+
+---
+
+Quelle est la commande complète pour visualiser le fichier “mon-fichier.txt” ?
+
+→ less mon-fichier.txt
+
+---
+
+Quelle est la particularité de la commande less ?
+
+→ Elle affiche le contenu d’un fichier texte sans permettre de le modifier.
+
+---
+
+Pourquoi préfère-t-on less à cat pour lire de longs fichiers ?
+
+→ Parce que less permet de faire défiler le contenu (haut/bas) alors que cat affiche tout d’un coup.
+
+---
+
+Comment quitter l’affichage d’un fichier dans less ?
+
+→ En appuyant sur la touche q (pour quit).
+
+---
+
+## Questions sur les informations des fichiers
+
+Quelle commande affiche les informations détaillées d’un fichier ?
+
+→ stat
+
+---
+
+Que signifie “stat” ?
+
+→ “file status information” — informations sur l’état d’un fichier.
+
+---
+
+Que permet d’obtenir la commande stat ?
+
+→ Des informations complètes sur un fichier ou un répertoire : taille, droits, propriétaire, et quatre dates (création, modification, accès, changement d’état).
+
+---
+
+Que signifie “Informations sur les fichiers et répertoires non affichées par ls” ?
+
+→ Cela veut dire que ls, même en mode détaillé (ls -l), ne montre pas toutes les métadonnées, contrairement à stat.
+
+---
+
+Combien de dates sont affichées par stat pour chaque fichier ?
+
+→ Quatre dates.
+
+## Questions sur la recherche de fichiers
+
+Quelle commande permet de rechercher un fichier dans un répertoire et ses sous-répertoires ?
+
+→ find
+
+---
+
+Comment rechercher le fichier “example.txt” dans le répertoire texts ?
+
+→ find texts -name example.txt
+
+---
+
+Comment rechercher tous les fichiers ayant l’extension .txt dans le répertoire texts ?
+
+→ find texts -name '\*.txt'
+
+---
+
+Pourquoi faut-il mettre les jokers entre apostrophes dans la commande find ?
+
+→ Pour empêcher Bash d’interpréter le motif avant que find ne s’exécute.
+
+(Sinon, l’expansion \*.txt serait faite par Bash, pas par find.)
+
+---
+
+Que se passe-t-il si on écrit find texts -name \*.txt sans apostrophes ?
+
+→ Bash effectue une expansion de noms de fichiers avant d’exécuter find, donc la recherche ne fonctionne pas comme prévu.
+
+---
+
+Quel est le rôle principal de la commande find ?
+
+→ Rechercher des fichiers selon différents critères : nom, extension, taille, date de modification, etc.
+
+---
+
+La commande find recherche-t-elle aussi dans les sous-répertoires ?
+
+→ Oui, par défaut elle recherche dans le répertoire donné et tous ses sous-dossiers.
+
+---
+
+Peut-on utiliser des jokers (\*) avec find ?
+
+→ Oui, mais il faut les protéger par des guillemets simples pour éviter leur interprétation par Bash.
+
+---
+
+Quelle est la différence entre find et ls ?
+
+→ ls affiche le contenu d’un répertoire, alors que find recherche des fichiers dans toute une arborescence.
+
+---
+
+Pourquoi find est-il plus puissant que ls ?
+
+→ Parce qu’il permet de chercher selon des critères précis (nom, taille, date, extension…) sur tout un ensemble de dossiers.
+
+## Questions sur la fin de session et autres remarques
+
+Quelle commande permet de fermer une session Bash proprement ?
+
+→ exit
+
+---
+
+Pourquoi est-il recommandé de fermer Bash proprement avec exit ?
+
+→ Pour que le terminal termine correctement les processus et sauvegarde les variables ou l’historique.
+
+---
+
+Que signifie “fermer proprement” une session Bash ?
+
+→ Quitter l’interpréteur de commandes sans interrompre brutalement le programme ou le terminal.
+
+---
+
+Quels autres interpréteurs de commandes partagent la plupart des comportements de Bash ?
+
+→ sh et zsh
+
+---
+
+Pourquoi l’ordre alphabétique d’affichage des fichiers peut-il varier selon la langue ?
+
+→ Parce que chaque langue a son propre ordre de tri (localisation différente), que Bash peut adapter via les paramètres de langue.
