@@ -1,4 +1,4 @@
-🔹 Questions et réponses de base
+## Questions et réponses de base
 
 Que signifie le mot terminal dans le contexte de Bash ?
 
@@ -90,7 +90,7 @@ Que fait la touche Tab ↹ dans Bash ?
 
 ---
 
-🔹 Questions de compréhension
+## Questions de compréhension
 
 Pourquoi la commande voir les fichiers provoque-t-elle une erreur ?
 
@@ -152,7 +152,7 @@ Quelle est la différence entre une option courte et une option longue ?
 
 ---
 
-🔹 Questions ouvertes / de réflexion
+## Questions ouvertes / de réflexion
 
 Explique la différence entre Bash et l’interface graphique Windows Explorer.
 
@@ -219,7 +219,7 @@ l’argument précise sur quoi elle agit (ex. : ls Documents/).
 
 ---
 
-🔹 Nouvelles questions avec réponses
+## Nouvelles questions avec réponses
 
 Que se passe-t-il lorsque Bash affiche “command not found” ?
 
