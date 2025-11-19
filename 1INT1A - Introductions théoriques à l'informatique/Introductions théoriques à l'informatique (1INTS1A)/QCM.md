@@ -531,3 +531,493 @@ B. Pour assurer une diffusion optimale et résister aux attaques
 C. Pour accélérer le chiffrement
 
 D. Pour faciliter la récupération du texte clair
+
+Voici les réponses du QCM :
+
+B
+
+C
+
+C
+
+C
+
+B
+
+C
+
+B
+
+B
+
+---
+
+QCM – Stockage sécurisé des mots de passe grâce au hachage
+
+1. Pourquoi un système ne doit-il jamais stocker un mot de passe en clair ?
+
+A. Pour économiser de la mémoire
+
+B. Pour éviter tout risque en cas de fuite ou d’intrusion
+
+C. Parce que cela ralentit l’authentification
+
+D. Parce que les mots de passe seraient trop longs
+
+2. Que conserve réellement le système dans sa base de données ?
+
+A. Le mot de passe original
+
+B. Le mot de passe chiffré
+
+C. Le hash du mot de passe
+
+D. Le hash et la clé privée
+
+3. Pourquoi obtenir la table des hashes ne suffit-il pas pour retrouver les mots de passe ?
+
+A. Parce que les hashes sont trop longs
+
+B. Parce qu’un hash ne peut pas être inversé
+
+C. Parce que la table est chiffrée
+
+D. Parce que les identifiants sont anonymisés
+
+4. Lors d’une tentative d’authentification, que fait le système ?
+
+A. Il déchiffre le mot de passe stocké
+
+B. Il compare directement le mot de passe en clair
+
+C. Il hache le mot de passe fourni par l’utilisateur
+
+D. Il génère une nouvelle clé pour chaque tentative
+
+5. L’utilisateur est authentifié si :
+
+A. Les identifiants correspondent approximativement
+
+B. Le mot de passe fourni est assez long
+
+C. Le hash du mot de passe fourni correspond à celui enregistré
+
+D. La base de données contient son identifiant
+
+6. Que se passe-t-il si les hashes ne correspondent pas ?
+
+A. Le système demande un second mot de passe
+
+B. L’accès est refusé
+
+C. Le mot de passe est automatiquement corrigé
+
+D. Le mot de passe stocké est remplacé
+
+7. Quel est l’avantage principal du hachage dans le stockage des mots de passe ?
+
+A. Il permet de compresser les données
+
+B. Il permet de chiffrer tous les éléments de la base
+
+C. Il protège les mots de passe même si la base est compromise
+
+D. Il rend l’authentification plus rapide
+
+8. La table utilisée par le système est indexée par :
+
+A. Les empreintes numériques
+
+B. Les mots de passe hachés
+
+C. Les identifiants (logins)
+
+D. Les clés publiques
+
+Voici les réponses du QCM :
+
+B
+
+C
+
+B
+
+C
+
+C
+
+B
+
+C
+
+C
+
+---
+
+QCM – Caractéristiques des fonctions de hachage cryptographiques (20 questions)
+
+1. Quel est le rôle principal d’une fonction de hachage cryptographique ?
+
+A. Chiffrer un message
+
+B. Produire une empreinte numérique
+
+C. Générer une clé secrète
+
+D. Compresser un fichier
+
+2. Le calcul du hash doit être :
+
+A. Très lent
+
+B. Rapide
+
+C. Impossible sans clé
+
+D. Aléatoire
+
+3. La résistance à la préimage signifie qu’il doit être :
+
+A. Facile de retrouver un message depuis son hash
+
+B. Impossible de recalculer le hash
+
+C. Difficile de retrouver un message original à partir du hash
+
+D. Obligatoire de connaître une clé secrète
+
+4. La résistance à la seconde préimage implique qu’il est difficile :
+
+A. De hacher un message connu
+
+B. De trouver un second message produisant le même hash
+
+C. D’inverser la fonction
+
+D. De calculer le hash rapidement
+
+5. La résistance aux collisions signifie qu’il doit être difficile de :
+
+A. Retrouver le message original
+
+B. Calculer le hash
+
+C. Trouver deux messages différents ayant le même hash
+
+D. Utiliser la fonction sans clé
+
+6. Lorsqu’on parle de « problème difficile », cela signifie :
+
+A. Qu’il est impossible à résoudre
+
+B. Qu’il demande trop de mémoire
+
+C. Qu’il nécessite un temps considérable pour être résolu
+
+D. Qu’il nécessite plusieurs fonctions
+
+7. Une fonction de hachage cryptographique doit être :
+
+A. Secrète
+
+B. Publique
+
+C. Dépendante d’une clé
+
+D. Chiffrée
+
+8. Le principe de Kerckhoffs indique que la sécurité doit dépendre :
+
+A. D’un secret caché
+
+B. De la complexité du code source
+
+C. Des propriétés de la fonction, non d’un secret
+
+D. D’une clé privée
+
+9. La taille du hash produit par la fonction doit être :
+
+A. Variable
+
+B. Proportionnelle à l’entrée
+
+C. Plus grande si le fichier est gros
+
+D. Fixe
+
+10. Quelle contrainte découle du fait que les hashs ont une taille fixe ?
+
+A. Le hashage devient plus lent
+
+B. Le hachage devient impossible pour les grands fichiers
+
+C. Les attaques par collision via le paradoxe des anniversaires sont possibles
+
+D. Les collisions sont mathématiquement impossibles
+
+11. La construction Merkle–Damgård repose sur :
+
+A. Un chiffrement symétrique
+
+B. Un assemblage de blocs traité par une fonction de compression
+
+C. Un système à clé publique
+
+D. Des signatures numériques
+
+12. L’une des caractéristiques essentielles d’une fonction de hachage est :
+
+A. Produire une sortie secrète
+
+B. Avoir une sortie uniforme et bien répartie
+
+C. Dépendre d’un mot de passe
+
+D. Utiliser une clé privée
+
+13. Une bonne diffusion signifie que :
+
+A. Le hash reste semblable à l’entrée
+
+B. Un petit changement dans l’entrée entraîne un petit changement dans le hash
+
+C. Un petit changement dans l’entrée produit un changement total et imprévisible
+
+D. Le hash peut être inversé partiellement
+
+14. Les fonctions de hachage sont adaptées à :
+
+A. La compression de fichiers
+
+B. La production de clés privées
+
+C. La vérification d’intégrité
+
+D. Le chiffrement de disques
+
+15. Une fonction résistante aux collisions empêche :
+
+A. La récupération du message
+
+B. La substitution de documents
+
+C. Le calcul du hash
+
+D. L’usage de clés secrètes
+
+16. Quelle propriété empêche un attaquant de modifier un message sans être détecté ?
+
+A. Résistance à la préimage
+
+B. Résistance à la seconde préimage
+
+C. Résistance au bruit
+
+D. Résistance aux calculs
+
+17. Une fonction de hachage doit pouvoir traiter :
+
+A. Uniquement des chaînes courtes
+
+B. Uniquement des fichiers textes
+
+C. Des entrées de taille arbitraire
+
+D. Des nombres uniquement
+
+18. Quelle affirmation décrit correctement la résistance à la préimage ?
+
+A. On ne peut pas trouver deux messages ayant le même hash
+
+B. On ne peut pas trouver le message d’origine à partir du hash
+
+C. On ne peut pas modifier un hash
+
+D. On ne peut pas comparer deux hashs
+
+19. Pourquoi dit-on qu’une fonction de hachage doit être « facile à calculer » ?
+
+A. Pour qu’elle puisse être utilisée dans des systèmes en temps réel
+
+B. Pour qu’elle consomme moins d’énergie
+
+C. Pour empêcher les collisions
+
+D. Pour éviter l’usage de clés
+
+20. Pourquoi les sorties doivent-elles être uniformément réparties ?
+
+A. Pour réduire la taille du hash
+
+B. Pour faciliter l’inversion du hash
+
+C. Pour éviter que certains hashs apparaissent plus souvent que d’autres
+
+D. Pour permettre le chiffrement
+
+Voici les réponses des 20 questions :
+
+B
+
+B
+
+C
+
+B
+
+C
+
+C
+
+B
+
+C
+
+D
+
+C
+
+B
+
+B
+
+C
+
+C
+
+B
+
+B
+
+C
+
+B
+
+A
+
+C
+
+---
+
+Une fonction de compression à sens unique prend en entrée :
+
+A. Un message de taille arbitraire
+
+B. Deux blocs de taille fixe
+
+C. Une clé secrète et un message
+
+D. Un fichier complet
+
+2. La sortie d’une fonction de compression à sens unique est :
+
+A. De taille variable
+
+B. Toujours égale à la taille de l’entrée
+
+C. De taille fixe
+
+D. Impossible à calculer sans clé
+
+3. Quel élément n’est PAS lié à une fonction de compression à sens unique ?
+
+A. La compression classique de données
+
+B. La construction de fonctions de hachage
+
+C. Les propriétés cryptographiques
+
+D. Les schémas Merkle–Damgård
+
+4. La résistance à la préimage signifie qu’il est :
+
+A. Facile de retrouver les entrées depuis la sortie
+
+B. Impossible de recalculer la sortie
+
+C. Difficile de retrouver les entrées depuis la sortie
+
+D. Obligatoire d’utiliser une clé
+
+5. La résistance à la seconde préimage implique qu’il est difficile de :
+
+A. Calculer la fonction
+
+B. Trouver une autre entrée produisant la même sortie
+
+C. Générer une sortie de taille fixe
+
+D. Vérifier une signature
+
+6. La résistance aux collisions signifie qu’il doit être difficile de :
+
+A. Trouver la sortie pour une entrée donnée
+
+B. Produire deux paires d’entrées différentes donnant la même sortie
+
+C. Rendre la fonction réversible
+
+D. Calculer rapidement le résultat
+
+7. Pourquoi la birthday attack est-elle un risque ?
+
+A. Elle permet d’inverser la fonction
+
+B. Elle exploite le paradoxe des anniversaires pour trouver des collisions
+
+C. Elle réduit la taille de la sortie
+
+D. Elle nécessite une clé secrète
+
+8. Quelle caractéristique permet à la birthday attack d’être efficace ?
+
+A. Sortie de taille variable
+
+B. Sortie de très grande taille
+
+C. Sortie de taille fixe limitée
+
+D. Nécessité d’une clé de chiffrement
+
+9. Les fonctions de compression à sens unique sont principalement utilisées dans :
+
+A. Le chiffrement symétrique
+
+B. Les systèmes de fichiers
+
+C. Les constructions Merkle–Damgård
+
+D. Les protocoles de compression ZIP
+
+10. La fonction de compression doit être :
+
+A. Secrète et lente
+
+B. Publique mais difficile à inverser
+
+C. Dépendante d’une clé privée
+
+D. Basée sur la compression classique
+
+B
+
+C
+
+A
+
+C
+
+B
+
+B
+
+B
+
+C
+
+C
+
+B
+
+---
