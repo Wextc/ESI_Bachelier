@@ -2885,3 +2885,251 @@ C
 B
 
 C
+
+---
+
+## Chapitre 4 - Authentification
+
+1. Quel est le rôle principal des fonctions de hachage cryptographiques ?
+
+A. Garantir la confidentialité
+
+B. Garantir l’intégrité des données
+
+C. Accélérer le chiffrement
+
+D. Générer des clés publiques
+
+2. Quel est l’objectif principal du chiffrement ?
+
+A. Rendre le message plus court
+
+B. Permettre la non-répudiation
+
+C. Assurer la confidentialité
+
+D. Vérifier l’identité du serveur
+
+3. Une signature numérique garantit :
+
+A. La confidentialité
+
+B. La non-répudiation
+
+C. La compression du message
+
+D. Le renforcement du mot de passe
+
+4. À quoi servent les certificats numériques ?
+
+A. À accélérer les connexions réseau
+
+B. À associer une identité à une clé publique
+
+C. À remplacer les mots de passe
+
+D. À chiffrer les bases de données
+
+5. La cryptographie présentée dans le texte sert entre autres à :
+
+A. Effacer les fichiers automatiquement
+
+B. Protéger les bases SQL
+
+C. Servir de base à l’authentification
+
+D. Garantir le stockage cloud
+
+6. Quel outil d’authentification est cité comme le plus courant ?
+
+A. L’empreinte digitale
+
+B. Le mot de passe
+
+C. Un certificat racine
+
+D. Un VPN
+
+7. Les jetons de sécurité sont :
+
+A. Uniquement des objets physiques
+
+B. Toujours stockés sur un serveur
+
+C. Utilisés comme preuves d’identité supplémentaires
+
+D. Incompatibles avec la cryptographie
+
+8. Quelle méthode offre un niveau élevé de sécurité ?
+
+A. Les mots de passe simples
+
+B. Les clés cryptographiques
+
+C. Les cookies HTTP
+
+D. Les sessions anonymes
+
+9. L’objectif des différentes méthodes d’authentification est :
+
+A. De rendre l’accès plus lent
+
+B. De rendre le système plus cher
+
+C. De vérifier que l’utilisateur est bien celui qu’il prétend être
+
+D. De chiffrer la base de données
+
+10. Quelle est la première étape de l’authentification ?
+
+A. Déchiffrer la clé publique
+
+B. S’identifier
+
+C. Révoquer un certificat
+
+D. Générer une CSR
+
+11. La seconde étape de l’authentification consiste à :
+
+A. Modifier son identifiant
+
+B. Démontrer que l’on possède la preuve associée
+
+C. Télécharger une clé privée
+
+D. Chiffrer une signature
+
+12. Quel exemple d’identifiant est donné ?
+
+A. Une clé RSA
+
+B. Un mot de passe
+
+C. Un login ou une adresse e-mail
+
+D. Un hash SHA-256
+
+13. Un système d’authentification ne doit pas dépendre de :
+
+A. Mots de passe forts
+
+B. Un système externe non fiable
+
+C. Identifiants personnels
+
+D. Une clé publique
+
+14. Pourquoi se baser uniquement sur une adresse e-mail peut être dangereux ?
+
+A. Parce qu'elle est difficile à retenir
+
+B. Parce qu’elle ne peut pas être chiffrée
+
+C. Parce que si la boîte mail est compromise, tout le système l’est
+
+D. Parce qu’elle est trop longue
+
+15. Les identifiants sont en général :
+
+A. Cryptés en AES
+
+B. Lisibles et compréhensibles par un humain
+
+C. Généres automatiquement
+
+D. Toujours des nombres
+
+16. Qu’est-ce qu’un credential ?
+
+A. Un certificat root
+
+B. Une preuve permettant d’authentifier une identité
+
+C. Un fichier de configuration
+
+D. Un hash de mot de passe
+
+17. La robustesse d’un système d’authentification dépend aussi de :
+
+A. La couleur du site web
+
+B. L’indépendance des éléments utilisés pour vérifier l’identité
+
+C. La taille du fichier
+
+D. La vitesse du processeur
+
+18. L’intégrité d’un message signifie que :
+
+A. Il a été chiffré
+
+B. Il n’a pas été modifié
+
+C. Il est signé numériquement
+
+D. Il est compressé
+
+19. La confidentialité garantit que :
+
+A. Le message ne change pas
+
+B. Le message reste lisible pour tous
+
+C. Seuls les destinataires autorisés peuvent lire le message
+
+D. Le message peut être retrouvé à partir du hash
+
+20. La non-répudiation permet de :
+
+A. Masquer l’identité de l’expéditeur
+
+B. Prouver l’origine d’un message
+
+C. Révoquer automatiquement une session
+
+D. Empêcher le chiffrement
+
+✅ RÉPONSES
+
+B
+
+C
+
+B
+
+B
+
+C
+
+B
+
+C
+
+B
+
+C
+
+B
+
+B
+
+C
+
+B
+
+C
+
+B
+
+B
+
+B
+
+B
+
+C
+
+B
+
+---
