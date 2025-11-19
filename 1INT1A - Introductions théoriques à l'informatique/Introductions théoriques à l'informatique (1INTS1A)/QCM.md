@@ -3133,3 +3133,1895 @@ C
 B
 
 ---
+
+1. L’authentification multi-facteurs repose sur :
+
+A. Un seul facteur très fort
+
+B. Plusieurs preuves distinctes d’identité
+
+C. Des mots de passe plus longs
+
+D. Un certificat numérique
+
+2. L’authentification à deux facteurs combine généralement :
+
+A. Deux mots de passe
+
+B. Deux cartes bancaires
+
+C. Un facteur de connaissance + un facteur de possession
+
+D. Une signature + un hash
+
+3. Quel est l’objectif principal du MFA ?
+
+A. Accélérer la connexion
+
+B. Compléter le chiffrement asymétrique
+
+C. Augmenter le niveau de confiance accordé à l’authentification
+
+D. Supprimer les mots de passe
+
+4. Un retrait bancaire est un exemple de MFA car il nécessite :
+
+A. Un téléphone et une clé USB
+
+B. Une carte + un code PIN
+
+C. Une signature numérique
+
+D. Une deuxième carte
+
+5. Le code reçu par SMS lors d’une connexion est un :
+
+A. Facteur biométrique
+
+B. Facteur de connaissance
+
+C. Facteur de possession
+
+D. Certificat X.509
+
+6. L’ingénierie sociale consiste principalement à :
+
+A. Casser des chiffrages
+
+B. Tromper ou manipuler des individus
+
+C. Développer des algorithmes
+
+D. Intercepter des certificats
+
+7. Pourquoi la MFA protège-t-elle mieux contre l’ingénierie sociale ?
+
+A. Le hash est plus long
+
+B. Un attaquant doit obtenir plusieurs facteurs indépendants
+
+C. Les mots de passe deviennent inutiles
+
+D. Les serveurs deviennent plus rapides
+
+8. La MFA compense surtout :
+
+A. Les lenteurs réseau
+
+B. Les faiblesses humaines
+
+C. Les bugs logiciels
+
+D. Les attaques par brute force
+
+9. Pourquoi l’authentification par secret divulgué est-elle problématique ?
+
+A. Le secret est trop court
+
+B. Le secret doit être révélé au système
+
+C. Les clés RSA sont trop lentes
+
+D. Elle nécessite un certificat
+
+10. Quel risque majeur apparaît avec les secrets divulgués ?
+
+A. Les certificats expirent plus vite
+
+B. Un administrateur peut intercepter ou lire les secrets
+
+C. Les mots de passe deviennent illisibles
+
+D. Le chiffrement ne fonctionne plus
+
+11. Une zero-knowledge proof permet de :
+
+A. Révéler le secret sans risque
+
+B. Signer un certificat root
+
+C. Prouver que l’on connaît un secret sans le révéler
+
+D. Chiffrer un mot de passe
+
+12. Dans un protocole d’authentification zero-knowledge, le serveur envoie :
+
+A. Une clé privée
+
+B. Un certificat
+
+C. Un nonce
+
+D. Un hash salé
+
+13. Le nonce envoyé par le serveur est :
+
+A. Une valeur aléatoire servant de défi
+
+B. Un mot de passe temporaire
+
+C. Un certificat racine
+
+D. Une clé symétrique
+
+14. Comment Alice prouve-t-elle son identité dans le zéro-knowledge ?
+
+A. En envoyant sa clé privée
+
+B. En déchiffrant un message
+
+C. En signant le nonce avec sa clé privée
+
+D. En envoyant son mot de passe
+
+15. Le serveur vérifie la signature d’Alice avec :
+
+A. La clé privée du serveur
+
+B. La clé publique d’Alice
+
+C. Le mot de passe d’Alice
+
+D. Un certificat auto-signé
+
+16. Le zero-knowledge proof protège :
+
+A. La confidentialité du secret
+
+B. Le stockage des identifiants
+
+C. Le certificat TLS
+
+D. Le scan réseau
+
+17. L’ingénierie sociale exploite :
+
+A. Les failles cryptographiques
+
+B. Les biais et erreurs humaines
+
+C. Les collisions de hash
+
+D. Les lenteurs CPU
+
+18. Même si un attaquant obtient un facteur du MFA :
+
+A. Il peut se connecter librement
+
+B. Le système le bloque automatiquement
+
+C. Il lui manque encore au moins un autre facteur
+
+D. Le hash change automatiquement
+
+19. Le problème fondamental des secrets partagés est :
+
+A. Ils doivent être très longs
+
+B. Ils circulent et peuvent être interceptés
+
+C. Ils sont compressés
+
+D. Ils expirent trop vite
+
+20. Quel mécanisme évite totalement de révéler un secret au serveur ?
+
+A. Authentification par mot de passe
+
+B. Authentification par SMS
+
+C. Zero-knowledge proof
+
+D. Analyse fréquentielle
+
+✅ RÉPONSES
+
+B
+
+C
+
+C
+
+B
+
+C
+
+B
+
+B
+
+B
+
+B
+
+B
+
+C
+
+C
+
+A
+
+C
+
+B
+
+A
+
+B
+
+C
+
+B
+
+C
+
+---
+
+1. Le SSO permet à un utilisateur de :
+
+A. Se connecter sans identifiant
+
+B. Utiliser un seul mot de passe pour tous les services
+
+C. S’authentifier une seule fois pour accéder à plusieurs services
+
+D. Ne plus utiliser d’authentification du tout
+
+2. Le principal avantage du SSO est :
+
+A. La suppression des mots de passe
+
+B. Le confort d’utilisation
+
+C. Le chiffrement automatique
+
+D. La réplication des comptes
+
+3. Le principal risque du SSO est :
+
+A. L’absence de certificats
+
+B. L’excès d’automatismes
+
+C. Le single point of failure
+
+D. Le manque de sécurité réseau
+
+4. L’autorité centrale dans un SSO est appelée :
+
+A. Fournisseur d’identité
+
+B. Proxy réseau
+
+C. Root CA
+
+D. Hôte OAuth
+
+5. Une assertion dans le cadre du SSO est :
+
+A. Un hash du mot de passe
+
+B. Une preuve numérique d’authentification
+
+C. Un certificat auto-signé
+
+D. Un identifiant temporaire
+
+6. Pour que le SSO fonctionne, les services doivent :
+
+A. Détenir la clé privée de l’utilisateur
+
+B. Faire confiance au fournisseur d’identité
+
+C. Synchroniser toutes les bases de données
+
+D. Avoir le même mot de passe
+
+7. L’IAM est un domaine qui gère :
+
+A. Seulement les mots de passe
+
+B. Uniquement les certificats numériques
+
+C. Les identités, les accès et les services d’une organisation
+
+D. Le chiffrement RSA
+
+8. L’IAM doit gérer :
+
+A. Les rôles, comptes, autorisations
+
+B. Uniquement les mots de passe
+
+C. Les adresses IP des serveurs
+
+D. Les messages chiffrés
+
+9. Pourquoi l’IAM est-il nécessaire ?
+
+A. Pour accélérer les réseaux
+
+B. Parce qu’un environnement moderne contient de nombreux services interconnectés
+
+C. Pour remplacer TLS
+
+D. Pour supprimer les antivirus
+
+10. Le modèle en silo signifie que :
+
+A. Tous les services partagent une seule base d’utilisateurs
+
+B. Chaque application gère ses identifiants et sa sécurité de manière indépendante
+
+C. On utilise un fournisseur d’identité commun
+
+D. Le SSO est activé par défaut
+
+11. Un avantage du modèle en silo est :
+
+A. Une parfaite cohérence entre services
+
+B. La possibilité d’implémenter facilement le SSO
+
+C. Une grande autonomie des applications
+
+D. Une sécurité garantie
+
+12. Un inconvénient majeur du modèle en silo est :
+
+A. Les comptes disparaissent automatiquement
+
+B. L’absence de mots de passe
+
+C. La duplication des données
+
+D. La dépendance à un seul serveur
+
+13. Pourquoi le modèle en silo entraîne-t-il une incohérence des politiques de sécurité ?
+
+A. Les systèmes ne communiquent pas entre eux
+
+B. Les mots de passe sont automatiquement partagés
+
+C. Les certificats sont synchronisés
+
+D. Les applications utilisent le même protocole
+
+14. Le modèle en silo rend impossible :
+
+A. L’accès à distance
+
+B. Le chiffrement asymétrique
+
+C. Le Single Sign-On
+
+D. La création de comptes
+
+15. Dans un environnement en silo, les utilisateurs doivent :
+
+A. Utiliser un même identifiant partout
+
+B. Se reconnecter séparément à chaque service
+
+C. Utiliser une clé publique unique
+
+D. Utiliser toujours la même session
+
+16. L’exemple de l’ESI montre que :
+
+A. Tous les services utilisent le même système d’authentification
+
+B. Le SSO est complet
+
+C. Plusieurs systèmes indépendants coexistent sans intégration
+
+D. Les certificats remplacent les mots de passe
+
+17. Quel système est cité pour le réseau interne à l’ESI ?
+
+A. OAuth
+
+B. OpenSSL
+
+C. Active Directory
+
+D. Shibboleth
+
+18. Quelle solution est mentionnée pour les mails ?
+
+A. LDAP
+
+B. OAuth
+
+C. Samba
+
+D. TLS uniquement
+
+19. Quel système utilise un simple login/mot de passe distinct ?
+
+A. GitLab
+
+B. Moodle
+
+C. Gmail
+
+D. Le réseau privé
+
+20. Le SSO nécessite une sécurité renforcée car :
+
+A. Il supprime totalement l’authentification
+
+B. Il est basé sur la cryptographie post-quantique
+
+C. Toute la sécurité repose sur un point central
+
+D. Les mots de passe deviennent inutiles
+
+✅ RÉPONSES
+
+C
+
+B
+
+C
+
+A
+
+B
+
+B
+
+C
+
+A
+
+B
+
+B
+
+C
+
+C
+
+A
+
+C
+
+B
+
+C
+
+C
+
+B
+
+B
+
+C
+
+---
+
+1. Dans un modèle décentralisé, les responsabilités sont :
+
+A. Concentrées dans une seule autorité
+
+B. Réparties entre plusieurs entités
+
+C. Gérées uniquement par les utilisateurs
+
+D. Ignorées
+
+2. Un avantage du modèle décentralisé est :
+
+A. Une résilience accrue
+
+B. Une gestion simplifiée
+
+C. L’absence de duplication
+
+D. L’exigence d’une autorité centrale
+
+3. Un inconvénient majeur du modèle décentralisé est :
+
+A. L’absence de cryptographie
+
+B. Une coordination plus difficile
+
+C. La nécessité d’un unique serveur
+
+D. L’impossibilité de délégation
+
+4. Le web of trust de PGP est un exemple de :
+
+A. Modèle centralisé
+
+B. Modèle fédéré
+
+C. Modèle décentralisé
+
+D. Modèle user-centric
+
+5. Dans le web of trust, la confiance est établie :
+
+A. Par une CA centrale
+
+B. Par signatures croisées entre utilisateurs
+
+C. Par le gouvernement
+
+D. Par un mot de passe partagé
+
+6. Le modèle fédéré repose principalement sur :
+
+A. Un serveur unique
+
+B. Le partage de standards communs
+
+C. L’absence totale de coordination
+
+D. Une base de données unifiée
+
+7. Un avantage clé du modèle fédéré est :
+
+A. L’anonymat complet
+
+B. La coopération entre entités indépendantes
+
+C. L’absence de protocoles
+
+D. La suppression des certificats
+
+8. Le modèle fédéré exige :
+
+A. Une gouvernance commune
+
+B. Zero coordination
+
+C. Que tous les utilisateurs partagent un mot de passe
+
+D. Une signature unique
+
+9. eIDAS permet :
+
+A. Le chiffrement automatique
+
+B. La reconnaissance mutuelle des identités électroniques en Europe
+
+C. La création de mots de passe uniques
+
+D. La suppression des CA
+
+10. Le modèle user-centric signifie que :
+
+A. L’entreprise contrôle toutes les données
+
+B. L’utilisateur contrôle ses propres données
+
+C. Les CA contrôlent les identités
+
+D. Aucun contrôle n’est nécessaire
+
+11. Un avantage du modèle user-centric est :
+
+A. Moins de responsabilité pour les utilisateurs
+
+B. Plus de dépendance à une autorité centrale
+
+C. Une meilleure protection de la vie privée
+
+D. La suppression des identités numériques
+
+12. Un inconvénient du modèle user-centric est :
+
+A. Une faible autonomie des utilisateurs
+
+B. Une responsabilité accrue pour les utilisateurs
+
+C. Une impossibilité de déléguer
+
+D. L’absence d’API
+
+13. OAuth permet aux utilisateurs de :
+
+A. Partager leur mot de passe
+
+B. Déléguer un accès limité sans révéler leur mot de passe
+
+C. Chiffrer des fichiers
+
+D. Signer des certificats
+
+14. Dans OAuth, l’utilisateur peut :
+
+A. Révoquer des accès donnés à des applications tierces
+
+B. Lire la clé privée d’une app
+
+C. Exposer son mot de passe
+
+D. Annuler la signature X.509
+
+15. Un identifiant typique pour l’authentification est :
+
+A. Un hash SHA-256
+
+B. Une empreinte digitale
+
+C. Un login ou une adresse e-mail
+
+D. Un certificat root
+
+16. Un facteur de connaissance est :
+
+A. Un jeton matériel
+
+B. Un mot de passe
+
+C. Une empreinte digitale
+
+D. Un comportement utilisateur
+
+17. Un facteur de possession est :
+
+A. Un mot de passe
+
+B. Un e-mail
+
+C. Un téléphone ou jeton
+
+D. Une habitude d’écriture
+
+18. Un facteur biométrique est :
+
+A. Un code SMS
+
+B. Une clé RSA
+
+C. Une empreinte digitale ou reconnaissance faciale
+
+D. Un login
+
+19. Combiner plusieurs facteurs permet de :
+
+A. Rendre la connexion plus lente
+
+B. Réduire l’efficacité des attaques, notamment d’ingénierie sociale
+
+C. Désactiver l’IAM
+
+D. Éviter d’utiliser un identifiant
+
+20. L’authentification multi-facteurs doit être :
+
+A. Rarement utilisée
+
+B. Mise en place quand c’est possible, de façon transparente
+
+C. Réservée aux administrateurs uniquement
+
+D. Utilisée sans identifiant
+
+✅ RÉPONSES
+
+B
+
+A
+
+B
+
+C
+
+B
+
+B
+
+B
+
+A
+
+B
+
+B
+
+C
+
+B
+
+B
+
+A
+
+C
+
+B
+
+C
+
+C
+
+B
+
+B
+
+---
+
+1. Quel est le principal problème de la sécurité informatique dans la pratique ?
+
+A. Les algorithmes sont trop lents
+
+B. Les utilisateurs compromettent le système
+
+C. Les réseaux sont trop rapides
+
+D. Le chiffrement ne fonctionne pas
+
+2. Une faible entropie d’un mot de passe signifie :
+
+A. Qu’il est très long
+
+B. Qu’il est difficile à retenir
+
+C. Qu’il est facile à deviner
+
+D. Qu’il est chiffré
+
+3. Une mauvaise pratique courante liée aux mots de passe est :
+
+A. Utiliser une clé RSA
+
+B. Utiliser un mot de passe unique et complexe
+
+C. Le noter sur un post-it
+
+D. Utiliser la MFA
+
+4. Réutiliser un mot de passe sur plusieurs services entraîne :
+
+A. Plus de sécurité
+
+B. Une diminution de la surface d’attaque
+
+C. Une mise en danger de tous les comptes en cas de fuite
+
+D. Une meilleure synchronisation
+
+5. Quel danger technique est mentionné ?
+
+A. Le hachage automatique
+
+B. Les logiciels espions enregistrant les frappes
+
+C. Les certificats expirés
+
+D. Les collisions SHA-256
+
+6. Pourquoi les experts envisagent-ils un futur sans mots de passe ?
+
+A. Les mots de passe sont trop coûteux à stocker
+
+B. Les utilisateurs ne savent pas en créer et gérer correctement
+
+C. Ils sont incompatibles avec TLS
+
+D. Ils sont trop longs à taper
+
+7. Pourquoi ne chiffre-t-on pas les bases de données de mots de passe ?
+
+A. Le chiffrement est illégal
+
+B. Le chiffrement serait inutile face à un administrateur malveillant
+
+C. Les bases sont trop petites
+
+D. Le chiffrement empêche les connexions
+
+8. La solution pour stocker les mots de passe est :
+
+A. Le chiffrement AES
+
+B. Le stockage en clair
+
+C. Le stockage sous forme de hash
+
+D. Une compression en base 64
+
+9. Pourquoi stocker seulement le hash d’un mot de passe ?
+
+A. Pour accélérer les requêtes
+
+B. Parce qu’un hash est théoriquement irréversible
+
+C. Parce qu’un hash est plus court
+
+D. Parce que cela réduit les coûts
+
+10. Même si la base contenant les empreintes est compromise :
+
+A. Les mots de passe restent inaccessibles
+
+B. Les mots de passe apparaissent en clair
+
+C. Le TLS s'arrête
+
+D. Les utilisateurs doivent changer d’adresse e-mail
+
+11. Lors de l’authentification, le mot de passe est transmis via :
+
+A. HTTP simple
+
+B. Un tunnel TLS
+
+C. Une requête OCSP
+
+D. Un certificat auto-signé
+
+12. Quel est le rôle du tunnel TLS dans l’authentification ?
+
+A. Hacher les mots de passe
+
+B. Vérifier les identités
+
+C. Assurer la confidentialité de la transmission
+
+D. Signer les certificats RSA
+
+13. Après réception, le serveur :
+
+A. Compare directement le mot de passe en clair
+
+B. Stocke le mot de passe
+
+C. Hache le mot de passe reçu
+
+D. Le renvoie au client
+
+14. L’empreinte obtenue est appelée :
+
+A. Adresse MAC
+
+B. Hash
+
+C. Token
+
+D. Certificat
+
+15. La vérification du mot de passe consiste à :
+
+A. Comparer le mot de passe en clair
+
+B. Comparer le hash calculé avec le hash stocké
+
+C. Calculer une clé RSA
+
+D. Lire un certificat X.509
+
+16. Les fonctions de hachage sont conçues pour être :
+
+A. Très lentes
+
+B. Faciles à inverser
+
+C. Rapides à calculer
+
+D. Basées sur RSA
+
+17. La résistance à la préimage signifie qu’il est :
+
+A. Facile de retrouver le mot de passe à partir du hash
+
+B. Impossible ou très difficile de retrouver le mot de passe à partir du hash
+
+C. Simple de signer un certificat
+
+D. Impossible de recalculer une empreinte
+
+18. Les collisions sont :
+
+A. Rares avec les fonctions robustes
+
+B. Normales et fréquentes
+
+C. Utilisées pour authentifier un utilisateur
+
+D. Stockées dans la base de données
+
+19. Le fonctionnement décrit repose principalement sur :
+
+A. Le chiffrement asymétrique
+
+B. Le hachage des mots de passe
+
+C. Des signatures numériques
+
+D. Une base blockchain
+
+20. Ce système d’authentification par hachage est décrit comme :
+
+A. Très lent mais sûr
+
+B. Sûr, rapide et simple
+
+C. Facile à inverser
+
+D. Réservé aux petites bases
+
+✅ RÉPONSES
+
+B
+
+C
+
+C
+
+C
+
+B
+
+B
+
+B
+
+C
+
+B
+
+A
+
+B
+
+C
+
+C
+
+B
+
+B
+
+C
+
+B
+
+A
+
+B
+
+B
+
+---
+
+1. L’attaque par dictionnaire fonctionne principalement parce que :
+
+A. Les algorithmes de hachage sont faibles
+
+B. Les utilisateurs choisissent souvent des mots de passe courants
+
+C. Les serveurs n’ont pas de TLS
+
+D. Le chiffrement est désactivé
+
+2. Que fait l’attaquant dans une attaque par dictionnaire ?
+
+A. Il demande le mot de passe au serveur
+
+B. Il crée une liste de mots de passe probables et calcule leurs hashes
+
+C. Il pirate le TLS
+
+D. Il compare directement les mots de passe en clair
+
+3. Une attaque par dictionnaire réussit lorsque :
+
+A. Un hash de la base correspond à un hash de la table préparée
+
+B. Le serveur renvoie le mot de passe
+
+C. L’utilisateur change son mot de passe
+
+D. Le site utilise HTTPS
+
+4. Une mesure efficace contre les attaques par dictionnaire en ligne :
+
+A. Augmenter la puissance du serveur
+
+B. Bloquer ou ralentir après plusieurs échecs
+
+C. Supprimer le hachage
+
+D. Désactiver TLS
+
+5. Une politique de mots de passe stricte aide car :
+
+A. Elle force l’utilisation de phrases secrètes plus longues
+
+B. Elle empêche les collisions
+
+C. Elle interdit TLS 1.3
+
+D. Elle supprime le besoin de saler les mots de passe
+
+6. Selon les recommandations du NIST, il est préférable d’utiliser :
+
+A. Des mots de passe courts mais très complexes
+
+B. Des mots de passe longs, même sous forme de phrases
+
+C. Des mots de passe enregistrés en clair
+
+D. Des mots de passe composés uniquement de chiffres
+
+7. Une rotation régulière imposée des mots de passe :
+
+A. Est recommandée par le NIST
+
+B. Diminue les risques
+
+C. Encourage des comportements dangereux
+
+D. Augmente automatiquement l’entropie
+
+8. Une procédure de récupération de compte mal conçue est :
+
+A. Un problème mineur
+
+B. Souvent un point faible majeur
+
+C. Obligatoire pour la sécurité
+
+D. Sans impact sur l’authentification
+
+9. Un mot de passe utilisant des données personnelles (date de naissance, prénom…) :
+
+A. Est une bonne pratique
+
+B. A une entropie très élevée
+
+C. Est facilement vulnérable à l’ingénierie sociale
+
+D. Est compatible uniquement avec les banques
+
+10. Les gestionnaires de mots de passe permettent :
+
+A. De stocker des mots de passe en clair
+
+B. De générer et stocker des mots de passe uniques et complexes
+
+C. De désactiver le TLS
+
+D. D’éviter les fonctions de hachage
+
+11. Le mot de passe maître d’un gestionnaire :
+
+A. Est stocké sur le serveur
+
+B. Est transmis en clair au site web
+
+C. Ne quitte jamais l’appareil de l’utilisateur
+
+D. Est envoyé via OCSP
+
+12. Le coffre-fort du gestionnaire de mots de passe est protégé par :
+
+A. Un simple XOR
+
+B. Un KDF (Key Derivation Function)
+
+C. Une compression ZIP
+
+D. Une rotation SHA-1
+
+13. Un gestionnaire de mots de passe élimine notamment :
+
+A. Le besoin de TLS
+
+B. Les faiblesses humaines dans la création de mots de passe
+
+C. L'utilisation du hachage
+
+D. Le système login/mot de passe
+
+14. Lorsqu’un gestionnaire fournit le mot de passe à un site web :
+
+A. Il envoie le mot de passe maître
+
+B. Il déchiffre localement le mot de passe du site
+
+C. Il demande au site le hash du mot de passe
+
+D. Il utilise uniquement la biométrie
+
+15. Une liste de mots de passe obtenue lors d’une fuite massive est utilisée dans :
+
+A. Une attaque par collision
+
+B. Une attaque DoS
+
+C. Une attaque par dictionnaire
+
+D. Une attaque de chiffrement symétrique
+
+16. Limiter les tentatives d’authentification a pour effet de :
+
+A. Accélérer les attaques
+
+B. Rendre l’attaque par dictionnaire plus difficile
+
+C. Supprimer le besoin de hachage
+
+D. Détecter les collisions SHA-256
+
+17. Une phrase secrète (« passphrase ») est recommandée car :
+
+A. Elle est plus esthétique
+
+B. Elle augmente l’entropie et reste mémorisable
+
+C. Elle remplace le chiffrement asymétrique
+
+D. Elle supprime les besoins de KDF
+
+18. Noter son mot de passe sur un papier est dangereux parce que :
+
+A. Cela supprime le TLS
+
+B. Cela expose le secret à des attaques physiques
+
+C. Cela augmente l’entropie involontairement
+
+D. Cela corrompt la base de données
+
+19. Les gestionnaires de mots de passe permettent d’éviter :
+
+A. La biométrie
+
+B. La réutilisation des mots de passe
+
+C. Les protocoles TLS
+
+D. Les certificats X.509
+
+20. Le grand avantage des gestionnaires est que :
+
+A. L’utilisateur n’a plus besoin de retenir des dizaines de mots de passe
+
+B. Ils remplacent le hachage
+
+C. Ils bloquent les attaques MITM
+
+D. Ils fonctionnent sans chiffrement
+
+✅ RÉPONSES
+
+B
+
+B
+
+A
+
+B
+
+A
+
+B
+
+C
+
+B
+
+C
+
+B
+
+C
+
+B
+
+B
+
+B
+
+C
+
+B
+
+B
+
+B
+
+B
+
+A
+
+---
+
+1. Le principal problème des mots de passe est :
+
+A. Leur coût élevé
+B. Leur faible entropie et leur réutilisation fréquente
+C. Le fait qu’ils utilisent un chiffrement complexe
+D. Leur incompatibilité avec TLS
+
+2. Les jetons physiques présentent comme inconvénient :
+
+A. Leur incapacité à stocker une clé
+B. Leur coût et leur gestion logistique
+C. Leur vulnérabilité aux attaques par hachage
+D. Leur dépendance aux certificats racines
+
+3. Les jetons logiciels sont surtout limités par :
+
+A. Une absence totale de chiffrement
+B. Leur stockage exclusivement local
+C. La nécessité d’une infrastructure complexe
+D. Leur manque d’interopérabilité
+
+4. L’authentification par clés cryptographiques repose sur :
+
+A. La transmission d’un mot de passe chiffré
+B. La capacité à signer un défi avec une clé privée
+C. L’envoi direct de la clé privée
+D. Un secret partagé entre les utilisateurs
+
+5. Dans une authentification à base de clés, l’utilisateur transmet :
+
+A. Sa clé privée
+B. Son mot de passe maître
+C. Une signature sur un défi
+D. Un hash SHA-1
+
+6. Le serveur vérifie l’authenticité de la signature grâce :
+
+A. À la clé publique de l’utilisateur
+B. À un mot de passe enregistré
+C. À une CA externe uniquement
+D. À un hash local
+
+7. L’authentification par clés est plus sûre que les mots de passe car :
+
+A. Elle ne nécessite pas de chiffrement
+B. Le secret n’est jamais transmis
+C. Elle fonctionne sans serveur
+D. Elle remplace TLS
+
+8. Une CSR (Certificate Signing Request) contient :
+
+A. La clé privée uniquement
+B. L’identité du client + sa clé publique
+C. Une signature de la CA
+D. Un mot de passe temporaire
+
+9. Dans l’authentification par certificats, le serveur :
+
+A. Génère la clé privée du client
+B. Joue le rôle de CA et signe la clé publique du client
+C. Envoie un mot de passe chiffré au client
+D. Stocke les mots de passe en clair
+
+10. Pour prouver qu’il possède la clé privée, le client :
+
+A. Renvoie son certificat
+B. Hash le nonce et l’envoie
+C. Signe un nonce envoyé par le serveur
+D. Envoie son mot de passe haché
+
+11. Le certificat garantit :
+
+A. L’identité du client et la validité de sa clé publique
+B. L’accès illimité à tous les services
+C. Le stockage crypté de la clé privée
+D. L’absence de phishing
+
+12. La vérification d’un certificat par le serveur consiste à :
+
+A. Vérifier la signature de la CA
+B. Déchiffrer le certificat avec la clé privée du serveur
+C. Comparer un hash
+D. Rejouer un ancien nonce
+
+13. Un certificat signé par une CA garantit que :
+
+A. Le client n’a jamais changé de mot de passe
+B. La clé publique appartient réellement à l’entité annoncée
+C. La clé privée est chiffrée
+D. Le certificat est valable à vie
+
+14. L’authentification par certificats protège contre :
+
+A. La compromission des serveurs
+B. Les attaques par rejeu (replay)
+C. Les attaques physiques
+D. Les attaques de dictionnaire
+
+15. La chaîne de confiance repose principalement sur :
+
+A. Des mots de passe hachés
+B. Une CA qui signe la clé publique de l’utilisateur
+C. Le chiffrement du disque dur
+D. Une clé publique unique pour tout le monde
+
+16. Dans l’authentification à base de certificats, le rôle de la clé privée est :
+
+A. De chiffrer le certificat
+B. De prouver l’identité par une signature
+C. De déchiffrer la CA
+D. De générer la clé publique
+
+17. Pourquoi l’authentification par clés est-elle résistante aux attaques d’usurpation ?
+
+A. Parce que les clés expirent tous les jours
+B. Parce que la clé privée n’est jamais envoyée
+C. Parce qu’elle utilise uniquement RSA
+D. Parce qu’elle rigidifie TLS
+
+18. Un certificat invalide est typiquement dû à :
+
+A. L’utilisation d’une clé trop longue
+B. Une signature incorrecte ou une CA non reconnue
+C. Une clé privée trop complexe
+D. Un hash trop récent
+
+19. Le certificat permet de lier :
+
+A. Un mot de passe à un identifiant
+B. Une clé publique à une identité
+C. Une clé privée à la CA
+D. Une adresse IP à un serveur
+
+20. Dans une authentification complète à base de certificats :
+
+A. Le client prouve son identité sans jamais révéler son secret
+B. Le client envoie son mot de passe haché
+C. Le serveur envoie sa clé privée
+D. Aucun défi n’est nécessaire
+
+✅ RÉPONSES
+
+B
+
+B
+
+C
+
+B
+
+C
+
+A
+
+B
+
+B
+
+B
+
+C
+
+A
+
+A
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+A
+
+---
+
+1. Une authentification basée sur une KDF permet :
+
+A. De stocker la clé privée en clair
+
+B. De dériver un secret sans jamais le stocker
+
+C. De remplacer totalement TLS
+
+D. De signer sans clé privée
+
+2. Dans le schéma KDF, le serveur envoie au client :
+
+A. Un mot de passe chiffré
+
+B. Sa clé privée
+
+C. Un nonce
+
+D. Une signature RSA
+
+3. Le rôle du nonce est :
+
+A. Augmenter la vitesse du protocole
+
+B. Permettre la dérivation de la clé publique
+
+C. Empêcher les attaques par rejeu
+
+D. Chiffrer l’échange
+
+4. Un secret dérivé via la KDF peut servir à :
+
+A. Chiffrer la clé privée locale
+
+B. Révoquer un certificat
+
+C. Générer un hash de certificat
+
+D. Signer un certificat CA
+
+5. Une limite de la dérivation directe d’une clé privée est :
+
+A. Incompatibilité avec certains algorithmes comme RSA
+
+B. La clé privée devient publique
+
+C. Le nonce devient inutilisable
+
+D. Impossible d’utiliser TLS
+
+6. Une alternative à la dérivation directe est :
+
+A. Stocker la clé privée en clair
+
+B. Déchiffrer une clé privée stockée localement mais chiffrée
+
+C. Envoyer la clé privée au serveur
+
+D. Copier la clé privée sur chaque appareil
+
+7. La preuve finale envoyée au serveur est :
+
+A. Le mot de passe
+
+B. Le hash du secret
+
+C. La signature du nonce
+
+D. Le certificat CA
+
+8. Le serveur vérifie cette preuve grâce à :
+
+A. La clé publique enregistrée
+
+B. Le mot de passe stocké
+
+C. La clé privée du client
+
+D. Un hash SHA-1
+
+9. Les schémas par clé, certificat ou KDF ont en commun :
+
+A. Ils stockent toujours les secrets sur serveur
+
+B. Ce sont des zero-knowledge proofs
+
+C. Ils éliminent les nonces
+
+D. Ils utilisent exclusivement RSA
+
+10. Une limite des méthodes basées sur clés/certificats est :
+
+A. Impossible d’utiliser un serveur
+
+B. Dépendance forte au device où est stockée la clé privée
+
+C. Elles nécessitent toujours une KDF
+
+D. Incompatibilité avec TLS
+
+11. Le master device sert à :
+
+A. Générer un hash SHA-256
+
+B. Garantir qu’on ne copie pas la clé privée n’importe où
+
+C. Remplacer la CA
+
+D. Déchiffrer les certificats
+
+12. Une solution pour accéder depuis un nouvel appareil est :
+
+A. Copier la clé privée en clair
+
+B. Stocker la clé privée chiffrée côté serveur (déverrouillée via KDF)
+
+C. Désactiver le nonce
+
+D. Remplacer la clé publique du serveur
+
+13. La limite majeure d’un schéma basé uniquement sur une KDF est :
+
+A. La nécessité d’utiliser RSA
+
+B. La dépendance à un mot de passe et ses faiblesses humaines
+
+C. L’impossibilité d’utiliser des nonces
+
+D. L’absence de signature
+
+14. Une vulnérabilité des clés locales survient lorsque :
+
+A. Le serveur est trop rapide
+
+B. L’appareil est compromis ou mal utilisé
+
+C. Le certificat n’a pas de SAN
+
+D. Le nonce est trop long
+
+15. La rémanence des données désigne :
+
+A. Le chiffrement automatique des RAM
+
+B. Les traces récupérables en mémoire ou sur disque
+
+C. Les certificats auto-signés
+
+D. Les attaques réseau passives
+
+16. Une protection importante contre la rémanence est :
+
+A. Stocker les clés sur une clé USB
+
+B. Utiliser FIDO2 / WebAuthn
+
+C. Désactiver TLS
+
+D. Réduire la taille des clés privées
+
+17. Si un appareil contenant une clé privée chiffrée est volé :
+
+A. L’attaquant peut toujours l’utiliser
+
+B. Une brute force peut réussir si le mot de passe est faible
+
+C. La CA révoque automatiquement la clé
+
+D. Le certificat devient invalide
+
+18. Les jetons d’authentification servent principalement à :
+
+A. Remplacer les certificats
+
+B. Prolonger une authentification existante
+
+C. Stocker une clé privée
+
+D. Générer des mots de passe
+
+19. Les jetons sont comparables à :
+
+A. Une clé RSA
+
+B. Un ticket temporaire donnant un accès limité
+
+C. Une clé privée persistante
+
+D. Un hash stocké
+
+20. Un jeton expiré :
+
+A. Reste valide pour l’authentification
+
+B. Est inutilisable, limitant les risques en cas de vol
+
+C. Sert de certificat racine
+
+D. Permet une signature numérique
+
+✅ RÉPONSES
+
+B
+
+C
+
+C
+
+A
+
+A
+
+B
+
+C
+
+A
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+---
+
+1. Une propriété fondamentale d’un jeton d’authentification est :
+
+A. Être visible publiquement
+
+B. Être facilement copiable
+
+C. Être impossible à cloner
+
+D. Être stocké en clair
+
+2. Un jeton papier est considéré comme non sûr car :
+
+A. Il expire en 10 minutes
+
+B. Il peut être copié discrètement
+
+C. Il nécessite une KDF
+
+D. Il utilise RSA
+
+3. Pour empêcher la copie d’un jeton logiciel, il faut :
+
+A. Le stocker sur une clé USB
+
+B. Le lier à un matériel spécifique
+
+C. Utiliser un mot de passe très long
+
+D. Effacer les logs système
+
+4. Un jeton matériel doit résister à :
+
+A. L altération physique
+
+B. La perte de réseau
+
+C. La compression de données
+
+D. La vérification de certificat
+
+5. La graine secrète (seed) d’un jeton matériel sert à :
+
+A. Générer des codes pseudo-aléatoires
+
+B. Révoquer un utilisateur
+
+C. Chiffrer TLS
+
+D. Générer des clés RSA
+
+6. Un problème majeur des jetons logiciels est :
+
+A. Leur coût excessif
+
+B. Leur vulnérabilité à la copie et au malware
+
+C. Leur incompatibilité avec OTP
+
+D. Leur impossibilité d’être distribués
+
+7. Pour un jeton logiciel, la seed doit être :
+
+A. Envoyée en clair
+
+B. Transmise de manière sécurisée
+
+C. Stockée sur le serveur
+
+D. Hashée avec MD5
+
+8. Même avec une passphrase, un jeton logiciel reste vulnérable car :
+
+A. La passphrase change toutes les heures
+
+B. Un keylogger peut capturer la passphrase et la seed
+
+C. Le serveur ne la connaît pas
+
+D. Il n’y a pas de nonce
+
+9. Un jeton logiciel est souvent considéré comme :
+
+A. « Something you have »
+
+B. « Something you know »
+
+C. Une clé privée
+
+D. Une signature RSA
+
+10. Une limite critique des jetons logiciels est :
+
+A. Ils utilisent trop de CPU
+
+B. Ils ne sont pas réellement non copiables
+
+C. Ils ne fonctionnent pas avec TLS
+
+D. Ils nécessitent une CA
+
+11. Les OTP résolvent principalement le problème de :
+
+A. Les mots de passe trop longs
+
+B. La synchronisation entre serveurs
+
+C. L’interception et la réutilisation d’un mot de passe
+
+D. La fuite des certificats
+
+12. Un OTP est :
+
+A. Valide pour un seul usage
+
+B. Un mot de passe permanent
+
+C. Une signature RSA
+
+D. Une graine secrète
+
+13. Les OTP synchronisés temporellement (TOTP) reposent sur :
+
+A. Le hash du login
+
+B. L’heure partagée entre client et serveur
+
+C. Un certificat CA
+
+D. Une clé asymétrique
+
+14. Une autre variante d’OTP utilise :
+
+A. Le mot de passe précédent comme base du suivant
+
+B. Une clé privée RSA
+
+C. Un certificat X.509
+
+D. Le SAN du certificat
+
+15. Dans un OTP basé sur challenge :
+
+A. Le serveur envoie un nonce
+
+B. Le client envoie un hash du mot de passe
+
+C. Le serveur signe le jeton
+
+D. Le certificat est remplacé
+
+16. Le schéma de Lamport utilise :
+
+A. Une chaîne de hachages
+
+B. Une clé RSA chiffrée
+
+C. Une signature CA
+
+D. Du chiffrement symétrique
+
+17. Dans Lamport, p₀ est :
+
+A. Le secret s
+
+B. La dernière valeur après k hachages
+
+C. Le nonce
+
+D. Le premier OTP
+
+18. Lors de l’authentification Lamport, le client envoie :
+
+A. p₀
+
+B. p₁, puis p₂…
+
+C. La seed
+
+D. Son mot de passe
+
+19. Le serveur valide p₁ en vérifiant que :
+
+A. p₁ = p₀
+
+B. H(p₁) = p₀
+
+C. p₁ = seed
+
+D. H(p₀) = p₁
+
+20. Un avantage clé du schéma de Lamport est :
+
+A. Il ne nécessite aucune fonction de hachage
+
+B. Il supprime totalement le besoin d’un serveur
+
+C. Il résiste aux attaques par rejeu
+
+D. Il utilise RSA de manière obligatoire
+
+✅ RÉPONSES
+
+C
+
+B
+
+B
+
+A
+
+A
+
+B
+
+B
+
+B
+
+B
+
+B
+
+C
+
+A
+
+B
+
+A
+
+A
+
+A
+
+B
+
+B
+
+B
+
+C
+
+---
