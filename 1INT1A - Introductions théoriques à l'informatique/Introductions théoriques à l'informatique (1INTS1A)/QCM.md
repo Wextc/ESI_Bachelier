@@ -2643,3 +2643,245 @@ B
 B
 
 ---
+
+1. Pourquoi existe-t-il de nombreuses autorités de certification (CA) dans la pratique ?
+
+A. Parce qu’une seule CA ne peut pas signer plus de 100 certificats
+
+B. Parce que les besoins, usages et niveaux d’exigence varient
+
+C. Parce que les navigateurs imposent la création de nouvelles CAs
+
+D. Parce que les CA sont automatiquement générées par les systèmes
+
+2. Quel problème soulève cette diversité de CA ?
+
+A. L’impossibilité de chiffrer les certificats
+
+B. Le manque de compatibilité entre différents algorithmes
+
+C. Comment un certificat reconnu par Apple peut-il être fiable sur Windows ?
+
+D. L’impossibilité d’utiliser HTTPS
+
+3. Quel concept permet l’interopérabilité entre Apple, Microsoft et d’autres plateformes ?
+
+A. Le multi-hachage
+
+B. La signature croisée
+
+C. La chaîne de confiance (chain of trust)
+
+D. Le certificat auto-signé
+
+4. Quel rôle joue l’autorité de confiance de niveau supérieur dans une chaîne de confiance ?
+
+A. Elle génère toutes les clés privées
+
+B. Elle signe les certificats des autres CAs pour valider leur identité
+
+C. Elle chiffre les messages des utilisateurs
+
+D. Elle distribue les certificats via OCSP
+
+5. Comment appelle-t-on ces autorités de très haut niveau ?
+
+A. Intermediate CAs
+
+B. Backup CAs
+
+C. Root CAs
+
+D. Secondary CAs
+
+6. Où trouve-t-on les root CAs considérées comme fiables ?
+
+A. Dans les CSR des sites web
+
+B. Intégrées dans les navigateurs et systèmes d’exploitation
+
+C. Dans les fichiers de configuration des serveurs
+
+D. Uniquement sur les sites officiels des CA
+
+7. Que vérifie un navigateur lorsqu’il reçoit un certificat ?
+
+A. La présence d’un hash SHA-1
+
+B. Que le certificat est signé par une CA racine installée en local
+
+C. Que la clé privée du serveur est correcte
+
+D. Que le site utilise OCSP
+
+8. Qu’est-ce qu’un certificat racine (root certificate) ?
+
+A. Un certificat signé par plusieurs CAs intermédiaires
+
+B. Un certificat auto-signé appartenant à une root CA
+
+C. Un certificat toujours émis par les navigateurs
+
+D. Un certificat sans clé publique
+
+9. Pourquoi les certificats racines sont-ils auto-signés ?
+
+A. Parce qu’ils ne doivent jamais expirer
+
+B. Parce qu’ils représentent le point le plus bas de la chaîne
+
+C. Parce qu’aucune autorité supérieure ne peut signer leur certificat
+
+D. Parce qu’ils ne contiennent pas de clé publique
+
+10. Quel mécanisme améliore la compatibilité entre différentes plateformes ?
+
+A. OCSP
+
+B. Signature croisée (cross-signing)
+
+C. Hachage multi-domaine
+
+D. Utilisation de clés symétriques
+
+11. Comment les systèmes vérifient-ils souvent les certificats racines ?
+
+A. Grâce à un protocole HTTPS
+
+B. Via des contrôles biométriques
+
+C. Par intégration directe dans les OS et navigateurs
+
+D. Par chiffrement RSA
+
+12. Lorsqu’un navigateur analyse un certificat de site web, il :
+
+A. Vérifie uniquement le CN
+
+B. Cherche à remonter la chaîne jusqu’à une root CA de confiance
+
+C. Demande la clé privée du site
+
+D. Ignore les CAs intermédiaires
+
+13. La chaîne de confiance est acceptée si :
+
+A. Le serveur utilise un certificat auto-signé
+
+B. La CA intermédiaire utilise SHA-1
+
+C. La chaîne complète mène à une root CA reconnue
+
+D. Le site utilise le protocole FTP
+
+14. Que montre la relation en rouge dans le schéma ?
+
+A. Une CA vérifie un SAN
+
+B. Une CA signe le certificat d’une autre entité
+
+C. Un utilisateur valide un certificat
+
+D. Un serveur envoie un CSR
+
+15. Que montre la relation en vert dans le schéma ?
+
+A. Une CA fait un OCSP
+
+B. Une entité détient un certificat signé
+
+C. Une CA génère une clé privée
+
+D. Un site web signe un certificat
+
+16. Lorsqu’un utilisateur se connecte à mywebsite.com, son navigateur :
+
+A. Fait immédiatement confiance au certificat
+
+B. Refuse systématiquement les CAs intermédiaires
+
+C. Remonte la chaîne : site → CA12 → CA27 → root CA
+
+D. Demande le mot de passe de la CA
+
+17. Qu’indique le fait que CA27 soit signée par une root CA ?
+
+A. Que CA27 possède un certificat expiré
+
+B. Qu’elle est reconnue comme autorité fiable
+
+C. Qu’elle doit être supprimée
+
+D. Qu’elle ne peut signer aucun certificat
+
+18. Si un certificat ne mène à aucune root CA reconnue :
+
+A. Le navigateur l’accepte quand même
+
+B. Le navigateur l’accepte partiellement
+
+C. Le certificat est rejeté
+
+D. Le certificat est auto-signé automatiquement
+
+19. Que représente globalement une chaîne de confiance ?
+
+A. Une liste de hash indépendants
+
+B. Une suite de signatures reliant un certificat à une root CA
+
+C. Une clé privée encryptée
+
+D. Un historique OCSP
+
+20. Quel principe fondamental résume la chaîne de confiance ?
+
+A. Un certificat est fiable seulement s’il utilise RSA
+
+B. Un certificat est fiable seulement s’il est auto-signé
+
+C. Un certificat est fiable s’il mène à une autorité racine reconnue
+
+D. Un certificat est fiable uniquement s’il contient un SAN
+
+✅ RÉPONSES
+
+B
+
+C
+
+C
+
+B
+
+C
+
+B
+
+B
+
+B
+
+C
+
+B
+
+C
+
+B
+
+C
+
+B
+
+B
+
+C
+
+B
+
+C
+
+B
+
+C
