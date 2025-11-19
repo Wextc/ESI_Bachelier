@@ -5025,3 +5025,1042 @@ B
 C
 
 ---
+
+1. Dans le schéma de Lamport, le mot de passe à usage unique provient :
+
+A. D’un chiffrement asymétrique
+
+B. D’une fonction de hachage répétée
+
+C. D’un timestamp synchronisé
+
+D. D’un serveur central
+
+2. Le client génère une chaîne de valeurs en appliquant :
+
+A. AES à répétition
+
+B. H à répétition sur un secret s
+
+C. Une suite de nombres aléatoires indépendants
+
+D. Une signature RSA
+
+3. La valeur transmise au serveur lors de l’inscription est :
+
+A. Le secret s
+
+B. H(s)
+
+C. Hᵏ(s)
+
+D. H⁻¹(s)
+
+4. Quelle information le serveur stocke initialement ?
+
+A. Le mot de passe précédent
+
+B. Le secret s du client
+
+C. Le hash Hᵏ(s)
+
+D. La totalité de la chaîne
+
+5. Pour la première authentification, le client envoie :
+
+A. Hᵏ(s)
+
+B. Hᵏ⁻¹(s)
+
+C. Hᵏ⁻²(s)
+
+D. Le secret s
+
+6. Le serveur vérifie la validité de Hᵏ⁻¹(s) en contrôlant que :
+
+A. H⁻¹(Hᵏ⁻¹(s)) = Hᵏ(s)
+
+B. H(Hᵏ⁻¹(s)) = Hᵏ(s)
+
+C. H²(Hᵏ⁻¹(s)) = Hᵏ(s)
+
+D. H(s) = Hᵏ(s)
+
+7. Après une authentification réussie, le serveur :
+
+A. Supprime toute la chaîne générée
+
+B. Actualise sa valeur stockée avec le hash précédent
+
+C. Réinitialise le secret s
+
+D. Demande un nouveau k
+
+8. Le mécanisme continue jusqu'à :
+
+A. Ce que la chaîne soit épuisée
+
+B. Ce que le serveur envoie un nouveau secret
+
+C. Ce que s soit envoyé au serveur
+
+D. Ce que la synchronisation temporelle soit perdue
+
+9. Ce schéma est dit “asynchrone” car :
+
+A. Il nécessite une horloge précise
+
+B. Il requiert une synchronisation avec le serveur
+
+C. Il ne dépend d’aucun facteur temporel pour fonctionner
+
+D. Il ne fonctionne que hors ligne
+
+10. Ce système est résistant aux attaques par rejeu parce que :
+
+A. Le serveur stocke le secret s
+
+B. Le mot de passe change à chaque tentative et n’est jamais réutilisable
+
+C. Les mots de passe sont chiffrés
+
+D. La chaîne est publique
+
+11. Le serveur n'a jamais besoin de connaître :
+
+A. Le nombre k
+
+B. La fonction de hachage
+
+C. Le secret s
+
+D. Les valeurs précédentes de la chaîne
+
+12. Quelle est la seule opération effectuée par le serveur pour vérifier un mot de passe ?
+
+A. Vérifier H(pᵢ) = pᵢ₋₁
+
+B. Déchiffrer le mot de passe
+
+C. Utiliser une clé privée
+
+D. Synchroniser un timestamp
+
+13. Que se passe-t-il si une authentification échoue ?
+
+A. La chaîne entière doit être régénérée
+
+B. Le serveur bloque le compte
+
+C. Le client doit renvoyer le même mot de passe
+
+D. Rien : la chaîne continue naturellement au mot de passe suivant
+
+14. Quel élément rend ce système particulièrement léger pour le serveur ?
+
+A. Il doit stocker la clé privée du client
+
+B. Il stocke seulement un hash, jamais un secret
+
+C. Il doit recalculer toute la chaîne
+
+D. Il chiffre tous les mots de passe
+
+15. Quel critère cryptographique est essentiel pour la sécurité de Lamport OTP ?
+
+A. La réversibilité du hash
+
+B. La difficulté d’inverser la fonction de hachage (préimage)
+
+C. L’utilisation d’un IV aléatoire
+
+D. La taille du fichier transmis
+
+✅ Réponses
+
+B
+
+B
+
+C
+
+C
+
+B
+
+B
+
+B
+
+A
+
+C
+
+B
+
+C
+
+A
+
+D
+
+B
+
+B
+
+---
+
+1. L’un des principaux avantages du schéma OTP de Lamport est :
+
+A. Il nécessite une synchronisation temporelle stricte
+
+B. Il est résistant aux attaques par rejeu
+
+C. Il nécessite le stockage du secret s côté serveur
+
+D. Il génère des mots de passe aléatoires indépendants
+
+2. Une faiblesse importante du chaînage Lamport est que :
+
+A. Tous les mots de passe futurs deviennent compromis
+
+B. Un mot de passe compromis révèle tous les mots de passe précédents
+
+C. Les mots de passe ne changent jamais
+
+D. Le serveur doit connaître s
+
+3. Le schéma OTPW (alternatif à Lamport) génère ses mots de passe à partir :
+
+A. D’une chaîne de hachage unique
+
+B. D’un générateur pseudo-aléatoire et de hachages RIPEMD-160
+
+C. D’une clé publique
+
+D. D’un timestamp
+
+4. Les OTP synchrones fonctionnent en combinant :
+
+A. Une clé privée et un hash
+
+B. Une graine secrète et l’heure actuelle
+
+C. Un certificat numérique et une signature
+
+D. Un mot de passe stocké en clair et un IV
+
+5. Le serveur et le jeton synchrone peuvent calculer le même mot de passe car :
+
+A. Ils partagent le même secret (seed)
+
+B. Ils reçoivent un OTP via SMS
+
+C. Ils utilisent le même code source
+
+D. Ils vérifient un certificat X.509
+
+6. Le principal problème des OTP synchrones est :
+
+A. La difficulté de calcul
+
+B. Le risque de désynchronisation temporelle
+
+C. L’absence totale de confidentialité
+
+D. La nécessité d’un hash inversible
+
+7. Quel mécanisme permet de gérer un léger décalage horaire dans un système OTP synchrone ?
+
+A. Le recalcul de toute la chaîne
+
+B. L’envoi d’un OTP de secours
+
+C. Le mécanisme de dérive temporelle (window)
+
+D. L’inversion du hash
+
+8. Dans la pyramide de l’authentification, quel est le niveau le plus faible ?
+
+A. Les signatures cryptographiques
+
+B. Les mots de passe
+
+C. FIDO2
+
+D. Les OTP matériels
+
+9. Les OTP envoyés par SMS ou email sont vulnérables à :
+
+A. L’ingénierie sociale uniquement
+
+B. L’interception, phishing et redirection SIM
+
+C. Les attaques physiques uniquement
+
+D. Rien, ils sont totalement sûrs
+
+10. Les OTP matériels ou applicatifs sont plus sûrs que les OTP SMS car :
+
+A. Ils passent par l’opérateur
+
+B. Ils ne transitent pas par des canaux vulnérables
+
+C. Ils utilisent RSA automatiquement
+
+D. Ils nécessitent une PKI
+
+11. Les signatures cryptographiques permettent au serveur de vérifier :
+
+A. Le mot de passe de l’utilisateur
+
+B. Que l’utilisateur possède bien sa clé privée
+
+C. Que le téléphone n’est pas compromis
+
+D. Qu’un SMS a été lu
+
+12. Le standard FIDO2 est particulièrement robuste car :
+
+A. Il repose sur des mots de passe plus longs
+
+B. Il évite totalement le phishing
+
+C. Il ne nécessite pas de clé privée
+
+D. Il n’utilise aucun secret matériel
+
+13. La PKI se situe au sommet de la pyramide car elle :
+
+A. Repose sur des mots de passe stockés en clair
+
+B. Associe identités et clés publiques via des certificats
+
+C. Utilise uniquement des OTP matériels
+
+D. Interdit les signatures cryptographiques
+
+14. Dans le contrôle d’accès, le rôle du “gardien” ou “moniteur de référence” est de :
+
+A. Gérer les mots de passe
+
+B. Décider si un utilisateur a le droit d’effectuer une action
+
+C. Stocker toutes les clés privées
+
+D. Analyser les emails des utilisateurs
+
+15. Pour qu’un système de contrôle d’accès soit efficace, il faut absolument que :
+
+A. Certaines requêtes puissent contourner le gardien
+
+B. Le gardien soit contournable en urgence
+
+C. Aucune requête ne puisse contourner le gardien
+
+D. Le gardien soit remplacé par un hash
+
+✅ Réponses
+
+B
+
+B
+
+B
+
+B
+
+A
+
+B
+
+C
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+B
+
+C
+
+---
+
+1. Le principe du moindre privilège consiste à :
+
+A. Donner tous les privilèges à chaque utilisateur
+
+B. Limiter les droits aux seuls nécessaires
+
+C. Donner des droits aléatoires
+
+D. Retirer tous les privilèges aux processus
+
+2. L’un des objectifs du moindre privilège est :
+
+A. Augmenter la vitesse du système
+
+B. Éviter les erreurs involontaires
+
+C. Multiplier les permissions par défaut
+
+D. Rendre les comptes plus puissants
+
+3. La séparation des tâches vise à :
+
+A. Permettre à un seul utilisateur de tout contrôler
+
+B. Répartir les responsabilités pour éviter les abus
+
+C. Déléguer toutes les actions à un seul service
+
+D. Augmenter les privilèges automatiquement
+
+4. L’exemple typique de séparation des tâches est :
+
+A. Un développeur gère tout le serveur
+
+B. Une personne crée un paiement et la même l’approuve
+
+C. Une personne crée un paiement, une autre l’approuve
+
+D. Une seule personne fait tout pour aller plus vite
+
+5. Formaliser une politique de contrôle d’accès permet :
+
+A. De la rendre incompréhensible aux outils
+
+B. De détecter conflits et incohérences
+
+C. D’annuler les permissions automatiquement
+
+D. D’éviter totalement les attaques externes
+
+6. DAC (Discretionary Access Control) repose sur :
+
+A. Des niveaux secrets militaires
+
+B. Le propriétaire qui définit les permissions
+
+C. Le serveur qui impose toutes les permissions
+
+D. L’utilisateur qui ne peut rien modifier
+
+7. MAC (Mandatory Access Control) est typiquement utilisé dans :
+
+A. Les environnements ludiques
+
+B. Les systèmes ayant plusieurs propriétaires
+
+C. Les environnements très sécurisés avec classifications
+
+D. Les applications domestiques
+
+8. RBAC (Role-Based Access Control) attribue les permissions :
+
+A. Aux mots de passe
+
+B. Aux rôles
+
+C. Aux fichiers eux-mêmes
+
+D. Uniquement aux administrateurs
+
+9. ABAC (Attribute-Based Access Control) prend ses décisions selon :
+
+A. L'ordre alphabétique des utilisateurs
+
+B. Des attributs sur l’utilisateur, la ressource et le contexte
+
+C. La date de création du système
+
+D. L'humeur de l’administrateur
+
+10. Concevoir soi-même un système d’authentification est une mauvaise idée car :
+
+A. C’est interdit par la loi
+
+B. C’est trop simple et peu fiable
+
+C. C’est extrêmement complexe et source de failles
+
+D. Aucun framework ne l’autorise
+
+11. Les standards d’authentification permettent :
+
+A. D’éviter l’usage du réseau
+
+B. De bénéficier de mécanismes éprouvés et sûrs
+
+C. De supprimer le besoin de serveurs
+
+D. De se passer de mots de passe
+
+12. Dans un jeton d’authentification, le header contient :
+
+A. L'identifiant secret de l’utilisateur
+
+B. Le type de jeton et l’algorithme de signature
+
+C. Les permissions chiffrées
+
+D. Le mot de passe utilisateur
+
+13. Le payload d’un jeton comme un JWT contient :
+
+A. Des données confidentielles chiffrées
+
+B. Un certificat privé
+
+C. Des données non sensibles (roles, expiration, identifiant)
+
+D. Un hash du mot de passe
+
+14. La signature d’un jeton sert à :
+
+A. Chiffrer le payload
+
+B. Empêcher la lecture du jeton
+
+C. Garantir l’intégrité et l’authenticité du jeton
+
+D. Ajouter un mot de passe au jeton
+
+15. Pour transmettre un JWT de manière sécurisée, il faut :
+
+A. Le stocker dans un fichier sur le serveur
+
+B. Toujours le transmettre via TLS
+
+C. Le publier sur un site web
+
+D. Retirer la signature pour alléger le jeton
+
+✅ Réponses
+
+B
+
+B
+
+B
+
+C
+
+B
+
+B
+
+C
+
+B
+
+B
+
+C
+
+B
+
+B
+
+C
+
+C
+
+B
+
+---
+
+1. Un jeton d’authentification est composé de :
+
+A. Deux parties
+
+B. Trois parties
+
+C. Quatre parties
+
+D. Une seule partie
+
+2. Le header d’un jeton contient :
+
+A. Les données sensibles de l’utilisateur
+
+B. L’algorithme de signature et le type de jeton
+
+C. Le certificat de l’utilisateur
+
+D. La clé privée
+
+3. Le payload d’un JWT doit contenir :
+
+A. Des secrets chiffrés
+
+B. Un mot de passe hashé
+
+C. Des données non sensibles (claims)
+
+D. Une clé privée
+
+4. Les données du payload d’un JWT sont :
+
+A. Chiffrées
+
+B. Signées mais lisibles
+
+C. Inaccessibles au client
+
+D. cachées par TLS
+
+5. La signature d’un JWT sert à :
+
+A. Garantir la confidentialité
+
+B. Vérifier l’intégrité et l’authenticité
+
+C. Chiffrer le payload
+
+D. Stocker un hash de mot de passe
+
+6. Un JWT doit toujours être transmis via :
+
+A. HTTP simple
+
+B. FTP
+
+C. TLS/HTTPS
+
+D. WebSocket en clair
+
+7. Lors de l’authentification réussie, le serveur :
+
+A. Envoie la clé privée au client
+
+B. Génère et signe un JWT
+
+C. Envoie uniquement un mot de passe
+
+D. Crée un certificat X.509
+
+8. Le client stocke généralement le JWT dans :
+
+A. /etc/shadow
+
+B. La blockchain
+
+C. localStorage, cookie sécurisé ou mémoire de l’app
+
+D. Un fichier chiffré système
+
+9. À chaque requête, le JWT est envoyé via :
+
+A. Le corps HTML
+
+B. L’en-tête Authorization
+
+C. Un cookie non sécurisé
+
+D. Le DNS
+
+10. Pour valider un JWT, le serveur doit :
+
+A. Récupérer la clé privée du client
+
+B. Vérifier la signature et l’expiration
+
+C. Rechiffrer le payload
+
+D. Comparer le mot de passe
+
+11. WebAuthn repose sur :
+
+A. Des mots de passe très complexes
+
+B. Des certificats serveur uniquement
+
+C. Un authentificateur matériel ou logiciel
+
+D. L’authentification biométrique seule
+
+12. Lors de WebAuthn, le serveur envoie :
+
+A. La clé privée
+
+B. Un challenge (nonce)
+
+C. Un TOTP
+
+D. Un hash de mot de passe
+
+13. La clé privée WebAuthn est :
+
+A. Transmise au serveur puis effacée
+
+B. Stockée dans l’authentificateur local
+
+C. Envoyée en base64 au navigateur
+
+D. Située sur le serveur
+
+14. Utiliser WebAuthn implique souvent :
+
+A. Une authentification à un seul facteur
+
+B. L’utilisation d’un PIN ou biométrie côté client
+
+C. Une passphrase côté serveur
+
+D. Un mot de passe synchronisé
+
+15. L’authentificateur matériel joue le rôle de :
+
+A. Jeton physique sécurisé
+
+B. Base de données utilisateur
+
+C. Proxy réseau
+
+D. Clé de chiffrement TLS
+
+16. Lorsque l’utilisateur signe le challenge WebAuthn :
+
+A. Il envoie sa clé privée au serveur
+
+B. Il produit une signature vérifiable par la clé publique
+
+C. Il chiffre la clé publique
+
+D. Il génère un OTP
+
+17. L’absence de mot de passe dans WebAuthn permet :
+
+A. De simplifier TLS
+
+B. D’éviter le phishing
+
+C. De supprimer le besoin de signature
+
+D. D’empêcher l’usage d’un PIN
+
+18. Certains authentificateurs WebAuthn possèdent :
+
+A. Une CA interne certifiant leurs clés publiques
+
+B. Une copie du serveur
+
+C. Un moteur de rendu
+
+D. Un mot de passe administrateur
+
+19. Le rôle du challenge envoyé par le serveur est :
+
+A. Remplacer la seed OTP
+
+B. Empêcher le rejeu
+
+C. Synchroniser l’heure avec le client
+
+D. Chiffrer le header JWT
+
+20. Un JWT est considéré valide si :
+
+A. Sa signature est correcte ET il n’a pas expiré
+
+B. Son payload correspond au login
+
+C. Il contient un mot de passe
+
+D. Son header est plus long que 128 bits
+
+✅ RÉPONSES
+
+B
+
+B
+
+C
+
+B
+
+B
+
+C
+
+B
+
+C
+
+B
+
+B
+
+C
+
+B
+
+B
+
+B
+
+A
+
+B
+
+B
+
+A
+
+B
+
+A
+
+---
+
+1. FIDO2 repose sur deux éléments principaux :
+
+A. CTAP et TLS
+
+B. CTAP et WebAuthn
+
+C. JWT et OAuth
+
+D. SAML et DNSSEC
+
+2. CTAP est :
+
+A. Un protocole entre le serveur et la base de données
+
+B. Un protocole entre client et authentificateur
+
+C. Une API JS
+
+D. Un algorithme de hachage
+
+3. Dans FIDO2, les secrets locaux (PIN, biométrie) :
+
+A. Sont envoyés au serveur en clair
+
+B. Sont stockés sur un serveur OAuth
+
+C. Ne quittent jamais l’appareil
+
+D. Sont sauvegardés dans le cloud
+
+4. La “relying party” dans WebAuthn désigne :
+
+A. L’utilisateur
+
+B. L’authentificateur
+
+C. Le serveur web
+
+D. Le navigateur
+
+5. Le navigateur dans WebAuthn sert :
+
+A. D’authentificateur
+
+B. De canal intermédiaire sécurisé
+
+C. De serveur d’attestation
+
+D. De générateur OTP
+
+6. Lors de l’enregistrement WebAuthn, le serveur envoie :
+
+A. La clé privée
+
+B. Un challenge
+
+C. Une OTP TOTP
+
+D. Un mot de passe stocké
+
+7. La clé privée générée pour l’utilisateur lors de WebAuthn :
+
+A. Est envoyée au serveur
+
+B. Est stockée dans l’authentificateur et jamais transmise
+
+C. Est copiée dans le navigateur
+
+D. Est insérée dans le JWT
+
+8. L’objet d’attestation contient NOTAMMENT :
+
+A. Le mot de passe utilisateur
+
+B. Le hash du PIN
+
+C. La clé publique utilisateur + clé publique authentificateur
+
+D. La clé privée utilisateur
+
+9. La signature présente dans l’attestation est effectuée avec :
+
+A. La clé privée utilisateur
+
+B. La clé privée de l’authentificateur
+
+C. La clé publique de la RP
+D. le PIN
+
+10. Lors de l’authentification WebAuthn, l’authentificateur demande :
+
+A. Le challenge signé
+
+B. Une preuve locale (PIN, biométrie…)
+
+C. Le mot de passe du serveur
+
+D. Une clé FIDO envoyée par mail
+
+11. L’authentificateur signe :
+
+A. Le challenge du serveur
+
+B. Le mot de passe utilisateur
+
+C. La clé publique du serveur
+
+D. Son propre numéro de série
+
+12. Le serveur vérifie la signature WebAuthn avec :
+
+A. La clé privée utilisateur
+
+B. La clé publique enregistrée lors de l’inscription
+
+C. La clé publique de l’authentificateur
+
+D. Une OTP
+
+13. L’un des principaux avantages de WebAuthn est :
+
+A. Le mot de passe devient plus long
+
+B. Les secrets locaux ne sont jamais transmis
+
+C. Le serveur reçoit automatiquement les facteurs biométriques
+
+D. Le navigateur gère les clés privées
+
+14. Lors de l’enregistrement WebAuthn, le serveur doit vérifier :
+
+A. Le code PIN
+
+B. La chaîne de confiance de l’authentificateur
+
+C. Le mot de passe
+
+D. Le cookie de session
+
+15. OAuth sert principalement à :
+
+A. Authentifier directement un utilisateur
+
+B. Déléguer une autorisation à un service tiers
+
+C. Gérer des certificats X.509
+
+D. Stocker des PIN sécurisés
+
+16. Un service utilisant OAuth reçoit :
+
+A. Les identifiants de l’utilisateur
+
+B. Le mot de passe chiffré
+
+C. Un token d’accès limité
+
+D. La clé privée du compte
+
+17. L’objectif principal d’OAuth est de :
+
+A. Remplacer les mots de passe
+
+B. Déléguer l’accès à une ressource sans divulguer les identifiants
+
+C. Centraliser les bases de données
+
+D. Créer des clés FIDO2
+
+18. OAuth utilise souvent :
+
+A. SAML pour formuler des assertions
+
+B. Le protocole CTAP
+
+C. Le hachage Lamport
+
+D. Les clés RSA uniquement
+
+19. Dans le modèle OAuth, le service tiers :
+
+A. Connaît les mots de passe
+
+B. Ne voit jamais les identifiants utilisateur
+
+C. Gère l’authentification
+
+D. Stocke la biométrie
+
+20. WebAuthn protège contre le phishing car :
+
+A. Le mot de passe est chiffré côté serveur
+
+B. L’authentificateur signe un challenge lié au domaine réel
+
+C. Le PIN est envoyé au serveur
+
+D. Le navigateur bloque les pages suspectes
+
+✅ RÉPONSES
+
+B
+
+B
+
+C
+
+C
+
+B
+
+B
+
+B
+
+C
+
+B
+
+B
+
+A
+
+B
+
+B
+
+B
+
+B
+
+C
+
+B
+
+A
+
+B
+
+B
+
+---
