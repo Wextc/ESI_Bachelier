@@ -247,6 +247,169 @@ la permission de lecture vaut 4, celle d’écriture vaut 2, et celle d’exécu
 
 #### 1.7 Modifier le groupe
 
+La permission 644 est l’un des réglages les plus courants sous Linux, notamment pour les fichiers textes, les pages web, ou tout fichier qui doit être lisible par d’autres mais modifiable uniquement par son propriétaire.
+
+Pour comprendre cette valeur, il faut rappeler que chaque chiffre représente les droits accordés à une catégorie d’utilisateurs :
+
+le premier 6 concerne le propriétaire du fichier,
+
+le second 4 concerne le groupe,
+
+le troisième 4 concerne tous les autres utilisateurs.
+
+Le chiffre 6 correspond à la combinaison de la lecture (4) et de l’écriture (2).
+Il donne donc les permissions rw- : le propriétaire peut lire et modifier le fichier.
+
+Les deux autres chiffres, 4 et 4, correspondent chacun à la permission de lecture seule.
+Le groupe et les autres utilisateurs peuvent donc uniquement lire le fichier, sans pouvoir le modifier ni l’exécuter.
+
+Concrètement, une permission 644 signifie que seul le propriétaire peut modifier le fichier, tandis que tout le reste du système peut simplement le consulter. C’est une permission sûre et très utilisée, car elle protège l’intégrité du fichier tout en permettant sa lecture.
+
+drwxrwxr-x,
+
+le premier caractère (d) indique la nature de l’élément : ici, il s’agit d’un dossier (directory).
+
+d → dossier
+
+- → fichier normal
+
+l → lien symbolique
+
+etc.
+
+les neuf caractères suivants correspondent aux permissions, et ils sont divisés en trois groupes de trois :
+
+```
+
+rwx   rwx   r-x
+│     │     │
+│     │     └── permissions des "autres" (others)
+│     └──────── permissions du groupe
+└────────────── permissions du propriétaire
+
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/img/permission_cat.png)
+
+Ces trois blocs décrivent donc les droits accordés aux trois catégories d’utilisateurs de Linux :
+
+le propriétaire (user)
+
+le groupe (group)
+
+tous les autres (others)
+
+Les lettres indiquent quel type de permission est accordé :
+
+r → lecture
+
+w → écriture
+
+x → exécution / accès
+
+- → permission non accordée
+
+<b>Que signifie 777 ?</b>
+
+Le code 777 correspond à trois chiffres :
+
+7 pour le propriétaire
+
+7 pour le groupe
+
+7 pour les autres utilisateurs
+
+Or, le chiffre 7 représente la combinaison de toutes les permissions :
+
+4 = lecture (r)
+
+2 = écriture (w)
+
+1 = exécution (x)
+
+4 + 2 + 1 = 7, donc rwx.
+
+<b>Donc 777 signifie :</b>
+
+Propriétaire : rwx
+
+Groupe : rwx
+
+Autres : rwx
+
+Autrement dit :
+
+out le monde peut lire, écrire et exécuter le fichier ou le dossier.
+
+<b>Attention : 777 est très dangereux</b>
+
+777 donne à n’importe quel utilisateur du système le droit :
+
+de modifier le fichier,
+
+de l’effacer,
+
+ou de l’exécuter.
+
+On l’utilise normalement jamais sur un fichier sensible, et très rarement sur un dossier.
+
+<b>Exercice 5 — Quel nombre correspond aux permissions rwx ?</b>
+
+Les permissions :
+
+```
+
+r = 4
+
+w = 2
+
+x = 1
+
+```
+
+On additionne :
+
+```
+4 + 2 + 1 = 7
+
+```
+
+👉 rwx correspond donc au nombre 7.
+
+<b> Exercice 6 — Quel nombre correspond aux permissions r-x ?</b>
+
+Les permissions ici :
+
+r = 4
+
+- = 0
+
+x = 1
+
+On additionne :
+4 + 0 + 1 = 5
+
+👉 r-x correspond donc au nombre 5.
+
+<b>Exercice 7 — À quelles permissions correspond le nombre 3 ?</b>
+
+On décompose 3 :
+
+```
+3 = 2 (w) + 1 (x)
+
+```
+
+Donc permissions :
+
+```
+-wx
+
+```
+
+Le nombre 3 correspond aux permissions -wx.
+
 #### 1.8 Récapitulons
 
 #### 1.9 Permissions sur les dossiers
