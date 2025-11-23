@@ -123,6 +123,47 @@ Sur les serveurs Linux de l’école, il y a trois groupes pour les utilisateurs
 
 #### 1.3 Groupe d’un fichier
 
+Linux gère des groupes d’utilisateurs (comme students, profs, admin, etc.).
+
+Chaque fichier/dossier appartient à un et un seul groupe. Ces groupes sont les mêmes que ceux utilisés pour grouper les utilisateurs.
+
+Ces groupes servent à organiser les utilisateurs ensemble.
+
+Les groupes auxquels un fichier peut appartenir sont exactement ces mêmes groupes.
+
+Cela signifie que si un fichier appartient au groupe etudiants, tous les utilisateurs membres du groupe etudiants peuvent bénéficier des permissions du groupe définies pour ce fichier.
+
+Visualisez les groupes auxquels appartiennent un fichiers.
+
+```
+ls -l mon_fichier
+
+```
+
+![Texte alternatif de l'image](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/img/groups_fichiers.png)
+
+Visualisez les groupes auxquels appartiennent plusieurs fichier d'un dossier fichiers.
+
+```
+
+ls -l fichier1 fichier2 fichier3
+
+```
+
+Visualisez les groupes auxquels appartiennent tous les fichiers d’un dossier, depuis le dossier parent.
+
+```
+ ls -l nom_du_dossier
+
+```
+
+Visualisez les groupes auxquels appartiennent tous les fichiers l'intérieur d’un dossier.
+
+```
+ls -l
+
+```
+
 #### 1.4 Catégories de personnes
 
 #### 1.5 Les permissions sur un fichier
