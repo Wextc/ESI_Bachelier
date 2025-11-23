@@ -375,7 +375,7 @@ On additionne :
 
 ```
 
-👉 rwx correspond donc au nombre 7.
+rwx correspond donc au nombre 7.
 
 <b> Exercice 6 — Quel nombre correspond aux permissions r-x ?</b>
 
@@ -390,7 +390,7 @@ x = 1
 On additionne :
 4 + 0 + 1 = 5
 
-👉 r-x correspond donc au nombre 5.
+r-x correspond donc au nombre 5.
 
 <b>Exercice 7 — À quelles permissions correspond le nombre 3 ?</b>
 
