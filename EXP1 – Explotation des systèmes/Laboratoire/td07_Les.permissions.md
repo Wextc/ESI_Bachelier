@@ -1,4 +1,4 @@
-### 1 Permissions et groupes
+# 1 Permissions et groupes
 
 Linux est un système multi-utilisateur : plusieurs personnes (ou processus) peuvent utiliser le même système en même temps.
 
@@ -16,7 +16,7 @@ le groupe,
 
 les autres (tout le monde).
 
-#### 1.1 Propriétaire d’un fichier/dossier
+## 1.1 Propriétaire d’un fichier/dossier
 
 Chaque fichier ou dossier appartient à un utilisateur du système.
 
@@ -53,7 +53,7 @@ Ainsi, être propriétaire ne garantit pas automatiquement tous les droits :
 
 ce sont les permissions définies sur le fichier qui déterminent ce qu’il peut faire.
 
-#### 1.2 Les groupes d’utilisateurs
+## 1.2 Les groupes d’utilisateurs
 
 Linux est un système multi-utilisateur. Pour gérer efficacement les permissions, il utilise un mécanisme appelé groupes.
 
