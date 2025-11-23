@@ -94,7 +94,7 @@ La commande groups renseigne sur les groupes auxquels appartient un utilisateur.
 
 - groups : affiche les groupes de l’utilisateur qui exécute la commande.
 
-- groups <login> : affiche les groupes de l’utilisateur donné.
+- groups loginDeLaPersonne : affiche les groupes de l’utilisateur donné.
 
 ```
 
