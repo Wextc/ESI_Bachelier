@@ -26,16 +26,15 @@ Le propriétaire dispose généralement du contrôle principal sur les permissio
 
 Pour afficher le propriétaire d’un fichier :
 
-´´´
+```
 
 ls -l monfichier
 
-´´´
+```
 
 Exemple de sortie :
 
-´´´
-
+```
 -rw-r--r-- 1 alice etudiants 1200 Jan 20 10:00 rapport.txt
 
 ```
@@ -57,4 +56,3 @@ Exemple de sortie :
 #### 1.8 Récapitulons
 
 #### 1.9 Permissions sur les dossiers
-```
