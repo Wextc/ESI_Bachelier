@@ -90,6 +90,37 @@ groups nom_utilisateur
 
 ```
 
+La commande groups renseigne sur les groupes auxquels appartient un utilisateur.
+
+- groups : affiche les groupes de l’utilisateur qui exécute la commande.
+
+- groups <login> : affiche les groupes de l’utilisateur donné.
+
+```
+
+mcd@xray:~> groups
+
+users enseignants
+
+mcd@xray:~> groups g64093
+
+g64093 : users etudiants
+
+```
+
+<b>Qui installe et gère les groupes?</b>
+
+L’administrateur est la personne qui installe un système d’exploitation et le gère au quotidien, y compris l’installation de logiciels, la gestion des comptes utilisateurs et des groupes, les sauvegardes, la gestion des pannes… Sur Linux, on dit aussi le « super utilisateur », le « compte root » ou le «
+root».
+
+Sur les serveurs Linux de l’école, il y a trois groupes pour les utilisateurs :
+
+- users : tous les utilisateurs sont dans ce groupe.
+
+- etudiants : tous les étudiants sont dans ce groupe.
+
+- enseignants : tous les professeurs sont dans ce groupe.
+
 #### 1.3 Groupe d’un fichier
 
 #### 1.4 Catégories de personnes
