@@ -140,7 +140,7 @@ ls -l mon_fichier
 
 ```
 
-![Texte alternatif de l'image](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/img/groups_fichiers.png)
+![permission_fichier_grp](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/img/groups_fichiers.png)
 
 Visualisez les groupes auxquels appartiennent plusieurs fichier d'un dossier fichiers.
 
@@ -166,9 +166,84 @@ ls -l
 
 #### 1.4 Catégories de personnes
 
+Sous Linux, chaque fichier ou dossier appartient toujours à deux entités : un propriétaire, qui est l’utilisateur à qui il appartient, et un groupe, c’est-à-dire un ensemble d’utilisateurs. Lorsqu’on attribue des permissions à un fichier ou à un dossier, Linux ne traite pas tous les utilisateurs de la même manière. Il distingue en réalité trois catégories de personnes, et chacune peut recevoir des droits différents.
+
+La première catégorie est celle du propriétaire. C’est l’utilisateur qui possède le fichier. Il dispose généralement de plus de permissions que les autres et peut même choisir de modifier les droits qui lui sont accordés. Cependant, il n’a pas automatiquement tous les droits : ce sont les permissions définies sur le fichier qui déterminent ce qu’il peut faire.
+
+La deuxième catégorie rassemble les utilisateurs du groupe associé au fichier. Tous les membres de ce groupe héritent des permissions définies pour le groupe. Il est important de noter que le propriétaire n’est pas inclus dans cette catégorie, même s’il appartient lui-même au groupe : il est toujours traité séparément dans la première catégorie. Par exemple, si un fichier appartient au groupe etudiants, tous les utilisateurs faisant partie de ce groupe auront les droits spécifiés pour celui-ci.
+
+Enfin, la troisième catégorie regroupe tous les autres utilisateurs du système, c’est-à-dire ceux qui ne sont ni le propriétaire ni membres du groupe du fichier. Ils disposent en général des permissions les plus limitées, car ce sont les utilisateurs les plus « éloignés » du fichier du point de vue de la sécurité.
+
+![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/img/categorie_de_personnes.png)
+
+<b>Le propriétaire (user)</b>
+
+C’est la personne à qui appartient le fichier.
+
+Il ne reçoit pas automatiquement tous les droits :
+
+ce sont les permissions définies pour lui qui déterminent ce qu’il peut faire.
+
+Exemple : le propriétaire peut décider de se retirer lui-même les droits d’écriture pour éviter une erreur.
+
+✔️ Le propriétaire peut avoir tous les droits, mais seulement si on les lui donne.
+
+<b>Le groupe (group)</b>
+
+Tous les utilisateurs qui appartiennent au groupe du fichier.
+
+Ils ont uniquement les droits que l’on attribue au groupe.
+
+Souvent utilisé pour partager des fichiers dans une équipe (ex. groupe projet1).
+
+✔️ Le groupe a les droits qu’on lui accorde explicitement.
+
+<b>Les autres (others)</b>
+
+Tous les utilisateurs restants du système.
+
+Ils ont en général le minimum de droits (souvent aucun).
+
+✔️ Ce sont les droits les plus restrictifs pour protéger le fichier du reste du système.
+
 #### 1.5 Les permissions sur un fichier
 
+Sous Linux, chaque fichier peut être associé à trois types de permissions : la lecture, l’écriture et l’exécution. La permission de lecture, représentée par la lettre r (pour read), permet à un utilisateur de consulter le contenu d’un fichier. Avec ce droit, il peut par exemple utiliser des commandes comme cat ou less pour afficher son contenu. La permission d’écriture, notée w (write), autorise l’utilisateur à modifier le fichier. Il peut ainsi l’éditer avec un éditeur comme nano et en changer le contenu. Enfin, la permission d’exécution, symbolisée par x (execute), concerne les fichiers exécutables, c’est-à-dire les programmes ou les scripts que le système peut lancer directement. Par exemple, la commande nano correspond elle-même à un fichier exécutable présent quelque part sur le disque.
+
+Ces permissions apparaissent toujours dans le même ordre — r, w, x — et lorsqu’une permission n’est pas accordée, elle est remplacée par un tiret (-). En observant les permissions du fichier welcome dans un exemple précédent, on peut les interpréter ainsi : pour le propriétaire, identifié ici comme g12345, les permissions sont rw- ; cela signifie qu’il peut lire le fichier et en modifier le contenu, mais qu’il ne peut pas l’exécuter. Les utilisateurs appartenant au groupe users disposent exactement des mêmes permissions. En revanche, les autres utilisateurs du système, c’est-à-dire ceux qui ne sont ni le propriétaire ni membres du groupe associé, ne disposent que du droit de lecture : ils peuvent consulter le fichier, mais ne peuvent ni le modifier ni l’exécuter.
+
+À noter enfin que le tout premier caractère affiché avant les permissions n’en fait pas partie. Il sert simplement à indiquer la nature de l’élément : un d signifie qu’il s’agit d’un dossier, alors qu’un tiret indique qu’il s’agit d’un fichier ordinaire.
+
+![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/img/categorie_de_personnes.png)
+
+Vérifier que le fichier qui contient nano est bien exécutable par vous. Pouvez-vous le
+modifier ?
+
+```
+ls -l $(which nano)
+
+```
+
+On a :
+
+```
+-rwxr-xr-x 1 root root 234000 Jan 12 10:00 /usr/bin/nano
+
+```
+
 #### 1.6 Modifier les permissions
+
+Nous savons maintenant qu’un fichier possède un propriétaire et un groupe, et que chacun de ces ensembles d’utilisateurs peut recevoir des permissions différentes. Nous savons également lire et interpréter les permissions affichées par Linux. La question suivante est donc logique : comment peut-on modifier ces permissions ?
+
+Pour cela, Linux met à disposition la commande chmod, qui permet de changer les autorisations d’un fichier ou d’un dossier. Son utilisation générale est la suivante :
+chmod permissions fichier.
+
+Il existe deux manières de préciser ces permissions : en utilisant des nombres ou en utilisant des lettres. La méthode numérique est idéale lorsque l’on souhaite définir toutes les permissions d’un coup, car elle impose un ensemble complet et sans ambiguïté. À l’inverse, la méthode alphabétique est plus pratique lorsqu’on veut seulement ajouter ou retirer quelques droits sans modifier les autres.
+
+Lorsque l’on choisit la méthode par nombres, les permissions sont exprimées en octal. Chaque type de permission correspond alors à une valeur précise :
+la permission de lecture vaut 4, celle d’écriture vaut 2, et celle d’exécution vaut 1. Pour déterminer les permissions finales, il suffit d’additionner ces valeurs. Par exemple, une permission de lecture et d’écriture correspond à la valeur 6 (4 + 2), tandis qu’une permission complète (lecture, écriture et exécution) correspond à 7 (4 + 2 + 1). Ce système permet donc de représenter chaque ensemble de permissions par un simple chiffre, et d’obtenir un code final à trois chiffres : un pour le propriétaire, un pour le groupe et un pour les autres utilisateurs.
+
+![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/img/permission_en_nbr.png)
 
 #### 1.7 Modifier le groupe
 
