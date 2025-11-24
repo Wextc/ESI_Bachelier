@@ -594,3 +594,60 @@ groupe (etudiants) : rw- → lecture + écriture pour tous les étudiants
 autres : --- → aucun accès (les enseignants ne peuvent ni lire ni écrire)
 
 #### 1.9 Permissions sur les dossiers
+
+Les permissions appliquées aux dossiers fonctionnent presque comme celles utilisées pour les fichiers, mais leur signification change, car un dossier n’est pas un fichier ordinaire. En réalité, un dossier est simplement un fichier spécial qui contient la liste de son contenu : les noms des fichiers et des sous-dossiers qu’il renferme.
+
+À partir de là, les droits r, w et x prennent un sens différent.
+
+<b> r — droit de lecture </b>
+Avoir le droit r sur un dossier signifie que l’on peut voir la liste de son contenu.
+Autrement dit, on a le droit de savoir quels fichiers et dossiers il contient.
+Par exemple, si le dossier s’appelle td9, on pourra exécuter :
+ls td9
+
+et obtenir la liste des fichiers qu’il contient.
+
+<b> x — droit d’exécution (= ouverture du dossier)</b>
+Pour un fichier, le droit x signifie « exécuter ».
+Pour un dossier, x veut dire ouvrir ou entrer dans le dossier.
+Avec ce droit, on peut :
+
+se placer à l’intérieur avec
+cd td9
+
+accéder à un fichier qu’il contient avec
+cat td9/gossip
+
+Le droit x permet donc de traverser le dossier dans un chemin, même si l’on ne peut pas en afficher la liste.
+
+<b>w — droit d’écriture</b>
+
+Le droit w donne la possibilité de modifier le contenu du dossier.
+Cela veut dire :
+
+créer un fichier dans ce dossier → touch nouveau
+
+- supprimer un fichier → rm ancien
+
+- renommer ou déplacer un fichier vers ce dossier
+
+Mais en pratique, pour utiliser ce droit correctement, il faut souvent combiner w et x, car entrer dans le dossier ou l’utiliser dans un chemin nécessite aussi le droit x.
+
+<b> Une incompréhension très fréquente </b>
+
+Beaucoup d’étudiants croient qu’il faut le droit d’écriture sur le fichier pour pouvoir le supprimer.
+C’est faux.
+
+Pour effacer un fichier, il faut avoir le droit d’écriture sur le DOSSIER qui contient ce fichier, car supprimer un fichier revient à modifier la liste du contenu du dossier.
+
+C’est ce point qui pose le plus de problèmes :
+
+effacer un fichier → on modifie le dossier, pas le fichier lui-même.
+
+/!\ En résumé, le dossier est comme un répertoire de noms, et les permissions agissent sur cette liste.
+
+- r permet de lire la liste,
+
+- x permet d’entrer et traverser,
+
+- w permet d’ajouter ou retirer des noms de cette liste.
