@@ -412,4 +412,175 @@ Le nombre 3 correspond aux permissions -wx.
 
 #### 1.8 Récapitulons
 
+Supposons que vous avez un fichier sur linux1 ou linux2 qui ne doit être lu que par
+vous-même et les enseignants (mais pas les autres étudiants).
+
+Comment donner des droits différents aux enseignants et aux étudiants ? La seule solution
+passe par une modification du groupe du fichier. S’il appartient au groupe etudiants par
+exemple et plus au groupe users , les permissions de groupe s’appliqueront aux étudiants
+et les permissions des autres concerneront les enseignants.
+
+<b>Exercice 13 – Fichier examen</b>
+
+1. Créer le fichier vide
+
+```
+touch examen
+
+```
+
+touch crée un fichier vide s’il n’existe pas encore.
+
+Tu te retrouves avec un fichier nommé examen dans le répertoire courant.
+
+<b>2. Changer le groupe du fichier</b>
+
+```
+chgrp etudiants examen
+
+```
+
+chgrp = change group.
+
+Ici on met le groupe du fichier examen à etudiants.
+
+Il faut bien sûr que le groupe etudiants existe déjà et que tu aies le droit de changer le groupe.
+
+<b>3. Vérifier avec ls -l</b>
+
+```
+ls -l examen
+
+```
+
+Tu obtiens quelque chose du genre :
+
+```
+-rw-r--r-- 1 ton_login etudiants 0 date examen
+
+```
+
+La 1ʳᵉ colonne : les permissions (-rw-r--r-- pour l’instant, par exemple).
+
+La 3ᵉ colonne : le propriétaire.
+
+La 4ᵉ colonne : le groupe, ici etudiants.
+
+La dernière colonne : le nom du fichier examen.
+
+<b>4. Changer les permissions en 604</b>
+
+```
+chmod 604 examen
+
+```
+
+Décodage de 604 :
+
+6 pour le propriétaire (user) → 4 + 2 = r + w → rw-
+
+0 pour le groupe → aucune permission → ---
+
+4 pour les autres → lecture seule → r--
+
+Donc, au final, les droits sont :
+
+```
+rw- --- r--
+
+```
+
+propriétaire : peut lire et écrire
+
+groupe etudiants : aucun droit
+
+autres : peuvent lire seulement
+
+<b>5. Vérifier le résultat final</b>
+
+```
+ls -l examen
+
+```
+
+Tu devrais voir :
+
+```
+-rw----r-- 1 ton_login etudiants 0 date examen
+
+```
+
+Ce qui correspond bien à 604.
+
+<b>Exercice 14 – Fichier gossip</b>
+
+<b>Objectif :</b>
+
+Un fichier pour « partager des rumeurs » entre élèves :
+
+tous les étudiants doivent pouvoir lire et modifier le fichier ;
+
+les enseignants ne doivent ni lire ni écrire dedans.
+
+On suppose que :
+
+les élèves sont dans le groupe etudiants,
+
+les enseignants ne sont pas dans ce groupe (ou sont dans un autre groupe, par exemple enseignants),
+
+et qu’on s’appuie sur les permissions classiques user / group / others.
+
+<b>1. Créer le fichier</b>
+
+```
+    touch gossip
+
+```
+
+<b>2. Mettre le groupe etudiants sur le fichier</b>
+
+```
+    chgrp etudiants gossip
+
+```
+
+Maintenant, le fichier appartient au groupe des étudiants.
+
+<b>3. Régler les permissions</b>
+
+On veut :
+
+propriétaire : OK pour lire/écrire (ce sera probablement un étudiant ou l’admin),
+
+groupe etudiants : lire et écrire (pour que tous les étudiants puissent partager),
+
+autres (dont les enseignants, s’ils ne sont pas dans etudiants) : aucun droit.
+
+On choisit donc les permissions :
+
+propriétaire : rw- → 6
+
+groupe : rw- → 6
+
+autres : --- → 0
+
+Soit au total : 660
+
+chmod 660 gossip
+
+4. Vérifier
+   ls -l gossip
+
+Tu devrais voir :
+
+-rw-rw---- 1 ton_login etudiants 0 date gossip
+
+Ce qui signifie :
+
+propriétaire : rw- → lecture + écriture
+
+groupe (etudiants) : rw- → lecture + écriture pour tous les étudiants
+
+autres : --- → aucun accès (les enseignants ne peuvent ni lire ni écrire)
+
 #### 1.9 Permissions sur les dossiers
