@@ -566,14 +566,24 @@ autres : --- → 0
 
 Soit au total : 660
 
+```
 chmod 660 gossip
 
-4. Vérifier
-   ls -l gossip
+```
+
+<b> 4. Vérifier </b>
+
+```
+ls -l gossip
+
+```
 
 Tu devrais voir :
 
+```
 -rw-rw---- 1 ton_login etudiants 0 date gossip
+
+```
 
 Ce qui signifie :
 
