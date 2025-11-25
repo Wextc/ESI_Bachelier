@@ -97,6 +97,67 @@ A n=20 k=3 = 20 . 19 . 18 = 6840
 
 ```
 
-Il faut remplir 6 840 bulletins différents pour être certain de gagner le tiercé dans l’ordre.
+<b> Il faut remplir 6 840 bulletins différents pour être certain de gagner le tiercé dans l’ordre.</b>
+
+---
+
+### Exercice 4.4
+
+<b>Type de problème :</b>
+
+- C’est un arrangement complet (tous les objets sont utilisés).
+
+<b>Interprétations :</b>
+
+Chaque personne reçoit exactement 1 chapeau - Aucun chapeau n’est donné deux fois → pas de répétition.
+
+L’ordre compte parce que -> donner le chapeau A à Paul et B à Marie est différent de A à Marie et B à Paul.
+
+Pour distribuer :
+
+le 1ᵉ chapeau : 5 choix
+
+le 2ᵉ : 4 choix
+
+le 3ᵉ : 3 choix
+
+le 4ᵉ : 2 choix
+
+le 5ᵉ : 1 choix
+
+Donc :
+
+```
+5! = 5 . 4 . 3 . 2 . 1 = 120
+
+```
+
+<b>Il existe 120 façons de distribuer 5 chapeaux différents à 5 personnes.</b>
+
+---
+
+### Exercice 4.5
+
+<b>Type de problème :</b>
+
+- Donc une arête est un choix de 2 sommets parmi 15,
+
+  sans répétition,
+
+  l’ordre n’a aucune importance.
+
+<b>Interprétations :</b>
+
+- Un graphe d’ordre 15 possède 15 sommets. On cherche le nombre maximal d’arêtes possible, donc le graphe est complet.
+
+  Dans ce genre de graphe, chaque sommet est connecté à tous les autres.
+
+  Donc, une arête correspond à un couple de sommets distincts, mais dans n’importe quel ordre (car ce n’est pas orienté).
+
+  Ici, la manière dont on relie les sommets (ordres) n'est pas ordonnée, ainsi nous pouvons commencer par le sommet(ordre) de notre choix.
+
+Nous avons une Combinaison sans répétition où n= 15 et k=2
+
+<b> Un graphe d’ordre 15 peut contenir au maximum 105 arêtes. </b>
 
 ---
