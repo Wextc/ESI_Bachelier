@@ -296,6 +296,6 @@ Pour chaque position nous avons 10 possibilités. Les chiffres vont de 0 à 9.
 Donc, le résultat est
 
 ```
-10 . 10 . 10 . 10 = $$10^4$$
+10 . 10 . 10 . 10 = 10^4
 
 ```
