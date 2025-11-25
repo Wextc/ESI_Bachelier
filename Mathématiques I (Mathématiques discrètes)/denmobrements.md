@@ -64,18 +64,18 @@ La Réponse est
 
 ```
 
-Donc, il existe 8 145 060 façons différentes de remplir une grille de lotto (6 numéros parmi 45).
+<b> Donc, il existe 8 145 060 façons différentes de remplir une grille de lotto (6 numéros parmi 45). </b>
 
 ---
 
 ### Exercice 4.3
 
-Type de problème:
+<b> Type de problème: </b>
 
 - Arrangement sans répétition
   (ordre important, objets tous différents, aucun doublon possible)
 
-Interprétation:
+<b> Interprétation: </b>
 
 - Tu dois choisir 3 chevaux parmi 20, et un cheval ne peut pas prendre deux places. L'ordre de selection des chevaux compte.
 
@@ -103,11 +103,11 @@ A n=20 k=3 = 20 . 19 . 18 = 6840
 
 ### Exercice 4.4
 
-<b>Type de problème :</b>
+<b> Type de problème : </b>
 
 - C’est un arrangement complet (tous les objets sont utilisés).
 
-<b>Interprétations :</b>
+<b> Interprétations : </b>
 
 Chaque personne reçoit exactement 1 chapeau - Aucun chapeau n’est donné deux fois → pas de répétition.
 
@@ -132,13 +132,13 @@ Donc :
 
 ```
 
-<b>Il existe 120 façons de distribuer 5 chapeaux différents à 5 personnes.</b>
+<b> Il existe 120 façons de distribuer 5 chapeaux différents à 5 personnes. </b>
 
 ---
 
 ### Exercice 4.5
 
-<b>Type de problème :</b>
+<b> Type de problème : </b>
 
 - Donc une arête est un choix de 2 sommets parmi 15,
 
@@ -146,7 +146,7 @@ Donc :
 
   l’ordre n’a aucune importance.
 
-<b>Interprétations :</b>
+<b> Interprétations : </b>
 
 - Un graphe d’ordre 15 possède 15 sommets. On cherche le nombre maximal d’arêtes possible, donc le graphe est complet.
 
@@ -161,3 +161,5 @@ Nous avons une Combinaison sans répétition où n= 15 et k=2
 <b> Un graphe d’ordre 15 peut contenir au maximum 105 arêtes. </b>
 
 ---
+
+### Exercice 4.6
