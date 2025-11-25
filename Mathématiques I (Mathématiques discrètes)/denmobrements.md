@@ -163,3 +163,5 @@ Nous avons une Combinaison sans répétition où n= 15 et k=2
 ---
 
 ### Exercice 4.6
+
+<b> Type de
