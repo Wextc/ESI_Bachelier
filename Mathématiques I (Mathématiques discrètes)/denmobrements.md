@@ -323,3 +323,182 @@ Donc le résultat est
 ```
 
 <b>Combien commencent par 12 ?</b>
+
+<b> Type de problèmes : </b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+1 2 . . => La 1ère et la 2ème positions sont exclues donc il reste car occupées respectivement par 1 et 2.
+
+<b>Réponse : </b>
+
+```
+10 . 10 = 10²
+
+```
+
+<b>Combien se terminent par 3 ou par 6?</b>
+
+<b> Type de problèmes : </b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+. . . 3 ou . . . 6 => Il faut calculer toutes les possibilités pour les codes qui se terminent par 3 et il faut faut la même opération pour les codes qui se terminent par 6.
+
+<b>Réponse : </b>
+
+Pour les codes qui se terminent par 3, obtenons :
+
+```
+10 . 10 . 10 = 10³
+
+```
+
+Pour les codes qui se terminent par 6, obtenons :
+
+```
+10 . 10 . 10 = 10³
+
+```
+
+Le résultat finale est égale à la somme des possibilités calculées ci-dessus.
+
+```
+10³ + 10³ = 2000
+
+```
+
+<b>Combien ne se terminent ni par 3, ni par 6?</b>
+
+<b> Type de problèmes : </b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+. . . X -> 3 et . . . X -> 6 => On calcule toutes les possibilités pour la 1ère, 2ème et 3ème positions qui sont égales à 10, mais pour la 4ème position on retire des possibilités les chifres 3 et 6.
+
+<b>Réponse : </b>
+
+```
+10 . 10 . 8 = 8 . 10²
+
+```
+
+<b>Combien commencent par 3 et finissent par 6?</b>
+
+<b> Type de problèmes : </b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+3 . . 6 => La 1ère et la 4ème sont bloquées respectivement par 3 et 6. Mais les possiblités sont pour la 2ème place et la 3ème place sont toutes les deux 10.
+
+<b>Réponse : </b>
+
+```
+10 . 10 = 20
+
+```
+
+<b>Combien commencent par 3 ou finissent par 6?</b>
+
+<b> Type de problèmes : </b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+<b>Réponse : </b>
+
+```
+10 . 10 . 8 = 8 . 10²
+
+```
+
+<b>Combien commencent par 3 et finissent par 6?</b>
+
+<b> Type de problèmes : </b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+3 . . . Si on considère l'enssemble A constitué par les codes qui commencent par 3 seulement.
+
+A noter que cette ensemble comprend les codes qui se terminent par 6.
+
+A = 10³
+
+. . . 6 Si on considère l'enssemble B constitué par les codes qui finissent par 6 seulement.
+
+A noter que cette ensemble comprend les codes qui se comment par 3.
+
+B = 10³
+
+Dans le chapitre consacré aux ensembles, nous avons vu que pour obtenir le OU exclusif, il faut soustraire de la somme des deux ensembles l’ensemble correspondant à leur intersection.
+
+Ici l'intersection correspond aux code qui commencent par 3 et se terminent par 6, calculé plus haut et qui vaut 10².
+
+<b>Réponse : </b>
+
+```
+|A| + |B| - |A ∩ B|
+
+10³ + 10³ - 10² = 1000 + 1000 - 100 = 2900
+
+```
+
+<b>Combien contiennent la séquence « 42 »?</b>
+
+<b> Type de problèmes : </b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+### Comptage des codes contenant la séquence "42"
+
+Pour qu’un code PIN de 4 chiffres contienne la séquence `42`, celle-ci peut apparaître dans trois positions :
+
+- **Positions 1–2** : `42xy`
+- **Positions 2–3** : `x42y`
+- **Positions 3–4** : `xy42`
+
+On applique alors le principe d’inclusion–exclusion.
+
+#### Cas individuels
+
+- **A :** séquence `42` en positions 1–2 → `42xy`  
+  Nombre de codes : `10 × 10 = 100`
+
+- **B :** séquence `42` en positions 2–3 → `x42y`  
+  Nombre de codes : `10 × 10 = 100`
+
+- **C :** séquence `42` en positions 3–4 → `xy42`  
+  Nombre de codes : `10 × 10 = 100`
+
+#### Intersections
+
+- **A ∩ B :** impossible  
+  (Le chiffre en position 2 devrait être à la fois `2` et `4`) → `0`
+
+- **B ∩ C :** impossible  
+  (Le chiffre en position 3 devrait être à la fois `2` et `4`) → `0`
+
+- **A ∩ C :** possible seulement pour un code  
+  `4242` → `1`
+
+<b>Réponse : </b>
+
+```
+|A| + |B| - |A ∩ B|
+
+100 + 100 + 100 − 0 − 0 − 1 = 299
+
+```
