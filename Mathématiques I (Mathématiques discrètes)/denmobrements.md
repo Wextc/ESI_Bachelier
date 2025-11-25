@@ -164,4 +164,138 @@ Nous avons une Combinaison sans répétition où n= 15 et k=2
 
 ### Exercice 4.6
 
-<b> Type de
+<b> Type de problème </b>
+
+Dans les cas nous avons une combinaison sans répétition et l'ordre ne compte.
+
+<b> Interprétations : </b>
+
+1. Former une équipe de 10 personnes parmi 20
+
+Il y a :
+
+12 garçons
+
+8 filles
+
+total = 20 personnes
+
+Une équipe de 10 personnes est un ensemble :
+
+l’ordre ne compte pas (une équipe n’a pas d’ordre)
+
+pas de répétition (une personne ne peut pas être choisie deux fois)
+
+2. Former une équipe de 10 personnes avec 5 garçons et 5 filles
+
+Ici, on impose :
+
+choisir 5 garçons parmi 12
+
+choisir 5 filles parmi 8
+
+Les deux choix sont indépendants, donc on multiplie.
+
+Les deux sont des combinaisons sans répétition, car :
+
+on choisit un ensemble
+
+l’ordre ne compte pas
+
+pas de répétition
+
+Réponse :
+
+```
+# Pour le cas 1:
+
+C où n=20 et k=10
+
+
+# Pour le cas 2:
+
+(C où n=12 et k=5)* (C où n=8 et k=5)
+
+
+```
+
+<b>Dans le premier cas nous pouvons créer 184 756 équipes de 10 personnes possible. Dans le second cas, nous avons 44 352 équipes possibles constituées de 5 garçons et de 5 filles.</b>
+
+Remarque ici nous multiplions nous voulons des équipes constituer de 5 garçon ET 5 filles. Si nous voulions des équipes constituer de garçon OU de filles il aurait fallut additions.
+
+```
+Example:
+
+(C où n=12 et k=5) + (C où n=8 et k=5)
+
+```
+
+---
+
+### Exercice 4.7
+
+<b> Type de problème </b>
+
+C’est un cas de produit avec répétitions possibles.
+
+<b> Interprétations : </b>
+
+On veut compter toutes les possibilités, donc :
+
+l’ordre compte (changer l’ordre donne une plaque différente)
+
+répétition autorisée (ex : 442 peut exister)
+
+indépendance entre cases
+
+- C’est un cas de produit avec répétitions possibles.
+- On utilise le principe fondamental du dénombrement.
+
+<b> Nombre de possibilités pour chaque position</b>
+
+1 chiffre – 3 lettres – 3 chiffres
+
+C−LLL−CCC
+
+- 1er caractère : un chiffre
+
+  10 possibilités (0–9)
+
+- 2e, 3e, 4e caractères : des lettres
+
+  26 possibilités chacune (A–Z)
+
+- 5e, 6e, 7e caractères : des chiffres
+
+  10 possibilités chacune (0–9)
+
+Calcul total:
+
+```
+10×26×26×26×10×10×10 = 17576×10000 = 175760000
+
+```
+
+<b>Il existe 175 760 000 plaques d’immatriculation possibles.</b>
+
+---
+
+### Exercice 4.8
+
+1
+<b>Type de problèmes</b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+Pour chaque position nous avons 10 possibilités. Les chiffres vont de 0 à 9.
+
+. . . . . => Pour chaque point, il y a 10 possibilités.
+
+Donc, le résultat est
+
+```
+10 . 10 . 10 . 10 = 10^4
+
+```
