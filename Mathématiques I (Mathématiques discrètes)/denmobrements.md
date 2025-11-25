@@ -54,26 +54,49 @@ la grille 1, 2, 3, 4, 5, 6 est la même que 6, 5, 4, 3, 2, 1.
 
 Au lotto, ce qui compte c’est l’ensemble des 6 numéros, pas dans quel ordre tu les as cochés.
 
-Donc :
-
-pas de répétition
-
-ordre non important
-
-C’est exactement ce qu’on appelle une :
-
-Combinaison sans répétition ou n = 45 et k=6
-
-Formule => C ac n=45 et k=6
+Formule => C avec n=45 et k=6
 
 La Réponse est
 
 ```
- (A n=45 et k=6) / 6! = (45 . 44 . 43 . 42 . 41 . 40) / (6 . 5 . 4 . 3 . 2 . 1) = 8 145 060
+ C n=45 k=6 = (A n=45 et k=6) / 6! = (45 . 44 . 43 . 42 . 41 . 40) / (6 . 5 . 4 . 3 . 2 . 1) = 8 145 060
 
 
 ```
 
 Donc, il existe 8 145 060 façons différentes de remplir une grille de lotto (6 numéros parmi 45).
+
+---
+
+### Exercice 4.3
+
+Type de problème:
+
+- Arrangement sans répétition
+  (ordre important, objets tous différents, aucun doublon possible)
+
+Interprétation:
+
+- Tu dois choisir 3 chevaux parmi 20, et un cheval ne peut pas prendre deux places. L'ordre de selection des chevaux compte.
+
+Comment compter ?
+
+Tu choisis :
+
+le 1ᵉ cheval : 20 possibilités
+
+le 2ᵉ : 19 possibilités
+
+le 3ᵉ : 18 possibilités
+
+Donc :
+
+```
+
+A n=20 k=3 = 20 . 19 . 18 = 6840
+
+```
+
+Il faut remplir 6 840 bulletins différents pour être certain de gagner le tiercé dans l’ordre.
 
 ---
