@@ -282,8 +282,9 @@ Calcul total:
 
 ### Exercice 4.8
 
-1
-<b>Type de problèmes</b>
+<b>Combien y en a-t-il de différents ?</b>
+
+<b> Type de problèmes : </b>
 
 Arrangement avec répétition (ordre important, répétitions autorisées)
 
@@ -293,9 +294,32 @@ Pour chaque position nous avons 10 possibilités. Les chiffres vont de 0 à 9.
 
 . . . . . => Pour chaque point, il y a 10 possibilités.
 
+<b>Réponse : </b>
+
 Donc, le résultat est
 
 ```
-10 . 10 . 10 . 10 = 10^4
+10 . 10 . 10 . 10 = 10⁴
 
 ```
+
+<b>Combien se terminent par 3 ?</b>
+
+<b> Type de problèmes : </b>
+
+Arrangement avec répétition (ordre important, répétitions autorisées)
+
+<b>Interprétation : </b>
+
+. . . 3 => Pour chaque point, il y a 10 possibilités mais la dernière position est occupé par le 3 (chiffre donné).
+
+<b>Réponse : </b>
+
+Donc le résultat est
+
+```
+10 . 10 . 10  = 10³
+
+```
+
+<b>Combien commencent par 12 ?</b>
