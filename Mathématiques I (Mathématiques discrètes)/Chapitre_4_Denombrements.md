@@ -794,3 +794,67 @@ Donc les trois cas sont disjoints.
 ```
 
 ---
+
+### Exercice 4.10
+
+<b>Type de problème :</b>
+
+- Permutation sans répétition de 5 lettres.
+
+<b>Interprétations:</b>
+
+On cherche tous les ordres possibles des 5 lettres distinctes.
+
+Pour Paris:
+
+```
+5! = 5 . 4 .3 . 2 . 1 = 120
+
+```
+
+Pour Berne:
+
+Ici comme nous avons 2 E, il faut retirer les répitions.
+
+2E => 2!
+
+<b>Réponses:</b>
+
+```
+5! / 2! = 120 / 2 = 60
+
+```
+
+Pour Berne:
+
+Ici comme nous avons 2 R et 2A, il faut retirer les répitions.
+
+2R => 2!
+
+2A => 2!
+
+<b>Réponses:</b>
+
+```
+5! / 2! . 2! = 120 / 2 . 2 = 30
+
+```
+
+Pour Berne:
+
+Ici comme nous avons 2 R et 2A, il faut retirer les répitions.
+
+2R => 2!
+
+2A => 2!
+
+<b>Réponses:</b>
+
+```
+5! / 3! = 120 / 3! = 20
+
+```
+
+---
+
+### Exercice 4.11
