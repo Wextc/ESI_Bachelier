@@ -462,7 +462,7 @@ Arrangement avec répétition (ordre important, répétitions autorisées)
 
 <b>Interprétation : </b>
 
-### Comptage des codes contenant la séquence "42"
+<b>Comptage des codes contenant la séquence "42"</b>
 
 Pour qu’un code PIN de 4 chiffres contienne la séquence `42`, celle-ci peut apparaître dans trois positions :
 
@@ -502,3 +502,295 @@ On applique alors le principe d’inclusion–exclusion.
 100 + 100 + 100 − 0 − 0 − 1 = 299
 
 ```
+
+---
+
+<b>Combien de codes différents ?</b>
+
+<b> Type de problèmes : </b>
+
+Les choix se font sans répétition.
+
+<b>Interprétation : </b>
+
+On choisit 4 chiffres tous différents. Pour la 1ère position on a 10 possibilités, puis on retire de la 2éme position on a 9 possibilités car on retire le chiffre placé en 1ère position. Pour 3ème on (10 - 2) possibilités et pour le 4ème on (10 -3) possibilités.
+
+<b>Réponse : </b>
+
+```
+10×9×8×7=5040
+
+```
+
+<b>Combien se terminent par 3 ?</b>
+
+<b> Type de problèmes : </b>
+
+Les choix se font sans répétition.
+
+<b>Interprétation : </b>
+
+. . . 3
+
+Ici une position est prise par 3. Il faut calculer les possibilités 3 autres positions.
+
+<b>Réponse : </b>
+
+```
+9×8×7=5040
+
+```
+
+<b>Combien commencent par 12 ?</b>
+
+<b> Type de problèmes : </b>
+
+Les choix se font sans répétition.
+
+<b>Interprétation : </b>
+
+1 2 . .
+
+Ici nous avons 2 positions prises par 1 et 2. Il faut calculer les possibilités 2 autres positions.
+
+<b>Réponse : </b>
+
+```
+8×7=56
+
+```
+
+<b>Combien se terminent par 3 ou par 6 ?</b>
+
+<b>Type de problème :</b>
+
+Réunion de deux arrangements sans répétition.
+
+<b>Interprétation :</b>
+
+On compte les codes finissant par 3, puis ceux finissant par 6. Impossible qu’un code finisse par les deux.
+
+<b>Réponse :</b>
+
+```
+504 + 504 = 1080
+
+```
+
+<b>Combien ne se terminent ni par 3 ni par 6 ?</b>
+
+<b>Type de problème :</b>
+
+Complément du total.
+
+<b>Interprétation :</b>
+
+On part du nombre total de codes, et on retire ceux qui se terminent par 3 ou par 6.
+
+Détail du calcul :
+
+- Total de codes (question 1) : 5 040
+
+- Codes finissant par 3 ou 6 (question 4) : 1 008
+
+<b>Réponse:</b>
+
+```
+5040 - 1080 = 4032
+
+```
+
+---
+
+<b>Combien commencent par 3 ET finissent par 6 ?</b>
+
+<b>Type de problème :</b>
+
+Arrangement sans répétition avec première et dernière positions imposées.
+
+<b>Interprétation :</b>
+
+On fixe :
+
+- 1ᵉ chiffre = 3
+
+- 4ᵉ chiffre = 6
+
+Puis on choisit 2 chiffres distincts pour les positions 2 et 3.
+
+<b>Réponse:</b>
+
+```
+8 . 7 = 56
+
+```
+
+---
+
+<b>Combien commencent par 3 OU finissent par 6?</b>
+
+<b>Type de problème :</b>
+
+Inclusion–exclusion sur deux ensembles :
+
+A = “commence par 3”, B = “finit par 6”.
+
+<b>Interprétation :</b>
+
+On additionne :
+
+- les codes qui commencent par 3,
+
+- ceux qui finissent par 6.
+
+Puis on enlève ceux qui ont été comptés deux fois (commencent par 3 et finissent par 6).
+
+Étape 1 : Codes qui commencent par 3
+
+1ᵉ chiffre = 3
+
+3 autres chiffres tous différents parmi les 9 restants.
+
+2ᵉ position : 9 possibilités
+
+3ᵉ position : 8 possibilités
+
+4ᵉ position : 7 possibilités
+
+Donc :
+
+```
+9 . 8 . 7 = 504
+
+```
+
+Étape 2 : Codes qui finissent par 6
+
+C’est la même logique que plus haut → 504 (comme pour 3 ou 6 fixés en 4ᵉ position).
+
+Étape 3 : Codes qui commencent par 3 ET finissent par 6
+
+C’est la question "Combien commencent par 3 ET finissent par 6 ?" : 56.
+
+```
+
+|A U B| = |A| + |B| - |A ∩ B|
+
+504 + 504 - 56 = 952
+
+
+```
+
+<b>Combien contiennent la séquence « 42 » ?</b>
+
+<b>Type de problème :</b>
+
+Arrangement sans répétition + inclusion–exclusion sur les positions possibles du bloc "42".
+
+<b>Interprétation :</b>
+
+On veut des codes à 4 chiffres tous différents qui contiennent "42" comme bloc consécutif.
+
+Le bloc "42" peut être placé en :
+
+positions 1–2 → 42xy
+
+positions 2–3 → x42y
+
+positions 3–4 → xy42
+
+On suppose toujours que tous les chiffres du code sont différents.
+
+Cas A : « 42 » en positions 1–2 → 42xy
+
+Chiffres utilisés : 4 et 2.
+
+Il reste 8 chiffres (tout sauf 4 et 2) pour les deux dernières positions.
+
+3ᵉ position : 8 possibilités
+
+4ᵉ position : 7 possibilités
+
+Donc :
+
+```
+8 . 7 = 56
+
+```
+
+Cas B : « 42 » en positions 2–3 → x42y
+
+2ᵉ chiffre = 4
+
+3ᵉ chiffre = 2
+
+Chiffres interdits pour x : 4 et 2 → il reste 8 choix.
+
+Chiffres interdits pour y : 4, 2, et x → il reste 7 choix.
+
+Donc :
+
+```
+8 . 7 = 56
+
+```
+
+Cas C : « 42 » en positions 3–4 → xy42
+
+Même logique que pour le cas A et B :
+
+x : 8 possibilités (tous sauf 4,2)
+
+y : 7 possibilités (tous sauf 4,2 et x)
+
+Donc :
+
+```
+8 . 7 = 56
+
+```
+
+Intersections des cas
+
+On vérifie s’il existe des codes comptés dans deux cas à la fois (pour éventuellement les soustraire).
+
+A ∩ B :
+
+A impose : pos1 = 4, pos2 = 2
+
+B impose : pos2 = 4, pos3 = 2
+
+→ pos2 devrait être à la fois 2 et 4 → impossible
+
+➜ 0 code.
+
+B ∩ C :
+
+B : pos2 = 4, pos3 = 2
+
+C : pos3 = 4, pos4 = 2
+
+→ pos3 devrait être à la fois 2 et 4 → impossible
+
+➜ 0 code.
+
+A ∩ C :
+
+A : 42xy
+
+C : xy42
+
+Pour avoir les deux, il faudrait 4242, mais les chiffres ne seraient plus tous différents → interdit.
+
+➜ 0 code.
+
+Donc les trois cas sont disjoints.
+
+<b>Réponse : </b>
+
+```
+56 + 56 + 56 = 168
+
+```
+
+---
