@@ -858,3 +858,344 @@ Ici comme nous avons 2 R et 2A, il faut retirer les répitions.
 ---
 
 ### Exercice 4.11
+
+<b>Comptons les lettres de HURLUBERLU</b>
+
+Mot : H U R L U B E R L U
+
+Nombre total de lettres : 10.
+
+On compte chaque lettre :
+
+H : 1 fois
+
+U : 3 fois (positions 2, 5, 10)
+
+R : 2 fois (positions 3, 8)
+
+L : 2 fois (positions 4, 9)
+
+B : 1 fois
+
+E : 1 fois
+
+Donc on a :
+
+10 lettres au total
+
+avec répétitions : U×3, R×2, L×2, H×1, B×1, E×1
+
+Tous les mots possibles avec HURLUBERLU
+
+<b>Type de problème :</b>
+
+Permutation avec répétition.
+
+Interprétation :
+
+On veut tous les arrangements possibles de ces 10 lettres, en tenant compte que certaines sont identiques (les 3 U, les 2 R, les 2 L).
+
+Formule
+
+Nombre de permutations d’un multiensemble :
+
+```
+10! / (3! . 2! . 2!)
+
+```
+
+où
+
+10! = permutations de 10 objets tous différents
+
+on divise par 3! pour les 3 U identiques
+
+par 2! pour les 2 R
+
+par 2! pour les 2 L
+
+Détail des calculs
+
+Calcul de 10! :
+
+```
+10! = 10 . 9 . 8 . 7 . 6 . 5 . 4 . 3 . 2 . 1 = 3 628 800
+
+```
+
+Calcul du dénominateur :
+
+```
+3! = 3 . 2 . 1 = 6
+
+2! = 2 => 2! . 2! : 2 . 2 = 4
+
+```
+
+Donc:
+
+```
+3! . 2! . 2! = 6 . 4 = 4
+
+```
+
+Division:
+
+```
+3 628 800 / 24
+
+```
+
+<b> Mots avec deux « R » consécutifs </b>
+
+<b> Type de problème :</b>
+
+Permutation avec répétition et bloc (on regroupe « RR »).
+
+<b>Interprétation :</b>
+
+On oblige les deux R à être l’un à côté de l’autre, sous la forme du bloc RR.
+
+On traite RR comme une seule “lettre” (un bloc), puis on permute ce bloc avec les autres lettres.
+
+Nouveau multiensemble de lettres
+
+On remplace les deux R par un bloc X = RR.
+
+Les lettres deviennent :
+
+X (le bloc RR) : 1 fois
+
+U : 3 fois
+
+L : 2 fois
+
+H : 1 fois
+
+B : 1 fois
+
+E : 1 fois
+
+Total d’objets à permuter :
+
+```
+1(X)+3(U)+2(L)+1(H)+1(B)+1(E)=9
+
+```
+
+Donc on permute 9 objets, avec répétitions (U×3, L×2).
+
+Formule:
+
+```
+9! / (3! . 2!)
+
+9!=9×8×7×6×5×4×3×2×1=362880
+
+
+```
+
+Division :
+
+```
+12362880​ / 12 = 30 240
+
+```
+
+<b>Réponses : </b>
+
+30 240 mots avec les deux R consécutifs.
+
+<b>Type de problème :</b>
+
+On utilise le complément :
+
+Tous les mots − ceux qui ont « RR » collés.
+
+<b>Interprétation :</b>
+
+On prend le nombre total de mots formés avec HURLUBERLU et on enlève ceux où les deux R sont collés.
+
+Calcul
+
+On a déjà :
+
+Total des mots (question 1) : 151 200
+
+Mots avec « RR » consécutifs (question 2) : 30 240
+
+Donc:
+
+```
+151200 − 30240 = 120960
+
+```
+
+<b>Réponses:</b>
+
+20 960 mots qui ne contiennent pas deux R consécutifs.
+
+---
+
+### Exercice 4.12
+
+Type de problème
+
+➡️ Combinaison sans répétition : on choisit des paires de personnes.
+
+Interprétation
+
+➡️ Chaque poignée de main correspond à un couple de personnes.
+On ne distingue pas l’ordre (la poignée entre Alice et Bob = entre Bob et Alice), et on ne répète pas les paires.
+Donc on doit compter combien de paires on peut former avec 50 personnes → c’est
+(
+50
+2
+)
+(
+2
+50
+​
+
+).
+
+Étapes de calcul
+
+On utilise la formule :
+
+```
+50 . 49 / 2
+
+```
+
+On calcule le produit du numérateur :
+
+```
+50 . 49 = 2450
+
+```
+
+On divise par 2 :
+
+```
+22450 / 2 = 1225
+
+```
+
+Donc il y a 1 225 poignées de mains.
+
+<b> 1ère réponse</b>
+
+<b>861 poignées de mains → combien de personnes ?</b>
+
+Ici on fait l’inverse :
+
+on sait le nombre de paires (les poignées de main) et on cherche le nombre de personnes
+n.
+
+On sait que, pour 𝑛
+
+```
+nombre de poigneˊes= (C où n=50 et k=2) = n(n−1)​ / 2
+
+```
+
+On pose l'équation:
+
+```
+(C où n=50 et k=2) = 861 =  n(n−1)​ / 2
+
+<=> n(n−1)=2×861
+
+<=> n(n−1)=1722
+
+
+```
+
+Calcul du Delta:
+
+```
+<=> n(n−1)=1722
+
+Delta = 1722
+
+n = 41
+
+```
+
+<b>2ème réponse :</b>
+
+S’il y a 861 poignées de main, il y avait 42 personnes à la réception.
+
+---
+
+### Exercice 4.14
+
+<b>Comprendre la situation</b>
+
+On a 20 livres distincts.
+
+On a 3 rayons distincts (rayon 1, rayon 2, rayon 3).
+
+Capacités :
+
+rayon 1 : 7 places
+
+rayon 2 : 5 places
+
+rayon 3 : 8 places
+
+La somme : 7 + 5 + 8 = 20 → tous les livres sont rangés.
+
+L’ordre dans un rayon n’a pas d’importance : on ne tient pas compte de l’ordre des livres sur un même rayon.
+
+Donc, ce qu’on doit décider, c’est :
+Quels livres vont dans le rayon 1, quels dans le rayon 2, et quels dans le rayon 3.
+
+<b>Stratégie de comptage</b>
+
+On procède en étapes :
+
+Choisir quels 7 livres iront sur le rayon 1.
+
+On choisit un sous-ensemble de 7 livres parmi 20.
+
+Nombre de choix :
+
+```
+C où n=20 et k=7
+```
+
+Il reste alors 20 − 7 = 13 livres.
+
+On doit maintenant choisir 5 livres parmi ces 13 pour le rayon 2.
+
+Nombre de choix :
+
+```
+C où n=13 et k=5
+```
+
+Il restera automatiquement 13 − 5 = 8 livres :
+ils vont tous sur le rayon 3.
+
+Nombre de choix :
+
+```
+C où n=8 et k=8
+
+```
+
+Comme ces étapes sont successives et indépendantes, on multiplie :
+
+```
+(C où n=20 et k=7) . (C où n=13 et k=5) . (C où n=8 et k=8) =  77520 . 1287 . 1 =  99 768 240
+	​
+```
+
+<b> Réponses: </b>
+
+Il y a 99 768 240 façons de répartir les 20 livres dans les 3 rayons (7, 5 et 8 places),
+en ne tenant pas compte de l’ordre des livres sur chaque rayon.
+
+---
