@@ -1041,23 +1041,13 @@ Donc:
 
 Type de problème
 
-➡️ Combinaison sans répétition : on choisit des paires de personnes.
+Combinaison sans répétition : on choisit des paires de personnes.
 
 Interprétation
 
-➡️ Chaque poignée de main correspond à un couple de personnes.
+Chaque poignée de main correspond à un couple de personnes.
 On ne distingue pas l’ordre (la poignée entre Alice et Bob = entre Bob et Alice), et on ne répète pas les paires.
-Donc on doit compter combien de paires on peut former avec 50 personnes → c’est
-(
-50
-2
-)
-(
-2
-50
-​
-
-).
+Donc on doit compter combien de paires on peut former avec 50 personnes → c’est C où n= 50 et k=2.
 
 Étapes de calcul
 
