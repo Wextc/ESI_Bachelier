@@ -608,6 +608,7 @@ ls td9
 et obtenir la liste des fichiers qu’il contient.
 
 <b> x — droit d’exécution (= ouverture du dossier)</b>
+
 Pour un fichier, le droit x signifie « exécuter ».
 Pour un dossier, x veut dire ouvrir ou entrer dans le dossier.
 Avec ce droit, on peut :
