@@ -100,6 +100,7 @@ Bien que facultative dans certains langages (comme Python), la déclaration des 
 
 Exemples de types de variables :
 
+```
 quantité : entier
 
 prix : réel
@@ -107,3 +108,227 @@ prix : réel
 adresse : chaîne
 
 exact : booléen
+
+```
+
+- Lecture des données
+
+La lecture des données permet à l’ordinateur de connaître les valeurs des variables déclarées.
+
+Au départ, les variables sont vides ou non définies, il faut leur attribuer une valeur pour pouvoir les utiliser.
+
+L’utilisateur fournit ces valeurs via l’instruction :
+
+```
+lire variable
+
+```
+
+Cette instruction demande à l’utilisateur d’entrer une valeur (ex. clavier ou clic), qui est affectée à la variable.
+
+On parle aussi d’affectation externe.
+
+Il est possible de lire plusieurs variables à la fois :
+
+```
+Lire variable1, variable2, variable3, ...
+
+```
+
+Cela équivaut à plusieurs instructions de lecture successives.
+
+Dans un programme réel, la lecture peut être plus complexe : interface graphique, messages explicatifs, vérification de la validité des valeurs… Mais pour l’algorithmique, la lecture reste simple et directe.
+
+- Instructions agissant sur les données
+
+Cette section transforme les données, calcule de nouvelles valeurs et les stocke éventuellement dans de nouvelles variables.
+
+Les instructions principales sont les affectations internes, de la forme :
+
+variable ← expression
+
+Une expression peut être :
+
+Une formule mathématique avec opérateurs et variables
+
+Une seule variable
+
+Une valeur numérique
+
+Principaux opérateurs arithmétiques :
+
+```
++ : addition
+
+- : soustraction
+
+* : multiplication
+
+/ : division réelle
+
+DIV : division entière
+
+MOD : reste de la division entière
+
+Exemples d’affectation :
+
+a ← b + 2*c
+
+x ← y
+
+delta ← b*b – 4*a*c
+
+prixAvecTVA ← prixHorsTVA*1,21
+
+unité ← nombre MOD 10
+
+
+siècle ← année DIV 100 + 1
+
+
+```
+
+Les règles de priorité des opérations doivent être respectées, avec usage possible de parenthèses pour lever les ambiguïtés.
+
+Le type de l’expression doit correspondre au type de la variable à gauche.
+
+On peut utiliser des fonctions mathématiques classiques :
+
+```
+sin(x), cos(x), log(x), exp(x), sqrt(x)
+
+Exposant : x\*\*y (x élevé à la puissance y)
+
+```
+
+- Écriture du résultat
+
+Une fois les variables calculées, il faut communiquer le(s) résultat(s) à l’utilisateur.
+
+L’instruction utilisée est :
+
+Écrire variable
+
+Elle affiche le contenu de la variable à l’écran.
+
+En algorithmique, le format d’affichage n’est pas pris en compte : seul le contenu logique importe.
+
+Dans un programme réel, le programmeur peut améliorer l’affichage (emplacement à l’écran, mise en forme, couleur, cadre explicatif…), mais ce n’est pas l’objet de l’algorithme.
+
+- Commentaires
+
+Les commentaires permettent d’ajouter des remarques ou explications pour le lecteur ou le programmeur.
+
+Ils ne sont pas exécutés par l’algorithme.
+
+Syntaxes possibles :
+
+// ceci est un commentaire
+
+# ceci est un commentaire
+
+/_ ceci est un commentaire _/
+
+Exemples
+
+Somme de deux entiers :
+
+```
+algorithme somme
+x, y, somme : entier
+lire x, y
+somme ← x + y
+écrire somme
+fin
+```
+
+Prix total à payer :
+
+```
+algorithme prixTotal
+prixUnité, prixTotal : réel
+quantité : entier
+lire prixUnité
+lire quantité
+prixTotal ← prixUnité * quantité
+écrire "Le prix total à payer est : ", prixTotal
+fin
+
+```
+
+- Traçage d’algorithme
+
+Traçage : suivre l’évolution des variables pas à pas pour comprendre ou vérifier un algorithme.
+
+Utile pour :
+
+Valider que l’algorithme produit le résultat attendu
+
+Repérer les erreurs logiques
+
+Méthode :
+
+On utilise un tableau :
+
+Colonnes : une par variable
+
+Lignes : chaque modification d’une variable dans l’ordre d’exécution
+
+Une colonne peut indiquer le numéro de ligne concerné
+
+Exemple pour l’algorithme somme avec x=18 et y=24 :
+
+```
+Ligne	x	y	somme
+2
+3	18	24
+4	18	24	42
+
+
+```
+
+- Mots réservés
+
+Certains mots ont une signification spéciale dans l’algorithmique :
+
+algorithme, lire, écrire, fin, si, pour, tant que, etc.
+
+Ces mots-clés ne doivent pas être utilisés comme noms de variables ou d’algorithmes.
+
+Qualité d’un algorithme
+
+Un bon algorithme doit répondre à trois critères principaux :
+
+Validité :
+
+Fournir le résultat attendu pour toutes les situations prévues
+
+Vérifiable par des tests couvrant différents cas
+
+Lisibilité :
+
+Compréhensible dès la lecture
+
+Facilite la correction et la modification
+
+Bonnes pratiques : noms de variables pertinents, indentation correcte, commentaires utiles
+
+Performance :
+
+Résolution rapide et efficace du problème
+
+Optimisation possible en limitant le nombre d’étapes ou de variables
+
+Liée à la complexité (étudiée plus tard)
+
+Exemple : calcul de l’âge du capitaine
+
+ageCapitaine1 : variables claires et lisibles, algorithme valide.
+
+ageCapitaine2 : très concis mais moins lisible (x n’indique pas son rôle).
+
+ageCapitaine3 : lisible et valide, commentaires utiles.
+
+ageCapitaine4 : noms de variables humoristiques (haddock, tintin), valide mais peu clair.
+
+Conclusion : un algorithme doit être valide, lisible et compréhensible, pas seulement fonctionner.
