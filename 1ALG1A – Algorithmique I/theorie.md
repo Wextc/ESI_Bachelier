@@ -23,7 +23,7 @@ Les variables stockent des valeurs en mémoire et peuvent changer pendant l’ex
 
 Chaque variable a un type, qui détermine la nature des données qu’elle peut contenir.
 
-## Types principaux
+- Types principaux
 
 | Type    | Contenu possible | Remarques                           |
 | ------- | ---------------- | ----------------------------------- |
@@ -41,3 +41,19 @@ Les nombres réels sont souvent tronqués à cause de la capacité mémoire.
 Certains langages (ex. Python) déterminent le type d’une variable automatiquement à partir de son contenu.
 
 En algorithmique, on utilise des types simples et généraux pour la pédagogie, avant de les adapter dans un langage spécifique.
+
+- Forme générale d’un algorithme
+
+Forme générale d’un algorithme
+
+Un algorithme suit généralement la structure suivante :
+
+```
+algorithme [nom]
+    // déclaration des données
+    // lecture des données
+    // instructions agissant sur les données
+    // écriture du résultat
+fin
+
+```
