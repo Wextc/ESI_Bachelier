@@ -332,3 +332,147 @@ ageCapitaine3 : lisible et valide, commentaires utiles.
 ageCapitaine4 : noms de variables humoristiques (haddock, tintin), valide mais peu clair.
 
 Conclusion : un algorithme doit être valide, lisible et compréhensible, pas seulement fonctionner.
+
+Exemples:
+
+Voici une série d’algorithmes qui calculent chacun l’âge du capitaine. La plupart ont
+des qualités et des défauts, pouvez-vous les identifier ? Sont-ils tous valides ?
+Quelles pratiques vous semblent « bonnes » ou « mauvaises » ? Tous les
+commentaires sont-ils utiles ? Quel est selon vous le meilleur algorithme des 4 ?
+
+```
+algorithme ageCapitaine1
+    age : entier
+    année : entier
+    lire année // année de naissance du capitaine
+    age <- 2025 – année // cette instruction calcule son âge
+écrire "L’âge du capitaine est : ", age // affichage de l’âge
+fin
+
+```
+
+```
+algorithme ageCapitaine2
+    x : entier
+    lire x
+    écrire "L’âge du capitaine est : ", 2025 – x
+fin
+
+```
+
+```
+algorithme ageCapitaine3
+    // N.B. l’algorithme ne tient pas compte des jours et des mois,
+    // à améliorer quand on aura vu les alternatives...
+    ageCapitaine : entier
+    annéeNaissance : entier
+    lire annéeNaissance
+    ageCapitaine <- 2025 – annéeNaissance
+    écrire "L’âge du capitaine est : ", ageCapitaine
+fin
+
+```
+
+```
+algorithme ageCapitaine4
+    haddock : entier
+    tintin : entier
+    lire tintin
+    haddock <- 2025 – tintin
+    écrire "L’âge du capitaine est : ", haddock
+fin
+
+```
+
+## Exercices
+
+<b>Exercice 1</b>
+
+Quel type de variable, parmi les 4 types présentés dans ce chapitre, choisiriez-vous
+pour stocker les types de données suivants ?
+o l’age d’une personne
+o le poids d’une personne
+o le nom d’une personne
+o un code postal belge
+o un numéro de maison
+o une adresse email
+
+| Donnée               | Type   |
+| -------------------- | ------ |
+| Âge d’une personne   | Entier |
+| Poids d’une personne | Réel   |
+| Nom d’une personne   | Chaîne |
+| Code postal belge    | Entier |
+| Numéro de maison     | Entier |
+| Adresse email        | Chaîne |
+
+---
+
+<b>Exercice 2</b>
+
+Tracer l’algorithme suivant, dans le cas où les nombres lus sont 4 et 10.
+
+| Ligne | Instruction    | a   | b   | c   | Explication                          |
+| ----- | -------------- | --- | --- | --- | ------------------------------------ |
+| 3     | lire a, b      | 4   | 10  | —   | On lit a=4 et b=10                   |
+| 4     | c ← a + 2\*b   | 4   | 10  | 24  | c = 4 + 2×10 = 24                    |
+| 5     | a ← c DIV b    | 2   | 10  | 24  | a = 24 DIV 10 = 2 (division entière) |
+| 6     | b ← b MOD a    | 2   | 0   | 24  | b = 10 MOD 2 = 0                     |
+| 7     | écrire a, b, c | 2   | 0   | 24  | Résultat final                       |
+
+<b>Exercice 3</b>
+
+Tracer l’algorithme suivant, en supposant que les nombres lus sont 2 et 3.
+
+```
+algorithme bizarre
+    x, y : entier
+    lire x
+    x <- 2*x
+    y <- 3*x
+    lire y
+    y <- 3*y
+    écrire y MOD x
+fin
+```
+
+| Étape          | x   | y   | Commentaire         |
+| -------------- | --- | --- | ------------------- |
+| lire x (=2)    | 2   | ?   |                     |
+| x ← 2\*x       | 4   | ?   | 2×2 = 4             |
+| y ← 3\*x       | 4   | 12  | 3×4 = 12            |
+| lire y (=3)    | 4   | 3   | Remplace l'ancien y |
+| y ← 3\*y       | 4   | 9   | 3×3 = 9             |
+| écrire y MOD x | 4   | 9   | 9 mod 4 = 1         |
+
+<b>Exercice 4</b>
+
+On voudrait dans l’algorithme suivant échanger le contenu des variables x et y de
+sorte qu’à la ligne 7, les nombres s’affichent dans l’ordre inverse de leur lecture (par
+exemple, si on lit 30 et 40, les nombres affichés seront – dans l’ordre – 40 et 30).
+Compléter le code pour obtenir le résultat voulu. Aide : il faudra peut-être introduire
+une variable supplémentaire pour réaliser cet exercice.
+
+```
+algorithme échange
+    x, y : entier
+    lire x, y
+    ...
+    ...
+    ...
+    écrire x, y
+fin
+
+```
+
+```
+algorithme échange
+    x, y, t : entier
+    lire x, y
+    t ← x
+    x ← y
+    y ← t
+    écrire x, y
+fin
+
+```
