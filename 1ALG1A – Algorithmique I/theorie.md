@@ -755,3 +755,120 @@ Pour p OU q : si p est vrai, le résultat est forcément vrai, et q n’est pas 
 Cette technique peut améliorer la rapidité d’exécution d’un algorithme et peut avoir un impact si l’évaluation de q est coûteuse ou comporte des effets secondaires.
 
 ![algo](https://github.com/Wextc/ESI_Bachelier/blob/main/1ALG1A%20%E2%80%93%20Algorithmique%20I/img/algo.png)
+
+## Exercices
+
+<b>Traçage d’algorithme</b>
+
+Qu’affichent les algorithmes ci-dessous si les nombres lus au départ sont
+successivement 2 et 3 ? Même question avec 4 et 1.
+
+```
+algorithme exercice1a
+    a, b : entier
+    lire a, b
+    si a > b alors
+        a <- a+2*b
+    fin si
+écrire a
+fin
+
+```
+
+| Étape | Instruction                       | a   | b   | Condition a > b | Action exécutée  |
+| ----- | --------------------------------- | --- | --- | --------------- | ---------------- |
+| 1     | lire a, b                         | 2   | 3   | -               | -                |
+| 2     | si a > b alors                    | 2   | 3   | 2 > 3 → faux    | Bloc non exécuté |
+| 3     | a ← a + 2\*b (si condition vraie) | 2   | 3   | -               | Non exécuté      |
+| 4     | écrire a                          | 2   | 3   | -               | Affiche 2        |
+
+| Étape | Instruction    | a   | b   | Condition a > b | Action exécutée  |
+| ----- | -------------- | --- | --- | --------------- | ---------------- |
+| 1     | lire a, b      | 4   | 1   | -               | -                |
+| 2     | si a > b alors | 4   | 1   | 4 > 1 → vrai    | Bloc exécuté     |
+| 3     | a ← a + 2\*b   | 4   | 1   | -               | a = 4 + 2\*1 = 6 |
+| 4     | écrire a       | 6   | 1   | -               | Affiche 6        |
+
+```
+algorithme exercice1b
+    a, b, c : entier
+    lire b, a // attention, piège !
+    si a > b alors
+        c <- a DIV b
+    sinon
+    c <- b MOD a
+    fin si
+    écrire c
+fin
+
+```
+
+- Cas 1 : a = 2, b = 3
+  Attention : les valeurs sont lues dans l’ordre b, a !
+
+| Étape | Instruction               | a   | b   | Condition a > b | Action exécutée           |
+| ----- | ------------------------- | --- | --- | --------------- | ------------------------- |
+| 1     | lire b, a                 | 2   | 3   | -               | -                         |
+| 2     | si a > b alors            | 2   | 3   | 2 > 3 → faux    | Bloc sinon exécuté        |
+| 3     | c ← a DIV b / c ← b MOD a | 2   | 3   | -               | c ← b MOD a = 3 MOD 2 = 1 |
+| 4     | écrire c                  | 2   | 3   | -               | Affiche 1                 |
+
+Résultat affiché : 1
+
+- Cas 2 : a = 4, b = 1
+
+| Étape | Instruction    | a   | b   | Condition a > b | Action exécutée |
+| ----- | -------------- | --- | --- | --------------- | --------------- |
+| 1     | lire b, a      | 4   | 1   | -               | -               |
+| 2     | si a > b alors | 4   | 1   | 4 > 1 → vrai    | Bloc si exécuté |
+| 3     | c ← a DIV b    | 4   | 1   | -               | c = 4 DIV 1 = 4 |
+| 4     | écrire c       | 4   | 1   | -               | Affiche 4       |
+
+Résultat affiché : 4
+
+```
+algorithme exercice1c
+    x1, x2 : entier
+    ok : booléen
+    lire x1, x2
+    ok <- x1 > x2
+    si ok alors
+        ok <- ok ET x1 = 4
+    sinon
+        ok <- ok OU x2 = 3
+    finsi
+    si ok alors
+        x1 <- x1 * 100
+    fin si
+    écrire x1 + x2
+fin
+
+```
+
+- Exemples d'exécution
+
+- Cas 1 : x1 = 2, x2 = 3
+
+| Étape | Instruction           | x1  | x2  | ok   | Action exécutée                                                 |
+| ----- | --------------------- | --- | --- | ---- | --------------------------------------------------------------- |
+| 1     | lire x1, x2           | 2   | 3   | -    | -                                                               |
+| 2     | ok ← x1 > x2          | 2   | 3   | faux | 2 > 3 → faux                                                    |
+| 3     | si ok alors … sinon … | 2   | 3   | faux | Bloc sinon exécuté : ok ← ok OU x2=3 → ok = faux OU vrai = vrai |
+| 4     | si ok alors …         | 2   | 3   | vrai | Bloc exécuté : x1 ← x1 \* 100 → x1 = 200                        |
+| 5     | écrire x1 + x2        | 200 | 3   | vrai | Affiche 200 + 3 = 203                                           |
+
+Résultat affiché : 203
+
+---
+
+- Cas 2 : x1 = 4, x2 = 1
+
+| Étape | Instruction    | x1  | x2  | ok   | Action exécutée                                         |
+| ----- | -------------- | --- | --- | ---- | ------------------------------------------------------- |
+| 1     | lire x1, x2    | 4   | 1   | -    | -                                                       |
+| 2     | ok ← x1 > x2   | 4   | 1   | vrai | 4 > 1 → vrai                                            |
+| 3     | si ok alors …  | 4   | 1   | vrai | Bloc si exécuté : ok ← ok ET x1=4 → vrai ET vrai = vrai |
+| 4     | si ok alors …  | 4   | 1   | vrai | Bloc exécuté : x1 ← x1 \* 100 → x1 = 400                |
+| 5     | écrire x1 + x2 | 400 | 1   | vrai | Affiche 400 + 1 = 401                                   |
+
+Résultat affiché : 401
