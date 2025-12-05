@@ -754,4 +754,4 @@ Pour p OU q : si p est vrai, le résultat est forcément vrai, et q n’est pas 
 
 Cette technique peut améliorer la rapidité d’exécution d’un algorithme et peut avoir un impact si l’évaluation de q est coûteuse ou comporte des effets secondaires.
 
-![algo](https://github.com/Wextc/ESI_Bachelier/tree/main/1ALG1A%20%E2%80%93%20Algorithmique%20I/img/algo.png)
+![algo](https://github.com/Wextc/ESI_Bachelier/blob/main/1ALG1A%20%E2%80%93%20Algorithmique%20I/img/algo.png)
