@@ -804,6 +804,7 @@ fin
 ```
 
 - Cas 1 : a = 2, b = 3
+
   Attention : les valeurs sont lues dans l’ordre b, a !
 
 | Étape | Instruction               | a   | b   | Condition a > b | Action exécutée           |
@@ -859,8 +860,6 @@ fin
 
 Résultat affiché : 203
 
----
-
 - Cas 2 : x1 = 4, x2 = 1
 
 | Étape | Instruction    | x1  | x2  | ok   | Action exécutée                                         |
@@ -872,3 +871,140 @@ Résultat affiché : 203
 | 5     | écrire x1 + x2 | 400 | 1   | vrai | Affiche 400 + 1 = 401                                   |
 
 Résultat affiché : 401
+
+Exemples d'exécution
+
+- Cas 1 : x = 1, y = 3
+
+| Étape | Instruction       | x   | y   | z   | ok   | Action exécutée                               |
+| ----- | ----------------- | --- | --- | --- | ---- | --------------------------------------------- |
+| 1     | lire x, y         | 1   | 3   | -   | -    | -                                             |
+| 2     | z ← 10\*x + y + 1 | 1   | 3   | 14  | -    | Calcul z = 10\*1 + 3 + 1 = 14                 |
+| 3     | selon que z vaut  | 1   | 3   | 14  | -    | Cas z=14 : ok ← z MOD 6 = 14 MOD 6 = 2 → faux |
+| 4     | si ok alors       | 1   | 3   | 14  | faux | Bloc non exécuté                              |
+| 5     | écrire z          | 1   | 3   | 14  | faux | Affiche 14                                    |
+
+Résultat affiché : 14
+
+- Cas 2 : x = 2, y = 3
+
+| Étape | Instruction       | x   | y   | z   | ok   | Action exécutée                               |
+| ----- | ----------------- | --- | --- | --- | ---- | --------------------------------------------- |
+| 1     | lire x, y         | 2   | 3   | -   | -    | -                                             |
+| 2     | z ← 10\*x + y + 1 | 2   | 3   | 24  | -    | Calcul z = 10\*2 + 3 + 1 = 24                 |
+| 3     | selon que z vaut  | 2   | 3   | 24  | -    | Cas z=24 : ok ← z MOD 6 = 24 MOD 6 = 0 → vrai |
+| 4     | si ok alors       | 2   | 3   | 24  | vrai | Bloc exécuté : z ← 2\*z → z = 48              |
+| 5     | écrire z          | 2   | 3   | 48  | vrai | Affiche 48                                    |
+
+Résultat affiché : 48
+
+- Cas 3 : x = 3, y = 2
+
+| Étape | Instruction       | x   | y   | z   | ok   | Action exécutée                                |
+| ----- | ----------------- | --- | --- | --- | ---- | ---------------------------------------------- |
+| 1     | lire x, y         | 3   | 2   | -   | -    | -                                              |
+| 2     | z ← 10\*x + y + 1 | 3   | 2   | 33  | -    | Calcul z = 10\*3 + 2 + 1 = 33                  |
+| 3     | selon que z vaut  | 3   | 2   | 33  | -    | Cas autre : ok ← z MOD 7 = 33 MOD 7 = 5 → faux |
+| 4     | si ok alors       | 3   | 2   | 33  | faux | Bloc non ex                                    |
+
+<b>Simplification de code</b>
+
+1.Original :
+
+```
+si ok = vrai alors
+    écrire nombre
+fin si
+
+```
+
+Version concise :
+
+```
+si ok alors
+    écrire nombre
+fin si
+
+```
+
+On supprime = vrai, car ok est déjà un booléen.
+
+2.Original :
+
+```
+si ok = faux alors
+    écrire nombre
+fin si
+```
+
+Version concise :
+
+```
+si NON ok alors
+    écrire nombre
+fin si
+
+```
+
+On utilise directement la négation pour tester faux.
+
+3.Original :
+
+```
+si nerveux alors
+    cool ← faux
+sinon
+    cool ← vrai
+fin si
+```
+
+Version concise :
+
+```
+cool ← NON nerveux
+
+```
+
+Transformation en affectation directe avec négation.
+
+```
+si a > b alors
+    ok <- faux
+    sinon si a ≤ b alors
+        ok <- vrai
+fin si
+```
+
+A faire ...
+
+```
+si ok1 = faux alors
+    ok2 <- faux
+fin si
+
+```
+
+```
+si ok1 = vrai alors
+    si ok2 = faux alors
+        ok3 <- ok1 ET ok2
+    fin si
+fin si
+
+```
+
+<b>Majeur ou mineur ?</b>
+
+Ecrire un algorithme qui indique si une personne est mineure ou majeure en fonction
+de son âge.
+
+```
+algorithme age:
+    si age < 18 alors:
+        écrire "N'est majeur!"
+    sinon si age > 18 alors:
+        écrire "Est majeur!"
+    fin si
+fin
+
+```
