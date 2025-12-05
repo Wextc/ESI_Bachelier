@@ -618,3 +618,140 @@ minutes ← 220 DIV 60 = 3
 secondes ← 220 MOD 60 = 40
 
 → Résultat affiché : 12 h 3 min 40 s
+
+## Chapitre 3
+
+<b>Les structures alternatives et les conditions</b>
+
+- Définition :
+
+Une condition est une expression qui a une valeur booléenne (vrai ou faux).
+
+Elle peut être une variable booléenne ou une expression calculée à partir des variables de l’algorithme.
+
+- Fonctionnement :
+
+Si la condition est vraie, le premier bloc d’instructions s’exécute et le second est ignoré.
+
+Si la condition est fausse, le deuxième bloc d’instructions s’exécute et le premier est ignoré.
+
+Exemple pratique :
+
+    Lecture de deux nombres x = 4 et y = 1.
+
+    Condition : x > y → vraie → variable max = x = 4.
+
+    Le bloc “sinon” n’est pas exécuté.
+
+    Lecture de x = 4 et y = 6.
+
+- Condition : x > y → fausse → variable max = y = 6.
+
+Le bloc “si” n’est pas exécuté.
+
+Réflexion :
+
+Si x et y sont égaux, que se passe-t-il ?
+
+L’algorithme reste valide, mais si la condition est modifiée en x ≥ y, le bloc “si” sera exécuté lorsque les deux nombres sont égaux, ce qui peut changer le comportement.
+
+<b>Alternative sans alternative</b>
+
+Alternative sans alternative
+Parfois, une action ne doit être réalisée que si une condition est vraie, et rien n’est prévu si elle est fausse. On parle alors de structure “si… alors” sans sinon. Par exemple, on peut écrire “si la personne est mineure, afficher ‘trop jeune’”. Si elle n’est pas mineure, aucune instruction n’est exécutée. Cette forme est simple et permet de gérer des situations où on ne souhaite agir que dans un seul cas particulier.
+
+```
+algorithme casino
+    age : entier
+    lire age
+    si age < 18 alors
+        écrire "trop jeune pour entrer au casino !"
+    fin si
+fin
+```
+
+<b>Alternatives multiples</b>
+
+Dans certaines situations, plusieurs cas possibles doivent être distingués, mais un seul d’entre eux sera exécuté. C’est le cas des alternatives multiples. On utilise alors des structures en cascade : “si… alors”, “sinon si… alors”, et éventuellement un “sinon” final. Les conditions sont testées dans l’ordre, et dès qu’une condition est vraie, le bloc correspondant est exécuté, et les autres blocs sont ignorés. Par exemple, on peut classifier une personne en “mineur”, “majeur” ou “senior” selon son âge.
+
+```
+algorithme catégorie
+    age : entier
+    lire age
+    si age ≥ 60 alors
+        écrire "La personne est un senior"
+    sinon si age ≥ 18
+        écrire "La personne est majeure"
+    sinon
+        écrire "La personne est mineure"
+    fin si
+fin
+```
+
+<b>Structure « selon que »</b>
+
+Cette structure est une variante des alternatives multiples, utilisée pour choisir parmi plusieurs valeurs possibles d’une même variable. Elle permet d’exécuter différents blocs d’instructions selon que la variable prend telle ou telle valeur. C’est souvent une alternative plus lisible et concise que de multiplier les “si… alors” pour chaque valeur.
+
+```
+algorithme localExamen
+    groupe : entier
+    local : chaîne
+    lire groupe
+    selon que groupe vaut
+        111, 112, 121, 122 : local  "004"
+        131, 132 : local  "003"
+        211, 212 : local  "101"
+        221, 222 : local  "102"
+        231, 232 : local  "103"
+        autre : local  "105"
+    fin selon
+    écrire "L’examen a lieu au local", local
+fin
+```
+
+<b>Les varirables booléennes</b>
+
+Ces variables n’ont que 2 possibilités de contenu : vrai ou faux.
+
+Il n’est pas d’usage de leur donner un contenu par une affectation externe (lire),
+mais plutôt par une affectation interne, via une expression qui a elle-même une
+valeur booléenne (par ex. en utilisant les opérateurs de comparaison =, <, >,...).
+
+```
+algorithme parité
+   nombre : entier
+   estPair : booléen
+   lire nombre
+       estPair <- nombre MOD 2 = 0
+   si estPair alors
+       écrire "Le nombre est pair "
+   sinon
+       écrire "Le nombre est impair "
+   fin si
+fin
+
+```
+
+<b>La booléenne</b>
+
+En algorithmique, un opérateur booléen est un outil qui permet de combiner une ou plusieurs conditions (ou expressions booléennes) pour obtenir une nouvelle condition, elle aussi vraie ou fausse. Les trois principaux opérateurs sont :
+
+ET (conjonction) : l’expression p ET q est vraie seulement si p et q sont toutes les deux vraies. Dans tous les autres cas, elle est fausse.
+
+OU (disjonction inclusive) : l’expression p OU q est vraie si au moins une des deux conditions est vraie ; elle est fausse seulement si les deux conditions sont fausses.
+
+NON (négation) : l’expression NON p inverse la valeur de p : si p est vrai, NON p sera faux, et inversement.
+
+Lorsque plusieurs opérateurs apparaissent dans une même expression, il est conseillé d’utiliser des parenthèses pour préciser l’ordre des calculs. Par exemple :
+
+p ET (q OU r) n’est pas équivalent à (p ET q) OU r. Les parenthèses permettent de lever toute ambiguïté et d’éviter des résultats erronés.
+
+En informatique, il existe également un concept appelé évaluation court-circuitée. Cela signifie que, dans certaines expressions, il n’est pas nécessaire d’évaluer toutes les conditions pour connaître le résultat final :
+
+Pour p ET q : si p est faux, le résultat est forcément faux, et q n’est même pas évalué.
+
+Pour p OU q : si p est vrai, le résultat est forcément vrai, et q n’est pas évalué.
+
+Cette technique peut améliorer la rapidité d’exécution d’un algorithme et peut avoir un impact si l’évaluation de q est coûteuse ou comporte des effets secondaires.
+
+![algo](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/1ALG1A%20–%20Algorithmique%20I/img/algo.png)
