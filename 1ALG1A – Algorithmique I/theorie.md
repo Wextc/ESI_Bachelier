@@ -546,3 +546,75 @@ fin
 Si n=723 alors n MOD 100 veut dire 7 × 100 + 23.
 Si n=723 alors n MOD 10 veut dire 72 × 10 + 3.
 Si n=723 alors n DIV 100 veut dire qu'on prend la division entière. => 7
+
+<b>Exercice 8</b>
+
+Le miroir d’un nombre entier est ce nombre
+écrit en inversant l’ordre de ses chiffres. Par
+exemple, le miroir de 189 est 981, et celui de
+752 est 257.
+Ecrire un algorithme qui lit un nombre entier de
+3 chiffres, et affiche ensuite le miroir de ce
+nombre. Vérifiez si votre algorithme fonctionne
+aussi lorsque le nombre se termine par 1 ou 2
+zéros.
+
+```
+algorithme miroir_nbre:
+    n, centaine, dizaine, unités: entier
+    lire n
+    centaine ← n DIV 100
+    dizaine ← (n MOD 100) DIV 10
+    unité ← n MOD 10
+    écrire unité, dizaine, centaine
+fin
+```
+
+<b>Exercice 9</b>
+
+Ecrire un algorithme qui convertit une durée
+exprimée sous la forme de trois nombres
+(heure, minute, seconde) en nombre total de
+secondes.
+Par exemple, pour 12h 3’ 40’’, l’algorithme
+affichera 43420 secondes.
+
+```
+algorithme conversion_HMS:
+    heures, minutes, secondes, total:entier
+    lire heures, minutes, secondes
+    total ← heures * 3 600 + minutes * 60 + secondes
+    écrire total
+fin
+```
+
+<b>Exercice 10</b>
+
+On fait ici l'inverse. On part du nombre pour trouver les heures.
+
+La mainière inverse.
+
+```
+algorithme inverse:
+    heures, minutesn secondes, total: entier
+    lire total
+
+    heures ← total DIV 3600
+    total ←  total MOD 3600
+    minutes ←  total  DIV 60
+    secondes ←  total DIV 60
+    écrire heures, mintes, secondes
+fin
+```
+
+Exemple : 43420 secondes
+
+heures ← 43420 DIV 3600 = 12
+
+total ← 43420 MOD 3600 = 220
+
+minutes ← 220 DIV 60 = 3
+
+secondes ← 220 MOD 60 = 40
+
+→ Résultat affiché : 12 h 3 min 40 s
