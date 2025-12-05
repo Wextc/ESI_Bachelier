@@ -476,3 +476,73 @@ algorithme échange
 fin
 
 ```
+
+<b>Exercice 5</b>
+
+Ecrire un algorithme qui calcule la surface d’un
+triangle à partir des mesures de sa base et de
+sa hauteur.
+Par exemple, si la base mesure 6 cm et la
+hauteur 4 cm, l’algorithme affichera 12 cm2.
+
+```
+algorithme surface_triangle:
+    base, hauteur, surface : entier
+    lire base, hauteur
+    surface ← (base * hauteur) / 2
+    écrire surface
+fin
+
+
+```
+
+<b>Exercice 6</b>
+
+Ecrire un algorithme qui calcule la vitesse d’un
+véhicule en km/h, connaissant la distance qu’il
+a parcourue en kilomètres et le temps du trajet
+en minutes.
+Attention aux unités, cet algorithme nécessite
+une petite conversion de données...
+
+La distance est en km.
+Le temps est en minutes.
+Pour obtenir la vitesse en km/h, on utilise :
+vitesse = distance / (tempsMin / 60)
+ce qui revient à :
+vitesse = distance \* 60 / tempsMin
+
+```
+algorithme vitesse_vehicule
+    distance, tempsMin, vitesse : entier
+    lire distance, tempsMin
+    vitesse ← distance * 60 / tempsMin
+    écrire vitesse
+fin
+
+```
+
+<b>Exercice 7</b>
+
+Ecrire un algorithme qui lit un nombre entier de 3 chiffres, et affiche ensuite
+séparément les chiffres des centaines, dizaines et unités.
+Exemple : si le nombre lu est 723, l’algorithme affichera par exemple :
+• le chiffre des centaines est 7
+• le chiffre des dizaines est 2
+• le chiffre des unités est 3
+
+```
+algorithme decomposition_nombre:
+    n, centaines, dizaines, unites : entier
+    lire n
+    centaines ← n DIV 100
+    dizaines ← (n MOD 100) DIV 10 //
+    unites ← n MOD 10
+    écrire centaines, dizaines, unites
+fin
+
+```
+
+Si n=723 alors n MOD 100 veut dire 7 × 100 + 23.
+Si n=723 alors n MOD 10 veut dire 72 × 10 + 3.
+Si n=723 alors n DIV 100 veut dire qu'on prend la division entière. => 7
