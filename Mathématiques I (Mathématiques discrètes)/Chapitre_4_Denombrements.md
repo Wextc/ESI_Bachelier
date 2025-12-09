@@ -1,5 +1,11 @@
 # Chapitre 4 - Dénombrements
 
+## Vidéos qui explique
+
+La différence entre arrangement, permutation, combinaison.
+
+https://www.youtube.com/watch?v=hWkIwXXEECc
+
 ## Exercices
 
 ### Exercices 4.1
@@ -1189,3 +1195,85 @@ Il y a 99 768 240 façons de répartir les 20 livres dans les 3 rayons (7, 5 et 
 en ne tenant pas compte de l’ordre des livres sur chaque rayon.
 
 ---
+
+### Exercice 4.15
+
+1 - Codes qui contiennent le chiffre 0:
+
+On compte les codes avec 0, donc :
+
+```
+  Avec 0=10P5−9P5
+```
+
+Les codes sans 0 utilisent 5 chiffres parmi 1–9 :
+
+```
+  9P5=9×8×7×6×5=15120.
+```
+
+Donc:
+
+```
+Avec 0=30240−15120=15120​
+
+```
+
+2 - Codes qui contiennent 0 mais pas 1:
+
+Les chiffres autorisés :
+
+```
+{0,2,3,4,5,6,7,8,9}(9 chiffres)
+
+```
+
+Le code doit obligatoirement contenir 0.
+
+On choisit donc 4 autres chiffres parmi les 8 restants, puis on permute les 5 chiffres :
+
+```
+(Cn=8 et k=4) * 5!=70×120=8400​
+
+```
+
+3 - Codes qui contiennent 0 ou 1 (au moins un des deux)
+
+4 - Codes qui contiennent le 0 et le 1:
+
+On doit inclure 0 et 1, et choisir 3 autres chiffres parmi les 8 restants :
+
+```
+(Cn=8 et k=3)* 5! = 56 * 120= 6720​
+
+```
+
+5 - Codes qui contiennent plus de chiffres pairs que de chiffres impairs:
+
+Chiffres pairs : 0,2,4,6,8 (5 chiffres)
+
+Chiffres impairs : 1,3,5,7,9 (5 chiffres)
+
+Dans un code de 5 chiffres, avoir plus de pairs que d'impairs signifie :
+
+```
+3 pairs + 2 impairs
+
+4 pairs + 1 impair
+
+5 pairs + 0 impair
+
+```
+
+Comme il y a autant de pairs que d'impairs et qu’on choisit 5 chiffres distincts, on obtient exactement la moitié des permutations :
+
+6 - Codes qui ne contiennent pas la séquence « 42 »:
+
+On utilise le total, on retire les codes contenant la suite consécutive 42.
+
+Un comptage direct (validé par programme) donne :
+
+```
+28896
+​
+```

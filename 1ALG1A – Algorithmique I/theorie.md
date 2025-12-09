@@ -758,7 +758,7 @@ Cette technique peut améliorer la rapidité d’exécution d’un algorithme et
 
 ## Exercices
 
-<b>Traçage d’algorithme</b>
+<b>Exercice 1</b>
 
 Qu’affichent les algorithmes ci-dessous si les nombres lus au départ sont
 successivement 2 et 3 ? Même question avec 4 et 1.
@@ -907,7 +907,7 @@ Résultat affiché : 48
 | 3     | selon que z vaut  | 3   | 2   | 33  | -    | Cas autre : ok ← z MOD 7 = 33 MOD 7 = 5 → faux |
 | 4     | si ok alors       | 3   | 2   | 33  | faux | Bloc non ex                                    |
 
-<b>Simplification de code</b>
+<b>Exercice 2</b>
 
 1.Original :
 
@@ -993,7 +993,7 @@ fin si
 
 ```
 
-<b>Majeur ou mineur ?</b>
+<b>Exercice 3</b>
 
 Ecrire un algorithme qui indique si une personne est mineure ou majeure en fonction
 de son âge.
@@ -1002,9 +1002,138 @@ de son âge.
 algorithme age:
     si age < 18 alors:
         écrire "N'est majeur!"
-    sinon si age > 18 alors:
+    sinon age > 18:
         écrire "Est majeur!"
     fin si
 fin
+
+```
+
+<b>Exercice 4</b>
+
+Écrire un algorithme qui lit un nombre réel et affiche un message indiquant s'il est
+strictement négatif, strictement positif ou nul.
+
+```
+algorithme AfficherSigne
+    nombres:réel
+    si réel > 0 alors:
+        écrire "Le nombre est strictement positif."
+    sinon réel < 0:
+        écrire "Le nombre est strictement négatif."
+    fin si
+fin
+
+```
+
+<b>Exercice 5</b>
+
+Écrire un algorithme qui résout une équation du second degré, déterminée par le
+coefficient de x2, le coefficient de x et le terme indépendant. L’algorithme affichera la
+ou les racine(s) de l’équation, ou un message adéquat si elle ne possède pas de
+solution réelle.
+
+ax² + bx + c
+
+```
+algorithme équation:
+    a,b,c, x, x1, x2, delta :réels
+    lire a,b,c
+    si a = 0 alors:
+        si b=0 alors:
+            si c=0 alors:
+                écrire "L'équation a une infinité de réponses."
+            sinon:
+                écrire "L'équation n'a pas de solution."
+            fin si
+        sinon:
+            x <- -c / b
+            écrire l'équation est du premier degré. x vaut", x
+        fin si
+    sinon:
+        delta < b² - 4 * a * c
+        si delta == 0:
+            x1 = -b / 2*a*c
+        si delta > O alors:
+            x1 <- -b + sqrt(delta) / 2 * a
+        sinon:
+            x2 <- -b - sqrt(delta) / 2 * a
+        fin si
+    fin si
+fin
+
+```
+
+<b> Exercice 6 </b>
+
+Ecrire un algorithme qui lit 3 nombres et affiche la valeur du plus grand des trois.
+
+```
+algorithme comparaison:
+    nombre_1, nombre_2, nombre_3, maximum: réels
+
+    lire nombre_1, nombre_2, nombre_3
+
+    maximum ← nombre_1
+
+    si nombre_2 > maximum alors:
+        maximum ← nombre_2
+    fin si
+
+    si nombre_3 > maximum alors:
+        maximum ← nombre_3
+    fin si
+
+fin
+
+```
+
+<b> Exercice 7 </b>
+
+Une personne est du signe astrologique des Poissons si elle
+est née entre le 19 février et le 20 mars inclus. Ecrire un
+algorithme qui indique si une personne possède ce signe ou
+non à partir de sa date d’anniversaire (communiquée sous la
+forme de 2 entiers jour et mois).
+
+```
+algorithme poisson
+    année, mois, jours:entier
+    lire jours, mois
+    si (mois = 2 et jour = 19) ou (mois = 3 et jour = 20) alors:
+        écrire "La personnes a le signe poisson."
+    sinon:
+        "La personne n'a pas le signe poisson."
+
+```
+
+<b> Exercice 8 </b>
+
+Ecrire un algorithme qui affiche le nom du jour d’un jour du mois de novembre 2025,
+donné par son numéro.
+Par exemple, si on entre 6, l’ordinateur affichera « jeudi ».
+
+```
+algorithme jour_novembre:
+    tableau_jours:chaine
+    nombre_jour,i: entier
+    i <- (nombre_jour-1) MOD 7
+    tableau_jours <- ["samedi", "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi"]
+    jours_mois <- tableau_jours[i]
+    écrire "Le jour du mois est pour ", nombre_jour, " est ",jours_mois.
+fin
+```
+
+<b> Exercice 9 </b>
+
+Ecrire un algorithme qui indique le nombre de jours qu’il y aura dans un mois de
+l’année 2028. Le mois est donné sous forme d’un entier entre 1 et 12
+Exemples :
+• si mois = 1, l’algorithme affichera 31
+• si mois = 2, l’algorithme affichera 29
+
+```
+algorithme jour_mois_2028:
+    mois_31, mois_30, février:
 
 ```
