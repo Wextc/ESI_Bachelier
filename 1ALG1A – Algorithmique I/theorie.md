@@ -1134,6 +1134,196 @@ Exemples :
 
 ```
 algorithme jour_mois_2028:
-    mois_31, mois_30, février:
+    mois: entier
+    lire mois
+    si mois = 1 OU mois = 3 OU mois = 5 OU mois = 7 OU mois = 8 OU mois = 10 OU mois = 12 alors:
+        écrire "Le nombre de jours de ce mois est ", mois
+    fin si
+fin
+
+```
+
+<b> Exercice 10 </b>
+
+Ecrire un algorithme qui indique si une année est bissextile ou non.
+Pour rappel, les années bissextiles on un numéro divisible par 4. Font exception à la
+règle, les années multiples de 100, sauf les multiples de 400 qui eux sont bien
+bissextiles ! Ainsi :
+
+    2022 n'est pas bissextile
+    2024 est bissextile
+    2100 n'est pas bissextile
+    2400 est bissextile
+
+```
+algorithme année_bissextile:
+    année: entier
+    lire année
+    si (année mod4 = 0 ET année mod 100 !=0)  OU (année mod400 =0) alors:
+        écrire année, "est bissextile"
+    sinon
+        écrire année, " n 'est pas bissextile."
+    fin is
+fin
+
+```
+
+<b> Exercice 11 </b>
+
+Problème....
+
+<b> Exercice 12 </b>
+
+Dans une rue où se pratique le stationnement alterné, du 1 au 15 du mois, on se gare du côté des maisons ayant un numéro impair, et le reste du mois, on se gare de l'autre côté. Écrire un algorithme qui, sur base de la date du jour et du numéro de maison devant laquelle vous vous êtes arrêté, indique si vous êtes bien stationné ou non.
+
+```
+algorithme stationnement_alterné:
+    jour, maison: entier
+    lire jour, maison
+    si (1 <= jour ET  15 >= jour) ET (maison mod2 != 0) alors:
+        écrire  "Vous êtes bien stationné."
+    sinon
+        écrire "Vous êtes mal stationné."
+    fin si
+    si (16 <= jour ET  31 >= jour) ET (maison mod2 = 0) alors:
+        écrire  "Vous êtes bien stationné."
+    sinon "Vous êtes mal stationné."
+    fin si
+fin
+
+```
+
+<b> Exercice 13 </b>
+
+Cet algorithme est destiné à prédire l’avenir, et il doit être infaillible ! Il lira au clavier les heures et les minutes, et il affichera l’heure qu’il sera une minute plus tard !
+
+Par exemple, si l’utilisateur entre 21 puis 32,l’algorithme doit répondre « Dans une minute, il sera 21h 33 ».
+
+```
+Algorithme voir_futur:
+    heure, minute : entier
+    Lire heure, minute
+
+    Si (minute >= 0 ET minute < 59) ET (heure >= 0 ET heure < 24) alors:
+        minute <- minute + 1
+        Écrire "Dans une minute, il sera ", heure, " h ", minute
+
+    Sinon si minute = 59 alors:
+        minute <- 0
+
+        Si heure = 23 alors
+            heure <- 0
+        Sinon
+            heure <- heure + 1
+        Fin Si
+
+        Écrire "Dans une minute, il sera ", heure, " h ", minute
+    Fin Si
+Fin
+
+
+```
+
+<b> Exercice 14 </b>
+
+Ecrire un algorithme qui convertit un moment de la journée donnée au format HM (heure- minute) dans le format anglais.
+Exemples :
+
+• 3h10 devient 3:10 AM
+
+• 12h25 devient 12:25 PM
+
+• 15h21 devient 3:21 PM
+
+```
+algorithme HM:
+    heure, minute: entier
+    lire heure, minute
+    si (heure >= 0 ET heure <= 11 ) ET (minute >= 0 ET minute <= 59) alors:
+        si heure = 0 alors:
+            heure <- 12
+        sinon
+            heure <- heure
+        écrire heure, ":", minute "AM"
+    sinon si (heure >= 12 ET heure <= 23) ET (minute >= 0 ET minute <= 59) alors:
+        si heure = 12 alors;
+            heure <- 12
+        sinon
+            heure <- heure - 12
+        fin si
+        écrire heure, ":", minute "PM"
+    fin si
+fin
+
+```
+
+<b> Exercice 15 </b>
+
+Chez Happy Copy, le tarif affiché est le suivant :
+
+    moins de 10 copies : 0.10 € la copie
+
+    à partir de 10 copies : 0.07 € par copie
+
+    à partir de 100 copies : 0.05 € par copie
+
+    à partir de 1000 copies : 0.04 € par copie
+
+Ecrire un algorithme qui affiche le prix à payer connaissant le nombre de copies effectuées.
+
+```
+algorithme copie:
+    copies            : entier
+    prix , prix_total :  réel
+    lire copies
+    si copies < 10 alors:
+        prix_total <- copies * 0.1
+        écrire  "Le prix total est ", prix_total, " euros".
+    sinon si copies > 10 ET copies < 100 alors:
+        prix_total <- copies * 0.07
+        écrire  "Le prix total est ", prix_total, " euros".
+    sinon si copies < 1000 alors:
+        prix_total <- copies * 0.04
+        écrire  "Le prix total est ", prix_total, " euros".
+    fin si
+fin
+```
+
+<b> Exercice 16 </b>
+
+Un triangle est isocèle s’il possède 2 côtés de même longueur, ou de façon équivalentes, s’il possède 2 angles égaux. Ecrire un algorithme qui reçoit en paramètres 2 des angles de ce triangle, et affiche un message indiquant si le triangle est isocèle ou non.
+
+N.B. : les données se limitent ici à 2 angles du triangle...
+si cela vous perturbe, rappelez vous que la somme des angles d’un triangle vaut toujours 180°...
+
+```
+algorithme triangle_isocèle
+    angle1, angle2 : entier
+    lire angle1, angle2
+
+    si angle1 = angle2 alors:
+        Écrire "Le triangle est isocèle."
+    sinon:
+        Écrire "Le triangle n'est pas isocèle."
+    fin si
+fin
+
+```
+
+<b> Exercice 17 </b>
+Les quatre saisons sont fixées comme suit :
+
+    le printemps : du 21 mars au 20 juin
+
+    l’été : du 21 juin au 20 septembre
+
+    l’automne : du 21 septembre au 20 décembre
+
+    l’hiver : du 21 décembre au 20 mars
+
+Ecrire, sur base de ces données, un algorithme qui lit une date sous forme du jour (entier entre 1 et 31) et du mois (entier entre 1 et 12), et qui affiche la saison correspondant à cette date.
+
+```
+
 
 ```
