@@ -142,3 +142,54 @@ Pour avoir f(4), on remplace n par 4:
 f(4) = (f(4-1)²) + 1 = (f(3)²) + 1 = (26²) + 1 = 676 + 1 = 676
 
 ```
+
+Pour <b>f(n) = (3 \* f(n-1)) mod 7</b>
+
+Etape de départ : le valeur initiale
+
+On te donne :
+
+```
+ f(0) = 1
+
+```
+
+C'est la valeur de départ (comme un point de départ pour la suite).
+
+<b> Calcul de f(1) </b>
+
+Pour avoir f(1), on remplace n par 1:
+
+```
+f(1) = (3 * f(1-1)) mod 7 = (3 * f(0)) mod7 = (3 * 1) mod 7 = 3
+
+```
+
+<b> Calcul de f(2) </b>
+
+Pour avoir f(2), on remplace n par 2:
+
+```
+f(2) = (3 * f(2-1)) mod 7 = (3 * f(1)) mod7 = (3 * 3) mod 7 = 2
+
+```
+
+<b> Calcul de f(3) </b>
+
+Pour avoir f(3), on remplace n par 3:
+
+```
+f(3) = (3 * f(3-1)) mod 7 = (3 * f(2)) mod7 = (2 * 3) mod 7 = 6
+
+```
+
+<b> Calcul de f(4) </b>
+
+Pour avoir f(4), on remplace n par 4:
+
+```
+f(4) = (3 * f(4-1)) mod 7 = (3 * f(3)) mod7 = (2 * 6) mod 7 = 4
+
+```
+
+### Exercice 5.3:
