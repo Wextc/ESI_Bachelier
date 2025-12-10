@@ -1310,20 +1310,165 @@ fin
 
 ```
 
-<b> Exercice 17 </b>
-Les quatre saisons sont fixées comme suit :
+<b> Exercice 18</b>
 
-    le printemps : du 21 mars au 20 juin
+Un magasin a décidé d’une campagne promotionnelle pour ses clients : plus grande est la quantité achetée pour un produit,plus grande est la remise (ristourne) sur le prix normal du produit.
 
-    l’été : du 21 juin au 20 septembre
+il n’y a pas de remise pour moins de 5 fois le même produit
 
-    l’automne : du 21 septembre au 20 décembre
+il y a une remise de 5% pour une quantité minimale de 5 et inférieure à 10 fois le même produit
 
-    l’hiver : du 21 décembre au 20 mars
+il y a une remise de 10% pour une quantité minimale de 10 et inférieure à 50 fois le même produit
 
-Ecrire, sur base de ces données, un algorithme qui lit une date sous forme du jour (entier entre 1 et 31) et du mois (entier entre 1 et 12), et qui affiche la saison correspondant à cette date.
+il y a une remise de 15% pour une quantité minimale de 50 fois le même produit
+
+Ecrivez un algorithme qui calcule et affiche le prix à payer par le client à partir du prix unitaire et de la quantité achetée du même produit.
+
+```
+algorithme remise:
+    quantité                   :entier
+    prix_unitaire, prix_total  :réel
+    lire quantité, prix_unitaire
+    si quantité < 5 alors:
+        prix_total <- prix_untitaire * quantié
+    si quantité >= 5 ET quantité < 10 alors:
+        prix_total <- prix_unitaire * (1 - 0, 05)
+    sinon quantité >= 10 ET quantité < 50 alors:
+        prix_total <- prix_unitaire *(1 -0,10)
+    sinon quantité >= 50 alors:
+        prix_total <- prix_unitaire * (1- 0,15)
+    fin si
+fin
 
 ```
 
+<b> Exercice 19</b>
+
+Le volume d’un téléviseur est mesuré sur une échelle de nombres entiers entre 0 et 20. Il est modifié par le bouton ‘+’ de la télécommande, qui augmente le volume d’une unité (sauf s’il est au maximum) ou par le bouton ‘–’ qui descend le volume d’une unité (sauf s’il est au minimum).
+
+Ecrire un algorithme qui simule le fonctionnement du réglage du volume. Cet algorithme lira la valeur du volume actuel ainsi qu’un caractère qui peut valoir ‘p’ (pour le bouton ‘+’) ou ‘m’ (pour le bouton ‘–’) et affichera la nouvelle valeur du volume.
 
 ```
+Algorithme volume:
+
+    volume   : entier
+    commande : caractère
+
+    lire volume
+    lire commande
+
+    Si commande = "p" ET volume < 20 alors:
+        volume <- volume + 1
+    fin si
+
+    Si commande = "m" ET volume > 0 alors:
+        volume <- volume - 1
+    fin si
+
+    Écrire "Nouveau volume : ", volume
+Fin
+
+```
+
+## Chapitre 4
+
+<b> Algorithme avec paramètres </b>
+
+Dans un algorithme, au lieu de lire les valeurs avec :
+
+```
+lire x
+lire y
+
+```
+
+on peut faire en sorte que ces valeurs soient fournies directement lors de l’appel de l’algorithme.
+Pour cela, on utilise des paramètres en entrée, écrits dans l’en-tête :
+
+algorithme maximum(x, y : entier)
+
+Cela signifie que x et y recevront leurs valeurs au moment où l’algorithme est appelé, par exemple :
+
+```
+maximum(5, 12)
+
+```
+
+Ainsi :
+
+On ne lit plus x et y dans l’algorithme.
+
+On ne redéclare pas x et y à l’intérieur (sinon on efface leur valeur).
+
+L’algorithme ne pourra fonctionner que si les paramètres ont été fournis lors de l’appel.
+
+Une fois les paramètres reçus, l’algorithme peut s’exécuter normalement, comme ici :
+
+```
+si x > y alors
+    max ← x
+sinon
+    max ← y
+fin si
+
+```
+
+<b>Appel d’un algorithme par un autre algorithme</b>
+
+Pour appeler un algorithme qui possède des paramètres, il suffit d’écrire son nom suivi de valeurs entre parenthèses.
+Ces valeurs doivent correspondre aux paramètres indiqués dans l’en-tête : même nombre, même ordre et même type.
+
+Exemple : si maximum(x, y) est un algorithme qui affiche le plus grand des deux nombres, on peut l’appeler ainsi :
+
+avec des variables : maximum(a, b)
+
+avec des valeurs : maximum(10, 20)
+
+avec un mélange : maximum(10, b)
+
+avec des expressions : maximum(a + b, a - b)
+
+Si l’utilisateur a donné a = 3 et b = 4, alors :
+
+maximum(a, b) affiche 4
+
+maximum(10, b) affiche 10
+
+maximum(10, 20) affiche 20
+
+Lorsqu’on écrit maximum(expr1, expr2), cela revient à ce que l’algorithme reçoive automatiquement :
+
+```
+x ← expr1
+y ← expr2
+
+```
+
+Puis il s’exécute avec ces valeurs.
+
+<b>Valeur de retour </b>
+
+Après avoir appris à passer des valeurs à un algorithme grâce aux paramètres, la deuxième étape consiste à éviter d’y faire directement un affichage. En effet, un algorithme ne sert pas toujours à afficher un résultat : parfois, on veut simplement récupérer une valeur pour l’utiliser ailleurs. Pour cela, on introduit la notion de valeur de retour.
+
+Un algorithme qui renvoie une valeur indique dans son en-tête, après une flèche, le type de cette valeur. À l’intérieur, une instruction spéciale — retourner — envoie la valeur calculée à l’endroit où l’algorithme a été appelé. Ainsi, l’algorithme maximum(x, y) peut renvoyer le plus grand des deux nombres sans rien afficher lui-même.
+
+L’appel d’un algorithme avec valeur de retour se comporte comme une expression. On peut donc écrire par exemple :
+
+```
+écrire maximum(a, b)
+
+```
+
+ou même utiliser le résultat pour d'autres calculs. Contrairement à un algorithme sans valeur de retour, on n’appelle plus l’algorithme comme une simple instruction, mais comme une fonction qui produit un résultat.
+
+Deux règles importantes accompagnent cela :
+
+l’instruction retourner doit se trouver en fin d’algorithme, sinon tout ce qui est écrit ensuite serait ignoré (on parle de code mort) ;
+
+il ne peut y avoir qu’un seul retourner, car le premier rencontré termine l’algorithme.
+
+Par ailleurs, toutes les variables d’un algorithme sont locales, c’est-à-dire qu’elles ne sont connues que dans cet algorithme. Ainsi, x et y n’existent que dans maximum, tandis que a, b et c appartiennent uniquement à l’algorithme qui les utilise. Cela évite toute confusion entre les noms de variables dans différents sous-algorithmes.
+
+L’intérêt de découper un problème en sous-algorithmes est d’organiser clairement le travail : l’algorithme appelant s’occupe de la lecture et de l’affichage, tandis que le sous-algorithme maximum se charge uniquement du calcul du maximum.
+
+On peut ensuite réutiliser facilement cet algorithme. Par exemple, pour trouver le maximum de trois nombres, on appelle deux fois l’algorithme maximum : d’abord sur les deux premiers nombres, puis sur le résultat et le troisième nombre. On peut même écrire cette opération en une seule ligne, même si cela peut réduire la lisibilité.
