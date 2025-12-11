@@ -1536,3 +1536,109 @@ fin
 | 6     | écrire somme(a, a + b)    | 15  | 10  | 25  | 18 ; 30 ; 40 ; 40 |
 | 7     | a ← a + somme(a, b)       | 40  | 10  | 25  | 18 ; 30 ; 40 ; 40 |
 | 8     | b ← somme(a, somme(a, b)) | 40  | 90  | 25  | 18 ; 30 ; 40 ; 40 |
+
+### Exercice 2
+
+Tracer le déroulement de l’algorithme principal ci-dessous en prenant 1 et 4 comme
+valeurs de départ.
+
+```
+algorithme principal
+    a, b : entiers
+    lire a, b
+    a <- calculs(a, 2*b)
+    b <- calculs(b, a)
+    écrire a
+fin
+
+
+algorithme calculs(a, b : entier)  entier
+    c : entier
+    c <- a+b
+    a <- fonction(c)
+    retourner a
+fin
+
+algorithme fonction(x : entier)  entier
+    y : entier
+    si x > 10 alors
+        y <- x MOD 10
+    sinon
+        y <- 2*x
+    fin si
+    retourner x + y
+fin
+```
+
+| Étape | Instruction          | a   | b   | Valeur affichée |
+| ----- | -------------------- | --- | --- | --------------- |
+| 0     | Valeurs initiales    | 1   | 4   | —               |
+| 1     | a ← calculs(a, 2\*b) | 27  | 4   | —               |
+| 2     | b ← calculs(b, a)    | 27  | 32  | —               |
+| 3     | écrire a             | 27  | 32  | **27**          |
+
+### Exercice 3
+
+Voici encore une variante de l’algorithme pour le calcul du maximum de 3 nombres, qui fait appel à l’algorithme maximum (qui calcule lui le maximum de 2 nombres).
+
+Cet algorithme n’utilise cependant que 2 variables. Vérifiez la validité de l’algorithme, et corrigez-le si nécessaire.
+
+Algorithme correcte.
+
+```
+algorithme maximum3nombres
+    a, b : entier
+    lire a, b
+    a <- maximum(a, b)
+    lire b
+    a <- maximum(a, b)
+    écrire "Le maximum des 3 nombres vaut", a
+fin
+
+```
+
+L'algorithme est correct.
+
+Une variable supplémentaire c serait possible, mais pas utile.
+
+L'algorithme est correct ET plus efficace que la version avec 3 variables !
+
+Algorithme avec 3 variables.
+
+```
+algorithme maximum3nombres
+a, b, c : entier
+    lire a
+    lire b
+    lire c
+
+    a ← maximum(a, b)
+    a ← maximum(a, c)
+
+    écrire "Le maximum des 3 nombres vaut ", a
+fin
+
+```
+
+### Exercice 4
+
+Tracer l'algorithme maximum3nombres avec 2 valeurs les valeurs avec les valeurs a = 2 b=5.
+
+| Étape | Instruction                | a   | b   | Sortie              |
+| ----- | -------------------------- | --- | --- | ------------------- |
+| 0     | lire a, b                  | 2   | 5   |                     |
+| 1     | a ← maximum(2, 5) = 5      | 5   | 5   |                     |
+| 2     | lire b (3ᵉ valeur lue = 7) | 5   | 7   |                     |
+| 3     | a ← maximum(5, 7) = 7      | 7   | 7   |                     |
+| 4     | écrire                     | 7   | 7   | "Le maximum vaut 7" |
+
+Tracer l'algorithme maximum3nombres avec 3 valeurs les valeurs avec les valeurs a = 2 b=5 et c=8.
+
+| Étape | Instruction                           | a   | b   | c   | Sortie                |
+| ----- | ------------------------------------- | --- | --- | --- | --------------------- |
+| 0     | lire a                                | 2   | —   | —   |                       |
+| 1     | lire b                                | 2   | 5   | —   |                       |
+| 2     | lire c                                | 2   | 5   | 8   |                       |
+| 3     | a ← maximum(a, b) = maximum(2, 5) = 5 | 5   | 5   | 8   |                       |
+| 4     | a ← maximum(a, c) = maximum(5, 8) = 8 | 8   | 5   | 8   |                       |
+| 5     | écrire "Le maximum vaut ", a          | 8   | 5   | 8   | Le maximum vaut **8** |
