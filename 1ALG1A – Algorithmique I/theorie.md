@@ -1894,12 +1894,10 @@ algorithme date_comparaison(date_1 : Date, date_2 : Date) → entier
 
 fin
 
-
-
-
-
-
-    retourner résultat
-
-
 ```
+
+### Exercice 3
+
+a) Réécrire l’exercice 9 du chapitre 2 en utilisant une variable structurée (conversion d’une durée en nombre total de secondes)
+
+b) Réécrire l’exercice 10 du chapitre 2 en utilisant une variable structurée (conversion d’un nombre total de secondes au format HMS)
