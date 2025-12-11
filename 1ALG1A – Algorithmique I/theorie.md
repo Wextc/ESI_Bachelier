@@ -1622,6 +1622,8 @@ fin
 
 ### Exercice 4
 
+XXXX En cours de correction XXXX
+
 Tracer l'algorithme maximum3nombres avec 2 valeurs les valeurs avec les valeurs a = 2 b=5.
 
 | Étape | Instruction                | a   | b   | Sortie              |
@@ -1642,3 +1644,262 @@ Tracer l'algorithme maximum3nombres avec 3 valeurs les valeurs avec les valeurs 
 | 3     | a ← maximum(a, b) = maximum(2, 5) = 5 | 5   | 5   | 8   |                       |
 | 4     | a ← maximum(a, c) = maximum(5, 8) = 8 | 8   | 5   | 8   |                       |
 | 5     | écrire "Le maximum vaut ", a          | 8   | 5   | 8   | Le maximum vaut **8** |
+
+XXXX En cours de correction XXXX
+
+### Exercice 5
+
+Ecrire un algorithme qui retourne la valeur absolue d’un nombre réel reçu en paramètre.
+
+```
+algorithme calcul_valeur_absolue(param:réel) ->  réel
+    r: réel
+    r <- valeur_absolue(param)
+    retourner r
+fin
+
+algorithme valeur_absolue(param: réel) -> réél
+    y : réel
+    si param < 0 alors
+        y <- -param
+    sinon
+        y <- param
+    fin si
+    retourner y
+fin
+
+```
+
+### Exercice 6
+
+Ecrire un algorithme qui retourne le maximum de 4 nombres entrés en paramètres. Cet algorithme fera appel de façon imaginative au module qui calcule le maximum de 2 nombres.
+
+```
+algorithme maximum4nombres (a: réel, b: réel, c: réel, d: réel ) -> réel
+    maxi : réel
+    maxi <- calcul_maximum(a, b)
+    maxi <- calcul_maximum(maxi, c)
+    maxi <- calcul_maximum(maxi, d)
+    retourne maxi
+fin
+
+algorithme  calcul_maximum(param_1 :réel, param_2 :réel) -> réel
+    resultat :réel
+    si param_1 > param_2 alors
+        resultat <- param_1
+    sinon
+        resultat <- param_2
+
+    retourner resultat
+
+```
+
+### Exercice 7
+
+Ecrire un algorithme qui vérifie si une date est valide ou non. Pour ce faire, suivre
+les étapes suivantes :
+
+écrire un algorithme qui vérifie si une année est bissextile : cet algorithme recevra une année en paramètre et retournera un booléen indiquant si l’année est bissextile ou non
+
+écrire un algorithme qui reçoit un mois et une année en paramètre, et retourne le nombre de jours qu’il y a dans ce mois (cet algorithme fera appel au précédent pour traiter le cas particulier du mois de février)
+
+écrire un algorithme qui reçoit deux entiers en paramètre (x et max), et vérifie si x est compris dans l’intervalle [1, max]
+
+enfin, écrire l’algorithme principal qui reçoit une date en paramètre sous la forme de 3 entiers J, M, A et retourne un booléen indiquant si la date est valide ou non. Il faut vérifier pour cela que le mois M est compris entre 1 et 12, et que le jour J est compris entre 1 et le nombre de jours de ce mois.
+
+Réflexion : que proposeriez-vous comme contrainte sur l’année ?
+
+L'année est natrelle.
+
+```
+
+algorithme annee_bissextile(annee : naturel) -> booléen
+    // Une année est bissextile si :
+    // - divisible par 4 et pas par 100
+    //   OU
+    // - divisible par 400
+
+    si (annee MOD 400 = 0) alors
+        retourner vrai
+    sinon si (annee MOD 100 = 0) alors
+        retourner faux
+    sinon si (annee MOD 4 = 0) alors
+        retourner vrai
+    sinon
+        retourner faux
+    fin si
+fin
+algorithme nombre_jours(mois : naturel, annee : naturel) -> naturel
+    jours : naturel
+
+    // Mois à 31 jours
+    si mois = 1 OU mois = 3 OU mois = 5 OU mois = 7 OU mois = 8 OU mois = 10 OU mois = 12 alors
+        jours <- 31
+
+    // Mois à 30 jours
+    sinon si mois = 4 OU mois = 6 OU mois = 9 OU mois = 11 alors
+        jours <- 30
+
+    // Février
+    sinon si mois = 2 alors
+        si annee_bissextile(annee) = vrai alors
+            jours <- 29
+        sinon
+            jours <- 28
+        fin si
+
+    // (Optionnel) Mois invalide : on pourrait mettre jours <- 0
+    sinon
+        jours <- 0
+    fin si
+
+    retourner jours
+fin
+
+
+algorithme dans_intervalle(x : entier, max : entier) -> booléen
+    si x >= 1 ET x <= max alors
+        retourner vrai
+    sinon
+        retourner faux
+    fin si
+fin
+
+
+algorithme date_valide(J : entier, M : entier, A : naturel) -> booléen
+    nb_jours : entier
+
+    // Vérifier que le mois est entre 1 et 12
+    si dans_intervalle(M, 12) = faux alors
+        retourner faux
+    fin si
+
+    // Récupérer le nombre de jours de ce mois
+    nb_jours <- nombre_jours(M, A)
+
+    // Si nb_jours = 0, le mois était invalide (cas de sécurité)
+    si nb_jours = 0 alors
+        retourner faux
+    fin si
+
+    // Vérifier que le jour est compris entre 1 et nb_jours
+    si dans_intervalle(J, nb_jours) = vrai alors
+        retourner vrai
+    sinon
+        retourner faux
+    fin si
+fin
+
+```
+
+## Chapitre 5
+
+Jusqu'ici, les algorithmes ont manipulé uniquement des variables simples, comme les entiers, les réels, les booléens ou les chaînes, qui ne peuvent contenir qu’une seule valeur à la fois. Pourtant, de nombreuses données réelles sont composées de plusieurs éléments : une date comporte un jour, un mois et une année ; un moment de la journée se décrit par une heure, une minute et une seconde ; une adresse en Belgique regroupe une rue, un numéro, un code postal, une ville et éventuellement un pays. Pour pouvoir manipuler ce type de données complexes de manière cohérente, on introduit les variables structurées, qui permettent de rassembler plusieurs informations dans une seule structure.
+
+Pour utiliser une variable structurée, il faut d’abord définir son type, en listant ses différents champs ainsi que leur type respectif. Par exemple, un type date regroupera un jour, un mois et une année ; un type moment contiendra une heure, une minute et une seconde ; un type adresse regroupera une rue, un numéro de maison, un code postal, une ville et un pays. Une fois ces types définis, ils peuvent être utilisés comme n’importe quel type simple dans les déclarations de variables.
+
+Un champ d’une structure peut lui-même être une structure, ce qui permet de modéliser des données encore plus complexes. On peut ainsi définir un type carteIdentité contenant un nom, un prénom, une date de naissance (de type date), une adresse de domicile (de type adresse) et un numéro de registre national.
+
+La déclaration d’une variable structurée se fait exactement comme celle d’une variable simple, en indiquant son nom suivi du type structuré utilisé. Par la suite, pour accéder ou modifier un champ particulier d’une variable structurée, on emploie la notation pointée, par exemple : dateAnniversaire.jour ← 5, adresseEcole.rue ← "Rue Royale" ou retourner maCarte.domicile.codePostal. Selon le contexte, il est également possible de manipuler l’ensemble de la structure, par exemple en affectant une date à une autre ou en retournant directement une structure complète.
+
+Cette capacité à retourner ou transférer en une seule opération un ensemble de valeurs regroupées dans une structure offre une grande souplesse : elle permet de transmettre des données complexes à un algorithme ou d’en recevoir en retour, tout en gardant un code clair et organisé.
+
+## Exercice 1
+
+Les exercices utilisent les types structurés moment et date définis dans ce chapitre. A partir de maintenant, nous privilégions l’utilisation des paramètres et des valeurs de retour aux lectures et écritures, sauf si ces dernières sont explicitement demandées.
+
+Ecrire un algorithme qui reçoit un moment en paramètre et retourne ce moment
+augmenté d’une seconde.
+Exemples :
+• si le moment reçu est 13h 21’ 23’’, le retour sera 13h 21’ 24’’
+• si le moment reçu est 15h 17’ 59’’, le retour sera 15h 18’ 00’’
+
+```
+algorithme ajouter_une_seconde(moment : Moment) → Moment
+
+   resultat : Moment
+
+   // Copier le moment reçu
+   resultat.h ← moment.h
+   resultat.m ← moment.m
+   resultat.s ← moment.s + 1
+
+   // Gestion du dépassement des secondes
+   si resultat.s = 60 alors
+       resultat.s ← 0
+       resultat.m ← resultat.m + 1
+   fin si
+
+   // Gestion du dépassement des minutes
+   si resultat.m = 60 alors
+       resultat.m ← 0
+       resultat.h ← resultat.h + 1
+   fin si
+
+   // Gestion du dépassement des heures
+   si resultat.h = 24 alors
+       resultat.h ← 0
+   fin si
+
+   retourner resultat
+fin
+
+
+```
+
+### Exercice 2
+
+Ecrire un algorithme qui compare 2 dates reçues en paramètres. L’algorithme
+retournera un entier valant :
+
+• –1 si la première date est antérieure à la 2ème
+
+• 1 si la première date est postérieure à la 2ème
+
+• 0 si les 2 dates sont identiques
+
+```
+
+type Date = structure
+    jour : entier
+    mois : entier
+    annee : entier
+fin structure
+
+algorithme date_comparaison(date_1 : Date, date_2 : Date) → entier
+
+    // Comparaison des années
+    si date_1.annee < date_2.annee alors
+        retourner -1
+    sinon si date_1.annee > date_2.annee alors
+        retourner 1
+    fin si
+
+    // À ce stade, les années sont égales
+    si date_1.mois < date_2.mois alors
+        retourner -1
+    sinon si date_1.mois > date_2.mois alors
+        retourner 1
+    fin si
+
+    // À ce stade, les mois sont aussi égaux
+    si date_1.jour < date_2.jour alors
+        retourner -1
+    sinon si date_1.jour > date_2.jour alors
+        retourner 1
+    fin si
+
+    // À ce stade, tout est égal
+    retourner 0
+
+fin
+
+
+
+
+
+
+    retourner résultat
+
+
+```
