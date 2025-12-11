@@ -1472,3 +1472,67 @@ Par ailleurs, toutes les variables d’un algorithme sont locales, c’est-à-di
 L’intérêt de découper un problème en sous-algorithmes est d’organiser clairement le travail : l’algorithme appelant s’occupe de la lecture et de l’affichage, tandis que le sous-algorithme maximum se charge uniquement du calcul du maximum.
 
 On peut ensuite réutiliser facilement cet algorithme. Par exemple, pour trouver le maximum de trois nombres, on appelle deux fois l’algorithme maximum : d’abord sur les deux premiers nombres, puis sur le résultat et le troisième nombre. On peut même écrire cette opération en une seule ligne, même si cela peut réduire la lisibilité.
+
+### Exercice 1
+
+Dans le code ci-dessous, l’algorithme principal fait appel à l’algorithme somme, mais parfois de façon erronée. Quels sont les appels corrects ? Quels sont les lignes incorrectes, et pourquoi ? Après avoir éliminé les lignes incorrectes, tracer l’algorithme en prenant 5 et 10 comme valeurs lues.
+
+```
+algorithme principal
+    a, b, c : entier
+    lire a, b
+    somme(a, b)            <- On appelle la fonction sans utiliser sa valeur.
+    a <- somme(a, b)
+    écrire somme(a, 3)
+    écrire somme(a, a)
+    écrire somme(a, c)     <- Ici c n'a pas encore reçu de valeur.
+    c <- somme(a, b)
+    écrire somme(a, c)
+    écrire somme(x, y)     <- Ici les valeurs x et y n'existent pas dans l'alogrithme.
+    écrire somme(a, b, c)  <- La fonction somme a trois arguments, mais lors de la déclaration elle n'a que deux arguments.
+    écrire somme(a, a + b)
+    a <- a + somme(a, b)
+    b <- somme(a, somme(a, b))
+fin
+algorithme somme(x, y : entier) : entier
+    z : entier
+    z <- +y
+    retourner z
+fin
+
+```
+
+Algorithme corrigé.
+
+```
+algorithme principal
+    a, b, c : entier
+    lire a, b
+    a ← somme(a, b)
+    écrire somme(a, 3)
+    écrire somme(a, a)
+    c ← somme(a, b)
+    écrire somme(a, c)
+    écrire somme(a, a + b)
+    a ← a + somme(a, b)
+    b ← somme(a, somme(a, b))
+fin
+algorithme somme(x, y : entier) : entier
+    z : entier
+    z <- +y
+    retourner z
+fin
+
+```
+
+| Étape | Instruction exécutée      | a   | b   | c   | Sortie (écran)    |
+| ----- | ------------------------- | --- | --- | --- | ----------------- |
+| 0     | Après lire a, b           | 5   | 10  | ?   | —                 |
+| 1     | a ← somme(a, b)           | 15  | 10  | ?   | —                 |
+| 2     | écrire somme(a, 3)        | 15  | 10  | ?   | 18                |
+| 3     | écrire somme(a, a)        | 15  | 10  | ?   | 18 ; 30           |
+| 4     | c ← somme(a, b)           | 15  | 10  | 25  | 18 ; 30           |
+| 5     | écrire somme(a, c)        | 15  | 10  | 25  | 18 ; 30 ; 40      |
+| 6     | écrire somme(a, a + b)    | 15  | 10  | 25  | 18 ; 30 ; 40 ; 40 |
+| 7     | a ← a + somme(a, b)       | 40  | 10  | 25  | 18 ; 30 ; 40 ; 40 |
+| 8     | b ← somme(a, somme(a, b)) | 40  | 90  | 25  | 18 ; 30 ; 40 ; 40 |
