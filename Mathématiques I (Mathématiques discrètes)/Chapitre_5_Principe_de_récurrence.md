@@ -418,3 +418,11 @@ f(5) = f(3) / f(4) = -4 / (1 / 8) = -4 * 8 = - 32
 ![permission_cat](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/img/ch_5/5.10/5.10.1.5.png>)
 
 ![permission_cat](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/img/ch_5/5.10/5.10.1.6.png>)
+
+---
+
+![permission_cat](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/img/ch_5/5.10/5.10.2.1.png>)
+
+### Exercice 5.11
+
+### Exercice 5.12
