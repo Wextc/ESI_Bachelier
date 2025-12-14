@@ -1,12 +1,20 @@
 ## Chapitre 5
 
-# Chapitre 4 - Dénombrements
+# Chapitre 5 - Dénombrements
 
 ## Vidéos qui explique
+
+https://www.youtube.com/watch?v=E4kOLOuVc8o&t=1s
 
 https://www.youtube.com/watch?v=udGGlHdSAgc
 
 https://www.youtube.com/watch?v=LXSJB0BnPD4
+
+https://www.youtube.com/watch?v=GdM_iA1Zek4
+
+Loi de morgan par récurrence
+
+https://www.youtube.com/watch?v=OKGigI3lyCE
 
 ### Exercice 5.1:
 
@@ -407,6 +415,8 @@ f(5) = f(3) / f(4) = -4 / (1 / 8) = -4 * 8 = - 32
 
 ### Exercice 5.10
 
+<b>5.10.2</b>
+
 ![permission_cat](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/img/ch_5/5.10/5.10.1.1.png>)
 
 ![permission_cat](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/img/ch_5/5.10/5.10.1.2.png>)
@@ -420,6 +430,8 @@ f(5) = f(3) / f(4) = -4 / (1 / 8) = -4 * 8 = - 32
 ![permission_cat](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/img/ch_5/5.10/5.10.1.6.png>)
 
 ---
+
+<b>5.10.2</b>
 
 ![permission_cat](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/img/ch_5/5.10/5.10.2.1.png>)
 
