@@ -406,3 +406,5 @@ f(5) = f(3) / f(4) = -4 / (1 / 8) = -4 * 8 = - 32
 ### Exercice 5.8
 
 ### Exercice 5.10
+
+![permission_cat](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/img/ch_5/exercice5.10_1.png>)
