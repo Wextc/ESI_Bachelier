@@ -22,3 +22,32 @@ print("Insertion :",liste5)
 liste5 = [15,15,15, 3, 2, 1]
 liste5[1] = 7
 print("Modification :",liste5)
+
+# Remplace l'élément situé à entre l'index 1 et 3 l'array > [10, 12, 14, 16]
+
+liste1 = [1, 2, 3, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f", "g", "h"]
+
+liste1[1:3] = [10, 12, 14, 16]
+
+print("Liste modifiée", liste1)
+
+# Copie la liste
+liste1 = [1, 2, 3, 5, 6, 7, 8, 9]
+liste2 = ["a", "b", "c", "d", "e", "f", "g", "h"]
+liste3 = liste1.copy() 
+print("Liste copiée :", liste3)  # [1, 2, 3, 5, 6, 7, 8, 9]
+# Si ton objectif est de combiner liste1 et liste2
+liste3 =  liste2 + liste1
+print("Liste1 et liste2 sont concotenaté :", liste3)
+# Extraire valeur
+liste3 = [1, 2, 3, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f", "g", "h"]
+liste1 = liste3[8:]
+print("La valeur de liste1 :", liste1)
+
+
+
+
+
+
+
+
