@@ -110,12 +110,7 @@ liste1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 del liste1[0]
 print("Liste sans le premier élémment ici 'a': ", liste1)
 
-mots = ['Carottes', 'Poireaux', 'Tomates', 'Aubergines', 'Courgettes']
-
-mots = mots.append("Brocolis")
-
-print(mots)
-
+ 
 
 
 
