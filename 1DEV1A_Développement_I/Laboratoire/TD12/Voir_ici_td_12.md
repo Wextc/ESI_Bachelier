@@ -368,3 +368,45 @@ print("Tous les groupes des prof sans doublons est ", enseignants_sans_doublon)
 ```
 
 #### Exercice 3:
+
+<b> Que se passe-t-il si on essaye de</b>
+
+<b> donner deux valeurs à une même clef ?</b>
+
+```
+
+```
+
+<b> donner la même valeur à deux clefs différentes ?</b>
+
+Le dictionnaire ne peut pas avoir deux valeurs pour la même clé.
+
+Python garde seulement la dernière valeur.
+
+Ici, d["a"] vaudra 2, pas 1.
+
+La première valeur est écrasée.
+
+```
+d = {"a": 1, "a": 2}
+
+```
+
+<b> accéder (par exemple afficher) à une clef qui n’existe pas dans le dictionnaire ?</b>
+
+C’est parfaitement autorisé.
+
+Chaque clé est unique, donc Python accepte.
+
+Les deux clés a et b pointent vers la même valeur 1
+
+- utiliser une liste comme clef ?
+
+```
+d = {"a": 1, "b": 1}
+
+```
+
+#### Exercice 4:
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD12/img/exercice_04.png)
