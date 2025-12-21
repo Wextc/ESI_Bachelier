@@ -855,3 +855,13 @@ print(suppression_doublons([7, 3, 3, 8, 8, 8, 7]))
 
 
 ```
+
+La fonction suppression_doublons prend en paramètre une liste appelée ma_liste. Elle sert à créer une nouvelle liste qui ne contient que les éléments uniques, sans répétition.
+
+Au début, une liste vide nommée resultat est créée. Elle va stocker les éléments sans doublons. Ensuite, le programme parcourt chaque élément de ma_liste un par un grâce à la boucle for.
+
+Pour chaque élément i, le programme vérifie s’il n’est pas déjà présent dans la liste resultat. Si l’élément n’y est pas, il est ajouté à resultat à l’aide de la méthode append. En revanche, si l’élément est déjà présent, il est ignoré et le programme passe au suivant.
+
+À la fin de la boucle, la fonction retourne la liste resultat, qui contient uniquement les valeurs uniques tout en conservant l’ordre d’apparition initial.
+
+Enfin, l’instruction print affiche le résultat de l’appel de la fonction avec la liste [7, 3, 3, 8, 8, 8, 7]. Le résultat affiché sera donc [7, 3, 8].
