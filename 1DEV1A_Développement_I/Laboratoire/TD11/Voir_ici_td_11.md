@@ -1,6 +1,6 @@
 ### Résumé:
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/resume.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/resume.png)
 
 <b>Création et accès</b>
 
@@ -296,7 +296,7 @@ print(l)            # [3, 2, 1]
 
 ```
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/attention.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/attention.png)
 
 Explication simple:
 
@@ -663,7 +663,7 @@ C’est pour cette raison qu’après l’exécution du code, mots ne contient p
 
 #### Exercice 1.3 Le parcours d’une liste est semé d’embûches
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/1.3.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/1.3.png)
 
 Lorsqu’on exécute le premier programme, la boucle for parcourt une copie de la liste grâce au slicing mots[:]. Cela signifie que Python crée d’abord une nouvelle liste contenant les mêmes éléments que mots, puis la boucle itère sur cette copie. Pendant ce temps, la liste originale mots peut être modifiée sans influencer le déroulement de la boucle. À chaque itération, l’élément courant est ajouté à la fin de la liste originale. La boucle s’exécute donc un nombre de fois fixe (égal au nombre d’éléments de départ), et à la fin, la liste mots contient simplement deux fois les mêmes éléments.
 
@@ -673,9 +673,9 @@ Ces deux comportements s’expliquent par une propriété fondamentale des liste
 
 #### 1.4 Listes en compréhension
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/1.4.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/1.4.png)
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/1.4.2.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/1.4.2.png)
 
 Les listes en compréhension permettent de créer des listes en Python de manière plus concise, plus lisible et souvent plus efficace qu’avec une boucle classique. Le principe consiste à construire une liste en évaluant une expression pour chaque élément d’une séquence, tout en pouvant appliquer une condition de filtrage.
 
@@ -689,7 +689,7 @@ Enfin, les listes en compréhension ne servent pas uniquement à filtrer des val
 
 #### Exercice 4
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/exercice_4.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/exercice_4.png)
 
 Cette fonction prend trois paramètres :
 
@@ -709,7 +709,7 @@ def liste_entiers_aleatoires(n, nmin, nmax):
 
 ```
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/exercice_5.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/exercice_5.png)
 
 ```
 def addition(l1, valeur):
@@ -730,7 +730,7 @@ print(addition([1,2,3], 2))
 
 ```
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/exercice_6.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/exercice_6.png)
 
 ```
 
@@ -760,7 +760,7 @@ La conversion est réalisée grâce à la fonction ord(), qui renvoie le code Un
 
 Enfin, la liste modifiée est renvoyée. Cette approche permet de transformer facilement un mot ou une chaîne de caractères en une représentation numérique basée sur l’ordre alphabétique des lettres.
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/exercice_7.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/exercice_7.png)
 
 ```
 def moyenne(ma_liste):
@@ -799,7 +799,7 @@ Si l’élément est correct, sa valeur est ajoutée à la variable total. Une f
 
 Enfin, le résultat de cette division est retourné. Dans l’exemple donné, la liste [1, 2] contient deux nombres dont la somme est 3, la moyenne renvoyée par la fonction est donc 1.5.
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/exercice_8.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/exercice_8.png)
 
 Cette fonction a pour but de déterminer les éléments communs à deux listes et de les rassembler dans une nouvelle liste, sans doublons.
 
@@ -811,7 +811,7 @@ Si ces deux conditions sont satisfaites, l’élément est ajouté à la liste r
 
 L’appel de la fonction avec print(liste_elements_communs(l1, l2)) permet ensuite d’afficher le résultat obtenu.
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/exercice_9.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/exercice_9.png)
 
 ```
 def suppression_occurrences(ma_liste, mot):
@@ -841,7 +841,7 @@ La boucle s’arrête automatiquement dès que le mot n’est plus présent dans
 
 Dans l’exemple donné, la liste contient deux occurrences de la chaîne "r". Après l’appel de la fonction, la liste est modifiée et ne contient plus ce mot. Le programme affiche alors le nombre de suppressions effectuées, ainsi que la liste finale après nettoyage.
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/DEV1/Laboratoire/TD11/img/exercice_10.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD11/img/exercice_10.png)
 
 ```
 def suppression_doublons(ma_liste):
