@@ -410,3 +410,94 @@ d = {"a": 1, "b": 1}
 #### Exercice 4:
 
 ![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD12/img/exercice_04.png)
+
+```
+jours = {
+    "lundi": "Monday",
+    "mardi": "Tuesday",
+    "mercredi": "Wednesday",
+    "jeudi": "Thursday",
+    "vendredi": "Friday",
+    "samedi": "Saturday",
+    "dimanche": "Sunday"
+}
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD12/img/exercice_05.png)
+
+```
+profs_dev1 = [
+"bej", "mbr", "sre", "dbo", "abe",
+"clg", "bej", "cuv", "sre", "sdr",
+"hal", "nri", "bis", "clg", "cuv",
+"hal", "srv", "gba", "pbt", "tni"
+]
+
+def compte_repetition(liste):
+    resultat = {}
+    for item in liste:
+        if item in resultat:
+            resultat[item] += 1
+        else:
+            resultat[item] = 1
+
+    return resultat
+
+
+
+print(compte_repetition(profs_dev1))
+
+```
+
+La fonction compte_repetition prend en paramètre une liste d’éléments. Elle a pour objectif de compter combien de fois chaque élément apparaît dans cette liste.
+
+Au début de la fonction, on crée un dictionnaire vide appelé resultat. Ce dictionnaire servira à stocker les éléments de la liste comme clés, et leur nombre d’apparitions comme valeurs.
+
+Ensuite, la fonction parcourt la liste élément par élément à l’aide d’une boucle for. À chaque passage dans la boucle, l’élément courant est stocké dans la variable item.
+
+Pour chaque élément, la fonction vérifie s’il est déjà présent comme clé dans le dictionnaire resultat.
+
+Si c’est le cas, cela signifie que l’élément a déjà été rencontré auparavant. On augmente donc la valeur associée à cette clé de 1 pour compter une apparition supplémentaire.
+
+Si ce n’est pas le cas, cela signifie que l’élément apparaît pour la première fois. On l’ajoute alors au dictionnaire avec la valeur 1, indiquant une première occurrence.
+
+Une fois que tous les éléments de la liste ont été parcourus et comptés, la fonction retourne le dictionnaire resultat. Celui-ci contient, pour chaque élément de la liste, le nombre total de fois où il apparaît.
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD12/img/exercice_06.png)
+
+```
+data = {
+"abe": 1, "bej": 2, "bis": 1, "clg": 2, "cuv": 2,
+"dbo": 1, "gba": 1, "hal": 2, "mbr": 1, "nri": 1,
+"pbt": 1, "sdr": 1, "sre": 2, "srv": 1, "tni": 1
+}
+
+
+
+```
+
+<b>Remarque :</b>
+
+```
+Si je veux sélectionner en fonction des clés-valeurs j'utilise items()
+
+items() → clés + valeurs
+for clef, valeur in data.items():
+    print(valeur)
+    print(clef)
+Si je veux sélectionner en fonction des clés j'utilise keys()
+keys() → seulement clés
+for clef in data.keys():
+    print(clef)
+
+Si je veux sélectionner en fonction des values j'utilise values
+values() → seulement valeurs
+for valeur in data.values():
+    print(valeur)
+
+```
+
+On a un dictionnaire data où chaque clé est un nom et chaque valeur un nombre. La fonction cles_valeur_max sert à trouver toutes les clés dont la valeur est la plus grande. Elle commence par créer une liste vide res pour stocker les résultats. Ensuite, elle vérifie si le dictionnaire est vide avec if not d: ; si c’est le cas, elle retourne directement la liste vide. Sinon, elle calcule la valeur maximale du dictionnaire avec maximum = max(d.values()). Puis, elle parcourt toutes les paires clé-valeur du dictionnaire avec for clef, valeur in d.items(): et, à chaque itération, elle compare la valeur actuelle avec le maximum. Si elles sont égales, la clé correspondante est ajoutée à la liste res. Enfin, la fonction retourne cette liste. Pour le dictionnaire donné, la liste finale contient toutes les clés dont la valeur est 2 : ['bej', 'clg', 'cuv', 'hal', 'sre'].
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD12/img/exercice_07.png)
