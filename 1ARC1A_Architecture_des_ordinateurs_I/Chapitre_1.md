@@ -49,7 +49,7 @@ pour le binaire. Cette notation permet de savoir immédiatement dans quel systè
 
 d’éviter toute confusion.
 
-#### 1.1 Calcul dans une base quelconque
+### 1.1 Calcul dans une base quelconque
 
 <b> Calcul binaire :</b>
 
