@@ -269,6 +269,8 @@ On obtient le nombre en base 8 :
 
 <b> Comment convertir un nombre binaire en base 8 (octale) ou en base 16 (hexadécimale)? </b>
 
+​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_conversion2a10.png)
+
 le passage entre la base 2 (binaire) et la base 10 (décimale) est plus complexe que le passage vers les bases 8 ou 16. En
 
 effet, il n’existe pas de correspondance directe entre les bits et les chiffres décimaux, ce qui oblige à effectuer des
