@@ -501,3 +501,51 @@ for valeur in data.values():
 On a un dictionnaire data où chaque clé est un nom et chaque valeur un nombre. La fonction cles_valeur_max sert à trouver toutes les clés dont la valeur est la plus grande. Elle commence par créer une liste vide res pour stocker les résultats. Ensuite, elle vérifie si le dictionnaire est vide avec if not d: ; si c’est le cas, elle retourne directement la liste vide. Sinon, elle calcule la valeur maximale du dictionnaire avec maximum = max(d.values()). Puis, elle parcourt toutes les paires clé-valeur du dictionnaire avec for clef, valeur in d.items(): et, à chaque itération, elle compare la valeur actuelle avec le maximum. Si elles sont égales, la clé correspondante est ajoutée à la liste res. Enfin, la fonction retourne cette liste. Pour le dictionnaire donné, la liste finale contient toutes les clés dont la valeur est 2 : ['bej', 'clg', 'cuv', 'hal', 'sre'].
 
 ![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1DEV1A_Développement_I/Laboratoire/TD12/img/exercice_07.png)
+
+```
+
+def mots():
+    resultat = []
+    while True:
+        choix = str(input("Choisissez les mots :"))
+        if choix == "":
+            break
+        resultat.append(choix)
+    return resultat
+
+data = mots()
+def compter_occurrence(data):
+    obj = {}
+    resultat = []
+    for item in data:
+        if item in obj:
+            obj[item] += 1
+        else:
+            obj[item] = 1
+    maximum = max(obj.values())
+    for clef, valeur in obj.items():
+        if valeur == maximum:
+            resultat.append(clef)
+    return resultat
+
+
+print(compter_occurrence(data))
+
+
+```
+
+Ce programme sert à demander à l’utilisateur de saisir des mots, puis à afficher le ou les mots les plus souvent saisis.
+
+La fonction mots() crée une liste vide appelée resultat et utilise une boucle infinie while True pour demander à l’utilisateur de taper des mots un par un. À chaque itération, le programme lit l’entrée avec input("Choisissez les mots :"). Si l’utilisateur appuie sur Entrée sans rien taper, la boucle se termine grâce à break. Sinon, le mot saisi est ajouté à la liste resultat. Quand la boucle se termine, la fonction retourne la liste complète des mots saisis.
+
+La variable data stocke le résultat de la fonction mots(), c’est-à-dire la liste de tous les mots que l’utilisateur a entrés.
+
+La fonction compter_occurrence(data) analyse cette liste pour déterminer quels mots apparaissent le plus souvent. Elle crée d’abord un dictionnaire obj pour compter les occurrences de chaque mot. Pour chaque mot dans la liste data, si le mot est déjà présent dans le dictionnaire, son compteur est augmenté de 1 ; sinon, il est ajouté avec une valeur de 1.
+
+Ensuite, la fonction cherche la fréquence maximale avec maximum = max(obj.values()). Elle parcourt à nouveau le dictionnaire et ajoute dans la liste resultat tous les mots dont la fréquence est égale à cette valeur maximale.
+
+Enfin, la fonction retourne la liste des mots les plus fréquents.
+
+Le programme principal affiche le résultat avec print(compter_occurrence(data)).
+
+Ainsi, après que l’utilisateur a saisi ses mots, le programme renvoie la ou les clés qui ont été tapées le plus souvent.
