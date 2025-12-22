@@ -10,8 +10,7 @@ Un calcul dans une base quelconque consiste à représenter et manipuler des nom
 
 Dans une base B, les chiffres possibles vont de 0 à B−1. La valeur d’un chiffre dépend donc à la fois de sa valeur propre et de sa position dans le nombre. Chaque position correspond à une puissance de la base.
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/tree/main/1ARC1A%20_Architecture_des_ordinateurs_I/img/chapitre_1_form_general.png)
-
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/tree/main/1ARC1A%20_Architecture_des_ordinateurs_I/img/chapitre_1_exemple.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/chapitre_1_form_general.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/chapitre_1_exemple.png)
 
 #### 1.1 Calcul dans une base quelconque
