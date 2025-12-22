@@ -2,7 +2,7 @@
 
 ## Représentation des nombres
 
-### 1. CALCUL BINAIRE ET ENTIERS POSITIFS
+### 1.1 Calcul dans une base quelconque
 
 <b>Calcul dans une base quelconque</b>
 
@@ -49,7 +49,7 @@ pour le binaire. Cette notation permet de savoir immédiatement dans quel systè
 
 d’éviter toute confusion.
 
-### 1.1 Calcul dans une base quelconque
+### 1.2 Bases classiques en informatique
 
 <b> Calcul binaire :</b>
 
@@ -131,7 +131,9 @@ la lisibilité pour les humains.
 
 <b> Atttention : </b>
 
-La base 8 n'est plus utilisée contrairement à la base 16.
+La base 8 n'est plus utilisée contrairement à la base 16. La base 16 est adaptée en informatique car on a besoin que de 2
+
+symbolse pour représenter des octets, alors que pour la base 8 il en faut 3.
 
 <b>Qu'est ce qui détermine le poids des bits? </b>
 
@@ -166,3 +168,158 @@ bits situés le plus à gauche dans l’écriture binaire de ce nombre, et octet
 le plus à droite. Ainsi, la position détermine directement l’importance d’un bit ou d’un octet dans la valeur totale du
 
 nombre, ce qui justifie les notions de poids fort et de poids faible.
+
+### 1.3 Changement de base
+
+<b> Pourquoi faut-il faire des conversions de base? </b>
+
+Il faut faire des conversions entre les base 10 et les base 2. La base 10 est compréhensible par les être humains mais ne peut être traitée par les ordinateurs. Les ordinateurs ne peuvent calculer qu'en base 2.
+
+<b> Comment convertir un nombre binaire en base 8 (octale) ou en base 16 (hexadécimale)? </b>
+
+Pour passer de la base 2 à la base 8, on regroupe les bits par paquets de 3, en partant toujours des bits de poids faible,
+
+c’est-à-dire depuis la droite. Chaque groupe de 3 bits correspond directement à un chiffre octal. Par exemple, pour le nombre
+
+binaire 101101000110₂, on le découpe de droite à gauche en groupes de trois bits : 110, 000, 101 et 101. Chaque groupe est
+
+ensuite remplacé par sa valeur en base 8 : 110 vaut 6, 000 vaut 0, et 101 vaut 5. On obtient ainsi le nombre 5506₈.
+
+Le même principe s’applique pour passer de la base 2 à la base 16, mais cette fois en regroupant les bits par groupes de 4,
+
+car 16 = 2⁴.Le nombre 101101000110₂ devient alors (1011 0100 0110)₂, ce qui correspond en hexadécimal à b46₁₆.
+
+Voici deux exemples détaillés, l’un pour la base 8 (octale) et l’autre pour la base 16 (hexadécimale), à partir d’un nombre binaire.
+
+Exemple de conversion en base 8 (octale):
+
+Prenons le nombre binaire :
+
+```
+1101011(base2)
+
+```
+
+On regroupe les bits par 3, en partant de la droite (bits de poids faible) :
+
+Attention => (1101011)² le 2 veut dire en Base 2 et pas exposant.
+
+```
+(1101011)² ​→ 1 101 011
+
+```
+
+On complète avec des zéros à gauche si nécessaire :
+
+```
+001 101 011
+
+```
+
+On convertit chaque groupe de 3 bits en octal :
+
+```
+001 = 1
+
+101 = 5
+
+011=3
+
+```
+
+On obtient le nombre en base 8 :
+
+```
+
+153(base8)
+
+```
+
+Exemple de conversion en base 16 (hexadécimale):
+
+```
+(101111010)² → 1 0111 1010
+
+```
+
+On complète avec des zéros à gauche si nécessaire :
+
+```
+0001 0111 1010
+
+```
+
+On convertit chaque groupe de 3 bits en octal :
+
+```
+0001 = 1
+
+0111= 7
+
+1010 = a (10 en décimal) (8+0+2+0=10)
+
+```
+
+On obtient le nombre en base 8 :
+
+```
+17a (base16)
+
+```
+
+<b> Comment convertir un nombre binaire en base 8 (octale) ou en base 16 (hexadécimale)? </b>
+
+le passage entre la base 2 (binaire) et la base 10 (décimale) est plus complexe que le passage vers les bases 8 ou 16. En
+
+effet, il n’existe pas de correspondance directe entre les bits et les chiffres décimaux, ce qui oblige à effectuer des
+
+calculs intermédiaires.
+
+Pour convertir un nombre binaire en décimal, on utilise le principe des puissances de 2. Chaque bit à 1 dans l’écriture
+
+binaire représente une puissance de 2 qu’il faut additionner. Par exemple, pour le nombre 101101000110₂, on repère les
+
+des bits égaux à 1 et on additionne les puissances de 2 correspondantes :
+
+2¹¹ + 2⁹ + 2⁸ + 2⁶ + 2² + 2¹.
+
+La somme de ces valeurs donne 2886 en base 10. Les bits à 0, quant à eux, ne contribuent pas à la valeur du nombre.
+
+Dans le sens inverse, pour passer du décimal au binaire, on procède par divisions successives par 2. À chaque division, le
+
+reste (0 ou 1) indique le bit de poids faible du nombre. On recommence ensuite la division avec le quotient obtenu, et ce
+
+jusqu’à ce que le quotient soit égal à 1. Les restes sont alors lus de bas en haut pour former l’écriture binaire du nombre.
+
+Cette méthode garantit une conversion correcte entre le système décimal et le système binaire, même si elle est plus longue
+
+que les conversions impliquant les bases 8 ou 16.
+
+Exemple 1 : passage du binaire au décimal
+
+Prenons le nombre binaire :
+
+```
+101101 (base 2)
+
+```
+
+On repère les positions des bits à 1 et on additionne les puissances de 2 correspondantes.
+
+```
+101101₂ = 1 × 2⁵ + 0 × 2⁴ + 1 × 2³ + 1 × 2² + 0 × 2¹ + 1 ×2⁰
+
+```
+
+Ce qui donne :
+
+```
+= 32 + 8 + 4 + 1 = 45
+
+```
+
+Donc :
+
+```
+101101 (base 2) = 45 (base 10)
+```
