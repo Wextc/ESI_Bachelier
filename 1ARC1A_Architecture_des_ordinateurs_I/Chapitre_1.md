@@ -269,8 +269,6 @@ On obtient le nombre en base 8 :
 
 <b> Comment convertir un nombre binaire en base 8 (octale) ou en base 16 (hexadécimale)? </b>
 
-​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_conversion2a10.png)
-
 le passage entre la base 2 (binaire) et la base 10 (décimale) est plus complexe que le passage vers les bases 8 ou 16. En
 
 effet, il n’existe pas de correspondance directe entre les bits et les chiffres décimaux, ce qui oblige à effectuer des
@@ -326,3 +324,213 @@ Donc :
 101101 (base 2) = 45 (base 10)
 
 ```
+
+<b> Comment convertir un nombre décimal en code (système) binaire? </b>
+
+​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_conversion2a10.png)
+
+<b> Exemple détaillé </b>
+
+Convertissons 117 en base 10 en binaire.
+
+```
+117 ÷ 2 = 58  reste 1
+
+58  ÷ 2 = 29  reste 0
+
+29  ÷ 2 = 14  reste 1
+
+14  ÷ 2 = 7   reste 0
+
+7   ÷ 2 = 3   reste 1
+
+3   ÷ 2 = 1   reste 1
+
+1   ÷ 2 = 0   reste 1
+
+```
+
+On lit les restes du bas vers le haut :
+
+```
+1110101
+
+```
+
+Résultat final:
+
+```
+117 (base 10) = 1110101 (base 2)
+
+```
+
+### 1.4 Arithmétique binaire
+
+<b> Addition : </b>
+
+Règles de base de l’addition binaire
+
+0 + 0 = 0
+
+0 + 1 = 1
+
+1 + 0 = 1
+
+1 + 1 = 0 avec une retenue de 1
+
+<b> Additionnons les deux nombres binaires suivants : </b>
+
+```
+  1011
++ 0110
+------
+
+```
+
+<b> Calcul détaillé (de droite à gauche) </b>
+
+Colonne la plus à droite:
+
+```
+1 + 0 = 1
+
+```
+
+Colonne suivante:
+
+```
+1 + 1= 2 en décimal, soit 0 en binaire avec une retenue de 1
+
+```
+
+Colonne suivante:
+
+```
+0+1=1 , plus la retenue  1 → 1 + 1 = 2
+
+Résultat : 0, retenue 1
+
+```
+
+Colonne suivante :
+
+```
+1 + 0 = 1 plus la retenue 1, 1 → 10 en binaire
+
+Résultat : 0, retenue 1
+
+```
+
+Retenue finale:
+
+```
+On écrit la retenue restante 1
+
+```
+
+Résultat final :
+
+```
+  1011
++ 0110
+------
+ 10001
+
+
+```
+
+<b> Vérification :</b>
+
+```
+1011 (en base 2) = 11 (en base 10)
+
+0110 (en base 2) = 6 (en 10)
+
+-------------------------------
+10001 (en base 2) = 17 (en base 10)
+
+```
+
+<b> Soustraction :</b>
+
+Règles de base de la soustraction binaire
+
+0 − 0 = 0
+
+1 − 0 = 1
+
+1 − 1 = 0
+
+0 − 1 : impossible sans emprunt → on emprunte 1 au bit de gauche
+
+```
+  1011
+- 0110
+------
+  0111
+
+```
+
+<b> Multiplication : </b>
+
+La multiplication binaire fonctionne sur le même principe que la multiplication décimale, mais elle est beaucoup plus simple, car elle ne met en jeu que deux chiffres : 0 et 1.
+
+Règles de base de la multiplication binaire
+
+0 × 0 = 0
+
+0 × 1 = 0
+
+1 × 0 = 0
+
+1 × 1 = 1
+
+Autrement dit, multiplier par 0 donne toujours 0, et multiplier par 1 conserve le nombre.
+
+Principe général
+
+Pour multiplier deux nombres binaires, on procède de droite à gauche :
+
+chaque bit du multiplicateur multiplie le multiplicande ;
+
+si le bit est 0, on écrit une ligne de zéros ;
+
+si le bit est 1, on recopie le multiplicande ;
+
+à chaque ligne, on décale le résultat d’un rang vers la gauche ;
+
+on additionne ensuite toutes les lignes obtenues.
+
+Exemple détaillé
+
+Multiplions 101₂ par 11₂.
+
+```
+    101
+×    11
+---------
+    101   (101 × 1)
+   101    (101 × 1, décalé d’un rang)
+---------
+  1111
+
+```
+
+<b> Vérification en base 10 :</b>
+
+```
+101 (en base 2) = 5 (en base 10)
+
+11 (en base 2) = 2 (en base 10)
+
+5 x 3  = 15
+
+1111 (en base 2) = 15 (en base 10)
+
+```
+
+<b> Division : </b>
+
+Très difficile.
+
+### 2. NOMBRES NÉGATIFS
