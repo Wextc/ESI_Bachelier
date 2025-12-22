@@ -106,3 +106,63 @@ Il est en effet simple de distinguer deux valeurs de tension sur un fil.
 Si l’on avait souhaité reproduire directement le calcul décimal, dix valeurs différentes de la tension auraienté été
 
 nécessaires, ce qui aurait rendu les circuits beaucoup plus complexes.
+
+<b> Quelle technique à-t-on trouvé pour rendre l'écriture binaire le plus compacte possible?</b>
+
+Le calcul binaire, fondé sur la base 2 et utilisant uniquement les chiffres 0 et 1, est essentiel en informatique car il
+
+correspond au fonctionnement des circuits électroniques. Un nombre binaire est donc une suite de bits, et huit bits forment
+
+un octet, unité fondamentale pour représenter les données.
+
+Cependant, l’écriture binaire présente un inconvénient majeur : elle est peu compacte. Pour un même nombre, la représentation
+
+binaire nécessite environ trois fois plus de symboles que la représentation décimale. Cette différence s’explique par le fait
+
+que le nombre de chiffres nécessaires dépend du logarithme du nombre dans la base choisie.
+
+Pour pallier ce problème de longueur, d’autres bases ont été utilisées en informatique, notamment la base 8 (octale) et la
+
+base 16 (hexadécimale). Ces systèmes offrent une écriture plus courte et plus lisible que le binaire, tout en restant
+
+étroitement liés à celui-ci. Ils constituent ainsi un compromis pratique entre la simplicité du binaire pour les machines et
+
+la lisibilité pour les humains.
+
+<b> Atttention : </b>
+
+La base 8 n'est plus utilisée contrairement à la base 16.
+
+<b>Qu'est ce qui détermine le poids des bits? </b>
+
+​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_10_poids.png)
+
+Dans un nombre binaire ou dans une donnée composée de plusieurs octets, l’octet de poids fort est celui qui se situe le plus
+
+à gauche. C’est lui qui représente la valeur la plus élevée, car il est associé aux puissances de 2 les plus grandes. À
+
+l’inverse, l’octet de poids faible se trouve le plus à droite et correspond aux plus petites puissances de 2.
+
+De manière générale, le poids d’un bit ou d’un octet dépend de sa position dans l’écriture du nombre. Lorsqu’on se déplace
+
+vers la gauche, le poids augmente : chaque déplacement vers la gauche multiplie la valeur par 2. À l’inverse, lorsqu’on se
+
+déplace vers la droite, le poids diminue : chaque déplacement divise la valeur par 2.
+
+Il est souvent utile de pouvoir désigner la partie la plus ou la moins importante d’un nombre, c’est-à-dire celle qui pèse le
+
+plus ou le moins dans le calcul de sa valeur. Cela correspond aux symboles placés le plus à gauche ou le plus à droite dans
+
+l’écriture du nombre, quelle que soit la base utilisée. On parle ainsi du bit de poids fort et du bit de poids faible pour un
+
+nombre binaire, du chiffre de poids fort ou de poids faible pour un nombre décimal, ou encore du symbole hexadécimal de poids
+
+fort ou faible.
+
+Par extension, lorsqu’un nombre binaire est écrit sur plusieurs octets, on appelle octet de poids fort l’ensemble des huit
+
+bits situés le plus à gauche dans l’écriture binaire de ce nombre, et octet de poids faible l’ensemble des huit bits situés
+
+le plus à droite. Ainsi, la position détermine directement l’importance d’un bit ou d’un octet dans la valeur totale du
+
+nombre, ce qui justifie les notions de poids fort et de poids faible.
