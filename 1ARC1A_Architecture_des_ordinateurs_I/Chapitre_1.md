@@ -1085,3 +1085,29 @@ Vérification:
 👉 Résultat correct, aucun débordement
 
 ### 3. NOMBRES RÉELS
+
+<b> La virgule fixe: </b>
+
+https://www.youtube.com/watch?v=Jk9Tl3MR1KM
+
+https://www.youtube.com/watch?v=Tmg8BgiGPes
+
+<b> La virgule IEEE, de la norme IEEE 754 </b>
+
+https://www.youtube.com/watch?v=PtFa7LhV96E
+
+https://www.youtube.com/watch?v=gWFGmcahd9c
+
+<b> Quelles sont les différences entre la virgule fixe et virgule IEEE? </b>
+
+La virgule fixe est simple, rapide et précise sur un intervalle limité, mais peu flexible.
+
+La virgule flottante IEEE 754 est plus complexe, mais beaucoup plus puissante et polyvalente, au prix d’une gestion plus
+
+délicate des approximations numériques.
+
+<b> Quand faut-il choisir une virgule fixe ou une virgule IEEE? </b>
+
+On choisit la virgule fixe quand les contraintes sont fortes et les valeurs maîtrisées, et la virgule flottante quand on a
+
+besoin de représenter des nombres réels variés avec une grande amplitude.
