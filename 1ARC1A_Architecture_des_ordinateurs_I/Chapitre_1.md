@@ -575,8 +575,6 @@ méthodes plus efficaces comme le complément à deux.
 
 ### 2.2 Représentation en complément à 2 :
 
-https://www.youtube.com/watch?v=26C729OYfP0
-
 Principe général
 
 En complément à 2, un nombre est écrit sur un nombre fixé de bits, noté
@@ -586,70 +584,119 @@ En complément à 2, un nombre est écrit sur un nombre fixé de bits, noté
 ​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_10_complement_form.png)
 .
 
-​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_10_complement2.png)
-
 Un nombre positif est représenté de manière classique, par son écriture binaire habituelle. En revanche, un nombre négatif
 
 est obtenu en calculant le complément à 2 de sa valeur absolue : on inverse tous les bits (complément à 1), puis on ajoute 1,
 
 en ignorant une éventuelle retenue finale.
 
-<b> Étape 1 : écrire le nombre positif en binaire :</b>
+​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_10_complement2.png)
+
+​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_10_complement2.png)
+
+https://www.youtube.com/watch?v=26C729OYfP0
+
+<b> Étape 1 : écrire la valeur absolue en binaire </b>
+
+La première étape consiste à écrire la valeur absolue du nombre en binaire, sur le nombre de bits choisi. Si le nombre ne
+
+remplit pas tous les bits, on complète à gauche avec des zéros. À ce stade, on dispose de l’écriture binaire du nombre
+
+positif correspondant.
 
 On commence par écrire 13 en base 10 en binaire sur 8 bits :
 
-```
-13₁₀ = 00001101₂
+En base 10 :
 
 ```
-
-<b> Étape 2 : calculer le complément à 1 (inversion des bits) :</b>
-
-On inverse tous les bits (les 0 deviennent 1 et les 1 deviennent 0) :
-
-```
-00001101
-↓
-11110010
+5₁₀ = 101₂
 
 ```
 
-C’est ce qu’on appelle le complément à 1.
+<b> Étape 2 : Vérifier l'intervalle :</b>
 
-<b> Étape 3 : ajouter 1 (complément à 2) :</b>
+Avant de calculer le complément à 2 (et donc avant même le complément à 1), il faut vérifier que le nombre à représenter
 
-On ajoute 1 au résultat précédent :
+appartient bien à l’intervalle autorisé par le nombre de bits choisi.
 
-```
-11110010
-+       1
----------
-11110011
+Pour une représentation sur n bits en complément à 2, les valeurs possibles sont :
 
 ```
-
-<b> Résultat final: </b>
-
-```
-−13₁₀ = 11110011₂   (en complément à 2 sur 8 bits)
+[ −2^(n−1) , 2^(n−1) − 1 ]
 
 ```
 
-<b> Vérification (principe) :</b>
-
-Si on additionne +13 et −13 :
+Ici n est le nombre de bit, ici => 3: 101₂
 
 ```
- 00001101
-+11110011
-----------
-100000000
+-2² < -5 < 2² - 1
+
+ -4 < -5 < 3 > Faux
 
 ```
 
-La retenue finale est ignorée → résultat :
+Comme ici -5 n'est pas compris entre -4 et 3, il faut rajouter un bit valant 0 devant 101₂.
+
+Ici on a n = 4.
 
 ```
-00000000
+-2⁴ < -5 < 2⁴ - 1
+
+ -16 < -5 < 15 > Vrai
 
 ```
+
+On va donc reprendre ceci pour la partie suivante:
+
+```
+101₂ devient 0101₂
+
+```
+
+<b> Étape 3 : le calcul du complément à 1 : </b>
+
+Ici on doit le calcul du complément à 1. Pour cela, on inverse tous les bits du nombre obtenu : chaque 0 devient 1 et chaque
+
+1 devient 0. Cette inversion concerne l’ensemble des bits, sans exception. Le résultat représente le complément à 1 du nombre
+
+initial.
+
+On part du nombre binaire :
+
+```
+0101₂
+
+```
+
+On inverse tous les bits, sans exception :
+
+chaque 0 devient 1
+
+chaque 1 devient 0
+
+```
+0101
+
+↓ ↓ ↓ ↓   Le complément à 1 de 0101₂ est 1010₂
+
+1010
+
+```
+
+<b> Étape 3 : le calcul du complément à 1 : </b>
+
+La dernière étape consiste à ajouter 1 au résultat précédent. Cette addition transforme le complément à 1 en complément à 2.
+
+Si une retenue apparaît au-delà du nombre de bits choisis, elle est simplement ignorée. Le mot binaire obtenu à la fin de
+
+cette étape est la représentation du nombre négatif en complément à 2.
+
+```
+ 1010
++    1
+------
+  1011
+
+```
+
+Complément à 2 de 1010₂ = 1011₂
