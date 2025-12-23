@@ -717,28 +717,371 @@ l’addition de nombres négatifs,
 
 la soustraction (via l’addition de l’opposé).
 
-Ce texte explique le fonctionnement de l’arithmétique en complément à 2 et montre pourquoi cette représentation est particulièrement efficace pour effectuer des calculs avec des nombres signés en binaire.
+Ce texte explique le fonctionnement de l’arithmétique en complément à 2 et montre pourquoi cette représentation est
 
-Le principal avantage du complément à 2 est qu’il simplifie énormément l’addition. Contrairement aux anciennes représentations, il n’est plus nécessaire de traiter séparément le signe des nombres. Pour additionner deux entiers, qu’ils soient positifs ou négatifs, il suffit de les écrire tous les deux en complément à 2, puis d’effectuer une addition binaire classique bit à bit. Si une retenue dépasse le nombre de bits choisis, elle est simplement ignorée. Par exemple, pour calculer
-118 + (−36)
-118+(−36), on écrit 118 et −36 en complément à 2 sur le même nombre de bits, on les additionne normalement, et on obtient directement le résultat 82. Cette propriété rend les circuits de calcul beaucoup plus simples et rapides.
+particulièrement efficace pour effectuer des calculs avec des nombres signés en binaire.
 
-Dans ce cadre, soustraire un nombre revient à additionner son opposé. Or l’opposé d’un nombre en complément à 2 est précisément obtenu en calculant son complément à 2. Ainsi, une soustraction peut être transformée en addition, ce qui évite d’avoir un circuit spécifique pour la soustraction.
+Le principal avantage du complément à 2 est qu’il simplifie énormément l’addition. Contrairement aux anciennes
 
-La multiplication, en revanche, est plus complexe. La méthode la plus simple consiste à travailler sur les valeurs absolues des deux nombres, à appliquer l’algorithme classique de multiplication binaire, puis à donner au résultat le bon signe : le résultat est négatif si les deux nombres sont de signes opposés. Il existe toutefois des algorithmes plus avancés, comme le recodage de Booth, qui exploitent les propriétés du binaire pour accélérer les multiplications, au prix d’une électronique plus complexe. Pour la division, on applique également la division aux valeurs absolues, puis on ajuste le signe du quotient (et éventuellement du reste).
+représentations, il n’est plus nécessaire de traiter séparément le signe des nombres. Pour additionner deux entiers, qu’ils
+
+soient positifs ou négatifs, il suffit de les écrire tous les deux en complément à 2, puis d’effectuer une addition binaire
+
+classique bit à bit. Si une retenue dépasse le nombre de bits choisis, elle est simplement ignorée. Par exemple, pour calculer
+
+118+(−36), on écrit 118 et −36 en complément à 2 sur le même nombre de bits, on les additionne normalement, et on obtient
+
+directement le résultat 82. Cette propriété rend les circuits de calcul beaucoup plus simples et rapides.
+
+Dans ce cadre, soustraire un nombre revient à additionner son opposé. Or l’opposé d’un nombre en complément à 2 est
+
+précisément obtenu en calculant son complément à 2. Ainsi, une soustraction peut être transformée en addition, ce qui évite
+
+d’avoir un circuit spécifique pour la soustraction.
+
+La multiplication, en revanche, est plus complexe. La méthode la plus simple consiste à travailler sur les valeurs absolues
+
+des deux nombres, à appliquer l’algorithme classique de multiplication binaire, puis à donner au résultat le bon signe : le
+
+résultat est négatif si les deux nombres sont de signes opposés. Il existe toutefois des algorithmes plus avancés, comme le
+
+recodage de Booth, qui exploitent les propriétés du binaire pour accélérer les multiplications, au prix d’une électronique
+
+plus complexe. Pour la division, on applique également la division aux valeurs absolues, puis on ajuste le signe du quotient
+
+(et éventuellement du reste).
 
 Le texte rappelle aussi comment interpréter mathématiquement un nombre en complément à 2. Un mot binaire de la forme 𝑥
-xn−1​…x0
 
-est lu comme la somme des puissances de 2 associées aux bits, à l’exception du bit de poids fort, qui est soustrait s’il vaut 1. Autrement dit, le bit de poids fort joue un rôle négatif et permet de coder les nombres inférieurs à zéro.
+xn−1​…x0 est lu comme la somme des puissances de 2 associées aux bits, à l’exception du bit de poids fort, qui est soustrait
+
+s’il vaut 1. Autrement dit, le bit de poids fort joue un rôle négatif et permet de coder les nombres inférieurs à zéro.
 
 Plusieurs propriétés fondamentales du complément à 2 sont ensuite présentées. Sur n
-n bits, un nombre et son complément à 2 vérifient la relation C2(X)=2^n−X.
-Cela signifie que le complément à 2 d’un nombre peut être calculé simplement par C2(X)=2^n−X . Une autre propriété importante est que le complément à 2 est une opération involutive : si l’on prend deux fois le complément à 2 d’un nombre, on retrouve le nombre initial. Ainsi, pour connaître la valeur décimale d’un nombre binaire négatif, il suffit de calculer son complément à 2 pour obtenir sa valeur absolue, puis d’ajouter le signe négatif. Par exemple, le complément à 2 de 11001100 est 00110100, soit 52, ce qui signifie que 11001100 représente −52.
 
-Enfin, le texte met en évidence le lien entre la lecture signée et la lecture non signée d’un même mot binaire. Un même mot de 2^n bits peut être interprété soit comme un entier non signé (en additionnant simplement les puissances de 2), soit comme un entier signé en complément à 2. La différence entre ces deux lectures vaut toujours 2^n.Par exemple, le mot binaire 10101010 vaut 170 en non signé, mais −86 en complément à 2, et l’on vérifie bien que
+n bits, un nombre et son complément à 2 vérifient la relation C2(X)=2^n−X.
+
+Cela signifie que le complément à 2 d’un nombre peut être calculé simplement par C2(X)=2^n−X . Une autre propriété importante
+
+est que le complément à 2 est une opération involutive : si l’on prend deux fois le complément à 2 d’un nombre, on retrouve
+
+le nombre initial. Ainsi, pour connaître la valeur décimale d’un nombre binaire négatif, il suffit de calculer son complément
+
+à 2 pour obtenir sa valeur absolue, puis d’ajouter le signe négatif. Par exemple, le complément à 2 de 11001100 est 00110100,
+
+soit 52, ce qui signifie que 11001100 représente −52.
+
+Enfin, le texte met en évidence le lien entre la lecture signée et la lecture non signée d’un même mot binaire. Un même mot
+
+de 2^n bits peut être interprété soit comme un entier non signé (en additionnant simplement les puissances de 2), soit comme
+
+un entier signé en complément à 2. La différence entre ces deux lectures vaut toujours 2^n.Par exemple, le mot binaire
+
+10101010 vaut 170 en non signé, mais −86 en complément à 2, et l’on vérifie bien que
+
 170 − ( − 86 )=256 =2⁸
 
-En résumé, le complément à 2 offre une représentation cohérente et efficace des entiers signés, permettant de réaliser les opérations arithmétiques de base de manière simple, rapide et fiable, ce qui explique son adoption universelle en informatique.
+En résumé, le complément à 2 offre une représentation cohérente et efficace des entiers signés, permettant de réaliser les
+
+opérations arithmétiques de base de manière simple, rapide et fiable, ce qui explique son adoption universelle en
+
+informatique.
 
 ### 2.3 Extension de signe
+
+Ce texte explique le principe de l’extension d’un nombre binaire sur un plus grand nombre de bits et montre que la méthode à
+
+utiliser dépend du type de représentation du nombre. L’objectif est toujours le même : conserver exactement la même valeur
+
+numérique après l’extension.
+
+Dans de nombreux cas pratiques, les systèmes informatiques doivent manipuler des données de tailles différentes. Par exemple,
+
+pour additionner un nombre stocké sur 1 octet avec un nombre stocké sur 2 octets, il est indispensable de mettre les deux
+
+opérandes sur la même taille, ici 16 bits. De même, lorsqu’un microprocesseur charge une valeur d’un octet depuis la mémoire
+
+dans un registre de 32 bits, il faut étendre cette valeur sans en modifier le sens. Pour cela, on effectue ce que l’on
+
+appelle une extension de signe.
+
+Dans le cas des nombres non signés, la règle est très simple. Comme ces nombres ne représentent que des valeurs positives ou
+
+nulles, il suffit d’ajouter des zéros à gauche du nombre lors de l’extension. Ces zéros n’ont aucun effet sur la valeur du
+
+nombre. Par exemple, le nombre non signé 11010011 écrit sur 8 bits devient 0000000011010011 lorsqu’il est étendu sur 16 bits.
+
+Lorsque l’on travaille avec des nombres signés représentés selon la convention « signe et valeur absolue », l’extension se
+
+fait différemment. Le bit de signe doit être recopié dans le nouveau bit de poids fort, afin de conserver l’information de
+
+signe, tandis que les autres nouveaux bits sont remplis par des zéros. Ainsi, le nombre positif 01101000 devient
+
+0000000001101000 sur 16 bits, et le nombre négatif 11111011 devient 1000000001111011 après extension. La valeur absolue reste
+
+inchangée et le signe est correctement conservé.
+
+Enfin, pour la représentation en complément à 2, qui est la représentation standard des entiers signés, la règle est encore
+
+différente mais très cohérente. Il faut recopier le bit de signe dans tous les nouveaux bits ajoutés à gauche. Si le nombre
+
+est positif, le bit de signe vaut 0 et l’on ajoute donc des zéros en tête. Si le nombre est négatif, le bit de signe vaut 1
+
+et l’on ajoute des uns en tête. Par exemple, 00100110 devient 0000000000100110 après extension, tandis que 10001111 devient
+
+1111111110001111. Cette méthode garantit que la valeur du nombre, lorsqu’elle est interprétée en complément à 2, reste
+
+exactement la même avant et après l’extension.
+
+Ainsi, quelle que soit la représentation utilisée, l’extension d’un nombre doit respecter des règles précises pour préserver
+
+sa valeur. En pratique, la recopie du bit de signe dans le cas du complément à 2 est essentielle, car elle assure la
+
+cohérence des calculs et le bon fonctionnement des opérations arithmétiques dans les microprocesseurs.
+
+### 2.4 Débordement
+
+https://www.youtube.com/watch?v=Q7t9-Sq_4Ww
+
+Le débordement binaire (overflow) apparaît lorsque le résultat d’une opération arithmétique ne peut pas être représenté dans
+
+la taille de bits imposée par le système, par exemple sur 8 bits, 16 bits ou 32 bits. Comme les registres et les circuits du
+
+processeur ont une taille fixe, tout calcul produisant une valeur en dehors de l’intervalle autorisé entraîne une perte
+d’information.
+
+Dans le cas des nombres non signés, un entier codé sur n bits peut représenter des valeurs comprises entre :
+
+```
+0 et 2^n − 1
+
+```
+
+Lors d’une addition, il y a débordement si la somme dépasse cette valeur maximale. En pratique, ce débordement se détecte par
+
+la présence d’une retenue finale lors de l’addition binaire. Le processeur conserve uniquement les n bits de poids faible et
+
+ignore la retenue, ce qui conduit à un résultat incorrect si l’on ne tient pas compte de l’overflow.
+
+Lors d’une soustraction non signée, le débordement apparaît lorsque le résultat devrait être négatif, ce qui est impossible à
+
+représenter. Le calcul donne alors une valeur « repliée » modulo :
+
+```
+2^n
+
+```
+
+Cette valeur ne correspond pas au résultat mathématique attendu. Là encore, le résultat binaire obtenu est faux du point de
+
+vue du calcul non signé.
+
+Dans tous les cas, le débordement signifie que le résultat affiché ou stocké n’est pas le bon. Il est donc essentiel de le
+
+détecter afin de corriger le calcul, d’arrêter l’exécution ou de gérer l’erreur. La gestion du débordement est un aspect
+
+fondamental de l’arithmétique binaire et de la conception des systèmes informatiques, car elle garantit la fiabilité des
+
+calculs effectués sur des tailles de mots fixes.
+
+<b> Nombres non signés et débordement: </b>
+
+Sur n bits, un entier non signé peut prendre des valeurs entre :
+
+```
+0 et 2^n − 1
+
+```
+
+Par exemple, sur 8 bits, l’intervalle est :
+
+```
+0 à 255
+
+```
+
+Exemple 1 : addition avec débordement (8 bits)
+
+On additionne 156 et 168 sur 8 bits.
+
+Conversion en binaire (8 bits)
+
+156 = 10011100
+
+168 = 10101000
+
+Addition binaire (copiable):
+
+```
+  10011100   (156)
++ 10101000   (168)
+----------
+1 01000100
+
+```
+
+Le résultat sur 9 bits est 1 01000100
+
+Si on ne garde que 8 bits (ce que fait un registre 8 bits), on obtient 01000100, qui vaut 68
+
+Mais 156 + 168 = 324, et 324 ne tient pas sur 8 bits → débordement
+
+Le 1 tout à gauche est la retenue finale : c’est elle qui signale l’overflow.
+
+<b> Débordement en soustraction (non signé) : </b>
+
+En non signé, une soustraction peut aussi provoquer un débordement si le résultat devrait être négatif, car les nombres non
+
+signés ne représentent pas les valeurs < 0. Dans ce cas, la machine « replie » le résultat modulo 2^n
+
+, ce qui donne une valeur incorrecte si on l’interprète comme un entier non signé attendu.
+
+Exemple 2 : soustraction menant à un résultat négatif:
+
+On calcule 27 − 100 sur 8 bits.
+
+En décimal, le vrai résultat est : 27 − 100 = −73 (non représentable en non signé)
+
+Sur 8 bits, la machine donnera un résultat “replié” : 183 (car 256−73=183)
+
+Binaire (8 bits)
+
+27 = 00011011
+
+100 = 01100100
+
+```
+  00011011   (27)
+- 01100100   (100)
+----------
+  10110111   (183)   <-- résultat replié sur 8 bits
+
+```
+
+<b> Débordément des compléments à 2 :</b>
+
+Addition de deux nombres positifs donnant un résultat négatif → débordement
+
+Addition de deux nombres négatifs donnant un résultat positif → débordement
+
+Signes différents → jamais de débordement
+
+<b> Addition de deux nombres positifs donnant un résultat négatif → débordement : </b>
+
+Exemple : 77 + 68
+
+Représentation binaire (8 bits):
+
+```
+77 = 01001101
+68 = 01000100
+
+```
+
+Addition:
+
+```
+  01001101
++ 01000100
+----------
+  10010001
+
+
+```
+
+Interprétation:
+
+```
+10010001 (complément à 2) = -111
+
+```
+
+Erreur :
+
+```
+77 + 68 = 145
+
+```
+
+Or 145 > 127 (valeur max sur 8 bits signés)
+
+➡️ Débordement
+
+<b> Addition de deux nombres négatifs donnant un résultat positif → débordement : </b>
+
+Exemple : -70 + (-80)
+
+Représentation binaire (8 bits)
+
+```
+70  = 01000110
+-70 = 10111010
+
+80  = 01010000
+-80 = 10110000
+
+```
+
+Addition:
+
+```
+  10111010
++ 10110000
+----------
+1 01101010
+
+```
+
+On ignore la retenue finale :
+
+```
+01101010 = 106
+
+```
+
+Interprétation:
+
+```
+-70 + (-80) = -150
+
+```
+
+Or -150 < -128 (valeur min sur 8 bits signés)
+
+➡️ Débordement
+
+Addition de deux nombres de signes différents → jamais de débordement
+
+Exemple : 50 + (-30)
+
+```
+Représentation binaire (8 bits)
+50  = 00110010
+30  = 00011110
+-30 = 11100010
+
+Addition
+  00110010
++ 11100010
+----------
+1 00010100
+
+```
+
+On ignore la retenue finale :
+
+```
+00010100 = 20
+
+```
+
+Vérification:
+
+```
+50 + (-30) = 20
+
+```
+
+👉 Résultat correct, aucun débordement
+
+### 3. NOMBRES RÉELS
