@@ -573,6 +573,27 @@ En raison de ces difficultés arithmétiques et de la présence de deux zéros, 
 
 méthodes plus efficaces comme le complément à deux.
 
+### 2.2 Représentation en complément à 2 :
+
+https://www.youtube.com/watch?v=26C729OYfP0
+
+Principe général
+
+En complément à 2, un nombre est écrit sur un nombre fixé de bits, noté
+
+𝑛. Avec n bits, on peut représenter exactement 2^n valeurs différentes, comprises dans l’intervalle
+
+​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_10_complement_form.png)
+.
+
+​![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/1ARC1A_Architecture_des_ordinateurs_I/img/Ch_1_10_complement2.png)
+
+Un nombre positif est représenté de manière classique, par son écriture binaire habituelle. En revanche, un nombre négatif
+
+est obtenu en calculant le complément à 2 de sa valeur absolue : on inverse tous les bits (complément à 1), puis on ajoute 1,
+
+en ignorant une éventuelle retenue finale.
+
 <b> Étape 1 : écrire le nombre positif en binaire :</b>
 
 On commence par écrire 13 en base 10 en binaire sur 8 bits :
