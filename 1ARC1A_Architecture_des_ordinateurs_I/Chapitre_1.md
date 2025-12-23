@@ -699,4 +699,46 @@ cette étape est la représentation du nombre négatif en complément à 2.
 
 ```
 
-Complément à 2 de 1010₂ = 1011₂
+Complément à 2 de 1010₂ = 1011₂.
+
+<b> Pourquoi utiliser le complément à 2 (CA2)?</b>
+
+Il permet d’éviter des circuits matériels supplémentaires, en particulier pour la soustraction.
+
+Grâce au complément à 2 :
+
+la soustraction est transformée en addition,
+
+un seul circuit d’addition binaire suffit pour :
+
+l’addition de nombres positifs,
+
+l’addition de nombres négatifs,
+
+la soustraction (via l’addition de l’opposé).
+
+Ce texte explique le fonctionnement de l’arithmétique en complément à 2 et montre pourquoi cette représentation est particulièrement efficace pour effectuer des calculs avec des nombres signés en binaire.
+
+Le principal avantage du complément à 2 est qu’il simplifie énormément l’addition. Contrairement aux anciennes représentations, il n’est plus nécessaire de traiter séparément le signe des nombres. Pour additionner deux entiers, qu’ils soient positifs ou négatifs, il suffit de les écrire tous les deux en complément à 2, puis d’effectuer une addition binaire classique bit à bit. Si une retenue dépasse le nombre de bits choisis, elle est simplement ignorée. Par exemple, pour calculer
+118 + (−36)
+118+(−36), on écrit 118 et −36 en complément à 2 sur le même nombre de bits, on les additionne normalement, et on obtient directement le résultat 82. Cette propriété rend les circuits de calcul beaucoup plus simples et rapides.
+
+Dans ce cadre, soustraire un nombre revient à additionner son opposé. Or l’opposé d’un nombre en complément à 2 est précisément obtenu en calculant son complément à 2. Ainsi, une soustraction peut être transformée en addition, ce qui évite d’avoir un circuit spécifique pour la soustraction.
+
+La multiplication, en revanche, est plus complexe. La méthode la plus simple consiste à travailler sur les valeurs absolues des deux nombres, à appliquer l’algorithme classique de multiplication binaire, puis à donner au résultat le bon signe : le résultat est négatif si les deux nombres sont de signes opposés. Il existe toutefois des algorithmes plus avancés, comme le recodage de Booth, qui exploitent les propriétés du binaire pour accélérer les multiplications, au prix d’une électronique plus complexe. Pour la division, on applique également la division aux valeurs absolues, puis on ajuste le signe du quotient (et éventuellement du reste).
+
+Le texte rappelle aussi comment interpréter mathématiquement un nombre en complément à 2. Un mot binaire de la forme 𝑥
+xn−1​…x0
+
+est lu comme la somme des puissances de 2 associées aux bits, à l’exception du bit de poids fort, qui est soustrait s’il vaut 1. Autrement dit, le bit de poids fort joue un rôle négatif et permet de coder les nombres inférieurs à zéro.
+
+Plusieurs propriétés fondamentales du complément à 2 sont ensuite présentées. Sur n
+n bits, un nombre et son complément à 2 vérifient la relation C2(X)=2^n−X.
+Cela signifie que le complément à 2 d’un nombre peut être calculé simplement par C2(X)=2^n−X . Une autre propriété importante est que le complément à 2 est une opération involutive : si l’on prend deux fois le complément à 2 d’un nombre, on retrouve le nombre initial. Ainsi, pour connaître la valeur décimale d’un nombre binaire négatif, il suffit de calculer son complément à 2 pour obtenir sa valeur absolue, puis d’ajouter le signe négatif. Par exemple, le complément à 2 de 11001100 est 00110100, soit 52, ce qui signifie que 11001100 représente −52.
+
+Enfin, le texte met en évidence le lien entre la lecture signée et la lecture non signée d’un même mot binaire. Un même mot de 2^n bits peut être interprété soit comme un entier non signé (en additionnant simplement les puissances de 2), soit comme un entier signé en complément à 2. La différence entre ces deux lectures vaut toujours 2^n.Par exemple, le mot binaire 10101010 vaut 170 en non signé, mais −86 en complément à 2, et l’on vérifie bien que
+170 − ( − 86 )=256 =2⁸
+
+En résumé, le complément à 2 offre une représentation cohérente et efficace des entiers signés, permettant de réaliser les opérations arithmétiques de base de manière simple, rapide et fiable, ce qui explique son adoption universelle en informatique.
+
+### 2.3 Extension de signe
