@@ -1098,6 +1098,12 @@ https://www.youtube.com/watch?v=PtFa7LhV96E
 
 https://www.youtube.com/watch?v=gWFGmcahd9c
 
+En résumé, la virgule flottante IEEE 754 offre une représentation puissante et standardisée des nombres réels, capable de
+
+gérer des valeurs très grandes ou très petites. Elle est indispensable pour les calculs scientifiques et techniques, mais
+
+elle impose de prendre en compte les erreurs d’arrondi et la complexité de son arithmétique.
+
 <b> Quelles sont les différences entre la virgule fixe et virgule IEEE? </b>
 
 La virgule fixe est simple, rapide et précise sur un intervalle limité, mais peu flexible.
