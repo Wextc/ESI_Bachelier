@@ -534,3 +534,101 @@ Multiplions 101₂ par 11₂.
 Très difficile.
 
 ### 2. NOMBRES NÉGATIFS
+
+### 2.1 Représentation « signe et valeur absolue »
+
+Ce texte décrit une première méthode historique pour représenter les nombres signés en binaire, appelée la représentation signe–valeur absolue. L’idée principale
+
+consiste à utiliser le bit de poids fort, c’est-à-dire le bit le plus à gauche, pour indiquer le signe du nombre.
+
+Dans cette représentation, sur un mot de n bits, le bit de poids fort joue le rôle de bit de signe. Selon la convention la plus courante, un bit de signe égal à
+
+0 indique un nombre positif, tandis qu’un bit égal à 1 indique un nombre négatif. Les n− 1 bits restants servent alors à coder la valeur absolue du nombre en
+
+binaire. Par exemple, sur 8 bits, le mot binaire 01011001 représente le nombre +89, tandis que 10110100 représente −52 : seul le bit de poids fort change pour
+
+indiquer le signe, la partie droite donnant la valeur absolue.
+
+Du point de vue des capacités de représentation, cette méthode ne permet pas de représenter davantage de nombres qu’une représentation non signée. Sur n bits, on
+
+peut toujours coder au maximum 2 exposant n (2^n) combinaisons différentes. En revanche, l’intervalle des valeurs change : on passe de l’intervalle [0, 2^n − 1]
+
+à un intervalle centré autour de zéro. Un inconvénient majeur apparaît alors : le zéro peut être représenté de deux façons différentes, +0 (00…0) et −0 (10…0). À
+
+cause de cette duplication, on ne dispose en réalité que de 2^n − 1
+
+valeurs numériques distinctes.
+
+Sur le plan arithmétique, cette représentation présente à la fois un avantage et un inconvénient. Il est très simple de connaître le signe d’un nombre, puisqu’il
+
+suffit de regarder le bit de poids fort, et changer le signe revient simplement à inverser ce bit. En revanche, les opérations arithmétiques comme l’addition
+
+deviennent complexes. Les règles habituelles d’addition binaire ne s’appliquent plus directement, car additionner les bits reviendrait à additionner les valeurs
+
+absolues sans tenir compte des signes. Il faut donc d’abord examiner les signes des deux nombres, décider s’il s’agit d’une addition ou d’une soustraction des
+
+valeurs absolues, puis déterminer le signe du résultat. Ces manipulations compliquent et ralentissent les calculs.
+
+En raison de ces difficultés arithmétiques et de la présence de deux zéros, cette représentation n’est aujourd’hui plus utilisée en pratique, au profit de
+
+méthodes plus efficaces comme le complément à deux.
+
+<b> Étape 1 : écrire le nombre positif en binaire :</b>
+
+On commence par écrire 13 en base 10 en binaire sur 8 bits :
+
+```
+13₁₀ = 00001101₂
+
+```
+
+<b> Étape 2 : calculer le complément à 1 (inversion des bits) :</b>
+
+On inverse tous les bits (les 0 deviennent 1 et les 1 deviennent 0) :
+
+```
+00001101
+↓
+11110010
+
+```
+
+C’est ce qu’on appelle le complément à 1.
+
+<b> Étape 3 : ajouter 1 (complément à 2) :</b>
+
+On ajoute 1 au résultat précédent :
+
+```
+11110010
++       1
+---------
+11110011
+
+```
+
+<b> Résultat final: </b>
+
+```
+−13₁₀ = 11110011₂   (en complément à 2 sur 8 bits)
+
+```
+
+<b> Vérification (principe) :</b>
+
+Si on additionne +13 et −13 :
+
+```
+ 00001101
++11110011
+----------
+100000000
+
+```
+
+La retenue finale est ignorée → résultat :
+
+```
+00000000
+
+```
