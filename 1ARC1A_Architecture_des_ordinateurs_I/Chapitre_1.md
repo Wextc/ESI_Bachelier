@@ -1117,3 +1117,110 @@ délicate des approximations numériques.
 On choisit la virgule fixe quand les contraintes sont fortes et les valeurs maîtrisées, et la virgule flottante quand on a
 
 besoin de représenter des nombres réels variés avec une grande amplitude.
+
+Étape 1 – Séparer la partie entière et la partie fractionnaire
+85,125 = 85 + 0,125
+
+Étape 2 – Conversion en binaire
+
+```
+Partie entière : 85
+85 ÷ 2 = 42 reste 1
+42 ÷ 2 = 21 reste 0
+21 ÷ 2 = 10 reste 1
+10 ÷ 2 = 5  reste 0
+5 ÷ 2  = 2  reste 1
+2 ÷ 2  = 1  reste 0
+1 ÷ 2  = 0  reste 1
+
+```
+
+Lecture de bas en haut :
+
+85₁₀ = 1010101₂
+
+```
+Partie fractionnaire : 0,125
+0,125 × 2 = 0,25 → bit 0
+0,25  × 2 = 0,5  → bit 0
+0,5   × 2 = 1,0  → bit 1
+```
+
+Donc :
+
+```
+0,125₁₀ = 0,001₂
+
+```
+
+Étape 3 – Combinaison des deux parties
+85,125₁₀ = 1010101,001₂
+
+Étape 4 – Normalisation (déplacement de la virgule)
+
+On déplace la virgule pour obtenir 1,M × 2^E :
+
+```
+1010101,001₂ = 1,010101001₂ × 2^6
+
+```
+
+👉 La virgule a été déplacée de 6 positions vers la gauche, donc :
+
+Exposant réel E = 6
+
+Étape 5 – Calcul de l’exposant biaisé (simple précision)
+
+En IEEE 754 simple précision (32 bits) :
+
+Biais = 127
+
+Exposant biaisé = 6 + 127 = 133
+
+Étape 6 – Conversion de l’exposant en binaire
+133₁₀ = 10000101₂
+
+(8 bits → correct pour la simple précision)
+
+Étape 7 – Construction de la mantisse
+
+La mantisse est la partie après le 1 implicite :
+
+```
+1,010101001₂
+
+```
+
+Donc la pseudo-mantisse est :
+
+```
+010101001
+
+```
+
+On complète à 23 bits :
+
+```
+01010100100000000000000
+
+Étape 8 – Assemblage final (IEEE 754 – 32 bits)
+Bit de signe
+85,125 > 0 → signe = 0
+
+Représentation complète (copiable)
+0 | 10000101 | 01010100100000000000000
+
+```
+
+Sans séparateurs :
+
+```
+01000010101010100100000000000000
+
+Résumé final (très important)
+85,125₁₀ =
+signe       = 0
+exposant    = 10000101
+mantisse    = 01010100100000000000000
+
+```
