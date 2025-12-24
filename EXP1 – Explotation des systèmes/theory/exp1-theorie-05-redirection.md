@@ -74,36 +74,98 @@ la sortie standard (stdout) : l’écran par défaut
 
 la sortie d’erreur standard (stderr) : l’écran par défaut également
 
-Ils sont les 3 cannaux de communication par défaut du système Unix / Linux. Le shell permet de rediriger ces entrées et
+Dans les système UNIX les processus ne manipulent directement le clavier et l'écran.
 
-sorties. Dans l'expemple on a redirigé ls vers un fichier (out) à l'aide de >.
+Ils utilisent 3 cannaux de communication définis par défaut. Ce sont les entrées et sorties standards, qui sont identifiées
 
-Cela veut dire que le résultat de la commande ls n'est afficher sur l'ecran, mais est enregistré dans un fichier.
+par des numéros.
 
 **Numérotation des entrées/sorties**
 
-Par convention, trois numéros sont attribués dès le lancement de tout processus. Le numéro 0 correspond à l’entrée standard,
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/tree/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/theory/img/img_1.png)
 
-généralement reliée au clavier. Le numéro 1 désigne la sortie standard, qui est reliée à l’écran et utilisée pour afficher
+Par convention, on attribue 3 numéros aux cannaux de communication.
 
-les résultats normaux d’un programme. Le numéro 2 correspond à la sortie d’erreur standard, elle aussi reliée à l’écran par
+l’entrée standard (stdin) : le clavier par défaut correspond descriptif numéro O
 
-défaut, mais réservée aux messages d’erreur.
+la sortie standard (stdout) : l’écran par défaut correspond descriptif numéro 1
 
-Lorsqu’un programme s’exécute, il n’a donc pas besoin de savoir où vont ses données. Il se contente d’indiquer qu’il veut
+la sortie d’erreur standard (stderr) : l’écran par défaut également correspond descriptif numéro 2
 
-lire depuis l’entrée 0 ou écrire sur la sortie 1 ou 2. Par exemple, lorsqu’un programme « écrit sur 1 », cela signifie qu’il
+Cette numérotation rend la redirection flexible.
 
-envoie un texte vers la sortie standard. Tant que cette sortie est connectée à l’écran, le texte s’affiche dans le terminal.
+Pourquoi?
 
-Si, en revanche, la sortie standard est redirigée vers un fichier, ce même texte sera écrit dans ce fichier sans que le
+Lors de l'affichage des données, le programme se contente d'envoyer ces données vers la sorite standard identifiée par le
 
-programme n’ait à être modifié.
+numéro 1.
 
-Cette numérotation rend les redirections très puissantes et flexibles. Le shell peut décider de relier ces numéros à des
+Pour le programme "afficher" les données signifie simplement écrire sur 1.
 
-fichiers, au terminal ou à d’autres programmes, tandis que le processus continue simplement à lire et écrire sur ses entrées
+Par la suite, le shell va jouer le rôle d'intermédiaire, et va décider à quoi relier le descripteur 1. S'il n'y a pas de
 
-et sorties numérotées.
+redirection les données sont afficher par défaut sur le terminal. S'il y a une redirection par exemple avec le symbole > le
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/tree/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes)
+shell le descripteur 1 au fichier où les données sont redirigées. Celles-ci ne s'affichent plus dans le terminal, mais sont
+
+bien présentent dans le fichier.
+
+**Redirection**
+
+Le gestion de la redirection des entrées et des sorties par le shell fait qu'elle est transparente pour le processus qui
+
+s'exécute.
+
+Avant l'exécution de la commande suivante, le shell va préparer l'environnement d'exécution en créant le fichier ( ou en
+
+écrasant s'il existe) out. Puis, il relie la sortie standard c’est-à-dire le descripteur numéro 1, à ce fichier. Une fois la
+
+liaison effectuée le shell lance la commande ls -a brol. La commande ls affiche sur le descriptif 1, et là le shell va le
+
+rediriger vers le fichier concerné.
+
+**_ Syntaxe des redirections (bash)_**
+
+```
+> file
+Redirige la sortie standard dans le fichier file
+(le fichier est créé ou vidé)
+
+>> file
+Idem mais ajoute au fichier
+
+< file
+Redirige l’entrée standard
+(les lectures se font dans le fichier et non plus au clavier)
+
+2> file
+Redirige les messages d’erreur
+
+&> file
+Redirige sortie standard et erreurs
+
+```
+
+La redirection < fait que l'entrée standard du programme soit le fichier à la place du clavier. Le fichier n'est pas modifié
+
+il est uniquement lu. La sortie standard reste le terminal. Ainsi, les fichiers sont simplement affichées.
+
+La redirection > fait que l'entrée standard du programme soit le clavier et non pas le fichier. Le fichier devient la sortie
+
+standard. Il est modifié.
+
+Prenons l'exemple de cat, mais la redirection fonctionne avec plein d'autre commandes.
+
+```
+cat < file
+
+```
+
+Elle va afficher le contenu de file.
+
+```
+cat > file
+
+```
+
+Cette commande va permettre de saisir des données via le terminal et l'enregistrer dans le fichier.
