@@ -17,3 +17,5 @@ par Linus Torvalds. En revanche, une distribution complète utilise ce noyau con
 bibliothèques issus du projet GNU. Le terme GNU/Linux désigne donc l’ensemble formé par le noyau Linux et l’environnement
 
 logiciel qui l’accompagne, c’est-à-dire une distribution Linux complète.
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/theory/img/CH_06/ch_06.png)
