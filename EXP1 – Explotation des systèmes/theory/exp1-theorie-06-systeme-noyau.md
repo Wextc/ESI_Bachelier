@@ -19,3 +19,5 @@ bibliothèques issus du projet GNU. Le terme GNU/Linux désigne donc l’ensembl
 logiciel qui l’accompagne, c’est-à-dire une distribution Linux complète.
 
 ![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/theory/img/CH_06/ch_06.png)
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/theory/img/CH_07/ch_07.png)
