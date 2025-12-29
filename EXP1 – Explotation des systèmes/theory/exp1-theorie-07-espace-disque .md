@@ -47,3 +47,31 @@ du disque. Tout contact provoquerait des dommages graves, ce qui explique la gra
 face aux chocs.
 
 <b> comment les données sont organisées physiquement sur un disque magnétique et pourquoi certaines opérations sont plus rapides que d’autres? </b>
+
+Un disque dur HDD est composé de plusieurs plateaux recouverts d’une surface magnétique. Chaque plateau est divisé en pistes,
+
+qui sont des cercles concentriques. Une piste correspond donc au trajet circulaire parcouru par une tête de lecture ou
+
+d’écriture lorsqu’elle reste à une position fixe au-dessus du plateau. Les pistes constituent la première unité logique
+
+d’organisation des données sur la surface du disque.
+
+Chaque piste est elle-même découpée en secteurs. Un secteur représente une portion de piste et correspond à la plus petite
+
+unité physique de stockage sur le disque. En pratique, un secteur contient généralement 512 octets (ou davantage sur des
+
+disques récents). C’est à l’échelle du secteur que les données sont lues ou écrites entre le disque et la mémoire.
+
+Le terme cylindre désigne l’ensemble des pistes situées à la même distance du centre sur tous les plateaux du disque.
+
+Autrement dit, lorsqu’on fixe la position de l’armature qui porte les têtes de lecture, toutes les têtes se trouvent
+
+simultanément au-dessus de pistes formant un même cylindre. Accéder à des données situées dans un même cylindre est plus
+
+rapide, car cela ne nécessite pas de déplacement mécanique des têtes, seulement la rotation des plateaux.
+
+Ce vocabulaire est essentiel pour comprendre les performances des disques durs. Les opérations mécaniques, comme le
+
+déplacement des têtes entre différents cylindres, sont lentes. C’est pourquoi regrouper des données sur une même piste ou un
+
+même cylindre permet d’améliorer les temps d’accès et les performances globales du disque.
