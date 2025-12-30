@@ -592,7 +592,7 @@ git log --reverse -1
 
 ```
 
-![permission_cat]https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice_6_2.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice_6_2.png)
 
 Pour voir le dernier.
 
@@ -601,7 +601,7 @@ git log -1
 
 ```
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice6_3.pngg)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice6_3.png)
 
 le contenu de readme.md avant et après avoir été renommé,
 
