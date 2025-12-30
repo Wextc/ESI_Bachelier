@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=qKxytMuUiJA&list=PLZMWkkQEwOPmGolqJPsAm_4fcBDDc2
 
 ### 1.1 Concepts
 
-Git est un logiciel de gestion de versions qui repose sur une organisation précise des données d’un projet.
+Git est un logiciel de gestion de versions qui repose sur une organisation précise des données d’un projet
 
 L’élément central est le dépôt (repository) : il contient l’ensemble de l’historique du projet, c’est-à-dire
 
