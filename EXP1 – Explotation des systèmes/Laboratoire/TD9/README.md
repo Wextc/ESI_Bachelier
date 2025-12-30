@@ -261,3 +261,23 @@ git log --help
 ```
 
 ➜ Très utile quand tu ne te rappelles plus des options.
+
+### Résumé ultra-court (mémo examen):
+
+```
+
+
+git config → configurer Git
+
+git clone → récupérer un dépôt
+
+git log → voir l’historique
+
+git log --oneline → historique résumé
+
+git log --name-status → fichiers modifiés
+
+git diff → comparer des versions
+
+HEAD, HEAD~1 → repérer les commits
+```
