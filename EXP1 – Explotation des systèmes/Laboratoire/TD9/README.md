@@ -98,7 +98,11 @@ PASSWD.
 
 ### Voici une liste des commandes :
 
-<b> Configure le comportement de Git.</b>
+<b> Commandes de configuration</b>
+
+git config
+
+Configure le comportement de Git.
 
 Configurer son identité (obligatoire avant de commencer)
 
@@ -115,12 +119,7 @@ git config --global user.email "email@exemple.com"
 
 --local : configuration valable uniquement pour le dépôt courant
 
-<b> Dépôts et récupération du projet </b>
-
-```
-git clone
-
-```
+<b> Dépôts et récupération du projet => git clone : </b>
 
 Copie un dépôt distant sur ta machine.
 
@@ -142,3 +141,120 @@ Exemple :
 git clone https://git.esi-bru.be/exp1/git-discover mon-projet
 
 ```
+
+<b> Historique et exploration => git log : </b>
+
+Affiche l’historique des commits.
+
+git log
+
+Chaque commit affiche :
+
+son identifiant (hash)
+
+l’auteur
+
+la date
+
+le message
+
+```
+git log --oneline
+
+```
+
+Version compacte de l’historique.
+
+```
+git log --oneline
+
+```
+
+➜ Un commit par ligne, avec :
+
+identifiant court
+
+message
+
+Très pratique pour naviguer rapidement.
+
+```
+git log --name-status
+
+```
+
+Montre les fichiers modifiés dans chaque commit.
+
+```
+git log --name-status
+
+```
+
+Statuts possibles :
+
+A : fichier ajouté (Added)
+
+M : fichier modifié (Modified)
+
+D : fichier supprimé (Deleted)
+
+R : fichier renommé (Renamed)
+
+```
+git log -n <nombre>
+
+```
+
+Limite le nombre de commits affichés.
+
+```
+git log -n 2
+
+```
+
+➜ Affiche uniquement les 2 derniers commits
+
+<b> Comparaison des versions => git diff </b>
+
+Compare le contenu de fichiers entre deux commits.
+
+```
+git diff <id1> <id2>
+
+```
+
+- : lignes présentes dans le premier commit
+
+* : lignes présentes dans le second commit
+
+➜ Montre ce qui a changé, ligne par ligne.
+
+```
+git diff HEAD HEAD~1
+
+```
+
+Compare le dernier commit avec le précédent.
+
+HEAD : dernier commit
+
+HEAD~1 : commit précédent
+
+HEAD~2, HEAD~3, etc. : encore plus anciens
+
+<b> Aide et documentation => git --help </b>
+
+Affiche la liste des commandes Git.
+
+```
+git --help
+
+git <commande> --help
+
+```
+
+Affiche l’aide détaillée d’une commande.
+
+git log --help
+
+➜ Très utile quand tu ne te rappelles plus des options.
