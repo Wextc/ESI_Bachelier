@@ -481,7 +481,7 @@ commit 0c30f86036f0180cc0adcba459e1ef2f12ac908e
 
 ```
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice 4_readme.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice4_readme.png)
 
 Durant quel commit, le fichier todo.txt a-t-il été supprimé ?
 
