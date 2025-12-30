@@ -286,4 +286,97 @@ git diff → comparer des versions
 HEAD, HEAD~1 → repérer les commits
 ```
 
-### Exercice 1.4 :
+### Clone local 1.4 :
+
+La commande git clone sert à créer une copie locale complète d’un dépôt Git qui existe déjà ailleurs, le plus
+
+souvent sur un serveur distant. Concrètement, lorsqu’on exécute git clone, Git télécharge l’intégralité du
+
+projet : tous les fichiers, mais aussi tout l’historique des versions, les branches et les métadonnées. Une
+
+fois le clonage terminé, un nouveau dossier est créé sur la machine locale ; il contient le projet prêt à être
+
+consulté, modifié et versionné. Le dépôt cloné est automatiquement relié à sa source d’origine, ce qui permet
+
+ensuite de récupérer les mises à jour ou d’envoyer ses propres modifications. En résumé, git clone est la porte
+
+d’entrée classique pour commencer à travailler sur un projet Git existant.
+
+```
+git clone <url-dépot> [<destination>
+lab
+```
+
+Après avoir installer git.
+
+Il faut oouvrir le terminal et taper, et l'url du dossier dans gitlab que l'on veut copier dans le pc.
+
+```
+git clone https://git.esi-bru.be/exp1/git-discover
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice1.png)
+
+Remarque: Il faut se situer à la racine du dossier. Sinon, l'intégralité du dossier ne sera pas copié sur votre système.
+
+### Exercice 1:
+
+Ici sur PC, il faut créer un dossier "mon-dossier".
+
+Ce dossier est créé par un autre auteur, cela veut dire qu'on a pas les droits de modifications sans en faire ne soumission à l'auteur. On ne peut pas utliser la
+
+commande clone dans cas-ci. Git clone est faite pour les dossier dont est l'auteur. Ici on utilise fork. Ici il faut appuyer sur le boutton fork. Le dossier est
+
+se retrouve dans le dossier "mon-dossier".
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice1.2.png)
+
+<b> Pour aller plus loin. </b>
+
+Remarque: Si on veut veut utiliser fork via la commande line, il faut utiliser:
+
+```
+glab repo fork https://git.esi-bru.be/exp1/git-discover
+
+```
+
+Si glab n'est pas installé :
+
+```
+sudo apt install glab
+
+```
+
+Si glab n'est pas autorisé :
+
+```
+glab auth login
+
+```
+
+Il faut choisir l'option tokken.
+
+### Exercice 2 :
+
+La commande git log permet d’afficher l’historique des commits d’un dépôt Git.
+
+Lorsqu’on l’exécute, Git liste les différentes versions du projet, de la plus récente à la plus ancienne, en indiquant pour chaque commit des informations
+
+essentielles comme son identifiant unique, l’auteur, la date et le message qui décrit les changements effectués. Cet historique sert à comprendre comment le
+
+code a évolué dans le temps, à identifier quand et pourquoi une modification a été faite, ou encore à retrouver l’origine d’un bug. git log est donc un outil
+
+central pour analyser le passé d’un projet, suivre le travail des contributeurs et naviguer dans les différentes étapes de son développement.
+
+Oui, git log fonctionne aussi pour les projets propriétaires, à une condition essentielle.
+
+git log n’a aucun lien avec le caractère public ou privé d’un projet. Cette commande fonctionne localement, sur le dépôt Git que tu as sur ta machine.
+
+Donc si tu as accès au dépôt (par exemple parce que tu l’as cloné et que tu as les droits de lecture), alors git log affichera l’historique des commits sans
+
+restriction. En revanche, si tu n’as pas le droit d’accéder au dépôt (par exemple un projet privé auquel tu n’es pas autorisé), tu ne pourras même pas le cloner,
+
+et donc tu n’auras pas accès à son historique. Dans ce cas, git log ne peut évidemment rien afficher.
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice2.png)
