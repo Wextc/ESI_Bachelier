@@ -10,6 +10,24 @@ git lab: ENG:
 
 https://www.youtube.com/watch?v=qKxytMuUiJA&list=PLZMWkkQEwOPmGolqJPsAm_4fcBDDc2to_
 
+### Pré-requis :
+
+Pour pouvoir travailler avec gitlab, il faut installer git (un programme qui vous permet d'envoyer les
+
+instructions sur les serveur de gitlab).
+
+### Attention :
+
+Lors de l'examen. Ilfaut se connecter sur le serveur linux1 pour pouvoir utiliser gtilab. Il faudra pouvoir
+
+trouver des dossiers sur le linux puis les envoyer sur le gitlab.
+
+Il faut faire les configurations avant d'aller en examen.
+
+Pour se connecter sur gitlab la seule connection possible sera la la connection via le NOM D UTILISATEUR et le
+
+PASSWD.
+
 ### 1.1 Concepts
 
 Git est un logiciel de gestion de versions qui repose sur une organisation précise des données d’un projet
@@ -83,18 +101,6 @@ original. Ce fork permet de disposer de son propre dépôt avec des droits d’�
 avec le projet de départ.
 
 Une fois le fork créé, son URL sera utilisée pour la suite du TD, notamment pour cloner le dépôt en local.
-
-### Attention :
-
-Lors de l'examen. Ilfaut se connecter sur le serveur linux1 pour pouvoir utiliser gtilab. Il faudra pouvoir
-
-trouver des dossiers sur le linux puis les envoyer sur le gitlab.
-
-Il faut faire les configurations avant d'aller en examen.
-
-Pour se connecter sur gitlab la seule connection possible sera la la connection via le NOM D UTILISATEUR et le
-
-PASSWD.
 
 ### Voici une liste des commandes :
 
@@ -265,8 +271,6 @@ git log --help
 ### Résumé ultra-court (mémo examen):
 
 ```
-
-
 git config → configurer Git
 
 git clone → récupérer un dépôt
@@ -281,3 +285,5 @@ git diff → comparer des versions
 
 HEAD, HEAD~1 → repérer les commits
 ```
+
+### Exercice 1.4 :
