@@ -361,22 +361,15 @@ Il faut choisir l'option tokken.
 
 La commande git log permet d’afficher l’historique des commits d’un dépôt Git.
 
-Lorsqu’on l’exécute, Git liste les différentes versions du projet, de la plus récente à la plus ancienne, en indiquant pour chaque commit des informations
+Lorsqu’on l’exécute, Git liste les différentes versions du projet, de la plus récente à la plus ancienne, en indiquant pour chaque commit des informations essentielles comme son identifiant unique, l’auteur, la date et le message qui décrit les changements effectués. Cet historique sert à comprendre comment le code
+a évolué dans le temps, à identifier quand et pourquoi une modification a été faite, ou encore à retrouver l’origine d’un bug.
 
-essentielles comme son identifiant unique, l’auteur, la date et le message qui décrit les changements effectués. Cet historique sert à comprendre comment le code
+git log est donc un outilcentral pour analyser le passé d’un projet, suivre le travail des contributeurs et naviguer dans les différentes étapes de son développement.
 
-a évolué dans le temps, à identifier quand et pourquoi une modification a été faite, ou encore à retrouver l’origine d’un bug. git log est donc un outilcentral
+git log fonctionne aussi pour les projets propriétaires, à une condition essentielle.
 
-pour analyser le passé d’un projet, suivre le travail des contributeurs et naviguer dans les différentes étapes de son développement.
+git log n’a aucun lien avec le caractère public ou privé d’un projet.
 
-Oui, git log fonctionne aussi pour les projets propriétaires, à une condition essentielle.git log n’a aucun lien avec le caractère public ou privé d’un projet.
-
-Cette commande fonctionne localement, sur le dépôt Git que tu as sur ta machine. Donc si tu as accès au dépôt (par exemple parce que tu l’as cloné et que tu as
-
-les droits de lecture), alors git log affichera l’historique des commits sans restriction. En revanche, si tu n’as pas le droit d’accéder au dépôt (par exemple
-
-un projet privé auquel tu n’es pas autorisé), tu ne pourras même pas le cloner, et donc tu n’auras pas accès à son historique. Dans ce cas, git log ne peut
-
-évidemment rien afficher.
+Cette commande fonctionne localement, sur le dépôt Git que tu as sur ta machine. Donc si tu as accès au dépôt (par exemple parce que tu l’as cloné et que tu as les droits de lecture), alors git log affichera l’historique des commits sans restriction. En revanche, si tu n’as pas le droit d’accéder au dépôt (par exemple un projet privé auquel tu n’es pas autorisé), tu ne pourras même pas le cloner, et donc tu n’auras pas accès à son historique. Dans ce cas, git log ne peut évidemment rien afficher.
 
 ![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice2.png)
