@@ -289,17 +289,11 @@ HEAD, HEAD~1 → repérer les commits
 ### Clone local 1.4 :
 
 La commande git clone sert à créer une copie locale complète d’un dépôt Git qui existe déjà ailleurs, le plus
-
 souvent sur un serveur distant. Concrètement, lorsqu’on exécute git clone, Git télécharge l’intégralité du
-
 projet : tous les fichiers, mais aussi tout l’historique des versions, les branches et les métadonnées. Une
-
 fois le clonage terminé, un nouveau dossier est créé sur la machine locale ; il contient le projet prêt à être
-
 consulté, modifié et versionné. Le dépôt cloné est automatiquement relié à sa source d’origine, ce qui permet
-
 ensuite de récupérer les mises à jour ou d’envoyer ses propres modifications. En résumé, git clone est la porte
-
 d’entrée classique pour commencer à travailler sur un projet Git existant.
 
 ```
@@ -308,7 +302,6 @@ lab
 ```
 
 Après avoir installer git.
-
 Il faut oouvrir le terminal et taper, et l'url du dossier dans gitlab que l'on veut copier dans le pc.
 
 ```
@@ -320,44 +313,7 @@ git clone https://git.esi-bru.be/exp1/git-discover
 
 Remarque: Il faut se situer à la racine du dossier. Sinon, l'intégralité du dossier ne sera pas copié sur votre système.
 
-### Exercice 1:
-
-Ici sur PC, il faut créer un dossier "mon-dossier".
-
-Ce dossier est créé par un autre auteur, cela veut dire qu'on a pas les droits de modifications sans en faire ne soumission à l'auteur. On ne peut pas utliser la
-
-commande clone dans cas-ci. Git clone est faite pour les dossier dont est l'auteur. Ici on utilise fork. Ici il faut appuyer sur le boutton fork. Le dossier est
-
-se retrouve dans le dossier "mon-dossier".
-
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice1.2.png)
-
-<b> Pour aller plus loin. </b>
-
-Remarque: Si on veut veut utiliser fork via la commande line, il faut utiliser:
-
-```
-glab repo fork https://git.esi-bru.be/exp1/git-discover
-
-```
-
-Si glab n'est pas installé :
-
-```
-sudo apt install glab
-
-```
-
-Si glab n'est pas autorisé :
-
-```
-glab auth login
-
-```
-
-Il faut choisir l'option tokken.
-
-### Exercice 2 :
+### 1.5 Historique d’événements
 
 La commande git log permet d’afficher l’historique des commits d’un dépôt Git.
 
@@ -373,3 +329,197 @@ git log n’a aucun lien avec le caractère public ou privé d’un projet.
 Cette commande fonctionne localement, sur le dépôt Git que tu as sur ta machine. Donc si tu as accès au dépôt (par exemple parce que tu l’as cloné et que tu as les droits de lecture), alors git log affichera l’historique des commits sans restriction. En revanche, si tu n’as pas le droit d’accéder au dépôt (par exemple un projet privé auquel tu n’es pas autorisé), tu ne pourras même pas le cloner, et donc tu n’auras pas accès à son historique. Dans ce cas, git log ne peut évidemment rien afficher.
 
 ![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice2.png)
+
+### Exercice 1:
+
+Il faut aller sur le lien : https://git.esi-bru.be/exp1/git-discover/-/forks/new
+
+On va utiliser fork.
+
+Git, en tant qu’outil, ne possède aucune commande appelée fork. Le fork n’est pas une fonctionnalité de Git, mais une fonctionnalité des plateformes d’hébergement comme GitLab ou GitHub.
+Concrètement :
+Git sait cloner, versionner, comparer et fusionner du code.
+Le fork est une action effectuée sur la plateforme web : elle crée une copie complète d’un dépôt sur ton propre compte.
+
+Quand on parle de forker un projet, cela signifie :
+
+    créer un nouveau dépôt serveur basé sur un dépôt existant
+
+    avec son propre propriétaire et ses propres droits
+
+    tout en gardant un lien logique avec le dépôt original
+
+Ensuite seulement, on utilise git clone pour récupérer ce fork en local.
+
+Pourquoi forker ?
+
+Forker permet d’avoir une copie d’un projet dont on n’est pas l’auteur sur son propre compte GitLab, tout en conservant l’historique complet des commits (c’est-à-dire toutes les modifications effectuées depuis le début du projet). Le fork permet donc de travailler et de modifier un projet sans en être le propriétaire, et sans impacter directement le dépôt original.
+
+Comment fonctionne le fork ?
+
+On commence par forker le projet, ce qui crée une copie sur notre compte. On peut ensuite modifier le projet librement et publier ces changements sur notre fork. Les modifications sont ensuite soumis(es) aux auteurs du projet original via une Merge Request. Ceux-ci peuvent alors accepter les modifications, ce qui les intègre à leur projet, ou les refuser.
+
+<b> Etape 1 : </b>
+
+Il faut aller sur l'url du projet.
+
+```
+https://git.esi-bru.be/exp1/git-discover
+
+```
+
+<b> Etape 2 : </b>
+
+Appuyer sur fork.
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice2.fork.png)
+
+<b> Etape 3 : </b>
+
+Dans "Project URL" il faut mettre votre "Nom d'utilidateur", qui est votre matricule sans espace ni de g.
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/fork2.png)
+
+<b> Etape 4 : </b>
+
+Il suffit de cliquer sur "fork".
+
+<b> Etape 5 : </b>
+
+Sur l'url https://git.esi-bru.be/6*****/git-discover.
+
+Vous avez votre projet fork.
+
+A partir d'ici vous pouvez créer le dossier "mon-dossier". Déplacez vous dans ce dossier via le terminal..
+
+Puis dans ce dossier, écrivez la commande suivante:
+
+```
+git clone  https://git.esi-bru.be/6*****/git-discover
+
+```
+
+Vous écrivez git clone suivie de l'url complète de votre projet forké.
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/fork3.png)
+
+### 1.5 Historique d’événements :
+
+### Exercice 2:
+
+La commande git log permet de consulter l’historique des modifications d’un projet Git. Elle affiche la liste des commits, du plus récent au plus ancien, en indiquant pour chacun des informations importantes comme l’identifiant du commit, le nom de l’auteur, la date et le message associé. Grâce à git log, on peut comprendre comment le projet a évolué au fil du temps, savoir quand une modification a été introduite et par qui, ou encore retrouver l’origine d’un changement précis. C’est donc un outil essentiel pour analyser le passé d’un dépôt et suivre le travail effectué sur le code.
+
+```
+git log
+
+```
+
+Il faut appuyer sur la lettre q pour quitter.
+
+```
+git log --oneline
+
+# Donne
+
+Latitude-5480:~/Desktop/mon-projet/git-discover$  git log --oneline
+aa133d0 (HEAD -> main, origin/main, origin/HEAD) Vérifiez que l'entrée de l'utilisateur est un nombre
+f0a663c Debut de l'utilisation d'un "issue tracker"
+ca268bd Répétition pour l'ajout des pions
+254c2dd Ajout des pions
+0c30f86 Affiche le lisez-moi sur la page du dépôt
+8ea2c75 Utilisation de couleurs dans le logo
+025f700 Ajout du tableau
+
+
+```
+
+Cette commande affiche un historique simplifié avec :
+
+un identifiant court
+
+uniquement la première ligne du message de commit
+
+on utilise l’option --oneline
+
+### Exercice 3:
+
+```
+git log --name-status
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice3.png)
+
+### Exercice 4:
+
+À quel moment le fichier test.py a été ajouté ?
+
+Pour avoir la réponse, il faut faire la commande suivante.
+
+```
+git log --name-status test.py
+
+```
+
+La réponse est Date: Tue Jul 23 17:09:00.
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice4_test.png)
+
+Lors de quel commit, le fichier lisezmoi.md a été renommé readme.md ?
+
+Pour avoir la réponse, il faut faire la commande suivante.
+
+```
+git log --name-status readme.md
+
+```
+
+La réponse est
+
+```
+commit 0c30f86036f0180cc0adcba459e1ef2f12ac908e
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice 4_readme.png)
+
+Durant quel commit, le fichier todo.txt a-t-il été supprimé ?
+
+Pour avoir la réponse, il faut faire la commande suivante.
+
+```
+git log --name-status todo.txt
+
+# Ici la commande suivante, ne marche pas car git ne reconnait pas les fichiers avec l'extension .txt. Il faut donc utiliser la commande général suivante.  Puis il suffit de chercher dans l'historique le fichier todo.txt.
+
+git log --name-status
+
+```
+
+La réponse est
+
+```
+commit  f0a663cd9c95b792f6204490a46cce118c0c821c
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice4_todo.png)
+
+Quel est le seul commit où logo.png a été modifié ?
+
+Pour avoir la réponse, il faut faire la commande suivante.
+
+```
+git log --name-status logo.png
+
+```
+
+La réponse est
+
+```
+commit 8ea2c7569fcf2a72e6a059922d20b51785cc0c0c
+
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice4_todo.png)
