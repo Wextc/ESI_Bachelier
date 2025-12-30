@@ -140,7 +140,7 @@ ls -l mon_fichier
 
 ```
 
-![permission_fichier_grp](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/TD7/Laboratoire/img/groups_fichiers.png)
+![permission_fichier_grp](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/TD7 /Laboratoire/img/groups_fichiers.png)
 
 Visualisez les groupes auxquels appartiennent plusieurs fichier d'un dossier fichiers.
 
@@ -174,7 +174,7 @@ La deuxième catégorie rassemble les utilisateurs du groupe associé au fichier
 
 Enfin, la troisième catégorie regroupe tous les autres utilisateurs du système, c’est-à-dire ceux qui ne sont ni le propriétaire ni membres du groupe du fichier. Ils disposent en général des permissions les plus limitées, car ce sont les utilisateurs les plus « éloignés » du fichier du point de vue de la sécurité.
 
-![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD7/img/categorie_de_personnes.png)
+![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD7 /img/categorie_de_personnes.png)
 
 <b>Le propriétaire (user)</b>
 
@@ -214,7 +214,7 @@ Ces permissions apparaissent toujours dans le même ordre — r, w, x — et lor
 
 À noter enfin que le tout premier caractère affiché avant les permissions n’en fait pas partie. Il sert simplement à indiquer la nature de l’élément : un d signifie qu’il s’agit d’un dossier, alors qu’un tiret indique qu’il s’agit d’un fichier ordinaire.
 
-![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD7/img/categorie_de_personnes.png)
+![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD7 /img/categorie_de_personnes.png)
 
 Vérifier que le fichier qui contient nano est bien exécutable par vous. Pouvez-vous le
 modifier ?
@@ -243,7 +243,7 @@ Il existe deux manières de préciser ces permissions : en utilisant des nombres
 Lorsque l’on choisit la méthode par nombres, les permissions sont exprimées en octal. Chaque type de permission correspond alors à une valeur précise :
 la permission de lecture vaut 4, celle d’écriture vaut 2, et celle d’exécution vaut 1. Pour déterminer les permissions finales, il suffit d’additionner ces valeurs. Par exemple, une permission de lecture et d’écriture correspond à la valeur 6 (4 + 2), tandis qu’une permission complète (lecture, écriture et exécution) correspond à 7 (4 + 2 + 1). Ce système permet donc de représenter chaque ensemble de permissions par un simple chiffre, et d’obtenir un code final à trois chiffres : un pour le propriétaire, un pour le groupe et un pour les autres utilisateurs.
 
-![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/TD7/Laboratoire/img/permission_en_nbr.png)
+![permission_cat_personnes](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/TD7/Laboratoire/TD 7/img/permission_en_nbr.png)
 
 #### 1.7 Modifier le groupe
 
@@ -290,7 +290,7 @@ rwx   rwx   r-x
 
 ```
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD7/img/permission_cat.png)
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD7 /img/permission_cat.png)
 
 Ces trois blocs décrivent donc les droits accordés aux trois catégories d’utilisateurs de Linux :
 
