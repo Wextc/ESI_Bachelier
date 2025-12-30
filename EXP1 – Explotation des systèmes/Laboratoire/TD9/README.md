@@ -523,3 +523,94 @@ commit 8ea2c7569fcf2a72e6a059922d20b51785cc0c0c
 ```
 
 ![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice4_todo.png)
+
+### Exercice 5:
+
+La commande complète pour afficher les n derniers commits est :
+
+```
+git log -n <nombre>
+
+```
+
+Par exemple :
+
+```
+git log -n 5
+
+```
+
+Si tu veux un affichage plus court, tu peux combiner avec --oneline :
+
+```
+git log -n 5 --oneline
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/log_oneline.png)
+
+### 1.6 Comparaisons de commits
+
+La commande git diff permet de voir les différences entre deux états d’un projet. Elle sert principalement à comparer ce qui a changé dans les fichiers, ligne par ligne, avant de valider ces modifications dans l’historique.
+
+Par défaut, git diff affiche les différences entre les fichiers modifiés dans le répertoire de travail et la dernière version enregistrée (le dernier commit). On peut ainsi vérifier précisément ce qui a été ajouté, supprimé ou modifié avant de créer un commit. C’est un outil très utile pour relire son travail et éviter d’enregistrer des erreurs.
+
+git diff peut aussi être utilisé pour comparer d’autres éléments, comme deux commits, deux branches ou l’état préparé pour le prochain commit. Dans tous les cas, il montre les changements de manière détaillée, ce qui aide à comprendre l’évolution du code et à contrôler les modifications avant de les partager.
+
+Les symboles moins se réfèrent toujours au premier commit et les symboles plus au second
+commit de la commande. D’abord, les noms des fichiers comparés sont donnés, ici file.py.
+Ensuite, est inscrit la position dans les deux fichiers du contenu affiché, sous le format
+numéro de ligne,nombre de lignes. Finalement les différences de contenu sont affichées
+avec les lignes spécifiques au premier commit en rouge et les lignes spécifiques au second
+commit en vert.
+Les lignes colorées avec des plus ou des moins correspondent aux modifications qu’il faudrait apporter au premier commit pour arriver directement au second commit.
+
+Vous n’êtes heureusement pas obligé de copier l’entièreté de l’identifiant. Juste les quelques
+premiers caractères suffisent. Le plus simple est de copier les identifiants courts donnés
+par git log --oneline.
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/point1.5.png)
+
+#### Exercice 6:
+
+On a vut que git log va afficher les commit les plus récents.
+
+On sait que, par défaut git log affiche les commits du plus récent au plus ancien.
+
+<b> le contenu du fichier todo.txt avant et après sa suppression :</b>
+
+Ici on veut le premier et le dernier commit.
+
+Pour afficher le premier commit
+
+Il faut inverser l’ordre avec --reverse :
+
+```
+git log --reverse -n 1
+
+git log --reverse -1
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/
+EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice_6_2.png)
+
+Pour voir le dernier.
+
+```
+git log -1
+
+```
+
+![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/
+EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice6_3.png)
+
+le contenu de readme.md avant et après avoir été renommé,
+
+le contenu de logo.png avant et après sa modification.
+
+#### Exercice 7
+
+#### Exercice 8
+
+#### Exercice 9
