@@ -98,7 +98,7 @@ PASSWD.
 
 ### Voici une liste des commandes :
 
-<b> Commandes de configuration</b>
+<b> Commandes de configuration => git config :</b>
 
 git config
 
@@ -214,7 +214,7 @@ git log -n 2
 
 ➜ Affiche uniquement les 2 derniers commits
 
-<b> Comparaison des versions => git diff </b>
+<b> Comparaison des versions => git diff :</b>
 
 Compare le contenu de fichiers entre deux commits.
 
@@ -242,7 +242,7 @@ HEAD~1 : commit précédent
 
 HEAD~2, HEAD~3, etc. : encore plus anciens
 
-<b> Aide et documentation => git --help </b>
+<b> Aide et documentation => git --help :</b>
 
 Affiche la liste des commandes Git.
 
@@ -255,6 +255,9 @@ git <commande> --help
 
 Affiche l’aide détaillée d’une commande.
 
+```
 git log --help
+
+```
 
 ➜ Très utile quand tu ne te rappelles plus des options.
