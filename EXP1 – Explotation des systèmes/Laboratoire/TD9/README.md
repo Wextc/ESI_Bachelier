@@ -667,8 +667,106 @@ ancien nom = README.txt
 
 le contenu de logo.png avant et après sa modification.
 
-#### Exercice 7
+La bonne méthode consiste à extraire les deux versions du fichier (avant et après la modification) afin de pouvoir les ouvrir ou les comparer visuellement.
+
+Voici la procédure claire et correcte.
+
+Trouver le commit qui modifie logo.png
+
+```
+git log --oneline -- logo.png
+
+```
+
+Le premier commit affiché est le dernier commit qui a modifié logo.png.
+
+Note son hash (appelons-le MOD).
+
+Extraire le contenu avant la modification
+
+On récupère la version du fichier juste avant le commit (MOD^) :
+
+```
+git show MOD^:logo.png > logo_before.png
+
+```
+
+Extraire le contenu après la modification
+
+On récupère la version du fichier dans le commit de modification :
+
+```
+git show MOD:logo.png > logo_after.png
+
+```
+
+#### Exercice 7:
+
+Différence entre git diff <id1> <id2> et git diff <id2> <id1>
+
+La commande git diff compare deux états du projet, mais l’ordre des commits est important.
+
+git diff <id1> <id2> affiche les changements pour passer de <id1> vers <id2>.
+Les lignes ajoutées dans <id2> apparaissent avec +, et les lignes supprimées depuis <id1> avec -.
+
+git diff <id2> <id1> fait exactement la comparaison inverse.
+Les ajouts et suppressions sont inversés : ce qui était affiché comme ajouté devient supprimé, et inversement.
+Le contenu comparé est le même, mais le sens du diff change. On peut dire que le résultat est symétrique mais inversé.
+
+Utilisation des noms symboliques (HEAD)
+
+Au lieu d’utiliser les identifiants complets des commits, Git permet d’utiliser des noms symboliques.
+
+HEAD désigne le dernier commit (le plus récent).
+
+HEAD~1 désigne le commit juste avant le dernier.
+
+HEAD~2, HEAD~3, etc. permettent de remonter plus loin dans l’historique.
+
+Exemples :
+
+```
+git diff HEAD~1 HEAD
+```
+
+Compare le commit précédent avec le dernier commit.
+
+```
+git diff HEAD HEAD~1
+
+```
+
+Affiche la même comparaison, mais avec les ajouts et suppressions inversés.
 
 #### Exercice 8
 
 #### Exercice 9
+
+Réponse => La commande git diff HEAD HEAD~2 n’affiche aucune différence, car les lignes ajoutées dans un commit ont été supprimées dans le commit suivant, rendant l’état final identique à celui du commit initial.
+
+Explication:
+
+git diff HEAD HEAD~2 compare l’état actuel du projet (HEAD) avec l’état du projet deux commits en arrière (HEAD~2).
+
+Dans ton scénario :
+
+Commit 1 (HEAD~2) : le fichier pyxo.py existe, sans les 4 lignes.
+
+Commit 2 (HEAD~1) : 4 lignes sont ajoutées au fichier.
+
+Commit 3 (HEAD) : ces 4 lignes sont supprimées.
+
+Résultat important :
+
+entre HEAD~2 et HEAD, le fichier pyxo.py est identique, car les ajouts ont été annulés par la suppression.
+
+Ce que va afficher la commande
+
+git diff HEAD HEAD~2
+
+Aucune différence n’est affichée (sortie vide).
+
+Pourquoi ?
+
+git diff compare uniquement l’état final des fichiers, pas l’historique des actions intermédiaires.
+Même s’il y a eu des modifications entre-temps, le contenu final étant le même, Git n’a rien à signaler.
