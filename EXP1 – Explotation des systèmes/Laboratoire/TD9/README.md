@@ -738,9 +738,9 @@ git diff HEAD HEAD~1
 
 Affiche la même comparaison, mais avec les ajouts et suppressions inversés.
 
-#### Exercice 8
+#### Exercice 8:
 
-#### Exercice 9
+#### Exercice 9:
 
 Réponse => La commande git diff HEAD HEAD~2 n’affiche aucune différence, car les lignes ajoutées dans un commit ont été supprimées dans le commit suivant, rendant l’état final identique à celui du commit initial.
 
