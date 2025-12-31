@@ -577,20 +577,18 @@ On a vut que git log va afficher les commit les plus récents.
 
 On sait que, par défaut git log affiche les commits du plus récent au plus ancien.
 
-<b> le contenu du fichier todo.txt avant et après sa suppression :</b>
+<b> le contenu des fichiers entre le premier et le dernier commit :</b>
 
-Ici on veut le premier et le dernier commit.
+Ici on veut la différence entre le premier et le dernier commit. Il faut donc utliser git diff premier_commit dernier_commit.
 
 Pour afficher le premier commit
 
-Il faut inverser l’ordre avec --reverse :
+Il faut inverser l’ordre avec reverse :
 
 ```
-git log --reverse -n 1
+git rev-list --max-parents=0 main
 
-git log --reverse -1
-
-commit aa133d0aa3f8f744ce50567ce622b8705b580f6e
+commit  24e284aec4fb17adeea7ab290ce3b1b705d68a33
 ```
 
 ![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice_6_2.png)
@@ -598,15 +596,74 @@ commit aa133d0aa3f8f744ce50567ce622b8705b580f6e
 Pour voir le dernier.
 
 ```
-git log -1
+git rev-parse main
 
 commit aa133d0aa3f8f744ce50567ce622b8705b580f6e
 
 ```
 
-![permission_cat](https://github.com/Wextc/ESI_Bachelier/blob/main/EXP1%20%E2%80%93%20Explotation%20des%20syst%C3%A8mes/Laboratoire/TD9/img/exercice6_3.png)
+Pour faire la différence il faut les commandes suivantes.
 
-le contenu de readme.md avant et après avoir été renommé,
+```
+git diff 24e284aec4fb17adeea7ab290ce3b1b705d68a33  aa133d0aa3f8f744ce50567ce622b8705b580f6e
+
+# Ou
+
+git diff $(git rev-list --max-parents=0 main) main
+
+```
+
+Remarque :
+
+Même si tu n’as qu’une seule branche (main), tu peux quand même te retrouver avec “premier = dernier” si la commande ne te renvoie pas le vrai commit racine (ou si tu n’es pas exactement dans le dépôt que tu crois au moment où tu lances la commande).
+
+Mais dans ton cas, comme ton git log montre clairement plusieurs commits (dont 0c30f86... en bas), le premier commit ne peut pas être aa133d0.... Donc le fait que git log --reverse -1 --format=%H te renvoie aa133d0... indique surtout que cette commande n’a pas été évaluée sur la même “référence” que celle affichée par ton log, ou qu’elle ne renvoie pas ce que tu penses.
+
+Le moyen le plus fiable (et qui évite ce genre de surprise), c’est d’utiliser ces commandes :
+
+```
+git rev-parse main
+git rev-list --max-parents=0 main
+
+```
+
+<b> le contenu de readme.md avant et après avoir été renommé : </b>
+
+on peut utiliser git log pour repérer le renommage, mais git log seul ne peut pas afficher le contenu avant/après.
+Il sert à trouver le bon commit, ensuite on utilise git show pour voir le contenu.
+
+Voici la bonne façon d’utiliser git log dans ton cas.
+
+1️⃣ Utiliser git log pour trouver le renommage
+
+```
+git log --follow --name-status -- readme.md
+
+```
+
+Ce que ça fait :
+
+```
+--follow → suit le fichier même s’il a été renommé
+
+```
+
+--name-status → indique le type de changement
+
+R → renommage
+
+Exemple de sortie :
+
+```
+commit 0c30f86036f0180cc0adcba459e1ef2f12ac908e
+R100    README.txt    readme.md
+```
+
+Ici :
+
+commit de renommage = 0c30f860...
+
+ancien nom = README.txt
 
 le contenu de logo.png avant et après sa modification.
 
