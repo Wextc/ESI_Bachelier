@@ -634,7 +634,7 @@ Il sert à trouver le bon commit, ensuite on utilise git show pour voir le conte
 
 Voici la bonne façon d’utiliser git log dans ton cas.
 
-1️⃣ Utiliser git log pour trouver le renommage
+Utiliser git log pour trouver le renommage
 
 ```
 git log --follow --name-status -- readme.md
