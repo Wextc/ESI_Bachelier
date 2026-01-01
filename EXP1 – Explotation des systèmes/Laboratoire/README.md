@@ -1,6 +1,6 @@
 # Synthèse qui reprend toutes les commandes
 
-## TD01 \_ Bash – Parcourir le système de fichiers
+## TD01 – Bash – Parcourir le système de fichiers
 
 ### 1. Commande cd – Se déplacer dans les répertoires
 
@@ -257,7 +257,7 @@ exit
 | `echo`   | afficher        |
 | `exit`   | quitter         |
 
-## TD02 \_ Modifier le système de fichiers
+## TD02 – Bash – Modifier le système de fichiers
 
 ### 1) mkdir — Créer des répertoires
 
@@ -687,6 +687,995 @@ rename --help
 | créer lien                  | `ln`                 |
 | copier                      | `cp` / `cp -r`       |
 | déplacer / renommer         | `mv`                 |
+
+---
+
+## TD03 – Bash – Manipuler des fichiers textes
+
+Bash – Manipuler des fichiers textes (commandes + options)
+
+Objectif : analyser / filtrer / transformer du texte dans le terminal.
+
+La plupart de ces commandes n’écrasent pas le fichier source : elles affichent un résultat (qu’on pourra ensuite rediriger plus tard).
+
+### 1. wc — Statistiques (lignes, mots, octets)
+
+Rôle : compter lignes / mots / octets.
+
+Syntaxe
+
+```
+wc fichier.txt
+
+```
+
+| Option | Longue              | Effet                                           |
+| ------ | ------------------- | ----------------------------------------------- |
+| `-l`   | `--lines`           | nombre de lignes uniquement                     |
+| `-L`   | `--max-line-length` | longueur (en octets) de la ligne la plus longue |
+
+Exemples
+
+```
+wc dudh.txt
+wc -l apache.log
+wc -L apache.log
+
+```
+
+### 2) uniq — Éliminer les doublons consécutifs
+
+Rôle : supprime uniquement les lignes identiques consécutives (souvent après un sort).
+
+Syntaxe
+
+```
+uniq fichier.txt
+
+```
+
+Options utiles
+
+| Option | Longue    | Effet                                            |
+| ------ | --------- | ------------------------------------------------ |
+| `-c`   | `--count` | préfixe chaque ligne par le nombre d’occurrences |
+
+Exemple
+
+```
+uniq -c apache.log
+
+```
+
+⚠️ Important : si les doublons ne sont pas côte à côte, uniq ne les verra pas.
+Souvent on fait :
+
+```
+sort fichier.txt | uniq -c
+
+```
+
+### 3) nl — Numéroter les lignes non vides
+
+Rôle : afficher un fichier en numérotant les lignes non vides.
+
+Syntaxe
+
+```
+nl fichier.txt
+
+```
+
+Exemple
+
+```
+nl apache.log
+
+```
+
+### 4) head — Afficher le début d’un fichier
+
+Rôle : affiche les 10 premières lignes par défaut.
+
+Syntaxe
+
+```
+head fichier.txt
+
+```
+
+Options
+
+| Option  | Longue      | Effet                                              |
+| ------- | ----------- | -------------------------------------------------- |
+| `-n K`  | `--lines K` | affiche les K premières lignes                     |
+| `-n -K` | —           | affiche toutes les lignes **sauf** les K dernières |
+
+Exemples
+
+```
+head -n 5 elevation-extremes.csv
+head -n -1 elevation-extremes.csv
+
+```
+
+### 5) tail — Afficher la fin d’un fichier
+
+Rôle : affiche les 10 dernières lignes par défaut.
+
+Syntaxe
+
+```
+tail fichier.txt
+
+```
+
+Options
+
+| Option  | Longue      | Effet                          |
+| ------- | ----------- | ------------------------------ |
+| `-n K`  | `--lines K` | affiche les K dernières lignes |
+| `-n +K` | —           | affiche à partir de la ligne K |
+
+Exemples
+
+```
+tail -n 5 elevation-extremes.csv
+tail -n +2 elevation-extremes.csv
+
+```
+
+### 6) cat — Concaténer / afficher des fichiers
+
+Rôle : afficher plusieurs fichiers à la suite.
+
+Syntaxe
+
+```
+cat f1 f2 f3
+
+```
+
+Exemples
+
+```
+cat cities/eu.be.tsv cities/eu.nl.tsv
+cat cities/eu.*.tsv
+
+```
+
+### 7) sort — Trier des lignes
+
+Rôle : tri alphabétique ligne par ligne.
+
+Syntaxe
+
+```
+sort fichier.txt
+
+```
+
+Options importantes
+
+| Option | Longue                   | Effet                                     |
+| ------ | ------------------------ | ----------------------------------------- |
+| `-r`   | `--reverse`              | ordre inverse                             |
+| `-u`   | `--unique`               | supprime doublons (après tri)             |
+| `-n`   | `--numeric-sort`         | tri numérique                             |
+| `-g`   | `--general-numeric-sort` | tri numérique “scientifique” (ex: `6e10`) |
+| `-t X` | `--field-separator X`    | séparateur de colonnes (CSV/TSV)          |
+| `-k N` | `--key N`                | numéro de colonne (clé de tri)            |
+| `-o f` | `--output f`             | écrit le résultat dans un fichier         |
+
+Exemples simples
+
+```
+sort unordered.txt
+sort -r unordered.txt
+sort -u unordered.txt
+
+```
+
+Trier un CSV par colonne (ex: 3e colonne)
+
+```
+sort data.csv -t ',' -k 3
+
+```
+
+Trier un TSV (tabulation) : séparateur tab
+
+Méthode ANSI-C quoting :
+
+```
+sort cities/eu.be.tsv -t $'\t' -k 2
+
+```
+
+Tri numérique (important pour planètes/séismes) :
+
+```
+sort planets.csv -t ',' -k 4 -n
+sort planets.csv -t ',' -k 2 -g
+sort earthquakes.dsv -t ',' -k 5 -n
+
+
+```
+
+Sauvegarder :
+
+sort unordered.txt -o unordered-sorted.txt
+
+### 8) cut — Extraire des caractères ou des colonnes
+
+A) Extraire des caractères (positions)
+
+Rôle : extraire une tranche de caractères sur chaque ligne.
+
+```
+cut -c 5-20 document.txt
+
+```
+
+5-20 : du 5e au 20e caractère
+
+-20 : du début au 20e
+
+5- : du 5e jusqu’à la fin
+
+plusieurs intervalles : -c 1-4,10-12
+
+Exemples (génériques) :
+
+```
+cut -c 1-10 apache.log
+cut -c 6- apache.log
+
+```
+
+B) Extraire des colonnes (DSV : CSV/TSV/…)
+
+Rôle : extraire des champs délimités.
+
+Options utiles
+
+| Option     | Longue           | Effet               |
+| ---------- | ---------------- | ------------------- |
+| `-d X`     | `--delimiter X`  | séparateur          |
+| `-f LISTE` | `--fields LISTE` | colonnes à extraire |
+
+Exemple CSV :
+
+```
+cut planets.csv -d ',' -f 1,3,5
+cut data.csv -d ',' -f 2-4,7
+
+```
+
+### 9) paste — “Inverse” de cut (coller des colonnes)
+
+Rôle : fusionner les lignes correspondantes de plusieurs fichiers (en colonnes).
+
+Syntaxe
+
+```
+paste f1 f2
+
+```
+
+Exemple
+
+```
+paste col1.txt col2.txt
+
+```
+
+### 10) grep — Extraire des lignes qui matchent
+
+Rôle : filtrer des lignes contenant un motif/texte.
+
+Syntaxe
+
+```
+grep -e 'motif' fichier.txt
+
+```
+
+Options essentielles
+
+| Option | Longue            | Effet                                 |
+| ------ | ----------------- | ------------------------------------- |
+| `-e X` | —                 | expression (peut être répétée)        |
+| `-F`   | `--fixed-strings` | recherche “texte brut” (pas regex)    |
+| `-n`   | `--line-number`   | affiche les numéros de ligne          |
+| `-v`   | `--invert-match`  | lignes qui NE matchent PAS            |
+| `-r`   | `--recursive`     | cherche dans un dossier récursivement |
+
+Exemples
+
+```
+grep -e 'jk' apache.log
+grep -e 'it' quote*.txt
+grep -e 'jk' -e 'in' apache.log
+
+```
+
+Chercher le symbole $ (éviter regex → -F) :
+
+```
+grep -F -e '$' iso-4217.csv
+
+```
+
+Avec numéros de ligne :
+
+```
+grep -n -e 'jk' apache.log
+
+```
+
+Inverser (ne contient pas) :
+
+```
+grep -n -v -e 'jk' apache.log
+
+```
+
+Récursif sur un dossier + plusieurs mots :
+
+```
+grep -r -e 'are' -e 'but' exercises/
+
+```
+
+### 11) sed — Remplacer du texte (substitution)
+
+Rôle : transformer du texte avec une règle, sans éditer le fichier source.
+
+Remplacer la 1re occurrence par ligne
+
+```
+sed 's/term/replacement/' document.txt
+
+```
+
+Remplacer toutes les occurrences (global)
+
+```
+sed 's/term/replacement/g' document.txt
+
+```
+
+Exemples (génériques)
+
+```
+sed 's/de l.homme/humains/g' dudh.txt
+sed 's/\./!/g' quote\*.txt
+sed 's/,/\&/g' quote5.txt
+
+```
+
+⚠️ Rappels d’échappement :
+
+Dans le term (regex) : échapper . \* \ [ ] ^ $
+
+Dans le replacement : échapper & et \
+
+📊 DSV (CSV/TSV) — Les commandes les plus utiles
+
+Trier par colonne (sort)
+
+CSV (virgule) :
+
+```
+sort elevation-extremes.csv -t ',' -k 2
+
+```
+
+TSV (tab) :
+
+```
+sort cities/eu.be.tsv -t $'\t' -k 2
+
+```
+
+Numérique :
+
+```
+sort planets.csv -t ',' -k 4 -n
+sort planets.csv -t ',' -k 2 -g
+
+```
+
+Extraire des colonnes (cut)
+
+```
+cut planets.csv -d ',' -f 1,6,7
+
+```
+
+✅ Mémo ultra-rapide
+
+| Besoin                         | Commande        |
+| ------------------------------ | --------------- |
+| compter                        | `wc`            |
+| retirer doublons consécutifs   | `uniq`          |
+| numéroter lignes               | `nl`            |
+| début / fin                    | `head` / `tail` |
+| concaténer                     | `cat`           |
+| trier                          | `sort`          |
+| extraire caractères / colonnes | `cut`           |
+| coller des colonnes            | `paste`         |
+| filtrer des lignes             | `grep`          |
+| remplacer                      | `sed`           |
+
+---
+
+## TD04 – Bash – Redirection
+
+Redirections, flux standard et pipes
+
+### 1) Flux standard (standard streams)
+
+Chaque programme lancé a 3 flux (avec un numéro appelé file descriptor) :
+
+| Flux            | Nom      | Numéro | Par défaut |
+| --------------- | -------- | -----: | ---------- |
+| Entrée standard | `stdin`  |    `0` | clavier    |
+| Sortie standard | `stdout` |    `1` | terminal   |
+| Sortie d’erreur | `stderr` |    `2` | terminal   |
+
+### 2) Lire depuis le clavier (stdin) + terminer avec Ctrl+D
+
+Beaucoup de commandes lisent :
+
+soit depuis un fichier (si tu donnes un fichier en argument),
+
+soit depuis stdin (si aucun fichier n’est donné).
+
+Exemple avec sort :
+
+```
+sort
+travaille
+tartine
+tram
+^D
+
+```
+
+➡️ Ctrl + D (après retour à la ligne) envoie un “EOF” (fin de fichier) → la commande termine.
+
+Exemples demandés
+
+Tri inverse à partir du clavier :
+
+```
+sort -r
+mot1
+mot2
+mot3
+^D
+
+```
+
+Compter mots/caractères d’un texte tapé au clavier :
+
+```
+wc
+un petit texte
+sur deux lignes
+^D
+
+```
+
+### 3) tr — Remplacer des caractères (lit uniquement stdin)
+
+Rôle : traduit / remplace des caractères.
+
+Syntaxe
+
+```
+tr 'source' 'cible'
+
+```
+
+Exemples
+
+Remplacer . par , et , par espace (selon ton exemple) :
+
+```
+tr '.,' ', '
+
+```
+
+Remplacer les virgules par des retours à la ligne :
+
+```
+tr ',' '\n'
+
+```
+
+⚠️ tr lit uniquement depuis stdin → très utile avec redirections et pipes.
+
+⬅️➡️ Redirections
+
+### 4) Redirection de l’entrée standard : < (stdin)
+
+Rôle : lire depuis un fichier au lieu du clavier.
+
+```
+Syntaxe
+commande < fichier
+commande 0< fichier
+
+```
+
+Exemple (avec tr)
+
+Mettre une énumération (virgules) en lignes :
+
+```
+tr ',' '\n' < enum.txt
+
+```
+
+Note : pour certaines commandes, c’est équivalent à passer le fichier en argument (ex: sort < file ≈ sort file), mais c’est indispensable pour les pipes.
+
+### 5) Redirection de la sortie standard : > et >> (stdout)
+
+```
+> écrase / crée
+commande > fichier
+commande 1> fichier
+
+```
+
+Exemple :
+
+```
+sort unordered.txt > ordered.txt
+
+```
+
+Créer quotes-all.txt avec tous les quote\* :
+
+```
+cat quote* > quotes-all.txt
+
+```
+
+Créer un fichier avec echo :
+
+```
+echo "hello, world" > greetings.txt
+
+>> ajoute à la fin (append)
+commande >> fichier
+commande 1>> fichier
+
+```
+
+Exemple :
+
+```
+echo "how are you doing ?" >> greetings.txt
+
+```
+
+### 6) tail -f — Suivre un fichier en direct
+
+Rôle : affiche la fin puis continue d’afficher les nouvelles lignes ajoutées.
+
+```
+tail -f greetings.txt
+
+```
+
+Dans un autre terminal :
+
+```
+echo "nouvelle ligne" >> greetings.txt
+
+```
+
+### 7) ⚠️ Piège important : redirection faite AVANT l’exécution
+
+Donc ceci vide le fichier :
+
+```
+sort unordered.txt > unordered.txt
+
+```
+
+✅ Solution typique : utiliser un fichier temporaire puis renommer :
+
+```
+sort unordered.txt > unordered.tmp
+mv unordered.tmp unordered.txt
+
+```
+
+(Plus tard, tee peut aussi aider pour des cas proches.)
+
+### 8) Redirection de stderr : 2> et 2>>
+
+Écraser / créer
+
+```
+commande 2> errors.txt
+
+```
+
+Ajouter
+
+```
+commande 2>> errors.txt
+
+
+```
+
+Exemple :
+
+ls fichier-qui-nexiste-pas 2> errors.txt
+
+🧩 Composition sans pipes (avec fichiers intermédiaires)
+
+Exemple (comme dans le cours) :
+
+```
+sort -n values.seq > sorted-values.seq
+head -n 3 sorted-values.seq
+
+```
+
+🧵 Pipes (tubes) : |
+
+### 9) Principe
+
+Rôle : connecter stdout de la commande A vers stdin de la commande B.
+
+Exemple
+
+```
+sort -n values.seq | head -n 3
+
+```
+
+Pipeline
+
+Une pipeline = une ou plusieurs commandes reliées par |.
+
+⚠️ À droite d’un pipe, il faut idéalement une commande qui lit stdin.
+Exemple inutile :
+
+```
+sort values.seq | echo "ok"
+
+```
+
+(echo n’utilise pas stdin → le résultat de sort est “perdu”.)
+
+🧪 Exemples de pipelines typiques (copiables)
+
+A) 3 plus grands nombres (si values.seq = nombres)
+
+⚠️ “plus grands” = fin → donc tail après tri :
+
+```
+sort -n values.seq | tail -n 3
+
+```
+
+B) Compter les lignes d’erreur dans un log Apache (exemple générique)
+
+Si les lignes d’erreur contiennent le mot error :
+
+```
+grep -i -e "error" apache.log | wc -l
+
+```
+
+C) Top 3 lignes les plus fréquentes (en ignorant la date)
+
+Méthode générique (suppose date au début, on enlève les N premiers caractères) :
+
+```
+cut -c 21- apache.log | sort | uniq -c | sort -nr | head -n 3
+
+```
+
+cut -c 21- : enlève les 20 premiers caractères (à adapter selon ton format)
+
+uniq -c : compte occurrences consécutives (après tri)
+
+sort -nr : tri numérique décroissant
+
+🪜 Résultat intermédiaire : tee
+
+#### 10) tee — “dupliquer” le flux (écran + fichier)
+
+Rôle : écrit ce qu’il reçoit sur stdout et le copie dans un fichier.
+
+Syntaxe
+
+```
+commande | tee fichier | commande2
+
+```
+
+Exemple
+
+```
+sort -n values.seq | tee sorted-values.seq | head -n 3
+
+```
+
+Que fait ceci ?
+
+```
+tee f
+
+
+```
+
+Hello, world
+
+```
+^D
+
+```
+
+➡️ tee lit stdin (clavier), affiche Hello, world au terminal et écrit la même chose dans le fichier f. Ctrl+D termine.
+
+✅ Mémo ultra-rapide
+
+| Action                            | Opérateur / commande |     |
+| --------------------------------- | -------------------- | --- |
+| stdin depuis fichier              | `<`                  |     |
+| stdout vers fichier (écrase)      | `>`                  |     |
+| stdout vers fichier (ajoute)      | `>>`                 |     |
+| stderr vers fichier               | `2>` / `2>>`         |     |
+| connecter commandes               | `                    | `   |
+| sauvegarder une étape de pipeline | `tee`                |     |
+| suivi live d’un fichier           | `tail -f`            |     |
+| fin de saisie clavier             | `Ctrl + D`           |     |
+
+---
+
+## T04 – Bash – Permissions et groupes (synthèse complète)
+
+### 1) Propriétaire d’un fichier / dossier
+
+Chaque fichier ou dossier appartient à un utilisateur (propriétaire).
+
+Visualiser propriétaire, groupe et permissions
+
+```
+
+ls -l
+
+```
+
+Sortie typique :
+
+```
+-rw-r--r-- 1 alice users  1234 file.txt
+
+```
+
+👉 Le propriétaire n’a pas automatiquement tous les droits : il peut retirer ses propres permissions.
+
+### 2) Groupes d’utilisateurs
+
+Un utilisateur :
+
+appartient à au moins un groupe
+
+peut appartenir à plusieurs groupes
+
+Voir ses groupes
+
+```
+groups
+
+```
+
+Voir les groupes d’un autre utilisateur
+
+```
+groups login
+
+```
+
+👉 Le premier groupe listé est le groupe principal (utilisé lors de la création de fichiers).
+
+### 3) Groupe d’un fichier
+
+Chaque fichier appartient à un seul groupe.
+
+Voir le groupe d’un fichier
+
+```
+ls -l fichier
+
+```
+
+### 4) Catégories de personnes
+
+Les permissions sont définies pour 3 catégories :
+
+| Catégorie    | Lettre      |
+| ------------ | ----------- |
+| propriétaire | `u` (user)  |
+| groupe       | `g` (group) |
+| autres       | `o` (other) |
+
+### 5) Permissions sur un fichier
+
+Les trois permissions
+
+| Lettre | Nom     | Effet (fichier)     |
+| ------ | ------- | ------------------- |
+| `r`    | read    | lire le contenu     |
+| `w`    | write   | modifier le contenu |
+| `x`    | execute | exécuter le fichier |
+
+Les permissions sont toujours dans l’ordre :
+
+rwx
+
+Un - signifie permission absente.
+
+Exemple
+
+```
+-rw-r--r--
+
+```
+
+Catégorie Droits
+
+| Catégorie    | Droits             |
+| ------------ | ------------------ |
+| propriétaire | lecture + écriture |
+| groupe       | lecture            |
+| autres       | lecture            |
+
+⚠️ Le premier caractère (- ou d) indique fichier ou dossier, pas une permission.
+
+### 6) Modifier les permissions : chmod
+
+A) Méthode numérique (octale)
+
+Valeurs de base
+| Permission | Valeur |
+| ---------- | ------ |
+| `r` | 4 |
+| `w` | 2 |
+| `x` | 1 |
+
+Addition :
+
+```
+rw- → 6
+
+r-x → 5
+
+rwx → 7
+
+```
+
+Structure
+
+```
+chmod XYZ fichier
+
+```
+
+X → propriétaire
+
+Y → groupe
+
+Z → autres
+
+Exemples
+
+```
+chmod 644 fichier     # rw-r--r--
+chmod 750 fichier     # rwxr-x---
+chmod 604 fichier     # rw----r--
+
+```
+
+B) Méthode symbolique (lettres)
+
+Structure
+
+```
+chmod [u|g|o|a][+|-|=][r|w|x] fichier
+
+```
+
+Exemples
+
+Ajouter écriture au groupe :
+
+```
+chmod g+w fichier
+
+```
+
+Supprimer tous les droits aux autres :
+
+```
+chmod o= fichier
+
+```
+
+Donner exécution à user et group :
+
+```
+chmod ug+x fichier
+
+```
+
+Modifier plusieurs catégories :
+
+```
+chmod ug+rw,o-rwx fichier
+
+```
+
+### 7) Modifier le groupe : chgrp
+
+Syntaxe
+
+```
+chgrp groupe fichier
+
+```
+
+⚠️ Conditions :
+
+être propriétaire du fichier
+
+être membre du groupe cible
+
+Exemple
+
+```
+chgrp etudiants examen
+
+```
+
+### 8) Cas pratique classique (TD)
+
+Fichier lisible par :
+
+vous
+
+enseignants
+
+❌ mais pas les autres étudiants
+
+Solution
+
+touch examen
+
+```
+chgrp etudiants examen
+chmod 604 examen
+
+```
+
+### 9. Permissions sur les dossiers (⚠️ très important)
+
+| Permission | Effet (dossier)                               |
+| ---------- | --------------------------------------------- |
+| `r`        | lister le contenu (`ls`)                      |
+| `x`        | entrer / traverser (`cd`, accès aux fichiers) |
+| `w`        | créer / supprimer des fichiers                |
 
 ---
 
