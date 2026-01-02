@@ -2670,3 +2670,240 @@ kill -9 1234
 | quitter top              | `q`           |
 | interrompre              | `Ctrl + C`    |
 | infos processus          | `/proc/<pid>` |
+
+## TD 11 – Découverte du multitâche
+
+## 1) Suspendre un processus — Ctrl + Z
+
+Rôle : mettre en pause un processus en cours d’exécution.
+
+```
+Ctrl + Z
+
+```
+
+Résultat typique :
+
+```
+[1]+  Stopped  nano
+
+```
+
+crée un job
+
+Bash attribue un numéro de job (%1, %2, …)
+
+### 2) jobs — Lister les jobs du shell courant
+
+jobs
+
+Afficher aussi les PID :
+
+```
+jobs -l
+
+```
+
+⚠️ jobs ne montre que les processus lancés depuis ce terminal.
+
+3. fg — Reprendre un job en avant-plan
+
+```
+fg
+fg %1
+
+```
+
+➡️ Le processus reprend avec accès clavier.
+
+### 4) bg — Reprendre un job en arrière-plan
+
+```
+bg
+bg %1
+
+```
+
+➡️ Le processus continue sans interaction clavier.
+
+### 5) Lancer directement en arrière-plan — &
+
+commande &
+
+Exemples :
+
+```
+nano &
+find / -name "brol.txt" > found 2> errors &
+
+```
+
+### 6) kill — Envoyer un signal à un processus
+
+Tuer par numéro de job
+
+```
+kill -SIGKILL %1
+
+```
+
+Tuer par PID
+
+```
+kill -SIGKILL 2345
+kill -9 2345
+
+```
+
+⚠️ SIGKILL = arrêt brutal (données perdues).
+
+### 7) Signaux importants
+
+| Signal    |  N° | Effet                     |
+| --------- | --: | ------------------------- |
+| `SIGINT`  |   2 | interruption (`Ctrl + C`) |
+| `SIGKILL` |   9 | arrêt immédiat            |
+| `SIGTERM` |  15 | arrêt propre              |
+| `SIGSTOP` |  23 | pause                     |
+| `SIGCONT` |  25 | reprise                   |
+
+Exemples :
+
+```
+kill -SIGTERM 2345
+kill -15 2345
+
+```
+
+### 8) top — Moniteur système
+
+Rôle : afficher tous les processus du système.
+
+top
+
+Quitter :
+
+q
+
+Touches utiles dans top
+
+↑ ↓ : naviguer
+
+R : inverser le tri
+
+u : filtrer par utilisateur
+
+c : commande complète
+
+V : vue en arbre
+
+f : choisir les colonnes
+
+W : sauvegarder la config
+
+### 9) Identifier un processus (PID)
+
+Avec jobs
+
+```
+jobs -l
+
+```
+
+Avec top
+
+colonne PID
+
+### 10) Pseudo-répertoire /proc
+
+Rôle : informations dynamiques sur les processus.
+
+Explorer un processus
+
+```
+ls /proc/2345
+cat /proc/2345/status
+
+```
+
+Descripteurs de fichiers
+
+```
+ls -l /proc/2345/fd
+
+```
+
+Correspondance :
+
+fd/0 → stdin
+
+fd/1 → stdout
+
+fd/2 → stderr
+
+### 11) Observer redirections avec /proc
+
+Exemples :
+
+```
+nl
+nl > output.txt
+nl 2> error.log
+
+```
+
+Puis :
+
+```
+ls -l /proc/<pid>/fd
+
+```
+
+### 12) États d’un processus (dans top)
+
+| Code | Signification |
+| ---- | ------------- |
+| `R`  | running       |
+| `S`  | sleeping      |
+| `T`  | stopped       |
+| `Z`  | zombie        |
+
+### 13. Interrompre un processus — Ctrl + C
+
+```
+Ctrl + C
+
+```
+
+➡️ Envoie SIGINT
+
+➡️ Arrête une commande ou une boucle infinie.
+
+### 14. Processus parent (PPID)
+
+Dans top, ajouter la colonne PPID pour voir :
+
+le processus parent
+
+la hiérarchie des processus
+
+🔁 Récapitulatif job vs PID
+
+| Élément     | Job                | PID           |
+| ----------- | ------------------ | ------------- |
+| Portée      | shell courant      | système       |
+| Identifiant | `%1`               | `2345`        |
+| Outils      | `jobs`, `fg`, `bg` | `kill`, `top` |
+
+✅ Mémo ultra-rapide
+
+| Action                 | Commande      |
+| ---------------------- | ------------- |
+| suspendre              | `Ctrl + Z`    |
+| voir jobs              | `jobs`        |
+| reprendre              | `fg %n`       |
+| arrière-plan           | `bg %n`       |
+| lancer en arrière-plan | `commande &`  |
+| tuer                   | `kill -9 PID` |
+| voir processus         | `top`         |
+| infos processus        | `/proc/<pid>` |
