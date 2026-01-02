@@ -1347,6 +1347,7 @@ Pipeline
 Une pipeline = une ou plusieurs commandes reliées par |.
 
 ⚠️ À droite d’un pipe, il faut idéalement une commande qui lit stdin.
+
 Exemple inutile :
 
 ```
@@ -1443,7 +1444,288 @@ Hello, world
 
 ---
 
-## T07 – Bash – Permissions et groupes (synthèse complète)
+## TD06 – Bash – Linux et variables d'environnement Fichier
+
+## 1) Se connecter à un serveur Linux (contexte école)
+
+Outil
+
+putty (client SSH graphique, pas une commande Bash)
+
+Informations clés
+
+```
+login : g<matricule>
+
+```
+
+mot de passe : spécifique à chaque serveur
+
+Linux est sensible à la casse
+
+### 2) pwd — Répertoire courant
+
+Rôle : afficher le chemin absolu du répertoire courant.
+
+```
+pwd
+
+```
+
+### 3) tree — Afficher l’arborescence
+
+Rôle : afficher récursivement le contenu d’un dossier.
+
+```
+tree
+tree dossier
+
+```
+
+⚠️ Peut ne pas être installé partout.
+
+### 4. Navigation & chemins (rappels utiles)
+
+| Symbole  | Signification                 |
+| -------- | ----------------------------- |
+| `~`      | home de l’utilisateur courant |
+| `~login` | home d’un autre utilisateur   |
+| `.`      | dossier courant               |
+| `..`     | dossier parent                |
+
+Exemples
+
+```
+
+ls ~
+ls ~mcd
+ls ../
+ls /home
+
+```
+
+### 5) Jokers (wildcards)
+
+Joker Signification
+
+```
+*	0 ou plusieurs caractères
+
+?	exactement 1 caractère
+
+ls /home/???
+
+ls /home/g12*
+
+```
+
+### 6) cp — Copier un fichier (rappel)
+
+cp source destination
+
+Exemples :
+
+```
+cp welcome ~/dev1/td2/
+cp ~/welcome ~/dev1/td2/
+
+```
+
+### 7) passwd — Changer son mot de passe
+
+Rôle : modifier le mot de passe Linux.
+
+```
+passwd
+
+```
+
+👉 Saisir :
+
+mot de passe actuel
+
+nouveau mot de passe
+
+confirmation
+
+### 8) man — Pages de manuel
+
+Rôle : consulter la documentation d’une commande.
+
+```
+man nano
+man tree
+
+```
+
+Navigation dans man (via less)
+
+/mot : rechercher
+
+n : occurrence suivante
+
+q : quitter
+
+### 9. Variables d’environnement — bases
+
+Créer / modifier une variable
+
+```
+   VAR=12
+```
+
+Exporter (pour les sous-processus)
+
+```
+export VAR=12
+
+```
+
+Lire une variable
+
+```
+echo $VAR
+
+```
+
+⚠️ $VAR = valeur, VAR = texte littéral
+
+Exemples importants
+
+```
+echo VAR
+echo $VAR
+VAR=$VAR
+VAR="$VAR + 30"
+
+```
+
+### 10. PS1 — Le prompt (invite de commande)
+
+Afficher le prompt actuel
+
+```
+    echo $PS1
+```
+
+Modifier temporairement le prompt
+
+```
+PS1="Bonjour ! "
+
+```
+
+⚠️ Réinitialisé à la reconnexion.
+
+Rendre le prompt permanent : .bashrc
+
+Éditer le fichier :
+
+```
+nano ~/.bashrc
+
+```
+
+Ajouter par exemple :
+
+```
+PS1="Bonjour ! "
+
+```
+
+### 11. Variables persistantes : .bashrc
+
+Fichier caché
+
+Exécuté à chaque connexion
+
+Sert à :
+
+définir des variables
+
+configurer le prompt
+
+modifier le PATH
+
+### 12. PATH — Emplacement des exécutables
+
+Rôle : liste des dossiers où Bash cherche les commandes.
+
+Afficher le PATH
+
+```
+echo $PATH
+
+```
+
+Afficher un dossier par ligne (avec tuyaux + tr)
+
+```
+echo $PATH | tr ':' '\n'
+
+```
+
+### 13. which — Localiser un exécutable
+
+Rôle : afficher le chemin de la commande utilisée.
+
+```
+which nano
+which ls
+
+```
+
+### 14. Tester le rôle du PATH (expérience)
+
+⚠️ À faire uniquement pour comprendre (session temporaire).
+
+```
+PATH=
+nano
+
+```
+
+➡️ erreur : commande introuvable
+
+Mais :
+
+```
+/usr/bin/nano
+
+```
+
+👉 fonctionne
+
+Commande interne (ex : cd) :
+
+```
+cd /
+
+```
+
+✔️ fonctionne même sans PATH
+
+### 15. Commandes internes vs externes
+
+| Type         | Exemple            | Où ?               |
+| ------------ | ------------------ | ------------------ |
+| interne Bash | `cd`, `echo`       | intégrée au shell  |
+| externe      | `nano`, `ls`, `cp` | fichier exécutable |
+
+✅ Mémo ultra-rapide
+
+| Commande  | Rôle                      |
+| --------- | ------------------------- |
+| `pwd`     | afficher dossier courant  |
+| `tree`    | afficher arborescence     |
+| `passwd`  | changer mot de passe      |
+| `man`     | aide d’une commande       |
+| `echo`    | afficher texte / variable |
+| `export`  | exporter variable         |
+| `which`   | localiser une commande    |
+| `nano`    | éditer fichiers           |
+| `.bashrc` | config shell              |
+| `PATH`    | chemins des exécutables   |
 
 ---
 
@@ -1683,6 +1965,271 @@ chmod 604 examen
 
 ---
 
+## TD08 – Bash – Administration et scripts Fichier
+
+### 1. wsl — Lancer Linux sous Windows (WSL)
+
+Rôle : démarrer et gérer une distribution Linux sous Windows.
+
+```
+wsl
+
+```
+
+(Options avancées possibles, mais non exigées ici.)
+
+### 2. sudo — Exécuter une commande avec privilèges admin
+
+Rôle : exécuter une commande avec les droits administrateur.
+
+```
+sudo commande
+
+```
+
+Exemples :
+
+```
+sudo apt update
+sudo apt install tree
+
+```
+
+⚠️ Seuls les utilisateurs du groupe sudo peuvent l’utiliser.
+
+### 3. apt — Gestion des logiciels (Ubuntu)
+
+Mettre à jour la liste des paquets
+
+```
+   sudo apt update
+
+```
+
+Installer un logiciel
+
+```
+sudo apt install tree
+
+```
+
+### 4. groups — Vérifier les groupes (rappel)
+
+```
+   groups
+
+```
+
+Utile pour vérifier l’appartenance au groupe sudo.
+
+### 5. su — Changer d’utilisateur (root)
+
+```
+   sudo su root
+
+```
+
+⚠️ su root seul ne fonctionne pas sur Ubuntu (mot de passe root inconnu).
+
+### 6. Accès aux fichiers Windows (WSL)
+
+Disque C: sous Linux
+
+```
+   ls /mnt/c
+
+```
+
+Créer un fichier visible depuis Windows :
+
+touch /mnt/c/Users/<login>/test.txt
+
+### 7. mount / umount — Monter / démonter une partition
+
+Démonter
+
+```
+   sudo umount /mnt/c
+
+```
+
+Monter une partition Windows
+
+```
+sudo mount -t drvfs C: /mnt/windows
+
+```
+
+🧩 Scripts Bash 8) Exécuter un script
+
+Exécution via Bash
+
+```
+source script.sh
+
+```
+
+Exécution directe
+
+```
+./script.sh
+
+```
+
+➡️ nécessite la permission x.
+
+### 9. chmod — Rendre un script exécutable (rappel)
+
+chmod +x script.sh
+
+### 10. Shebang #! — Définir l’interpréteur
+
+Script Bash
+
+```
+    #!/bin/bash
+
+```
+
+Script Python
+
+```
+#!/usr/bin/python3
+
+```
+
+### 11. Paramètres d’un script
+
+| Élément | Signification        |
+| ------- | -------------------- |
+| `$1`    | 1er paramètre        |
+| `$2`    | 2e paramètre         |
+| `$#`    | nombre de paramètres |
+| `$0`    | nom du script        |
+
+Exemple :
+
+```
+echo "Premier paramètre : $1"
+echo "Nombre de paramètres : $#"
+
+```
+
+### 12) Variables locales dans un script
+
+```
+FICHIER=$1
+touch "$FICHIER"
+chmod 600 "$FICHIER"
+
+```
+
+⚠️ Sans export → variable locale au script.
+
+### 13. Conditions : if
+
+Comparaisons numériques
+
+| Opérateur | Sens |
+| --------- | ---- |
+| `-lt`     | <    |
+| `-le`     | ≤    |
+| `-gt`     | >    |
+| `-ge`     | ≥    |
+| `-eq`     | =    |
+| `-ne`     | ≠    |
+
+Exemple
+if [[$1 -lt 0]]; then
+echo "Négatif"
+else
+echo "Positif"
+fi
+
+⚠️ Espaces obligatoires autour de [[et]].
+
+### 14. Tester le succès d’une commande
+
+```
+    if uneCommande; then
+    echo "Succès"
+    else
+    echo "Échec"
+    fi
+
+```
+
+👉 Basé sur le code de retour (0 = succès).
+
+### 15. Récupérer la sortie d’une commande
+
+```
+    moi=$(whoami)
+    echo "Je suis $moi"
+```
+
+### 16. Commandes utiles dans les scripts
+
+who
+
+```
+who
+
+```
+
+whoami
+
+```
+whoami
+
+```
+
+date
+
+```
+date +"%F@%T"
+
+```
+
+### 17. tar — Créer une archive compressée
+
+```
+tar -czf archive.tgz dossier/
+
+```
+
+Options :
+
+-c : créer
+
+-z : compression gzip
+
+-f : nom du fichier
+
+### 18. Exemple clé (script d’archivage)
+
+DATE=$(date +"%F@%T")
+
+```
+tar -czf "$HOME/archive/exp1-$DATE.tgz" monDossier/
+
+```
+
+✅ Mémo ultra-rapide
+
+| Besoin             | Commande           |
+| ------------------ | ------------------ |
+| installer logiciel | `sudo apt install` |
+| droits admin       | `sudo`             |
+| rendre exécutable  | `chmod +x`         |
+| script direct      | `./script.sh`      |
+| paramètres         | `$1`, `$#`         |
+| condition          | `if [[ ... ]]`     |
+| sortie commande    | `$(commande)`      |
+| archive            | `tar -czf`         |
+
+---
+
 ## TD09 GIT
 
 ### Configuration Git
@@ -1779,3 +2326,347 @@ HEAD~1
 HEAD~2
 HEAD~3
 ```
+
+---
+
+## TD10 – Git –
+
+### 1) git clone — Récupérer un dépôt distant
+
+Rôle : créer une copie locale complète d’un dépôt existant.
+
+```
+git clone <url-du-depot>
+
+```
+
+Exemple :
+
+```
+git clone https://git.esi-bru.be/exp1/git-discover.git
+
+```
+
+### 2) git status — État du dépôt local
+
+Rôle : afficher l’état de la zone de travail et de la zone de transit.
+
+```
+git status
+
+```
+
+Messages typiques :
+
+working directory clean → rien à sauvegarder
+
+Changes not staged for commit → modifié mais pas ajouté
+
+Changes to be committed → prêt à être commité
+
+Untracked files → fichiers inconnus de Git
+
+### 3) Les 3 zones Git (concept clé)
+
+| Zone                      | Description                         |
+| ------------------------- | ----------------------------------- |
+| zone de travail           | fichiers sur le disque              |
+| zone de transit (staging) | ce qui sera dans le prochain commit |
+| dépôt local               | historique des commits              |
+
+### 4) git add — Ajouter à la zone de transit
+
+Rôle : placer des changements dans la zone de transit.
+
+```
+git add fichier
+git add fichier1 fichier2
+
+```
+
+Ajouter tout :
+
+```
+git add .
+
+```
+
+### 5) git diff — Comparer des versions
+
+Zone de travail ↔ zone de transit
+
+```
+git diff
+
+```
+
+Zone de travail ↔ dernier commit
+
+```
+git diff HEAD
+
+```
+
+Zone de transit ↔ dernier commit
+
+```
+git diff --staged
+
+```
+
+Comparer deux commits
+
+```
+git diff <id1> <id2>
+
+```
+
+### 6. Supprimer un fichier (zone de travail)
+
+Supprimer un fichier manuellement :
+
+```
+rm fichier
+
+```
+
+Puis vérifier :
+
+```
+git status
+
+```
+
+Ajouter la suppression à la zone de transit :
+
+```
+git add fichier
+
+```
+
+### 7. git commit — Créer un commit
+
+Rôle : sauvegarder définitivement la zone de transit.
+
+Avec message court
+
+```
+git commit -m "Message du commit"
+
+```
+
+Sans -m (éditeur par défaut)
+
+```
+git commit
+
+```
+
+Configurer nano comme éditeur :
+
+```
+git config --global core.editor nano
+
+```
+
+### 8. Convention de message (bonne pratique)
+
+Titre court (≤ 50 caractères)
+
+Description détaillée si nécessaire.
+
+Exemple :
+
+```
+git commit -m "Fixe le bug si le joueur gagne en diagonale"
+
+```
+
+### 9. git log — Historique des commits
+
+```
+   git log
+
+```
+
+Version courte :
+
+```
+git log --oneline
+
+```
+
+### 10. git push — Publier les commits
+
+Rôle : envoyer les commits locaux vers le dépôt distant.
+
+```
+git push
+
+```
+
+⚠️ Ne peut pas être annulé facilement → vérifier avant !
+
+### 11. git pull — Récupérer + fusionner
+
+(Utile surtout à plusieurs, mais à connaître)
+
+```
+git pull
+
+```
+
+### 12. git config — Configuration Git
+
+Configurer nom et email (obligatoire une fois) :
+
+```
+git config --global user.name "Votre Nom"
+git config --global user.email "email@exemple.com"
+
+```
+
+🔁 Cycle de travail Git (à mémoriser)
+
+```
+git status
+git add fichier
+git status
+git commit -m "message"
+git push
+
+```
+
+✅ Mémo ultra-rapide
+
+| Action            | Commande     |
+| ----------------- | ------------ |
+| cloner un dépôt   | `git clone`  |
+| voir l’état       | `git status` |
+| ajouter au commit | `git add`    |
+| comparer          | `git diff`   |
+| sauvegarder       | `git commit` |
+| historique        | `git log`    |
+| envoyer           | `git push`   |
+| config éditeur    | `git config` |
+
+---
+
+## TD10 – Bash – Multitâche, processus et jobs
+
+### 1) Notions clés (à connaître)
+
+Processus : exécution d’un programme
+
+Job : processus lancé depuis un shell Bash
+
+PID (Process ID) : identifiant unique d’un processus
+
+Multitâche : exécution concurrente de plusieurs processus
+
+### 2) Stopper (suspendre) un processus
+
+Raccourci clavier
+
+```
+Ctrl + Z
+
+```
+
+➡️ Suspend le processus en cours
+
+➡️ Bash affiche un numéro de job :
+
+```
+[1]+ Stopped nano
+
+```
+
+### 3. jobs — Afficher les jobs du shell courant
+
+Rôle : lister les processus lancés depuis ce terminal.
+
+jobs
+
+Afficher aussi les PID :
+
+```
+jobs -l
+
+```
+
+⚠️ jobs ne montre que les jobs du shell courant.
+
+### 4. Reprendre un processus suspendu
+
+En avant-plan : fg
+
+```
+fg
+fg %1
+
+```
+
+➡️ Reprend le job avec interaction clavier.
+
+En arrière-plan : bg
+
+```
+bg
+bg %1
+
+```
+
+➡️ Reprend le job sans interaction clavier.
+
+### 5. Lancer directement en arrière-plan : &
+
+commande &
+
+Exemple :
+
+```
+nano &
+find / -name "brol.txt" > found 2> errors &
+
+```
+
+### 6. Terminer un processus : kill
+
+Par numéro de job
+
+```
+kill -SIGKILL %1
+
+```
+
+Par PID
+
+```
+kill -SIGKILL 1234
+
+```
+
+Forme courte (numéro du signal) :
+
+```
+kill -9 1234
+
+```
+
+⚠️ SIGKILL termine brutalement (perte des données non sauvegardées).
+
+### 7) Signaux importants
+
+| Action                   | Commande      |
+| ------------------------ | ------------- |
+| suspendre                | `Ctrl + Z`    |
+| lister jobs              | `jobs`        |
+| reprendre (avant-plan)   | `fg %n`       |
+| reprendre (arrière-plan) | `bg %n`       |
+| arrière-plan direct      | `&`           |
+| tuer un processus        | `kill -9 PID` |
+| voir tous processus      | `top`         |
+| quitter top              | `q`           |
+| interrompre              | `Ctrl + C`    |
+| infos processus          | `/proc/<pid>` |
