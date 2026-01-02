@@ -1,6 +1,6 @@
 # Synthèse qui reprend toutes les commandes
 
-## TD01 – Bash – Parcourir le système de fichiers
+## TD02 – Bash – Parcourir le système de fichiers
 
 ### 1. Commande cd – Se déplacer dans les répertoires
 
@@ -257,7 +257,7 @@ exit
 | `echo`   | afficher        |
 | `exit`   | quitter         |
 
-## TD02 – Bash – Modifier le système de fichiers
+## TD03 – Bash – Modifier le système de fichiers
 
 ### 1) mkdir — Créer des répertoires
 
@@ -690,7 +690,7 @@ rename --help
 
 ---
 
-## TD03 – Bash – Manipuler des fichiers textes
+## TD04 – Bash – Manipuler des fichiers textes
 
 Bash – Manipuler des fichiers textes (commandes + options)
 
@@ -1111,7 +1111,7 @@ cut planets.csv -d ',' -f 1,6,7
 
 ---
 
-## TD04 – Bash – Redirection
+## TD05 – Bash – Redirection
 
 Redirections, flux standard et pipes
 
@@ -1443,7 +1443,11 @@ Hello, world
 
 ---
 
-## T04 – Bash – Permissions et groupes (synthèse complète)
+## T07 – Bash – Permissions et groupes (synthèse complète)
+
+---
+
+## T07 – Bash – Permissions et groupes (synthèse complète)
 
 ### 1) Propriétaire d’un fichier / dossier
 
