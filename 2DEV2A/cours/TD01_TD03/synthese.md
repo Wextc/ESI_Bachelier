@@ -335,3 +335,226 @@ public class Dog {
 }
 
 ```
+
+Listes et boucles for:
+
+En Java, la boucle for existe en deux variantes. La variante historique ressemble à ceci :
+
+```
+for (initialisation; condition; incrémentation) {
+instructions...
+}
+
+```
+
+(Notez les parenthèses, les point-virgules et les accolades.) L’ordre d’exécution des
+quatre éléments est :
+
+1. initialisation
+
+2. condition : si la condition s’évalue à false, tout s’arrête et le programme continue après la boucle
+
+3. instructions
+
+4. incrémentation
+
+5. (retour à l’étape 2 : la condition)
+
+La variante plus récente, appelée foreach ou enhanced for, ressemble à ceci :
+
+```
+for (Type variable : objetItérable) {
+instructions...
+}
+
+```
+
+(Notez les parenthèses, la déclaration de type, et les deux-points.) Ceci correspond à peu près au code python
+
+```
+for variable in objetItérable:
+
+instructions...
+
+```
+
+La surcharge des méthodes:
+
+Tu as plusieurs méthodes portant le même nom, mais chacune a des paramètres différents(en nom et ou en type). En fonction des paramètres que tu passes quand tu appelles la méthodes, c'est la verrsion correspondantes qui est exécutée, produisant un résultat addapté. C'est le compilateur qui choisit automatiquement la version de la méthode qui correspond au type de paramètre que tu lui passes.
+
+```
+public class Dog {
+
+    // Constructeur
+
+    Dog(String name) {
+        this.name = name;
+    }
+
+    // Attribut
+    String name;
+
+    // Méthode bark 1
+    void bark() {
+        System.out.println(this.name + " a fait: Wouf!");
+    }
+    void bark(int nbRepeat) {
+        for (int i = 0; i < nbRepeat; i++) {
+            this.bark();
+            }
+    }
+}
+
+```
+
+Les exceptions:
+
+Code sans exceptions:
+
+```
+void run() {
+    if (this.hungry) {
+        System.out.println(this.name + " a faim !");
+    } else {
+        System.out.println(this.name + " court comme un fou !");
+        this.hungry = true;
+    }
+}
+
+```
+
+Code avec exceptions:
+
+```
+void run() {
+    if (this.hungry) {
+        throw new IllegalStateException(this.name + " a faim !");
+    }
+        System.out.println(this.name + " court comme un fou !");
+        this.hungry = true;
+}
+
+```
+
+Actuellement, la méthode run() vérifie si le chien a faim avant de le faire courir. Si l’attribut hungry vaut true, le programme affiche simplement un message indiquant que le chien a faim. Sinon, le chien court et son état change : il devient affamé (hungry = true).
+
+Le problème avec cette version est que le chien ne court pas toujours, mais cela ne provoque qu’un simple message dans la console. Le programme continue normalement son exécution.
+Ce comportement peut passer relativement inaperçu, surtout dans un programme plus grand : un simple message affiché peut facilement être ignoré.
+
+Pour rendre le problème plus visible, on modifie la méthode afin qu’elle lève une exception lorsque le chien a faim. Concrètement, au lieu d’afficher un message, on utilise :
+
+```
+throw new IllegalStateException(this.name + " a faim !");
+
+```
+
+Une exception de type IllegalStateException signifie que l’objet est dans un état inapproprié pour effectuer l’action demandée. Ici, un chien affamé ne peut pas courir : son état interne (hungry == true) rend l’action invalide.
+
+Avec cette nouvelle version, si on appelle deux fois la méthode run(), voici ce qu’il se passe :
+
+Premier appel :
+
+Le chien n’a pas faim, il court, puis devient affamé.
+
+Deuxième appel :
+
+Le chien a faim. L’exception est lancée immédiatement.
+
+Le programme s’interrompt brutalement : on parle de crash.
+
+Ce mécanisme a un avantage important : lorsqu’un problème survient, il devient immédiatement visible. Un programme qui plante attire beaucoup plus l’attention qu’un simple message affiché dans la console.
+
+En revanche, l’inconvénient est évident : un programme qui s’arrête brutalement n’est pas agréable à utiliser. Plus tard, on apprendra à gérer ces situations grâce aux blocs try-catch, qui permettent d’intercepter les exceptions et d’éviter que le programme ne se termine brutalement tout en conservant un contrôle clair sur les erreurs.
+
+Exercice 4:
+
+Ajustez la méthode eat afin de lever une exception lorsqu’elle est appelée et que le chien n’a pas faim.
+
+Exercice 5:
+
+Ajustez la méthode bark(int nbRepeat) afin de lever une exception lorsqu’elle est appelée avec un paramètre négatif (ou nul). Attention : cette fois l’exception à lever sera IllegalArgumentException, puisque nbRepeat est un argument de la méthode plutôt qu’un état du chien.
+Exercice 6 En cas de blessure
+
+Exercice 6 :
+
+Ajoutez un attribut booléen injured indiquant si le chien est blessé ou pas. Dans le constructeur 1, assurez vous que le chien n’est pas blessé lorsqu’il est instancié.
+
+Ajustez la méthode run pour qu’un chien blessé ne puisse pas courir.
+
+Ajustez encore la méthode run pour qu’un chien qui court puisse se blesser avec une probabilité d’une chance sur cinq 2.
+
+Ajustez enfin la méthode eat pour qu’un chien qui mange se rétablisse complètement, et ne soit donc plus blessé.
+
+```
+import java.util.Random;
+
+public class Dog {
+
+    // Attributs
+    String name;
+    boolean hungry;
+    boolean injured;
+
+    Random random = new Random();
+
+    // Constructeur
+    Dog(String name) {
+        this.name = name;
+        this.hungry = false;   // pas faim au début
+        this.injured = false;  // pas blessé au début
+    }
+
+    // Méthode bark simple
+    void bark() {
+        System.out.println(this.name + " a fait: Wouf!");
+    }
+
+    // Ne pas aboyer à l’envers
+    void bark(int nbRepeat) {
+
+        if (nbRepeat <= 0) {
+            throw new IllegalArgumentException("Le nombre doit être positif !");
+        }
+
+        for (int i = 0; i < nbRepeat; i++) {
+            this.bark();
+        }
+    }
+
+    // Courir
+    void run() {
+
+        if (injured) {
+            throw new IllegalStateException("Le chien est blessé et ne peut pas courir !");
+        }
+
+        if (hungry) {
+            throw new IllegalStateException("Le chien a faim et ne peut pas courir !");
+        }
+
+        System.out.println(name + " court !");
+        hungry = true; // après avoir couru il a faim
+
+        // 1 chance sur 5 de se blesser
+        if (random.nextInt(5) == 0) {
+            injured = true;
+            System.out.println(name + " s'est blessé !");
+        }
+    }
+
+    // Ne pas manger trop
+    void eat() {
+
+        if (!hungry) {
+            throw new IllegalStateException("Le chien n'a pas faim !");
+        }
+
+        System.out.println(name + " mange.");
+        hungry = false;   // il n'a plus faim
+        injured = false;  // il guérit complètement
+    }
+}
+
+```
+
+Savoir faire exercice...
