@@ -260,3 +260,78 @@ public class Dog {
 }
 
 ```
+
+Accesseur:
+
+Un accesseur (getter en anglais) est une méthode qui accède àla valeur d’un attribut d’un objet donné, et renvoie simplement la valeur decet attribut.
+
+Un getter, ou accesseur, est une méthode qui te permet de récupérer la valeur d’un attribut privé d’un objet. Il renvoie simplement cette valeur sans la modifier. En gros, c’est un petit pont sûr entre l’intérieur de l’objet et l’extérieur, pour accéder aux données de manière contrôlée.
+
+IntelliJ possède un raccourci pour générer des accesseurs ! Ouvrez de nouveau le menu "Generate"... et choisissez "Getter".
+
+Mutateur:
+
+Un mutateur (setter en anglais) est une méthode qui reçoit une nouvelle valeur à assigner à un attribut de l’objet.
+
+Exercice avec if:
+
+Vous allez ajouter une nouvelle fonctionnalité à vos chiens : la possibilité de courir, et de manger.
+
+Un chien ne peut courir que s’il n’a pas faim ; une fois qu’il a couru, il a faim. Par contre, il peut manger quoi qu’il arrive, et une fois qu’il a mangé, il n’a plus faim.
+
+▷ Ajoutez un attribut hungry, qui dit si le chien a faim ou non. En Java, le type booléen se déclare avec le mot-clé boolean.
+
+Cet attribut ne reçoit pas de valeur en paramètre du constructeur ! Un chien n’a pas faim au moment où il est créé.
+
+```
+public class Dog {
+
+    String name;
+    int weight;
+    boolean hungry;   // nouvel attribut
+
+    // Constructeur
+    Dog(String name, int weight) {
+        this.name = name;
+        this.weight = weight;
+        this.hungry = false;  // Un chien n’a pas faim à la création
+    }
+
+    void bark() {
+        if (this.weight > 30) {
+            System.out.println(this.name + " a dit : WOUUUF !");
+        }
+        else if (this.weight < 10) {
+            System.out.println(this.name + " a dit : Yip yip!");
+        }
+        else {
+            System.out.println(this.name + " a dit : Wouf !");
+        }
+    }
+
+    void run() {
+        if (!hungry) {
+            System.out.println(this.name + " court dans le jardin !");
+            hungry = true;  // Après avoir couru, il a faim
+        } else {
+            System.out.println(this.name + " ne peut pas courir, il a faim !");
+        }
+    }
+
+    void eat() {
+        System.out.println(this.name + " mange.");
+        hungry = false;  // Après avoir mangé, il n’a plus faim
+    }
+
+    public static void main(String[] args) {
+
+        Dog medor = new Dog("Médor", 60);
+
+        medor.run();   // Il court
+        medor.run();   // Il a faim, il ne peut pas courir
+        medor.eat();   // Il mange
+        medor.run();   // Il peut recourir
+    }
+}
+
+```
