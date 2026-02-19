@@ -189,3 +189,74 @@ Ce typage strict renforce la sécurité et la fiabilité du programme, car les e
 ###### Cours:
 
 Prenez le temps de commenter votre code ! Dans tout travail de programmation, la maintenance du code est nettement plus coûteuse que son écriture. Il est donc essentiel de rendre le code aussi lisible que possible, et la documentation est un outil pratique dans ce but. Prenez donc le réflexe de toujours commenter votre code Java en utilisant des commentaires Javadoc !
+
+## TD 02 – Intro OO - Partie 2
+
+###### Cours: Que se passe-t-il si on veut avoir plusieurs chiens ?
+
+###### Explications:
+
+La classe, c’est comme un moule : elle définit quelles propriétés et quels comportements auront tes objets. Une fois que la classe est prête, tu peux créer autant d’objets que tu veux, un peu comme si tu faisais plusieurs copies basées sur ce moule. Pour cela, tu utilises le mot-clé "new" suivi du nom de ta classe et des parenthèses. Par exemple, si tu as une classe "Voiture", tu peux faire : "Voiture maVoiture = new Voiture();". Chaque "new Voiture()" te donne un nouvel objet indépendant, avec ses propres valeurs pour les attributs définis dans la classe.
+
+Dans la classe Dog on a :
+
+```
+public class Dog {
+
+    void bark() {
+    }
+
+}
+
+```
+
+Une fois que tu as défini ta classe, tu peux ensuite instancier des objets de cette classe (donc créer des instances) dans ta classe qui contient la méthode principale (généralement appelée "main"). C’est là que tu vas manipuler tes objets, appeler leurs méthodes et orchestrer les actions. En gros, la classe main est le point d’entrée où tu mets tout en action.
+
+```
+Dog milou = new Dog();
+milou.bark();
+
+```
+
+Les attributs:
+
+Une méthode, c’est une action ou un comportement que l’objet peut accomplir, tandis qu’un attribut (ou une propriété) est une donnée, une caractéristique, qui décrit l’état ou les particularités de cet objet. Les deux vont de pair pour modéliser des objets en programmation orientée objet. Tout comme les variables en Java, les attributs on un type qui ne change pas une fois l’attribut déclaré.
+
+this.name:
+
+Le mot-clé "this" est utilisé dans une méthode pour faire référence à l’instance courante de l’objet, c’est-à-dire l’objet lui-même. Concrètement, quand tu as un attribut de classe qui porte le même nom qu’un paramètre ou une variable locale, "this" te permet de lever l’ambiguïté. En gros, "this.nomAttribut" désigne l’attribut de l’objet, alors que sans "this", tu parlerais peut-être d’une variable locale ou d’un paramètre.
+
+```
+public class Dog {
+
+    String name; // Ceci est un attribut
+
+    void bark() {  // Ceci est la méthode
+        System.out.println(this.name + " a dit : Wouf !"); // Ceci est ce que fait la méthode:/> Ici elle affiche name suivit de "Wouf!"
+    }
+
+}
+
+```
+
+Le constructeur:
+
+Le constructeur sert à créer l’objet et à initialiser ses attributs quand l’objet naît. Son nom est toujours le même que celui de la classe. Et si tu ne définis aucun constructeur, Java en génère automatiquement un par défaut, sans paramètre, qui ne fait qu'allouer l’objet sans initialisation particulière.
+
+```
+public class Dog {
+
+    Dog(String name) {
+        this.name = name;
+    }
+    String name;
+
+
+    void bark() {  // Ceci est la méthode
+        System.out.println(this.name + " a dit : Wouf !");
+
+    }
+
+}
+
+```
