@@ -1,1 +1,5 @@
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD01_TD03/Screenshot%20from%202026-02-19%2019-27-42.png)
+![Schéma de la base](<https://github.com/Wextc/ESI_Bachelier/tree/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/Chapitre_1/img>)
+
+![Schéma de la base](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/Chapitre_1/img/1P2%20.jpeg>)
+
+![Schéma de la base](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/Chapitre_1/img/1P3.jpeg>)
