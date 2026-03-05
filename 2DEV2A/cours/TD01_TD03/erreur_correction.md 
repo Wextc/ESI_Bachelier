@@ -1,0 +1,54 @@
+Tu appelles monChien.bark() directement dans la classe, hors d’une méthode
+
+En Java, tu ne peux pas exécuter du code directement dans le corps d’une classe (hors méthodes ou blocs statiques).
+
+Tout code “exécutable” doit être dans une méthode, typiquement main().
+
+name n’existe pas dans Dog
+
+Tu n’as pas défini l’attribut String name; dans la classe Dog.
+
+Donc System.out.println(name + " dit : Wouaf !"); provoque une erreur de compilation.
+
+Une seule classe publique par fichier .java
+
+Si tu mets public class Main et public class Dog dans le même fichier, Java va râler.
+
+Chaque public class doit être dans son propre fichier portant le même nom.
+
+Donc Dog.java pour la classe Dog et Main.java pour la classe Main.
+
+Dans Dog
+
+```
+public class Dog {
+    public void bark() {
+        System.out.println("dit : Wouaf !");
+    }
+}
+
+
+```
+
+Dans Main
+
+```
+public class Main {
+    Dog monChien = new Dog();
+    monChien.bark();
+}
+
+
+
+```
+
+Correction 
+
+
+Dans Main
+
+```
+
+
+
+```
