@@ -185,3 +185,25 @@ return -1
 ✔ À chaque étape on élimine la moitié du tableau.
 
 ➡ Complexité : O(log n)
+
+### 2.5 L’arithmétique des grands O
+
+L’arithmétique des grands O explique comment déterminer la complexité d’un algorithme à partir de la complexité des différentes parties qui le composent. Lorsqu’un algorithme est constitué de plusieurs blocs d’instructions (par exemple plusieurs appels de méthodes, des conditions ou des boucles), on peut utiliser quelques règles simples pour calculer sa complexité globale.
+
+D’abord, lorsqu’un algorithme exécute deux parties l’une après l’autre, la complexité totale correspond à la somme des complexités de ces deux parties. Cependant, en pratique, on garde surtout la partie qui grandit le plus vite lorsque la taille des données augmente. Par exemple, si une partie est en O(n) et l’autre en O(n²), la complexité globale sera considérée comme O(n²).
+
+Ensuite, lorsqu’un algorithme contient une condition (un if/else), la complexité dépend du bloc qui demande le plus de travail. Pour analyser le pire des cas, on retient donc la complexité la plus grande entre les différentes branches possibles.
+
+Dans le cas d’une boucle, la complexité dépend du nombre de fois que la boucle est exécutée et de la complexité des instructions qui se trouvent à l’intérieur. Si une boucle s’exécute n fois et que le code à l’intérieur est en O(n), la complexité totale devient O(n²).
+
+Enfin, le cours montre aussi que certaines complexités augmentent beaucoup plus vite que d’autres lorsque la taille des données grandit. Par exemple, un algorithme en O(log n) reste très efficace même pour de grandes valeurs de n, tandis qu’un algorithme en O(n²) ou en O(2ⁿ) devient très lent lorsque la taille des données augmente fortement. C’est pour cette raison que l’analyse de la complexité est importante pour choisir le meilleur algorithme.
+
+| Structure dans l’algorithme | Règle de complexité                      | Exemple                            |
+| --------------------------- | ---------------------------------------- | ---------------------------------- |
+| **Instruction simple**      | O(1)                                     | `x = a + b`                        |
+| **Suite d’instructions**    | O(f(n) + g(n)) → on garde la plus grande | O(n) + O(n²) = **O(n²)**           |
+| **Condition (if / else)**   | O(max(f(n), g(n)))                       | if O(n) else O(n²) → **O(n²)**     |
+| **Boucle simple**           | O(n × complexité du corps)               | boucle n fois avec O(1) → **O(n)** |
+| **Boucles imbriquées**      | on multiplie les complexités             | n × n → **O(n²)**                  |
+| **Appel de fonction**       | on prend la complexité de la fonction    | appel de `search()` en O(n)        |
+| **Recherche dichotomique**  | O(log n)                                 | division du problème par 2         |
