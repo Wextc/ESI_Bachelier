@@ -207,3 +207,7 @@ Enfin, le cours montre aussi que certaines complexités augmentent beaucoup plus
 | **Boucles imbriquées**      | on multiplie les complexités             | n × n → **O(n²)**                  |
 | **Appel de fonction**       | on prend la complexité de la fonction    | appel de `search()` en O(n)        |
 | **Recherche dichotomique**  | O(log n)                                 | division du problème par 2         |
+
+## 3.5
+
+https://www.youtube.com/watch?v=bRPHvWgc6YM
