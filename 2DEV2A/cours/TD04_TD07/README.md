@@ -443,3 +443,9 @@ Commençons par quelques réflexions sur les tests.
    On comprend bien qu’il faut mettre en place une procédure de tests la plus rapideet facile possible si on veut pouvoir l’exécuter régulièrement. Pour toutes ces raisons, tester à la main chaque cas planifié n’est pas envisageable ; une seule solution :
 
 l’automatisation.
+
+### 2 JUNIT
+
+Plus qu’une simple bibliothèque, un framework définit une boite à outils qui facilite le développement d’une application tout en imposant un cadre à son architecture.
+
+## TD 06 – Le débogage
