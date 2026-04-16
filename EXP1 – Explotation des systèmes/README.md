@@ -1,6 +1,6 @@
-### Bash – Modifier le système de fichiers
+# Bash – Modifier le système de fichiers
 
-#### 1 - Créer un répertoire
+### 1 - Créer un répertoire
 
 1.1 Créer un répertoire my-dir sur le bureau
 
@@ -105,7 +105,161 @@ my-documents/videos/work
 
 ```
 
-#### 2 -
+<b>Remarque:</b>
+
+Avec la commande tree (le plus clair)
+
+```
+tree my-documents
+
+```
+
+Cela donne:
+
+```
+my-documents
+├── photos
+│   ├── personal
+│   └── work
+└── videos
+    ├── personal
+    └── work
+
+```
+
+C’est la meilleure commande pour visualiser une arborescence.
+
+### 2 - Éditeur de texte
+
+<b>Création de fichier avec nano:</b>
+
+```
+cd ~/Bureau/my-dir
+
+```
+
+Ecrit nano:
+
+```
+nano
+
+```
+
+Écris quelques lignes, puis :
+
+```
+Ctrl + S → sauvegarder
+tape : my-file.txt
+Entrée
+Ctrl + X → quitter
+
+```
+
+---
+
+<b>Modifier un fichier existant: </b>
+
+```
+nano my-file.txt
+
+```
+
+Modifie le texte.
+
+Tu verras "Modified" en haut si tu changes quelque chose
+
+Ensuite :
+
+```
+Ctrl + S pour sauvegarder
+Ctrl + X pour quitter
+❓ 5. Aide de nano
+
+```
+
+---
+
+<b>Utiliser des options de nano:</b>
+
+Afficher les numéros de ligne:
+
+```
+nano -l my-file.txt
+
+```
+
+Affiche les numéros de ligne à gauche du texte.
+
+Utile pour :
+
+- se repérer dans un fichier
+
+- coder ou corriger des erreurs
+
+Activer la souris:
+
+```
+nano -m my-file.txt
+
+```
+
+Tu peux utiliser la souris pour:
+
+- placer le curseur
+
+- sélectionner du texte
+
+- faire défiler
+
+Utile si tu n’aimes pas tout faire au clavier.
+
+Mode lecture seule (view):
+
+```
+nano -v my-file.txt
+
+```
+
+Effet :
+
+ouvre le fichier sans possibilité de modifier
+
+Tu peux :
+
+- lire le fichier
+
+- naviguer
+
+Tu ne peux pas :
+
+- modifier
+
+- sauvegarder
+
+---
+
+<b>Vérifier les dates avec stat:</b>
+
+Commande :
+
+```
+stat my-file.txt
+
+```
+
+Tu verras plusieurs dates :
+
+- Access (accès)
+
+- Modify (modification du contenu)
+
+- Change (changement des métadonnées)
+
+Après modification avec nano :
+
+- seule la date Modify change
+
+- les autres restent généralement identiques
 
 #### 3 -
 
@@ -120,3 +274,7 @@ my-documents/videos/work
 #### 8 -
 
 #### 9 -
+
+```
+
+```
