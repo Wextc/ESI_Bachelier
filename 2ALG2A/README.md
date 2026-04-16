@@ -211,3 +211,89 @@ Enfin, le cours montre aussi que certaines complexités augmentent beaucoup plus
 ## 3.5
 
 https://www.youtube.com/watch?v=bRPHvWgc6YM
+
+### Chapitre 6
+
+```
+
+Exemple — Compter les éléments pairs
+🎯 Objectif
+
+👉 Compter combien de nombres pairs sont dans la liste
+
+Exemple :
+
+[10, 5, 30, 7] → 2
+🔹 Pseudo-code (style syllabus)
+int nbPairs(ArrayList<int> liste)
+return nbPairsRec(liste, 0)
+int nbPairsRec(ArrayList<int> liste, int i)
+if i == liste.size()
+    return 0
+
+if liste.get(i) MOD 2 == 0
+    return 1 + nbPairsRec(liste, i + 1)
+else
+    return nbPairsRec(liste, i + 1)
+
+
+
+Exercice : compter combien d’éléments sont strictement positifs dans une ArrayList d’entiers.
+
+L’algorithme reçoit seulement la liste en paramètre.
+
+int nbPositifs(ArrayList<int> liste)
+return nbPositifsRec(liste, 0)
+
+int nbPositifsRec(ArrayList<int> liste, int i)
+if i == liste.size()
+    return 0
+
+if liste.get(i) > 0
+    return 1 + nbPositifsRec(liste, i + 1)
+else
+    return nbPositifsRec(liste, i + 1)
+
+
+
+
+
+
+
+Exercice — Trouver si une valeur est présente
+🎯 Objectif
+
+👉 Vérifier si un nombre x est dans la liste
+👉 Retourner true ou false
+
+Exemple :
+
+[10, 5, 30], x = 5 → true
+[10, 5, 30], x = 7 → false
+
+boolean trouve (ArrayList<int> liste, int x, int i)
+    return trouveRec(liste, x , 0)
+
+boolean trouveRec(ArrayList<int> liste, int x, int i)
+if i == liste.size()
+    return false
+return liste.get(i) == x OR trouveRec(liste, x, i + 1)
+
+
+
+ArrayList<int> creerListe(int n)
+if n == 1
+    liste = new ArrayList<>()
+    liste.add(1)
+    return liste
+
+liste = creerListe(n-1)
+liste.add(0, n)
+return liste
+
+
+[1]
+[2,1]
+[3,2,1]
+
+```
