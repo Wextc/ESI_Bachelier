@@ -212,3 +212,17 @@ Explication
 - " 6 " → nombre de satellites
 
 - " 5 " → anneaux
+
+### 10 - Trier un colonne:
+
+sort -t ',' -k N → trier colonne N
+
+-n → nombres
+
+-g → notation scientifique
+
+-r → inverse
+
+-o → sauvegarder
+
+cut -d ',' -f X → extraire colonnes
