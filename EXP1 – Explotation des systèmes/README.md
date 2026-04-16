@@ -649,23 +649,42 @@ cp long-text.txt dossier-inexistant/
 
 ---
 
-Copier avec nouveau nom
+<b>Copier avec nouveau nom:</b>
+
+```
 cp long-text.txt long-text-copy.txt
-Empêcher écrasement
+
+```
+
+---
+
+<b>Empêcher écrasement:</b>
+
+```
 cp -n fichier.txt dossier/
-❓ Cas de cp license folder
-si folder est un fichier → écrasé
-si folder est un dossier → copie dedans
-si n’existe pas → créé comme fichier
-📁 Copier un dossier
+
+```
+
+Cas de cp license folder
+
+- si folder est un fichier → écrasé
+
+- si folder est un dossier → copie dedans
+
+- si n’existe pas → créé comme fichier
+
+---
+
+<b>Copier un dossier:</b>
+
+```
 cp -r originals originals-save
-Cas cp -r photos backup
-backup fichier → erreur
-backup dossier → copie dedans
-inexistant → créé comme copie
-
-### 9 -
-
 ```
 
-```
+Cas cp -r photos backup:
+
+- backup fichier → erreur
+
+- backup dossier → copie dedans
+
+- inexistant → créé comme copie
