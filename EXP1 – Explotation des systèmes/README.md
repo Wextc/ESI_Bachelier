@@ -4,10 +4,10 @@
 
 1.1 Créer un répertoire my-dir sur le bureau
 
-´´´
+```
 mkdir ~/Bureau/my-dir
 
-´´´
+```
 
 "~/Bureau" correspond au dossier Bureau (Desktop) en français (sur certains systèmes ce sera ~/Desktop).
 
