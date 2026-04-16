@@ -1174,17 +1174,26 @@ extrait les caractères 5 à 20
 ---
 
 <b>Concaténer ligne par ligne avec paste:</b>
-Exemple
+
+Exemple:
+
 paste file1.txt file2.txt
-👉 Explication
-combine les lignes en parallèle
 
-✔️ Exemple :
+Explication:
 
+- combine les lignes en parallèle
+
+Exemple :
+
+```
 file1: A file2: 1
 file1: B file2: 2
 
-👉 Résultat :
+```
 
+Résultat :
+
+```
 A 1
 B 2
+```
