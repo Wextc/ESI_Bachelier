@@ -1260,6 +1260,8 @@ Explication:
 
 - "-F" → le traite comme texte normal
 
+---
+
 <b>Ajouter les numéros de ligne:</b>
 
 ```
@@ -1288,6 +1290,8 @@ Explication:
 
 - "-n" → ajoute les numéros
 
+---
+
 <b>Comprendre cette commande:</b>
 
 ```
@@ -1306,6 +1310,8 @@ car :
 - "-e" = OU
 
 - "-v"= inverse → exclut tout ce qui correspond
+
+---
 
 <b>Recherche dans un dossier (récursive):</b>
 
@@ -1341,6 +1347,8 @@ Explication:
 
 Résultat : affiche le texte modifié (sans modifier le fichier)
 
+---
+
 <b>Remplacer les points . par !</b>
 
 ```
@@ -1355,6 +1363,8 @@ Explication:
 - " \. " → signifie un vrai point
 
 - " g "→ remplace tous les points
+
+---
 
 <b>Remplacer les virgules par &:</b>
 
