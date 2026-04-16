@@ -689,7 +689,7 @@ Cas cp -r photos backup:
 
 - inexistant → créé comme copie
 
-### Renommer:
+### 9 - Renommer:
 
 Renommer avec mv:
 
@@ -760,7 +760,7 @@ rename
 
 ## Bash – Manipuler des fichiers textes:
 
-### 1 Obtenir quelques statistiques:
+### 1 - Obtenir quelques statistiques:
 
 Compter lignes, mots et octets avec wc.
 
@@ -838,7 +838,7 @@ Explication:
 
 ---
 
-### 2 Supprimer les doublons avec "uniq":
+### 2 - Supprimer les doublons avec "uniq":
 
 Afficher sans doublons + nombre d’occurrences
 
@@ -893,7 +893,7 @@ Explication :
 
 ---
 
-### 3 Numéroter des lignes:
+### 3 - Numéroter des lignes:
 
 <b>Numéroter les lignes avec nl:</b>
 
@@ -1011,7 +1011,7 @@ Explication:
 
 - donc ignore la première ligne
 
-### 4 Afficher les 5 premières lignes:
+### 4 - Afficher les 5 premières lignes:
 
 ```
 head -n 5 elevation-extremes.csv
@@ -1065,7 +1065,7 @@ Explication:
 
 - donc ignore la première ligne
 
-### 5 Concaténer des fichiers avec cat
+### 5 - Concaténer des fichiers avec cat
 
 Afficher 2 fichiers.
 
@@ -1149,7 +1149,7 @@ Explication:
 
 ---
 
-<b>Extraire les messages sans les dates:</b>
+### 6 - Extraire des caractères avec cut:
 
 ```
 cut -c 12- apache.log
@@ -1197,3 +1197,199 @@ Résultat :
 A 1
 B 2
 ```
+
+### 8 - Extraire les lignes contenant "jk":
+
+```
+grep -e 'jk' apache.log
+
+```
+
+Explication:
+
+- "grep" → cherche dans un fichier
+
+- "-e 'jk'" → lignes contenant "jk"
+
+<b>Chercher dans plusieurs fichiers (quote)</b>:
+
+```
+grep -e 'it' quote*
+
+```
+
+Explication:
+
+- "quote\*" → tous les fichiers commençant par quote
+
+- chaque ligne affichée sera précédée du nom du fichier
+
+Exemple :
+
+```
+quote1.txt:It is good
+quote2.txt:Try it now
+
+```
+
+<b>Chercher plusieurs mots (jk OU in):</b>
+
+```
+grep -e 'jk' -e 'in' apache.log
+
+```
+
+Explication:
+
+- plusieurs -e → OU logique
+
+- ligne affichée si elle contient jk ou in
+
+---
+
+<b>Chercher un symbole spécial $:</b>
+
+```
+grep -F -e '$' iso-4217.csv
+
+```
+
+Explication:
+
+- $ est un caractère spécial en regex
+
+- "-F" → le traite comme texte normal
+
+<b>Ajouter les numéros de ligne:</b>
+
+```
+grep -n -e 'jk' apache.log
+
+```
+
+Explication:
+
+- "-n" → affiche le numéro de ligne
+
+Exemple :
+
+15:GET /jk/test
+
+Lignes SANS "jk"
+
+```
+grep -v -n -e 'jk' apache.log
+
+```
+
+Explication:
+
+- "-v "→ inverse → lignes ne contenant pas "jk"
+
+- "-n" → ajoute les numéros
+
+<b>Comprendre cette commande:</b>
+
+```
+grep -v -e 'hello' -e 'world' fichier.txt
+
+```
+
+Résultat:
+
+Affiche les lignes qui :
+
+ne contiennent ni "hello" ni "world"
+
+car :
+
+- "-e" = OU
+
+- "-v"= inverse → exclut tout ce qui correspond
+
+<b>Recherche dans un dossier (récursive):</b>
+
+```
+grep -r -e 'are' -e 'but' exercises/
+
+```
+
+Explication:
+
+- "-r "→ cherche dans tous les fichiers du dossier
+
+- affiche les lignes contenant "are" ou "but"
+
+### 9 - Remplacer des occurrences:
+
+<b>Remplacer “de l'homme” par “humains”</b>
+
+```
+sed "s/de l'homme/humains/g" dudh.txt
+
+```
+
+Explication:
+
+- "sed" → éditeur de texte en ligne de commande
+
+- s/.../.../ → substitution
+
+- g → remplace toutes les occurrences
+
+- guillemets " utilisés ici à cause de ' dans l'homme
+
+Résultat : affiche le texte modifié (sans modifier le fichier)
+
+<b>Remplacer les points . par !</b>
+
+```
+sed 's/\./!/g' quote*
+
+```
+
+Explication:
+
+- " . "est un caractère spécial (regex = “n’importe quel caractère”)
+
+- " \. " → signifie un vrai point
+
+- " g "→ remplace tous les points
+
+<b>Remplacer les virgules par &:</b>
+
+```
+sed 's/,/\&/g' quote5.txt
+
+```
+
+Explication:
+
+- " , "→ virgule
+
+- " \& " → caractère & (doit être échappé)
+
+- sinon & signifie “le texte trouvé”
+
+Points importants à retenir:
+
+- Caractères spéciaux (à échapper dans le motif)
+
+```
+  . \* [ ] ^ $ \
+
+```
+
+Exemple :
+
+" \. "
+
+Caractères spéciaux dans le remplacement
+
+" & " → correspond au texte trouvé
+
+" \ " → caractère d’échappement
+
+donc :
+
+" \& "
