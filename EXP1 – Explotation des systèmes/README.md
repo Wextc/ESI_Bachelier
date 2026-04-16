@@ -2,7 +2,7 @@
 
 #### 1 - Créer un répertoire
 
-1. Créer un répertoire my-dir sur le bureau
+1.1 Créer un répertoire my-dir sur le bureau
 
 ´´´
 mkdir ~/Bureau/my-dir
@@ -11,7 +11,7 @@ mkdir ~/Bureau/my-dir
 
 "~/Bureau" correspond au dossier Bureau (Desktop) en français (sur certains systèmes ce sera ~/Desktop).
 
-2. Essayer de recréer my-dir
+1.2 Essayer de recréer my-dir
 
 ```
 mkdir ~/Bureau/my-dir
@@ -31,7 +31,7 @@ Explication :
 
 Le dossier existe déjà, donc mkdir refuse de le recréer.
 
-3. Créer la hiérarchie avec -p
+1.3 Créer la hiérarchie avec -p
 
 Structure demandée :
 
@@ -54,7 +54,7 @@ mkdir -p my-documents/photos/personal
 de créer tous les dossiers en une fois
 d’éviter les erreurs si certains existent déjà
 
-4. Créer toute la hiérarchie en une seule commande avec expansion d’accolades
+1.4 Créer toute la hiérarchie en une seule commande avec expansion d’accolades
 
 Structure demandée :
 
