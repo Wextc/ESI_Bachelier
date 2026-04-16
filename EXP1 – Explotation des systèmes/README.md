@@ -1,6 +1,6 @@
 # Bash – Modifier le système de fichiers
 
-### 1 - Créer un répertoire
+### 1 - Créer un répertoire:
 
 Créer un répertoire my-dir sur le bureau:
 
@@ -139,7 +139,7 @@ my-documents
 
 C’est la meilleure commande pour visualiser une arborescence.
 
-### 2 - Éditeur de texte
+### 2 - Éditeur de texte:
 
 <b>Création de fichier avec nano:</b>
 
@@ -271,7 +271,7 @@ Après modification avec nano :
 
 - les autres restent généralement identiques
 
-### 3 - Créer un fichier vide
+### 3 - Créer un fichier vide:
 
 <b> Création d'un fichier vide :</b>
 
@@ -319,7 +319,7 @@ Comme le fichier est vide, rien ne s’affiche.
 
 ---
 
-Créer toute la hiérarchie demandée avec un minimum de commandes:
+<b>Créer toute la hiérarchie demandée avec un minimum de commandes:</b>
 
 Structure voulue :
 
@@ -424,17 +424,247 @@ ls -R my-documents
 
 ```
 
-#### 4 -
+### 4 - Télécharger un fichier:
 
-#### 5 -
+<b>Télécharger le fichier texte:</b>
 
-#### 6 -
+```
+curl https://www.rfc-editor.org/rfc/rfc791.txt --output downloaded-file.txt
 
-#### 7 -
+```
 
-#### 8 -
+Explication:
 
-#### 9 -
+```
+curl → télécharge depuis Internet
+
+```
+
+--output → nom du fichier local
+
+Télécharger une image:
+
+```
+curl https://curl.se/logo/curl-logo.svg --output downloaded-image.svg
+
+```
+
+### 5 - Supprimer un fichier:
+
+Supprimer downloaded-file.txt:
+
+```
+rm downloaded-file.txt
+
+```
+
+Explication:
+
+```
+rm → supprime définitivement (pas de corbeile)
+
+```
+
+---
+
+<b>Supprimer tous les .tmp:</b>
+
+```
+rm *.tmp
+
+```
+
+Explication:
+
+- → tous les fichiers
+
+- .tmp → tous les fichiers finissant par .tmp
+
+Mode sécurisé:
+
+```
+rm -i fichier.txt
+
+```
+
+demande confirmation avant suppression
+
+Danger de cette commande
+
+```
+rm -ri ~/ pictures/ blurry.jpg
+
+```
+
+---
+
+<b>Supprime :</b>
+
+tout le dossier ~ (home !)
+
+le dossier pictures/
+
+le fichier blurry.jpg
+
+Danger : tu peux supprimer énormément de données sans le vouloir
+
+### 6 - Supprimer un répertoire:
+
+<b> Créer puis supprimer:
+
+```
+mkdir test-dir
+rmdir test-dir
+
+```
+
+"rmdir" fonctionne seulement si le dossier est vide
+
+---
+
+<b>Supprimer un dossier avec contenu:</b>
+
+```
+mkdir -p new-dir/dir1/dir2
+rm -r new-dir
+
+```
+
+Explication:
+
+- "-r" → suppression récursive (tout le contenu)
+
+---
+
+<b>Supprimer my-dir avec fichier:</b>
+
+```
+rm -r my-dir
+
+```
+
+### 7 - Créer un raccourci (lien):
+
+Créer le dossier et fichiers:
+
+```
+mkdir books
+nano books/my-life.txt
+nano books/tales.txt
+
+```
+
+Créer un lien (hard link):
+
+```
+ln books/my-life.txt books/favorite
+
+```
+
+Ouvrir avec less:
+
+```
+less books/favorite
+
+```
+
+Créer avec extension:
+
+```
+ln books/my-life.txt books/favorite.txt
+
+```
+
+---
+
+<b>Observer les liens:</b>
+
+```
+ls -l books
+
+```
+
+colonne 2 = nombre de liens
+
+Supprimer un lien:
+
+```
+rm books/favorite
+
+```
+
+Le nombre de liens diminue.
+
+Afficher les identifiants (inode):
+
+```
+ls -i books
+
+```
+
+- mêmes numéros = même fichier (hard link)
+
+Supprimer fichier original:
+
+```
+rm books/my-life.txt
+
+```
+
+- favorite.txt fonctionne encore (car les données existent toujours via le lien)
+
+Vérifier avec stat:
+
+```
+stat books/favorite.txt
+
+```
+
+- seule la date Change est modifiée, car les métadonnées (liens) changent
+
+### 8 - Copier avec cp:
+
+<b>Copier un fichier:</b>
+
+```
+cp readme.txt texts/general-readme.txt
+
+```
+
+- Cas d’erreurs.
+
+```
+cp long-text.txt long-text.txt
+
+```
+
+- erreur (même fichier)
+
+```
+cp long-text.txt dossier-inexistant/
+
+```
+
+- erreur (dossier absent)
+
+---
+
+Copier avec nouveau nom
+cp long-text.txt long-text-copy.txt
+Empêcher écrasement
+cp -n fichier.txt dossier/
+❓ Cas de cp license folder
+si folder est un fichier → écrasé
+si folder est un dossier → copie dedans
+si n’existe pas → créé comme fichier
+📁 Copier un dossier
+cp -r originals originals-save
+Cas cp -r photos backup
+backup fichier → erreur
+backup dossier → copie dedans
+inexistant → créé comme copie
+
+### 9 -
 
 ```
 
