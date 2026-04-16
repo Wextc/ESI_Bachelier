@@ -688,3 +688,503 @@ Cas cp -r photos backup:
 - backup dossier → copie dedans
 
 - inexistant → créé comme copie
+
+### Renommer:
+
+Renommer avec mv:
+
+```
+mv ancien.txt nouveau.txt
+
+```
+
+Explication:
+
+- mv = move (déplacer)
+
+Mais si tu restes dans le même dossier → ça devient un renommage.
+
+Exemple :
+
+```
+mv fichier.txt notes.txt
+
+```
+
+Le fichier change juste de nom.
+
+Renommer plusieurs fichiers avec rename.
+
+Contrairement à mv, rename peut modifier plusieurs fichiers en une fois.
+
+Exemple simple:
+
+```
+rename 's/.txt/.md/' _.txt
+
+```
+
+Explication:
+
+```
+_.txt → tous les fichiers .txt
+
+```
+
+- 's/.txt/.md/' → remplace .txt par .md
+
+Résultat :
+
+```
+file1.txt → file1.md
+file2.txt → file2.md
+```
+
+Attention importante:
+
+```
+
+rename
+
+```
+
+- n’est pas toujours installé
+
+- peut avoir plusieurs versions différentes
+
+  Exemple :
+
+- sur certains systèmes → syntaxe avec 's/.../.../' (Perl)
+
+- sur d’autres → syntaxe différente
+
+## Bash – Manipuler des fichiers textes:
+
+### 1 Obtenir quelques statistiques:
+
+Compter lignes, mots et octets avec wc.
+
+<b>Voir lignes + mots + octets:</b>
+
+```
+wc dudh.txt
+
+```
+
+Explication:
+
+- wc = word count.
+
+Affiche :
+
+- nombre de lignes
+
+- nombre de mots
+
+- nombre d’octets
+
+Exemple de sortie :
+
+```
+120 450 3000 dudh.txt
+
+```
+
+120 lignes, 450 mots, 3000 octets
+
+---
+
+<b>Afficher uniquement le nombre de lignes:</b>
+
+```
+wc -l apache.log
+
+```
+
+Explication:
+
+- "-l" → affiche seulement les lignes
+
+Exemple :
+
+```
+250 apache.log
+
+```
+
+---
+
+<b>Vérifier avec un éditeur:</b>
+
+```
+nano apache.log
+
+```
+
+En bas de nano → numéro de ligne total visible.
+
+---
+
+<b>Longueur de la plus longue ligne:</b>
+
+```
+wc -L apache.log
+
+```
+
+Explication:
+
+-L → longueur (en caractères) de la ligne la plus longue
+
+---
+
+### 2 Supprimer les doublons avec "uniq":
+
+Afficher sans doublons + nombre d’occurrences
+
+```
+uniq -c apache.log
+
+```
+
+Explication:
+
+- uniq → supprime les doublons consécutifs
+
+- "-c" → affiche combien de fois chaque ligne apparaît
+
+Exemple :
+
+```
+3 GET /index.html
+1 POST /login
+
+```
+
+Important:
+
+- "uniq" fonctionne seulement si
+
+- les lignes identiques sont à la suite
+
+Donc souvent on fait :
+
+```
+sort apache.log | uniq -c
+
+```
+
+---
+
+<b> Vérifier que le fichier n’est pas modifié:</b>
+
+```
+cat apache.log
+
+```
+
+Le contenu original est inchangé.
+
+Explication :
+
+- "uniq" affiche le résultat
+
+- mais ne modifie pas le fichier
+
+---
+
+### 3 Numéroter des lignes:
+
+<b>Numéroter les lignes avec nl:</b>
+
+```
+nl apache.log
+```
+
+Explication:
+
+- nl = number lines
+
+- affiche le fichier avec numéros de ligne
+
+- ne numérote que les lignes non vides
+
+Exemple :
+
+```
+1  GET /index.html
+2  POST /login
+
+```
+
+---
+
+<b>Afficher les premières lignes avec head:</b>
+
+Afficher les 5 premières lignes.
+
+```
+head -n 5 elevation-extremes.csv
+
+```
+
+Explication:
+
+- "head" → affiche le début du fichier
+
+- "-n" 5 → limite à 5 lignes
+
+---
+
+<b>Afficher toutes sauf la dernière:</b>
+
+```
+head -n -1 elevation-extremes.csv
+
+```
+
+Explication:
+
+- "-n -1" → enlève la dernière ligne
+
+- donc affiche tout sauf la dernière
+
+---
+
+<b>Afficher les dernières lignes avec tail:</b>
+
+Afficher les 5 dernières lignes.
+
+```
+tail -n 5 elevation-extremes.csv
+
+```
+
+Explication:
+
+- "tail" → affiche la fin du fichier
+
+- "-n 5" → 5 dernières lignes
+
+---
+
+<b>Afficher toutes sauf la première</b>
+
+```
+tail -n +2 elevation-extremes.csv
+
+```
+
+Explication:
+
+- "+2" → commence à la ligne 2
+
+- donc ignore la première ligne
+
+---
+
+<b>Afficher les dernières lignes avec tail:</b>
+
+Afficher les 5 dernières lignes
+
+```
+tail -n 5 elevation-extremes.csv
+
+```
+
+Explication:
+
+- tail → affiche la fin du fichier
+
+- "-n 5" → 5 dernières lignes
+
+<b>Afficher toutes sauf la première:</b>
+
+```
+tail -n +2 elevation-extremes.csv
+
+```
+
+Explication:
+
+- "+2" → commence à la ligne 2
+
+- donc ignore la première ligne
+
+### 4 Afficher les 5 premières lignes:
+
+```
+head -n 5 elevation-extremes.csv
+
+```
+
+Explication:
+
+- head → affiche le début du fichier
+
+- "-n 5" → limite à 5 lignes
+
+---
+
+<b>Afficher toutes les lignes sauf la dernière:</b>
+
+```
+head -n -1 elevation-extremes.csv
+
+```
+
+Explication:
+
+- "-n -1" → enlève 1 ligne à la fin
+
+- donc affiche tout sauf la dernière
+
+<b>Afficher les 5 dernières lignes:</b>
+
+```
+tail -n 5 elevation-extremes.csv
+
+```
+
+Explication:
+
+- "tail" → affiche la fin du fichier
+
+- "-n 5" → les 5 dernières lignes
+
+<b>Afficher toutes les lignes sauf la première:</b>
+
+```
+tail -n +2 elevation-extremes.csv
+
+```
+
+Explication:
+
+- "+2 "→ commence à la ligne 2
+
+- donc ignore la première ligne
+
+### 5 Concaténer des fichiers avec cat
+
+Afficher 2 fichiers.
+
+```
+cat cities/eu.be.tsv cities/eu.nl.tsv
+
+```
+
+Explication:
+
+- cat = concaténer
+
+- affiche les fichiers l’un à la suite de l’autre
+
+---
+
+<b>Afficher tous les fichiers des villes d’Europe</b>
+
+```
+cat cities/eu.\*.tsv
+
+```
+
+Explication:
+
+- = tous les fichiers correspondants
+
+- eu.\*.tsv → tous les fichiers Europe
+
+---
+
+<b>Trier des lignes avec sort:</b>
+
+Trier un fichier
+
+```
+sort unordered.txt
+
+```
+
+Explication:
+
+- trie les lignes par ordre alphabétique
+
+- Trier en ordre inverse
+
+```
+sort -r unordered.txt
+
+```
+
+Explication:
+
+- "-r" → inverse l’ordre (Z → A)
+
+<b>Trier sans doublons:</b>
+
+```
+sort -u unordered.txt
+
+```
+
+Explication:
+
+- "-u" → supprime les doublons après tri
+
+<b>Extraire des caractères avec cut:</b>
+
+Extraire uniquement les dates (exemple).
+
+```
+cut -c 1-10 apache.log
+
+```
+
+Explication:
+
+- "-c "→ sélection des caractères
+
+- "1-10" → du caractère 1 à 10 (souvent les dates sont au début des logs)
+
+---
+
+<b>Extraire les messages sans les dates:</b>
+
+```
+cut -c 12- apache.log
+
+```
+
+Explication:
+
+- "12-" → du caractère 12 jusqu’à la fin
+
+- donc on enlève la date au début
+
+Exemple général:
+
+```
+cut -c 5-20 fichier.txt
+
+```
+
+extrait les caractères 5 à 20
+
+---
+
+<b>Concaténer ligne par ligne avec paste:</b>
+Exemple
+paste file1.txt file2.txt
+👉 Explication
+combine les lignes en parallèle
+
+✔️ Exemple :
+
+file1: A file2: 1
+file1: B file2: 2
+
+👉 Résultat :
+
+A 1
+B 2
