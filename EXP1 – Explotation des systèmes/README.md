@@ -500,13 +500,13 @@ rm -ri ~/ pictures/ blurry.jpg
 
 <b>Supprime :</b>
 
-tout le dossier ~ (home !)
+- tout le dossier ~ (home !)
 
-le dossier pictures/
+- le dossier pictures/
 
-le fichier blurry.jpg
+- le fichier blurry.jpg
 
-Danger : tu peux supprimer énormément de données sans le vouloir
+/!\ tu peux supprimer énormément de données sans le vouloir.
 
 ### 6 - Supprimer un répertoire:
 
