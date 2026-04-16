@@ -1414,6 +1414,8 @@ sed 's/a/b/g' → remplace partout
 
 \& → caractère &
 
+---
+
 <b>Trier un CSV par colonne (continent):</b>
 
 ```
@@ -1427,6 +1429,8 @@ Explication:
 
 - " -k " 1 → trie selon la colonne 1 (continent)
 
+---
+
 <b>Trier un TSV avec tabulation:</b>
 
 ```
@@ -1439,6 +1443,8 @@ Explication:
 - " $'\t' " → tabulation
 
 - " -k " 2 → colonne 2 (ex : provinces)
+
+---
 
 <b>Trier planets.csv par gravité (sans option):</b>
 
@@ -1462,6 +1468,8 @@ Explication:
 
 " -n " → tri numérique
 
+---
+
 <b>Trier par volume (notation scientifique):</b>
 
 ```
@@ -1472,6 +1480,8 @@ sort planets.csv -t ',' -k 2 -g
 Explication:
 
 - " -g " → gère les nombres comme 6e10
+
+---
 
 <b>Trier par nombre de lunes (du plus grand au plus petit):</b>
 
@@ -1486,6 +1496,8 @@ Explication:
 
 - " -r " → ordre inverse (descendant)
 
+---
+
 <b>Trier earthquakes par magnitude:</b>
 
 ```
@@ -1494,6 +1506,8 @@ sort earthquakes.dsv -t ',' -k 2 -n
 ```
 
 (adapter la colonne selon le fichier)
+
+---
 
 <b>Trier et enregistrer dans un fichier:</b>
 
@@ -1527,6 +1541,8 @@ Puis trier :
 sort mots.txt -o mots-trie.txt
 
 ```
+
+---
 
 <b>Extraire des colonnes avec cut:</b>
 
