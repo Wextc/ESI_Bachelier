@@ -1714,3 +1714,536 @@ Explication:
 - " , "→ remplacé par retour à la ligne (\n)
 
 - Sert à transformer une liste en colonnes
+
+### 2 - Redirection de l'entrée standard
+
+<b>Créer le fichier enum.txt:</b>
+
+```
+nano enum.txt
+
+```
+
+Écris par exemple :
+
+```
+pomme,banane,orange,kiwi,fraise,raisin
+
+```
+
+Puis :
+
+```
+Ctrl + S → sauvegarder
+
+Ctrl + X → quitter
+
+```
+
+<b>Afficher l’énumération ligne par ligne avec tr:</b>
+
+```
+tr ',' '\n' < enum.txt
+
+```
+
+Explication de la commande:
+
+- tr ',' '\n'
+
+- remplace :
+
+- " , " → retour à la ligne (\n)
+
+- " < enum.txt "
+
+- redirige l’entrée standard (stdin)
+
+au lieu du clavier → lit depuis le fichier
+
+Résultat attendu:
+
+```
+
+pomme
+banane
+orange
+kiwi
+fraise
+raisin
+
+```
+
+<b>Comprendre la redirection:</b>
+
+Sans redirection.
+
+- tr ',' '\n'
+
+- attend que tu tapes au clavier
+
+Avec redirection.
+
+- tr ',' '\n' < enum.txt
+
+Lit directement depuis le fichier.
+
+Donc :
+
+- pas besoin de taper le texte
+
+- traitement automatique
+
+---
+
+<b>Comparaison avec sort:</b>
+
+```
+sort < unordered.txt
+
+```
+
+Equivaut à:
+
+```
+sort unordered.txt
+
+```
+
+Explication:
+
+sort accepte :
+
+- fichier en argument
+
+- OU entrée standard
+
+<b>Pourquoi la redirection est importante ?</b>
+
+Pour des commandes comme tr :
+
+- elles ne prennent pas de fichier directement
+
+- donc < fichier est indispensable
+
+### 3 - Redirection de la sortie standard:
+
+Concaténer tous les fichiers quote dans un fichier.
+
+```
+cat quote* > quotes-all.txt
+
+```
+
+Explication:
+
+- cat quote\* → concatène tous les fichiers quote
+
+- " > "→ redirige la sortie vers un fichier
+
+- quotes-all.txt → fichier créé (ou écrasé)
+
+Rien ne s’affiche à l’écran → tout va dans le fichier.
+
+---
+
+<b>Créer un fichier avec echo:</b>
+
+```
+echo "hello, world" > greetings.txt
+
+```
+
+Explication:
+
+- echo → affiche du texte
+
+- " > "→ redirige dans un fichier
+
+- " > " crée greetings.txt avec le contenu
+
+<b>Ajouter du texte à la fin du fichier:</b>
+
+```
+echo "how are you doing ?" >> greetings.txt
+
+```
+
+Explication:
+
+- " >> " → ajoute à la fin (sans écraser)
+
+- " > " → écrase
+
+---
+
+<b>Observer les changements avec tail:</b>
+
+Terminal 1 :
+
+```
+tail -f greetings.txt
+
+```
+
+Explication:
+
+- tail -f → affiche les dernières lignes
+
+- reste actif → affiche les nouvelles lignes en direct
+
+Terminal 2 :
+
+```
+echo "new line" >> greetings.txt
+
+```
+
+Résultat :
+
+la nouvelle ligne apparaît automatiquement dans le terminal 1
+
+---
+
+<b>Attention à la redirection:</b>
+
+```
+sort unordered.txt > unordered.txt
+
+```
+
+Résultat:
+
+Le fichier devient vide.
+
+Explication importante.
+
+Bash fait la redirection avant d’exécuter la commande.
+
+Donc:
+
+- unordered.txt est vidé
+
+- puis sort lit un fichier vide
+
+Bonne méthode:
+
+```
+sort unordered.txt > sorted.txt
+
+```
+
+ou
+
+```
+sort unordered.txt -o unordered.txt
+
+```
+
+---
+
+### 4 - Rediriger les erreurs vers un fichier:
+
+Exemple:
+
+```
+ls fichier-inexistant 2> erreurs.txt
+
+```
+
+Explication:
+
+- ls fichier-inexistant → génère une erreur
+
+- " 2> "→ redirige la sortie d’erreur (stderr)
+
+- erreurs.txt → fichier contenant l’erreur
+
+Résultat :
+
+- rien ne s’affiche à l’écran
+
+erreur écrite dans erreurs.txt
+
+<b>Voir le contenu du fichier d’erreurs: </b>
+
+```
+cat erreurs.txt
+
+```
+
+Exemple :
+
+ls: cannot access 'fichier-inexistant': No such file or directory
+
+---
+
+<b>Ajouter des erreurs à la suite: </b>
+
+```
+ls autre-fichier 2>> erreurs.txt
+
+```
+
+Explication:
+
+- " 2>> " → ajoute à la fin du fichier
+
+- ne supprime pas le contenu existant
+
+### 5 - Composition de commandes:
+
+Donner les 10 plus grosses villes d’Europe
+
+```
+sort cities/eu.\*.tsv -t $'\t' -k 3 -n -r | head -n 10
+
+```
+
+Explication:
+
+- sort → trie les villes
+
+- " -t $'\t' "→ séparateur = tabulation"
+
+- " -k 3 "→ colonne population (supposée)
+
+- " -n "→ tri numérique
+
+- " -r "→ du plus grand au plus petit
+
+- " | "→ envoie le résultat à la commande suivante
+
+- head -n 10 → prend les 10 premières
+
+Résultat : les 10 villes les plus peuplées.
+
+---
+
+<b>Les 10 plus grosses villes par ordre alphabétique:</b>
+
+```
+sort cities/eu.\*.tsv -t $'\t' -k 3 -n -r | head -n 10 | sort
+
+```
+
+Explication:
+
+- première partie → trouve les 10 plus grandes villes
+
+- deuxième sort → trie ces 10 villes alphabétiquement
+
+Nom des 3 plus grosses planètes
+
+```
+sort planets.csv -t ',' -k 2 -g -r | head -n 3 | cut -d ',' -f 1
+
+```
+
+Explication:
+
+- " -k 2 " → colonne volume
+
+- " -g "→ notation scientifique (ex: 6e10)
+
+- " -r " → plus grand → plus petit
+
+- " head -n 3 "→ top 3
+
+```
+cut -f 1 → extrait le nom
+
+```
+
+Résultat : noms des 3 plus grosses planètes.
+
+<b>Nouvelle notion : les pipes |</b>
+
+Exemple général :
+
+```
+commande1 | commande2 | commande3
+
+```
+
+Explication:
+
+- " | "(pipe) = relie les commandes
+
+- sortie de la 1 → entrée de la 2
+
+Exemple simple:
+
+```
+sort fichier.txt | head -n 5
+
+```
+
+Trie puis prend les 5 premiers.
+
+---
+
+<b>Pourquoi utiliser les pipes ?</b>
+
+Sans pipe :
+
+```
+sort data.txt > temp.txt
+head temp.txt
+
+```
+
+Avec pipe :
+
+```
+sort data.txt | head
+
+```
+
+- plus simple
+
+- pas de fichier temporaire
+
+---
+
+<b>Notion de filtre:</b>
+
+Un filtre :
+
+- lit depuis stdin
+
+- écrit vers stdout
+
+Exemples :
+
+```
+sort
+head
+cut
+grep
+
+```
+
+Pas des filtres :
+
+```
+echo
+ls
+
+```
+
+### 6 - Tubes:
+
+1. 10 plus grosses villes d’Europe
+
+```
+sort cities/eu.*.tsv -t $'\t' -k 3 -n -r | head -n 10
+
+```
+
+Explication:
+
+- sort → trie par population
+
+- " -n " -r → du plus grand au plus petit
+
+- " | " → envoie le résultat à head
+
+- head -n 10 → garde les 10 premières
+
+---
+
+<b>Les 10 plus grosses villes (ordre alphabétique):</b>
+
+```
+sort cities/eu.\*.tsv -t $'\t' -k 3 -n -r | head -n 10 | sort
+
+```
+
+Explication:
+
+- trouver les 10 plus grandes villes
+
+- sort final → tri alphabétique
+
+<b>Nom des 3 plus grosses planètes:</b>
+
+```
+sort planets.csv -t ',' -k 2 -g -r | head -n 3 | cut -d ',' -f 1
+
+```
+
+Explication:
+
+- tri par volume (-g)
+
+- head → top 3
+
+- cut → extrait le nom
+
+---
+
+<b>Nombre de lignes d’erreur dans apache.log:</b>
+
+```
+grep -i error apache.log | wc -l
+
+```
+
+Explication:
+
+grep -i error → lignes contenant "error"
+
+```
+wc -l → compte les lignes
+
+```
+
+<b>Lignes les plus fréquentes (sans date):</b>
+
+```
+cut -c 12- apache.log | sort | uniq -c | sort -n -r | head -n 3
+
+```
+
+Explication:
+
+- cut -c 12- → enlève la date
+
+- sort → regroupe lignes identiques
+
+- uniq -c → compte occurrences
+
+- sort -n -r → plus fréquent en haut
+
+- head -n 3 → top 3
+
+---
+
+<b>Comprendre les pipes:</b>
+
+```
+commande1 | commande2 | commande3
+
+```
+
+Fonctionnement:
+
+```
+sortie de commande1 → entrée de commande2
+sortie de commande2 → entrée de commande3
+
+```
+
+- pas de fichiers temporaires
+
+- tout se fait en mémoire
+
+Exemple inutile:
+
+```
+sort values.seq | echo
+
+```
+
+Echo n’utilise pas l’entrée → résultat perdu.
