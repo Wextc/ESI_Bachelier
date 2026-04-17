@@ -1,4 +1,4 @@
-# Bash – Modifier le système de fichiers
+## Bash – Modifier le système de fichiers
 
 ### 1 - Créer un répertoire:
 
@@ -183,7 +183,7 @@ Ensuite :
 ```
 Ctrl + S pour sauvegarder
 Ctrl + X pour quitter
-❓ 5. Aide de nano
+Aide de nano
 
 ```
 
@@ -1564,3 +1564,153 @@ Explication
 - " 6 " → nombre de satellites
 
 - " 5 " → anneaux
+
+## Bash – Redirection:
+
+<b>Utiliser sort avec l’entrée clavier (stdin): </b>
+
+Trier des mots en ordre inverse.
+
+```
+sort -r
+
+```
+
+Ensuite tu tapes :
+
+```
+travaille
+tartine
+tram
+pomme
+banane
+
+```
+
+Puis :
+
+```
+Ctrl + D
+
+```
+
+Explication:
+
+sort sans fichier → lit depuis le clavier (stdin)
+
+- " -r "→ ordre inverse
+
+- " Ctrl + D " → fin de saisie
+
+Résultat : mots triés Z → A
+
+---
+
+<b>Compter mots et caractères avec wc:</b>
+
+```
+wc
+
+```
+
+Tape un texte :
+
+```
+Bonjour tout le monde
+
+```
+
+Puis :
+
+```
+Ctrl + D
+
+```
+
+Explication:
+
+- wc lit depuis le clavier
+
+- affiche : lignes - mots - caractères
+
+Exemple :
+
+```
+1 4 23
+
+```
+
+Comprendre Ctrl + D :
+
+Rôle
+
+- envoie les données tapées à l’application
+
+- indique fin de fichier (EOF)
+
+Sans Ctrl + D, le programme attend encore du texte.
+
+Utiliser tr (remplacer caractères):
+
+Essayer :
+
+```
+tr '.,' ', '
+
+```
+
+Tape :
+
+```
+3.14,2.5
+
+```
+
+Puis Ctrl + D:
+
+Résultat:
+
+```
+3,14 2,5
+
+```
+
+Explication:
+
+remplace :
+. → ,
+
+, → espace
+
+---
+
+<b>Comprendre tr ',' '\n'</b>
+
+```
+tr ',' '\n'
+
+```
+
+Tape :
+
+```
+pomme,banane,orange
+
+```
+
+Puis Ctrl + D:
+
+Résultat:
+
+```
+pomme
+banane
+orange
+
+```
+
+Explication:
+
+- " , "→ remplacé par retour à la ligne (\n)
+
+- Sert à transformer une liste en colonnes
