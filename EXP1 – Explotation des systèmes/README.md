@@ -2247,3 +2247,134 @@ sort values.seq | echo
 ```
 
 Echo n’utilise pas l’entrée → résultat perdu.
+
+### 7 - Résultat intermédiaire:
+
+Exemple donné
+
+```
+sort -n values.seq | tee sorted-values.seq | head -n 3
+
+```
+
+Explication:
+
+```
+sort -n values.seq → trie les nombres
+
+```
+
+tee sorted-values.seq :
+
+Enregistre le résultat dans un fichier.
+
+- et le transmet à la suite
+
+- head -n 3 → affiche les 3 premiers
+
+Résultat :
+
+- fichier complet trié sauvegardé
+
+- seulement 3 lignes affichées
+
+---
+
+<b>Rôle de tee:</b>
+
+tee = copie le flux
+
+- entrée → copiée vers fichier
+
+- entrée → continue dans la pipeline
+
+Très utile pour :
+
+- déboguer
+
+- sauvegarder des résultats intermédiaires
+
+<b>Que fait ce code ?</b>
+
+```
+tee f
+
+```
+
+Ensuite tu tapes :
+
+```
+Hello, world
+
+```
+
+Puis :
+
+```
+Ctrl + D
+
+```
+
+Résultat.
+
+affiche :
+
+```
+Hello, world
+
+```
+
+crée un fichier f contenant :
+
+```
+Hello, world
+
+```
+
+Explication:
+
+```
+tee f lit depuis le clavier (stdin)
+
+```
+
+Ecrit :
+
+dans le fichier f
+
+dans la sortie standard (écran)
+
+Donc double sortie :
+
+- écran
+
+- fichier
+
+---
+
+<b>Schéma mental:</b>
+
+```
+clavier → tee → écran
+
+↓
+
+fichier
+
+```
+
+Attention:
+
+```
+tee f
+
+```
+
+Ecrase le fichier f s’il existe.
+
+Pour ajouter :
+
+```
+tee -a f
+
+```

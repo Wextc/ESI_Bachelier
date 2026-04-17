@@ -173,3 +173,43 @@ cut → extrait colonnes
 On peut faire des chaînes puissantes :
 
 cat fichier | grep mot | sort | head
+
+### 6 - Tubes:
+
+| → relie les commandes
+
+chaque commande → filtre
+
+permet de faire des traitements complexes
+
+<b>Astuce clé:</b>
+
+Penser en étapes :
+
+filtrer (grep)
+
+transformer (cut)
+
+trier (sort)
+
+compter (uniq, wc)
+
+limiter (head)
+
+### 7 - Résultat intermédiaire:
+
+tee fichier → copie vers fichier + écran
+
+tee -a → ajoute
+
+utile dans les pipelines
+
+Exemple utile
+
+grep error apache.log | tee errors.txt | wc -l
+
+Résultat :
+
+sauvegarde erreurs dans errors.txt
+
+affiche le nombre d’erreurs
