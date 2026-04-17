@@ -213,3 +213,37 @@ Résultat :
 sauvegarde erreurs dans errors.txt
 
 affiche le nombre d’erreurs
+
+### TD6 - Linux et variables d’environnement
+
+echo VAR affiche "VAR"
+
+$VAR=12 erreur
+
+VAR=$VAR garde valeur
+
+echo $VAR + 30 affiche "12 + 30"
+
+VAR=$VAR+30 texte "12+30"
+
+VAR="$VAR + 30" "12 + 30"
+
+VAR=VAR valeur = "VAR"
+
+---
+
+pwd → où je suis
+
+ls → voir fichiers
+
+cat → lire fichier
+
+cp → copier
+
+~ → home
+
+$VAR → valeur variable
+
+PATH → où chercher les commandes
+
+which → chemin d’une commande

@@ -2378,3 +2378,304 @@ Pour ajouter :
 tee -a f
 
 ```
+
+### 6 - Linux et variables d’environnement:
+
+<b>Commandes de base Linux:</b>
+
+Exercice 1 — pwd
+
+```
+pwd
+
+```
+
+Explication:
+
+- Affiche le chemin du dossier courant.
+
+- ex : /home/g12345
+
+---
+
+<b>Exercice 2 — tree:</b>
+
+tree
+
+Explication:
+
+Affiche l’arborescence des fichiers et dossiers.
+
+---
+
+<b>Exercice 3 — afficher welcome:</b>
+
+```
+cat welcome
+
+```
+
+Explication:
+
+- cat → affiche le contenu d’un fichier
+
+- chemin relatif → pas de / au début
+
+<b>Exercice 4 — lister tous les dossiers personnels:</b>
+
+Chemin absolu :
+
+```
+ls /home
+
+```
+
+Chemin relatif :
+
+```
+ls ../
+
+```
+
+<b>Exercice 5 — jokers:</b>
+
+Enseignants (3 lettres) :
+
+```
+ls /home/???
+
+```
+
+Étudiants (ex: g123xx) :
+
+```
+ls /home/g123\*
+
+```
+
+Explication:
+
+- " ? "→ 1 caractère
+
+- → plusieurs caractères
+
+- Raccourcis de chemin
+
+<b> Exercice 6: </b>
+
+Contenu de ton dossier (absolu):
+
+```
+   ls ~
+
+```
+
+Dossier du prof:
+
+```
+   ls ~prof
+```
+
+Version relative:
+
+```
+   ls .
+
+```
+
+---
+
+<b>Exercice 7 — comprendre chemin:</b>
+
+```
+~mcd/../../home
+
+```
+
+Explication:
+
+```
+~mcd → home de mcd
+
+```
+
+- " .. "→ remonter
+
+- résultat → /home
+
+---
+
+<b>Exercice 8 — chemins relatifs:</b>
+
+Relatifs :
+
+```
+./tds/td2
+
+tds/td2/Hello.java
+
+```
+
+Copier un fichier.
+
+---
+
+<b>Exercice 9:</b>
+
+Exemple :
+
+```
+cp ~/welcome ~/dev1/td2/
+
+```
+
+Explication:
+
+- cp → copier
+
+- source → destination
+
+---
+
+<b>Exercice 10:</b>
+
+```
+ls ~mcd
+
+```
+
+<b>Exercice 11:</b>
+
+- " ~foo" → home de foo
+
+- "~/foo" → dossier foo dans ta home
+
+Changer mot de passe.
+
+<b>Exercice 12:</b>
+
+```
+passwd
+
+```
+
+Manuel
+
+<b>Exercice 13:</b>
+
+```
+man nano
+
+```
+
+<b>Exercice 14</b>
+
+Oui :
+
+- aucun dossier → optionnel
+
+- plusieurs dossiers → possible (...)
+
+<b>Exercice 15:</b>
+
+```
+man nano
+
+```
+
+Puis chercher :
+
+```
+/J
+
+```
+
+Variables d’environnement.
+
+Expérience 1
+
+```
+VAR=12
+
+echo $VAR
+
+```
+
+<b>Exercice 17:</b>
+
+Commande Résultat.
+
+echo VAR affiche "VAR"
+
+```
+$VAR=12 erreur
+VAR=$VAR garde valeur
+
+```
+
+echo $VAR + 30 affiche "12 + 30"
+
+VAR=$VAR+30 texte "12+30"
+
+VAR="$VAR + 30" "12 + 30"
+
+VAR=VAR valeur = "VAR"
+
+Prompt
+
+<b>Exercice 18:</b>
+
+```
+PS1="Bonjour ! "
+
+```
+
+<b>Exercice 19</b>
+
+```
+nano ~/.bashrc
+
+```
+
+Ajouter :
+
+```
+PS1="Bonjour ! "
+
+PATH
+
+```
+
+<b>Exercice 20:</b>
+
+```
+echo $PATH
+
+```
+
+<b>Exercice 21 (avec tr):</b>
+
+```
+echo $PATH | tr ':' '\n'
+
+```
+
+<b>Exercice 22</b>
+
+```
+which nano
+
+```
+
+Vérifier dans PATH.
+
+Tutoriel PATH:
+
+```
+PATH=
+
+nano # ne marche plus
+
+/usr/bin/nano # marche
+
+```
