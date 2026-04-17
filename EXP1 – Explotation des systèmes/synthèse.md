@@ -232,18 +232,42 @@ VAR=VAR valeur = "VAR"
 
 ---
 
-pwd → où je suis
+" pwd " → où je suis
 
-ls → voir fichiers
+" ls "→ voir fichiers
 
-cat → lire fichier
+" cat "→ lire fichier
 
-cp → copier
+" cp " → copier
 
-~ → home
+" ~ " → home
 
-$VAR → valeur variable
+" $VAR "→ valeur variable
 
 PATH → où chercher les commandes
 
 which → chemin d’une commande
+
+### TD07 Permissions et groupes
+
+ls -l : voir propriétaire, groupe, permissions
+
+groups : voir les groupes d’un utilisateur
+
+chmod 644 fichier : changer les permissions en nombres
+
+chmod g+w fichier : ajouter l’écriture au groupe
+
+chgrp etudiants fichier : changer le groupe
+
+umask : voir le masque par défaut
+
+sur un dossier :
+
+r = voir la liste
+
+w = modifier le contenu
+
+x = entrer/traverser
+
+Si tu veux, je peux aussi te faire une fiche ultra simple des permissions Linux avec tableau rwx ↔ nombres octaux.

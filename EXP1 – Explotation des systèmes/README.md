@@ -2679,3 +2679,667 @@ nano # ne marche plus
 /usr/bin/nano # marche
 
 ```
+
+### TD7 - Permissions et groupes:
+
+<b>Exercice 1 — voir le propriétaire des fichiers du dossier personnel:</b>
+
+```
+ls -l
+
+```
+
+Explication:
+
+- " ls " liste les fichiers.
+
+- " -l " affiche la version détaillée.
+
+- Une des colonnes indique le propriétaire du fichier.
+
+Exemple :
+
+```
+-rw-r--r-- 1 g12345 users 120 Sep 10 10:00 welcome
+
+```
+
+Ici :
+
+propriétaire = g12345.
+
+groupe = users 2. Groupes d’utilisateurs
+
+---
+
+<b>Exercice 2 — voir les groupes:</b>
+
+Vos groupes
+
+```
+groups
+
+```
+
+Groupes d’un autre utilisateur
+
+```
+groups mcd
+
+```
+
+Explication:
+
+- groups affiche les groupes d’un utilisateur.
+
+- le premier groupe est le groupe principal.
+
+Réponses à donner.
+
+Les groupes auxquels vous appartenez : avec groups.
+
+Votre groupe principal : le premier affiché.
+
+Les groupes du professeur : avec groups loginProf.
+
+Groupe en commun : souvent users.
+
+Groupe commun avec les autres étudiants : souvent etudiants 3.
+
+Groupe d’un fichier
+
+<b>Exercice 3 — voir le groupe de vos fichiers:</b>
+
+```
+ls -l
+
+```
+
+Explication:
+
+- Dans l’affichage détaillé :
+
+- une colonne = propriétaire.
+
+- la colonne suivante = groupe 4. Vérifier les droits sur nano
+
+<b>Exercice 4:</b>
+
+Trouver où est nano :
+
+```
+which nano
+
+```
+
+Puis regarder ses permissions :
+
+```
+ls -l /usr/bin/nano
+
+```
+
+Explication:
+
+which nano donne le chemin complet de l’exécutable.
+
+ls -l montre les permissions.
+
+Réponse attendue:
+
+    Oui, nano doit être exécutable par vous, sinon vous ne pourriez pas le lancer.
+
+    Non, vous ne pouvez normalement pas le modifier, car ce fichier appartient à
+
+    l’administrateur. 5. Permissions en octal
+
+<b>Exercice 5 — valeur de rwx:</b>
+
+```
+r = 4
+w = 2
+x = 1
+
+```
+
+Donc :
+
+```
+rwx = 4 + 2 + 1 = 7
+
+```
+
+<b>Exercice 6 — valeur de r-x:</b>
+
+```
+r-x = 4 + 0 + 1 = 5
+
+```
+
+<b>Exercice 7 — à quoi correspond 3:</b>
+
+```
+3 = -wx
+
+```
+
+car :
+
+pas lecture = 0
+
+écriture = 2
+
+exécution = 1 6. Changer les permissions avec des nombres
+
+<b>Exercice 9:</b>
+
+Créer un fichier vide
+
+```
+touch test.txt
+
+```
+
+Voir ses permissions
+
+```
+ls -l test.txt
+
+```
+
+Mettre :
+
+propriétaire = lecture seule = 4
+
+groupe = lecture + écriture = 6
+
+autres = lecture seule = 4
+
+```
+chmod 464 test.txt
+
+```
+
+Vérifier
+
+```
+ls -l test.txt
+
+```
+
+Explication:
+
+touch crée un fichier vide.
+
+chmod modifie les permissions.
+
+464 signifie :
+
+```
+user = 4 = r--
+
+group = 6 = rw-
+
+others = 4 = r--
+
+```
+
+<b>Exercice 10 — fichier modifiable par tout le monde mais lisible seulement par vous:</b>
+
+Créer le fichier :
+
+```
+echo "petit texte" > brol
+
+```
+
+Mettre les droits :
+
+```
+chmod 622 brol
+
+```
+
+Explication:
+
+propriétaire = 6 = lecture + écriture
+
+groupe = 2 = écriture seule
+
+autres = 2 = écriture seule
+
+Remarque:
+
+C’est une situation un peu étrange en pratique : les autres peuvent modifier sans lire.
+
+Changer les permissions avec des lettres.
+
+<b>Exercice 11 — donner l’écriture au groupe:</b>
+
+```
+chmod g+w test.txt
+
+```
+
+Explication:
+
+```
+g = groupe
+
+```
+
+= ajouter
+
+w = écriture
+
+<b>Exercice 12 — aucun droit pour les autres:</b>
+
+```
+chmod o= test.txt
+
+```
+
+Explication:
+
+- " o "= others
+
+- " = = " imposer exactement
+
+- rien après = = aucun droit
+
+Changer le groupe d’un fichier.
+
+<b>Exercice 13</b>
+
+Voir le groupe des fichiers.
+
+```
+   ls -l
+
+```
+
+Créer un fichier test:
+
+```
+touch fichier-test
+
+```
+
+Changer son groupe:
+
+```
+chgrp etudiants fichier-test
+
+```
+
+Vérifier:
+
+```
+ls -l fichier-test
+
+```
+
+Explication:
+
+- chgrp change le groupe du fichier.
+
+- Vous pouvez seulement mettre un groupe dont vous êtes membre.
+
+Réponse:
+
+- Vous pouvez mettre ce fichier dans vos groupes, par exemple users ou etudiants.
+- Vous ne pouvez pas le mettre dans enseignants si vous n’êtes pas membre de ce groupe.
+
+Fichier lisible/modifiable par les étudiants, inaccessible aux enseignants.
+
+Expérience 1:
+
+Créer le fichier :
+
+```
+touch examen
+
+```
+
+Changer le groupe :
+
+```
+chgrp etudiants examen
+
+```
+
+Mettre les droits :
+
+```
+chmod 660 examen
+
+```
+
+Explication:
+
+- propriétaire = rw-
+
+- groupe etudiants = rw-
+
+- autres = ---
+
+Ainsi :
+
+vous + étudiants : lecture/écriture
+
+enseignants : aucun droit
+
+<b>Exercice 14 — fichier gossip:</b>
+
+Créer le fichier :
+
+```
+touch gossip
+
+```
+
+Changer le groupe :
+
+```
+chgrp etudiants gossip
+
+```
+
+Donner les droits :
+
+```
+chmod 660 gossip
+
+```
+
+Explication:
+
+Même logique que pour examen.
+
+Permissions sur les dossiers.
+
+<b>Exercice 15 — voir les noms des fichiers, sans lire leur contenu:</b>
+
+Créer le dossier et le fichier :
+
+```
+mkdir dir1
+
+echo "secret" > dir1/file
+
+```
+
+Mettre les droits :
+
+```
+chmod 711 dir1
+
+chmod 000 dir1/file
+
+```
+
+Explication:
+
+Pour le dossier :
+
+```
+r permet de lister son contenu
+
+x permet d’entrer/traverser
+
+```
+
+Une solution plus simple pour “tout le monde voit les noms mais pas le contenu du fichier” :
+
+```
+chmod 755 dir1
+chmod 000 dir1/file
+
+```
+
+Ainsi :
+
+- on peut faire ls dir1
+
+- on ne peut pas lire dir1/file
+
+<b>Exercice 16 — fichier modifiable mais non supprimable:</b>
+
+Créer :
+
+```
+mkdir dir2
+
+echo "texte" > dir2/file
+
+```
+
+Donner au fichier :
+
+```
+chmod 666 dir2/file
+
+```
+
+Empêcher la suppression via le dossier :
+
+```
+chmod 555 dir2
+
+```
+
+Explication:
+
+- supprimer un fichier dépend des droits sur le dossier, pas sur le fichier.
+
+- 555 sur le dossier = lecture/traversée, mais pas écriture
+
+- donc on peut modifier le fichier s’il a w, mais pas le supprimer 11. Umask
+
+<b>Exercice 17 — umask par défaut:</b>
+
+Voir le umask :
+
+```
+umask
+
+```
+
+Explication:
+
+Exemple fréquent : 022
+
+Alors :
+
+```
+fichier : base 666 → 644
+dossier : base 777 → 755
+
+```
+
+Vérifier :
+
+```
+touch f1
+
+mkdir d1
+
+ls -l
+
+```
+
+<b>Exercice 18 — changer le umask:</b>
+
+```
+umask 027
+
+```
+
+Permissions attendues
+
+```
+fichier : 666 - 027 = 640
+
+dossier : 777 - 027 = 750
+
+```
+
+Vérifier :
+
+```
+touch f2
+
+mkdir d2
+
+```
+
+ls -l 12. Exercice récapitulatif
+
+<b>Exercice 19.1 — créer td7 avec un fichier et un dossier:</b>
+
+```
+mkdir td7
+
+touch td7/fichier
+
+mkdir td7/dossier
+
+```
+
+<b>Exercice 19.2 — afficher le contenu détaillé:</b>
+
+```
+ls -l td7
+
+```
+
+Explication des colonnes.
+
+Exemple :
+
+```
+-rw-r--r-- 1 g12345 users 0 Sep 10 10:00 fichier
+
+```
+
+1er caractère : type (- fichier, d dossier).
+
+ensuite : permissions
+
+puis : nombre de liens
+
+```
+propriétaire
+
+groupe
+
+taille
+
+date
+
+nom
+
+```
+
+Valeurs octales typiques:
+
+- fichier créé par défaut : souvent 644
+
+- dossier créé par défaut : souvent 755
+
+<b>Exercice 19.3 — droits correspondants:</b>
+
+- 451
+
+  propriétaire : 4 = r--
+
+  groupe : 5 = r-x
+
+  autres : 1 = --x
+
+- 742
+
+  propriétaire : 7 = rwx
+
+  groupe : 4 = r--
+
+  autres : 2 = -w-
+
+- 254
+
+  propriétaire : 2 = -w-
+
+  groupe : 5 = r-x
+
+  autres : 4 = r--
+
+- 650
+
+  propriétaire : 6 = rw-
+
+  groupe : 5 = r-x
+
+  autres : 0 = ---
+
+<b>Exercice 19.4 — fichier :</b>
+
+- propriétaire peut lire et modifier
+
+- groupe peut lire
+
+- autres peuvent exécuter
+
+Droits
+
+```
+propriétaire = rw- = 6
+
+groupe = r-- = 4
+
+autres = --x = 1
+
+```
+
+Donc :
+
+641
+
+<b>Exercice 19.5 — dossier :</b>
+
+- propriétaire peut lister, créer/supprimer, traverser
+
+- groupe peut lister uniquement
+
+- autres peuvent traverser uniquement
+
+Attention.
+
+Pour un dossier :
+
+- lister = r
+
+- traverser = x
+
+- créer/supprimer = w et en pratique aussi x
+
+Donc :
+
+```
+propriétaire = rwx = 7
+
+groupe = r-- = 4
+
+autres = --x = 1
+
+```
+
+Donc :
+
+```
+741
+
+```
+
+Remarque:
+
+En pratique, “lister uniquement” sur un dossier sans x est très limité : on peut voir les noms dans certains cas, mais on ne peut pas vraiment entrer ou utiliser les éléments.
