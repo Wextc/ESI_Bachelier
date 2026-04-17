@@ -3343,3 +3343,717 @@ Donc :
 Remarque:
 
 En pratique, “lister uniquement” sur un dossier sans x est très limité : on peut voir les noms dans certains cas, mais on ne peut pas vraiment entrer ou utiliser les éléments.
+
+### TD 8 – Administration et scripts:
+
+<b>Expérience 1 — tester tree:</b>
+
+```
+tree
+
+```
+
+Explication:
+
+- tree affiche l’arborescence d’un dossier.
+
+- Si la commande n’est pas installée, Linux affiche une erreur du type command not found.
+
+---
+
+<b>Expérience 2 — installer tree:</b>
+
+Mettre à jour la liste des paquets
+
+```
+   sudo apt update
+
+```
+
+Explication:
+
+- sudo exécute la commande avec les droits administrateur.
+
+- apt update met à jour la liste des logiciels disponibles.
+
+Installer tree:
+
+```
+sudo apt install tree
+
+```
+
+Explication:
+
+- apt install installe un logiciel.
+
+- ici, on installe la commande tree.
+
+Tester:
+
+```
+tree
+
+```
+
+---
+
+<b>Exercice 1 — voir ses groupes:</b>
+
+```
+groups
+
+```
+
+Explication:
+
+affiche les groupes auxquels appartient l’utilisateur courant.
+
+sur Ubuntu, pour utiliser sudo, il faut généralement être dans le groupe sudo.
+
+---
+
+Exercice 2 — afficher /etc/shadow
+
+sudo cat /etc/shadow
+
+Explication:
+
+- cat affiche le contenu d’un fichier.
+
+- /etc/shadow est protégé.
+
+- sans sudo, accès refusé.
+
+- avec sudo, on peut le lire si on a le droit d’utiliser sudo. 5. Lien entre Linux et Windows dans WSL
+
+---
+
+<b>Expérience 3:</b>
+
+Voir le disque C:
+
+```
+ls /mnt/c
+
+```
+
+Explication:
+
+- /mnt/c correspond au disque C: de Windows vu depuis Linux.
+
+- Créer un fichier dans Windows depuis Linux
+
+- touch /mnt/c/Users/VotreLogin/test-wsl.txt
+
+Explication:
+
+- touch crée un fichier vide.
+
+- le fichier sera visible ensuite dans l’explorateur Windows.
+
+- Inversement
+
+- Créer un fichier sous Windows dans ton dossier personnel, puis vérifier depuis Linux :
+
+- ls /mnt/c/Users/VotreLogin 4. Monter et démonter une partition
+
+---
+
+<b>Expérience 4:</b>
+
+Vérifier qu’on n’est pas dans /mnt/c
+
+```
+pwd
+
+```
+
+Démonter C:
+
+```
+   sudo umount /mnt/c
+
+```
+
+Explication:
+
+- umount démonte une partition.
+
+- après cela, /mnt/c ne montre plus le disque C:.
+
+Vérifier:
+
+```
+ls /mnt/c
+
+```
+
+Créer un dossier et un fichier:
+
+```
+sudo mkdir /mnt/windows
+
+touch /mnt/windows/test.txt
+
+```
+
+Monter C: ailleurs
+
+sudo mount -t drvfs C: /mnt/windows
+
+Explication:
+
+- mount monte une partition.
+
+- -t drvfs indique le type utilisé par WSL pour accéder au disque Windows.
+
+- C: est monté sur /mnt/windows.
+
+Vérifier:
+
+```
+ls /mnt/windows
+
+```
+
+Le fichier test.txt n’est plus visible car le contenu de C: recouvre ce dossier.
+
+Démonter à nouveau
+
+```
+sudo umount /mnt/windows
+
+ls /mnt/windows
+
+```
+
+Le fichier test.txt réapparaît.
+
+Exécutables et scripts
+
+Expérience 5 — programme Python.
+
+Créer hello.py
+
+```
+nano hello.py
+
+```
+
+Mettre :
+
+print("Hello") 2. Voir les permissions
+
+ls -l hello.py 3. Lancer avec Python
+
+python3 hello.py
+
+Explication:
+
+- Ici, c’est python3 qui est l’exécutable.
+
+- hello.py est juste un fichier lu par Python.
+
+- Donc il n’a pas besoin du droit x.
+
+---
+
+<b>Expérience 6 — rendre hello.py exécutable:</b>
+
+Modifier le fichier:
+
+```
+nano hello.py
+
+```
+
+Ajouter comme première ligne :
+
+```
+#!/usr/bin/python3
+
+print("Hello") 2. Ajouter le droit d’exécution
+
+chmod u+x hello.py 3. Exécuter directement
+
+```
+
+./hello.py
+
+Explication:
+
+#! s’appelle le shebang.
+
+il indique quel programme doit exécuter le fichier.
+
+./hello.py lance le script du dossier courant. 6. Votre premier script bash
+
+Exercice 3
+
+Créer script.sh
+
+```
+   nano script.sh
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+```
+
+echo "Bonjour" 2. L’exécuter avec source
+
+```
+source script.sh
+
+```
+
+Explication:
+
+source exécute le contenu du fichier dans le shell courant. 3.
+
+Le rendre exécutable:
+
+```
+chmod u+x script.sh
+
+```
+
+./script.sh 4.
+
+Le placer dans bin et adapter PATH.
+
+Créer le dossier s’il n’existe pas :
+
+```
+mkdir -p ~/bin
+
+mv script.sh ~/bin/
+
+```
+
+Ajouter ~/bin au PATH :
+
+```
+export PATH="$HOME/bin:$PATH"
+
+```
+
+Tester :
+
+script.sh
+
+Pour rendre ça permanent.
+
+Ajouter dans ~/.bashrc :
+
+```
+export PATH="$HOME/bin:$PATH" 7. Script secret
+
+```
+
+---
+
+<b>Exercice 4 — créer un script secret:</b>
+
+Créer ~/bin/secret :
+
+```
+nano ~/bin/secret
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+touch journal
+
+chmod 600 journal
+
+```
+
+Puis :
+
+```
+chmod u+x ~/bin/secret
+
+```
+
+Explication:
+
+- touch journal crée le fichier journal.
+
+- chmod 600 journal :
+
+- propriétaire : lecture + écriture
+
+- autres : aucun droit 8. Paramètres d’un script
+
+---
+
+<b>Exercice 5 — secret nomFichier:</b>
+
+Modifier le script :
+
+```
+nano ~/bin/secret
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+touch "$1"
+
+chmod 600 "$1"
+
+```
+
+Explication:
+
+- $1 = premier paramètre reçu.
+
+- "$1" protège les noms contenant des espaces.
+
+Utilisation :
+
+```
+secret monfichier
+
+```
+
+---
+
+<b>Exercice 6 — afficher le nombre de paramètres:</b>
+
+Créer un script :
+
+```
+nano ~/bin/nbparams
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+echo $#
+
+```
+
+Puis :
+
+```
+
+chmod u+x ~/bin/nbparams
+
+```
+
+Explication:
+
+" $# " = nombre de paramètres reçus. 9. Alternatives if
+
+---
+
+<b>Exercice 7 — erreur si pas exactement 1 paramètre:</b>
+
+```
+nano ~/bin/secret
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+
+
+if [[$# -ne 1]]; then
+
+echo "Erreur : il faut exactement un paramètre."
+
+else
+
+touch "$1"
+
+chmod 600 "$1"
+
+fi
+
+```
+
+Explication:
+
+```
+[[$# -ne 1]] teste si le nombre de paramètres est différent de 1.
+
+-ne = not equal.
+
+```
+
+---
+
+<b>Exercice 8 — script est la:</b>
+
+Créer ~/bin/estla :
+
+```
+nano ~/bin/estla
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+
+
+if [[$# -ne 1]]; then
+
+echo "Erreur : il faut exactement un paramètre."
+
+else
+
+who | grep "^$1 "
+
+fi
+
+```
+
+Puis :
+
+```
+chmod u+x ~/bin/estla
+
+```
+
+Explication:
+
+- who affiche les utilisateurs connectés.
+
+- grep "^$1 " garde les lignes commençant par le login donné.
+
+Utilisation :
+
+estla g12345
+
+---
+
+<b>Exercice 9 — erreur si le fichier existe déjà:</b>
+
+Modifier secret :
+
+```
+nano ~/bin/secret
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+if [[$# -ne 1]]; then
+
+echo "Erreur : il faut exactement un paramètre."
+
+elif [[-e "$1"]]; then
+
+echo "Erreur : le fichier existe déjà."
+
+else
+
+touch "$1"
+
+chmod 600 "$1"
+
+fi
+
+```
+
+Explication:
+
+```
+
+-e "$1" teste si le fichier existe. 10. Tester le succès d’une commande
+
+```
+
+Exemple général :
+
+```
+if touch test.txt; then
+echo "Réussi"
+else
+echo "Échec"
+fi
+
+```
+
+Explication:
+
+- si la commande réussit, le code de retour vaut 0.
+
+- if teste ce succès. 11. Récupérer la sortie d’une commande
+
+Exemple :
+
+```
+moi=$(whoami)
+
+echo "Je suis $moi"
+
+```
+
+Explication:
+
+- " $(...) "récupère la sortie d’une commande.
+
+- ici, whoami donne le nom de l’utilisateur. 12. Script : vérifier qu’un fichier contient au moins n mots
+
+<b>Exercice 10:</b>
+
+Créer un script :
+
+```
+nano ~/bin/complet
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+FICHIER=$1
+N=$2
+
+NBMOTS=$(wc -w < "$FICHIER")
+
+if [[$NBMOTS -ge $N]]; then
+echo "Le fichier $FICHIER est complet"
+fi
+
+```
+
+Puis :
+
+```
+chmod u+x ~/bin/complet
+
+```
+
+Explication:
+
+- wc -w compte les mots.
+
+- < "$FICHIER" redirige le fichier vers wc.
+
+- NBMOTS=$(...) stocke le résultat.
+
+- -ge = greater or equal.
+
+Utilisation :
+
+complet texte.txt 100 13. Exercice récapitulatif — archivage d’un dossier
+
+<b>Exercice 11:</b>
+
+Créer le dossier des archives :
+
+```
+mkdir -p ~/archive
+
+```
+
+Créer le script :
+
+```
+nano ~/bin/archiver
+
+```
+
+Contenu :
+
+```
+#!/bin/bash
+
+if [[$# -ne 1]]; then
+
+echo "Erreur : il faut exactement un paramètre."
+
+exit 1
+
+fi
+
+DOSSIER=$1
+
+if [[! -d "$DOSSIER"]]; then
+
+echo "Erreur : $DOSSIER n'est pas un dossier du répertoire courant."
+
+exit 2
+
+fi
+
+
+DATE=$(date +"%F@%T")
+
+ARCHIVE="$HOME/archive/${DOSSIER}-${DATE}.tgz"
+
+if tar -czf "$ARCHIVE" "$DOSSIER"; then
+
+TAILLE=$(wc -c < "$ARCHIVE")
+
+echo "Archive créée : $ARCHIVE"
+
+echo "Taille : $TAILLE octets"
+
+else
+
+echo "Erreur pendant la création de l'archive."
+
+exit 3
+
+fi
+
+```
+
+Puis :
+
+```
+chmod u+x ~/bin/archiver
+
+```
+
+Explication:
+
+- if [[$# -ne 1]] : vérifie le nombre de paramètres.
+
+- [[! -d "$DOSSIER"]] : vérifie que c’est bien un dossier.
+
+- date +"%F@%T" : date/heure au bon format.
+
+- tar -czf : crée une archive compressée.
+
+- wc -c : taille en octets.
+
+- exit 1, exit 2, exit 3 : codes d’erreur.
+
+Utilisation :
+
+```
+archiver exp1
+
+```

@@ -248,7 +248,7 @@ PATH → où chercher les commandes
 
 which → chemin d’une commande
 
-### TD07 Permissions et groupes
+### TD07 - Permissions et groupes
 
 ls -l : voir propriétaire, groupe, permissions
 
@@ -270,4 +270,26 @@ w = modifier le contenu
 
 x = entrer/traverser
 
-Si tu veux, je peux aussi te faire une fiche ultra simple des permissions Linux avec tableau rwx ↔ nombres octaux.
+### TD08 - Administration et scripts
+
+sudo : exécuter comme administrateur
+
+apt update : mettre à jour la liste des paquets
+
+apt install : installer un logiciel
+
+mount / umount : monter / démonter une partition
+
+chmod : changer les permissions
+
+source : exécuter un script dans le shell courant
+
+export PATH=... : modifier le chemin des exécutables
+
+$1, $2, $# : paramètres d’un script
+
+if ... then ... else ... fi : condition
+
+$(commande) : récupérer la sortie d’une commande
+
+tar -czf : créer une archive compressée
