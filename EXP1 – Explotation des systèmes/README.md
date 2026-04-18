@@ -115,6 +115,8 @@ my-documents/videos/work
 
 ```
 
+---
+
 <b>Remarque:</b>
 
 Avec la commande tree (le plus clair)
@@ -764,6 +766,8 @@ rename
 
 Compter lignes, mots et octets avec wc.
 
+---
+
 <b>Voir lignes + mots + octets:</b>
 
 ```
@@ -998,6 +1002,8 @@ Explication:
 
 - "-n 5" → 5 dernières lignes
 
+---
+
 <b>Afficher toutes sauf la première:</b>
 
 ```
@@ -1039,6 +1045,8 @@ Explication:
 
 - donc affiche tout sauf la dernière
 
+---
+
 <b>Afficher les 5 dernières lignes:</b>
 
 ```
@@ -1051,6 +1059,8 @@ Explication:
 - "tail" → affiche la fin du fichier
 
 - "-n 5" → les 5 dernières lignes
+
+---
 
 <b>Afficher toutes les lignes sauf la première:</b>
 
@@ -1121,6 +1131,8 @@ Explication:
 
 - "-r" → inverse l’ordre (Z → A)
 
+---
+
 <b>Trier sans doublons:</b>
 
 ```
@@ -1131,6 +1143,8 @@ sort -u unordered.txt
 Explication:
 
 - "-u" → supprime les doublons après tri
+
+---
 
 <b>Extraire des caractères avec cut:</b>
 
@@ -1211,6 +1225,8 @@ Explication:
 
 - "-e 'jk'" → lignes contenant "jk"
 
+---
+
 <b>Chercher dans plusieurs fichiers (quote)</b>:
 
 ```
@@ -1231,6 +1247,8 @@ quote1.txt:It is good
 quote2.txt:Try it now
 
 ```
+
+---
 
 <b>Chercher plusieurs mots (jk OU in):</b>
 
@@ -1740,6 +1758,8 @@ Ctrl + X → quitter
 
 ```
 
+---
+
 <b>Afficher l’énumération ligne par ligne avec tr:</b>
 
 ```
@@ -1817,6 +1837,8 @@ sort accepte :
 - fichier en argument
 
 - OU entrée standard
+
+---
 
 <b>Pourquoi la redirection est importante ?</b>
 
@@ -2057,6 +2079,8 @@ cut -f 1 → extrait le nom
 
 Résultat : noms des 3 plus grosses planètes.
 
+---
+
 <b>Nouvelle notion : les pipes |</b>
 
 Exemple général :
@@ -2166,6 +2190,8 @@ Explication:
 
 - sort final → tri alphabétique
 
+---
+
 <b>Nom des 3 plus grosses planètes:</b>
 
 ```
@@ -2198,6 +2224,8 @@ grep -i error → lignes contenant "error"
 wc -l → compte les lignes
 
 ```
+
+---
 
 <b>Lignes les plus fréquentes (sans date):</b>
 
@@ -2293,6 +2321,8 @@ Très utile pour :
 - déboguer
 
 - sauvegarder des résultats intermédiaires
+
+---
 
 <b>Que fait ce code ?</b>
 
@@ -2421,6 +2451,8 @@ Explication:
 
 - chemin relatif → pas de / au début
 
+---
+
 <b>Exercice 4 — lister tous les dossiers personnels:</b>
 
 Chemin absolu :
@@ -2436,6 +2468,8 @@ Chemin relatif :
 ls ../
 
 ```
+
+---
 
 <b>Exercice 5 — jokers:</b>
 
@@ -2460,6 +2494,8 @@ Explication:
 - → plusieurs caractères
 
 - Raccourcis de chemin
+
+---
 
 <b> Exercice 6: </b>
 
@@ -2544,6 +2580,8 @@ ls ~mcd
 
 ```
 
+---
+
 <b>Exercice 11:</b>
 
 - " ~foo" → home de foo
@@ -2551,6 +2589,8 @@ ls ~mcd
 - "~/foo" → dossier foo dans ta home
 
 Changer mot de passe.
+
+---
 
 <b>Exercice 12:</b>
 
@@ -2561,12 +2601,16 @@ passwd
 
 Manuel
 
+---
+
 <b>Exercice 13:</b>
 
 ```
 man nano
 
 ```
+
+---
 
 <b>Exercice 14</b>
 
@@ -2575,6 +2619,8 @@ Oui :
 - aucun dossier → optionnel
 
 - plusieurs dossiers → possible (...)
+
+---
 
 <b>Exercice 15:</b>
 
@@ -2601,6 +2647,8 @@ echo $VAR
 
 ```
 
+---
+
 <b>Exercice 17:</b>
 
 Commande Résultat.
@@ -2623,12 +2671,16 @@ VAR=VAR valeur = "VAR"
 
 Prompt
 
+---
+
 <b>Exercice 18:</b>
 
 ```
 PS1="Bonjour ! "
 
 ```
+
+---
 
 <b>Exercice 19</b>
 
@@ -2646,6 +2698,8 @@ PATH
 
 ```
 
+---
+
 <b>Exercice 20:</b>
 
 ```
@@ -2653,12 +2707,16 @@ echo $PATH
 
 ```
 
+---
+
 <b>Exercice 21 (avec tr):</b>
 
 ```
 echo $PATH | tr ':' '\n'
 
 ```
+
+---
 
 <b>Exercice 22</b>
 
@@ -2748,6 +2806,8 @@ Groupe commun avec les autres étudiants : souvent etudiants 3.
 
 Groupe d’un fichier
 
+---
+
 <b>Exercice 3 — voir le groupe de vos fichiers:</b>
 
 ```
@@ -2762,6 +2822,8 @@ Explication:
 - une colonne = propriétaire.
 
 - la colonne suivante = groupe 4. Vérifier les droits sur nano
+
+---
 
 <b>Exercice 4:</b>
 
@@ -2793,6 +2855,8 @@ Réponse attendue:
 
     l’administrateur. 5. Permissions en octal
 
+---
+
 <b>Exercice 5 — valeur de rwx:</b>
 
 ```
@@ -2809,12 +2873,16 @@ rwx = 4 + 2 + 1 = 7
 
 ```
 
+---
+
 <b>Exercice 6 — valeur de r-x:</b>
 
 ```
 r-x = 4 + 0 + 1 = 5
 
 ```
+
+---
 
 <b>Exercice 7 — à quoi correspond 3:</b>
 
@@ -2830,6 +2898,8 @@ pas lecture = 0
 écriture = 2
 
 exécution = 1 6. Changer les permissions avec des nombres
+
+---
 
 <b>Exercice 9:</b>
 
@@ -2884,6 +2954,8 @@ others = 4 = r--
 
 ```
 
+---
+
 <b>Exercice 10 — fichier modifiable par tout le monde mais lisible seulement par vous:</b>
 
 Créer le fichier :
@@ -2914,6 +2986,8 @@ C’est une situation un peu étrange en pratique : les autres peuvent modifier 
 
 Changer les permissions avec des lettres.
 
+---
+
 <b>Exercice 11 — donner l’écriture au groupe:</b>
 
 ```
@@ -2932,6 +3006,8 @@ g = groupe
 
 w = écriture
 
+---
+
 <b>Exercice 12 — aucun droit pour les autres:</b>
 
 ```
@@ -2948,6 +3024,8 @@ Explication:
 - rien après = = aucun droit
 
 Changer le groupe d’un fichier.
+
+---
 
 <b>Exercice 13</b>
 
@@ -3029,6 +3107,8 @@ vous + étudiants : lecture/écriture
 
 enseignants : aucun droit
 
+---
+
 <b>Exercice 14 — fichier gossip:</b>
 
 Créer le fichier :
@@ -3057,6 +3137,8 @@ Explication:
 Même logique que pour examen.
 
 Permissions sur les dossiers.
+
+---
 
 <b>Exercice 15 — voir les noms des fichiers, sans lire leur contenu:</b>
 
@@ -3103,6 +3185,8 @@ Ainsi :
 
 - on ne peut pas lire dir1/file
 
+---
+
 <b>Exercice 16 — fichier modifiable mais non supprimable:</b>
 
 Créer :
@@ -3136,6 +3220,8 @@ Explication:
 
 - donc on peut modifier le fichier s’il a w, mais pas le supprimer 11. Umask
 
+---
+
 <b>Exercice 17 — umask par défaut:</b>
 
 Voir le umask :
@@ -3167,6 +3253,8 @@ mkdir d1
 ls -l
 
 ```
+
+---
 
 <b>Exercice 18 — changer le umask:</b>
 
@@ -3205,6 +3293,8 @@ touch td7/fichier
 mkdir td7/dossier
 
 ```
+
+---
 
 <b>Exercice 19.2 — afficher le contenu détaillé:</b>
 
@@ -3247,6 +3337,8 @@ Valeurs octales typiques:
 
 - dossier créé par défaut : souvent 755
 
+---
+
 <b>Exercice 19.3 — droits correspondants:</b>
 
 - 451
@@ -3281,6 +3373,8 @@ Valeurs octales typiques:
 
   autres : 0 = ---
 
+---
+
 <b>Exercice 19.4 — fichier :</b>
 
 - propriétaire peut lire et modifier
@@ -3303,6 +3397,8 @@ autres = --x = 1
 Donc :
 
 641
+
+---
 
 <b>Exercice 19.5 — dossier :</b>
 
@@ -3922,6 +4018,8 @@ Explication:
 
 - ici, whoami donne le nom de l’utilisateur. 12. Script : vérifier qu’un fichier contient au moins n mots
 
+---
+
 <b>Exercice 10:</b>
 
 Créer un script :
@@ -3967,6 +4065,8 @@ Explication:
 Utilisation :
 
 complet texte.txt 100 13. Exercice récapitulatif — archivage d’un dossier
+
+---
 
 <b>Exercice 11:</b>
 
@@ -4060,6 +4160,8 @@ archiver exp1
 
 1. Stopper un processus
 
+---
+
 <b>Exercice 1 — lancer nl puis le suspendre:</b>
 
 ```
@@ -4085,6 +4187,8 @@ Explication:
 - [1]+ Stopped nl
 
 1 est le numéro du job.
+
+---
 
 <b>Exercice 2 — lancer Python puis le suspendre:</b>
 
@@ -4116,6 +4220,8 @@ Ctrl + Z le met en pause.
 ```
 
 Le numéro entre crochets augmente si tu as déjà suspendu d’autres jobs.
+
+---
 
 <b>Exercice 3 — lancer nano puis le suspendre:</b>
 
@@ -4152,6 +4258,8 @@ Explication:
 
 Afficher les processus du shell.
 
+---
+
 <b>Exercice 4 — afficher la liste des job.</b>
 
 jobs
@@ -4166,6 +4274,8 @@ exemple :
 
 - [2]+ Stopped python3
 
+---
+
 <b>Exercice 5 — dans une deuxième session Bash:</b>
 
 Dans un autre terminal, lance et suspends quelques commandes, puis :
@@ -4177,6 +4287,8 @@ Explication
 - chaque terminal a sa propre liste de jobs.
 
 - les numéros recommencent à partir de 1. 3. Reprendre un processus
+
+---
 
 <b>Exercice 6 — reprendre nano:</b>
 
@@ -4201,7 +4313,9 @@ Explication:
 
 - arrière-plan
 
-<b>Exercice 7:</>
+---
+
+<b>Exercice 7:</b>
 
 Lancer une commande longue
 
@@ -4235,6 +4349,8 @@ Explication:
 
 - on ne peut plus interagir avec lui au clavier
 
+---
+
 <b>Exercice 8 — lancer directement en arrière-plan:</b>
 
 ```
@@ -4247,6 +4363,8 @@ Explication:
 - & à la fin lance directement la commande en arrière-plan
 
 - Bash rend immédiatement la main 5. Tuer un processus
+
+---
 
 <b>Exercice 9 — lancer nano en arrière-plan puis le tuer:</b>
 
@@ -4279,6 +4397,8 @@ Explication:
 
 - toutes les modifications non sauvegardées sont perdues 6. Observer tous les processus avec top
 
+---
+
 <b>Exercice 10 — démarrer top:</b>
 
 ```
@@ -4295,6 +4415,8 @@ Explication
       q → quitter
 
       flèches → défiler 7. PID et jobs
+
+---
 
 <b>Exercice 11 — lancer un processus en arrière-plan et le tuer depuis un autre terminal</b>
 
@@ -4328,6 +4450,8 @@ Explication:
 
 - le PID permet d’agir depuis un autre terminal
 
+---
+
 <b>Exercice 12 — sort | uniq | nl puis suspendre:</b>
 
 ```
@@ -4354,6 +4478,8 @@ Explication:
 - une pipeline lance plusieurs processus
 
 - jobs -l affiche les jobs avec leurs PID
+
+---
 
 <b>Exercice 13 — tuer nano avec son PID trouvé dans top:</b>
 
@@ -4384,6 +4510,8 @@ Dans le premier terminal, nano se ferme brutalement.
 
 Pseudo-répertoire /proc
 
+---
+
 <b>Exercice 14 — voir le fichier status d’un processus:</b>
 
 Lance une application, par exemple :
@@ -4407,6 +4535,8 @@ Explication:
 - /proc est un pseudo-répertoire créé par Linux
 
 - /proc/<pid>/status contient des informations sur le processus
+
+---
 
 <b>Exercice 15 — observer les descripteurs de fichiers:</b>
 
@@ -4452,6 +4582,8 @@ Dans fd/ :
 
 Tu verras vers quoi pointent ces flux selon les redirections.
 
+---
+
 <b>Exercice 16 — pipeline sort | uniq | nl:</b>
 
 Lancer :
@@ -4480,6 +4612,8 @@ Réponse:
 Cela envoie hello dans l’entrée standard du processus nl.
 
 Signaux:
+
+---
 
 <b>Exercice 17 — boucle infinie Python</b>
 
@@ -4511,12 +4645,10 @@ Explication:
 - Même chose avec kill
 
 - Trouver le PID du Python, puis :
+  - kill -SIGINT PID
+    - ou :
 
-  kill -SIGINT PID
-
-      ou :
-
-  kill -2 PID
+  - kill -2 PID
 
 <b>Exercice 18 — Ctrl + C dans Python sans code lancé:</b>
 
@@ -4538,7 +4670,9 @@ Réponse:
 
 Non, Python ne quitte pas forcément ; il intercepte souvent SIGINT et rend simplement la main à l’invite Python.
 
-Maîtriser top
+Maîtriser top.
+
+---
 
 <b>Exercice 19 — ne garder que certaines colonnes:</b>
 
@@ -4565,6 +4699,8 @@ Explication:
 - f ouvre la gestion des colonnes
 
 - Space active/désactive un champ
+
+---
 
 <b>Exercice 20 — opérations dans top:</b>
 
@@ -4604,11 +4740,13 @@ Afficher les commandes complètes.
 
 Dans top :
 
-c 5. Mettre en évidence les processus en cours
+- c 5. Mettre en évidence les processus en cours.
 
-Selon la configuration de top, cela peut se voir via la colonne S ou certaines options visuelles.
+- Selon la configuration de top, cela peut se voir via la colonne S ou certaines options visuelles.
 
-Processus parent
+- Processus parent.
+
+---
 
 <b>Exercice 21 — ajouter la colonne PPID:</b>
 
@@ -4629,6 +4767,8 @@ q
 Explication:
 
 - PPID = PID du processus parent
+
+---
 
 <b>Exercice 22 — retrouver la chaîne des parents:</b>
 
