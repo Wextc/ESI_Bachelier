@@ -286,10 +286,39 @@ source : exécuter un script dans le shell courant
 
 export PATH=... : modifier le chemin des exécutables
 
+```
 $1, $2, $# : paramètres d’un script
 
 if ... then ... else ... fi : condition
 
+
 $(commande) : récupérer la sortie d’une commande
 
 tar -czf : créer une archive compressée
+
+
+```
+
+### TD08 - Administration et scripts:
+
+Ctrl + Z → suspendre un processus
+
+jobs → voir les jobs du shell
+
+jobs -l → voir jobs + PID
+
+fg %n → reprendre au premier plan
+
+bg %n → reprendre en arrière-plan
+
+commande & → lancer directement en arrière-plan
+
+kill -SIGKILL PID → tuer un processus
+
+top → voir tous les processus
+
+/proc/PID/status → infos sur un processus
+
+/proc/PID/fd → fichiers/descripteurs ouverts
+
+Si tu veux, je peux aussi te faire une fiche ultra simple “jobs / fg / bg / kill / top”.

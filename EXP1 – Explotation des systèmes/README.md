@@ -4057,3 +4057,607 @@ Utilisation :
 archiver exp1
 
 ```
+
+1. Stopper un processus
+
+<b>Exercice 1 — lancer nl puis le suspendre:</b>
+
+```
+nl
+
+```
+
+Tape quelques lignes, puis :
+
+```
+Ctrl + Z
+
+```
+
+Explication:
+
+- nl attend du texte au clavier.
+
+- Ctrl + Z suspend le processus.
+
+- Bash affiche un message du type :
+
+- [1]+ Stopped nl
+
+1 est le numéro du job.
+
+<b>Exercice 2 — lancer Python puis le suspendre:</b>
+
+```
+python3
+
+```
+
+Tape par exemple :
+
+```
+2+2
+
+print("bonjour")
+
+```
+
+Puis :
+
+Ctrl + Z
+
+Explication:
+
+Python tourne dans le terminal.
+
+```
+Ctrl + Z le met en pause.
+
+```
+
+Le numéro entre crochets augmente si tu as déjà suspendu d’autres jobs.
+
+<b>Exercice 3 — lancer nano puis le suspendre:</b>
+
+```
+nano
+
+```
+
+Écris quelques lignes, puis suspends-le avec :
+
+```
+Ctrl + Z
+
+```
+
+ou selon la version :
+
+- Ctrl + T puis Ctrl + Z
+
+- Vérifier la version de nano
+
+```
+nano --version
+
+```
+
+Explication:
+
+- selon la version, la suspension de nano fonctionne différemment.
+
+- si tu quittes Bash avec un job suspendu, Bash avertit que des jobs
+
+- existent encore.
+
+Afficher les processus du shell.
+
+<b>Exercice 4 — afficher la liste des job.</b>
+
+jobs
+
+Explication:
+
+jobs montre les processus lancés depuis ce terminal uniquement.
+
+exemple :
+
+- [1]- Stopped nl
+
+- [2]+ Stopped python3
+
+<b>Exercice 5 — dans une deuxième session Bash:</b>
+
+Dans un autre terminal, lance et suspends quelques commandes, puis :
+
+- jobs
+
+Explication
+
+- chaque terminal a sa propre liste de jobs.
+
+- les numéros recommencent à partir de 1. 3. Reprendre un processus
+
+<b>Exercice 6 — reprendre nano:</b>
+
+D’abord voir les jobs :
+
+- jobs
+
+Puis reprendre celui de nano, par exemple le job 3 :
+
+```
+fg %3
+
+```
+
+Explication:
+
+- fg = foreground
+
+- reprend un job suspendu au premier plan
+
+- on peut à nouveau interagir avec lui 4. Reprendre un processus en
+
+- arrière-plan
+
+<b>Exercice 7:</>
+
+Lancer une commande longue
+
+```
+find / -name "brol.txt" > found 2> errors
+
+```
+
+La suspendre:
+
+```
+Ctrl + Z
+
+```
+
+La relancer en arrière-plan.
+
+Si c’est le job 1 :
+
+bg %1 4.
+
+Vérifier l’état.
+
+jobs
+
+Explication:
+
+- bg = background
+
+- le processus continue sans bloquer le terminal
+
+- on ne peut plus interagir avec lui au clavier
+
+<b>Exercice 8 — lancer directement en arrière-plan:</b>
+
+```
+find / -name "brol.txt" > found 2> errors &
+
+```
+
+Explication:
+
+- & à la fin lance directement la commande en arrière-plan
+
+- Bash rend immédiatement la main 5. Tuer un processus
+
+<b>Exercice 9 — lancer nano en arrière-plan puis le tuer:</b>
+
+Lancer :
+
+```
+nano &
+
+```
+
+Voir les jobs :
+
+```
+jobs
+
+```
+
+Tuer le job 1 :
+
+```
+kill -SIGKILL %1
+
+```
+
+Explication:
+
+- kill envoie un signal à un processus
+
+- SIGKILL termine brutalement
+
+- toutes les modifications non sauvegardées sont perdues 6. Observer tous les processus avec top
+
+<b>Exercice 10 — démarrer top:</b>
+
+```
+top
+
+```
+
+Explication
+
+- top affiche tous les processus du système
+
+- touches utiles :
+
+      q → quitter
+
+      flèches → défiler 7. PID et jobs
+
+<b>Exercice 11 — lancer un processus en arrière-plan et le tuer depuis un autre terminal</b>
+
+Dans terminal 1 :
+
+```
+nano &
+
+jobs -l
+
+```
+
+Exemple de sortie :
+
+- [1]+ 3456 Running nano &
+
+- 3456 = PID
+
+Dans terminal 2 :
+
+```
+kill -SIGKILL 3456
+
+```
+
+Explication:
+
+- %1 = numéro de job
+
+- 3456 = PID, unique dans tout le système
+
+- le PID permet d’agir depuis un autre terminal
+
+<b>Exercice 12 — sort | uniq | nl puis suspendre:</b>
+
+```
+sort | uniq | nl
+
+```
+
+Tape quelques lignes puis :
+
+```
+Ctrl + Z
+
+```
+
+Ensuite :
+
+```
+jobs -l
+
+```
+
+Explication:
+
+- une pipeline lance plusieurs processus
+
+- jobs -l affiche les jobs avec leurs PID
+
+<b>Exercice 13 — tuer nano avec son PID trouvé dans top:</b>
+
+Dans terminal 1 :
+
+```
+nano
+
+```
+
+Dans terminal 2 :
+
+```
+top
+
+```
+
+Repère le PID de nano, puis :
+
+```
+kill -SIGKILL PID
+
+```
+
+Réponse attendue.
+
+Dans le premier terminal, nano se ferme brutalement.
+
+Pseudo-répertoire /proc
+
+<b>Exercice 14 — voir le fichier status d’un processus:</b>
+
+Lance une application, par exemple :
+
+```
+nano &
+
+jobs -l
+
+```
+
+Prends son PID, par exemple 3456, puis :
+
+```
+cat /proc/3456/status
+
+```
+
+Explication:
+
+- /proc est un pseudo-répertoire créé par Linux
+
+- /proc/<pid>/status contient des informations sur le processus
+
+<b>Exercice 15 — observer les descripteurs de fichiers:</b>
+
+```
+nl
+nl
+
+```
+
+Dans un autre terminal, trouve son PID avec top ou jobs -l, puis :
+
+```
+ls -l /proc/PID/fd 2. nl > output.txt
+
+nl > output.txt
+```
+
+Puis :
+
+```
+ls -l /proc/PID/fd 3. nl 2> error.log
+
+nl 2> error.log
+
+```
+
+Puis :
+
+```
+ls -l /proc/PID/fd
+```
+
+Explication:
+
+Dans fd/ :
+
+```
+0 = entrée standard
+1 = sortie standard
+2 = sortie d’erreur
+
+```
+
+Tu verras vers quoi pointent ces flux selon les redirections.
+
+<b>Exercice 16 — pipeline sort | uniq | nl:</b>
+
+Lancer :
+
+```
+sort | uniq | nl
+
+```
+
+Trouver les trois PID, puis pour chacun :
+
+```
+ls -l /proc/PID/fd
+
+```
+
+Question 2:
+
+```
+echo 'hello' > /proc/<nl-pid>/fd/0
+
+```
+
+Réponse:
+
+Cela envoie hello dans l’entrée standard du processus nl.
+
+Signaux:
+
+<b>Exercice 17 — boucle infinie Python</b>
+
+Lancer :
+
+```
+python3
+
+```
+
+Puis :
+
+```
+while True: print("oups")
+
+```
+
+Arrêter avec :
+
+```
+Ctrl + C
+
+```
+
+Explication:
+
+- Ctrl + C envoie le signal SIGINT
+
+- Même chose avec kill
+
+- Trouver le PID du Python, puis :
+
+  kill -SIGINT PID
+
+      ou :
+
+  kill -2 PID
+
+<b>Exercice 18 — Ctrl + C dans Python sans code lancé:</b>
+
+Lancer :
+
+```
+python3
+
+```
+
+Puis faire :
+
+```
+Ctrl + C
+
+```
+
+Réponse:
+
+Non, Python ne quitte pas forcément ; il intercepte souvent SIGINT et rend simplement la main à l’invite Python.
+
+Maîtriser top
+
+<b>Exercice 19 — ne garder que certaines colonnes:</b>
+
+Dans top :
+
+appuie sur f
+
+garde seulement :
+
+```
+PID
+USER
+S
+%CPU
+COM
+TTY
+
+```
+
+Appuie sur q pour revenir.
+
+Explication:
+
+- f ouvre la gestion des colonnes
+
+- Space active/désactive un champ
+
+<b>Exercice 20 — opérations dans top:</b>
+
+Déplacer TTY à gauche:
+
+```
+f
+
+```
+
+- sélectionner TTY
+
+- touche pour déplacer
+
+- remonter jusqu’à gauche
+
+Trier par ordre croissant selon TTY
+
+- sélectionner TTY
+
+- s pour trier
+
+- R pour inverser l’ordre si nécessaire
+
+N’afficher que vos processus:
+
+Dans top :
+
+```
+u
+
+```
+
+Puis entrer votre login:
+
+Afficher les commandes complètes.
+
+Dans top :
+
+c 5. Mettre en évidence les processus en cours
+
+Selon la configuration de top, cela peut se voir via la colonne S ou certaines options visuelles.
+
+Processus parent
+
+<b>Exercice 21 — ajouter la colonne PPID:</b>
+
+Dans top :
+
+```
+f
+
+```
+
+activer PPID
+
+```
+q
+
+```
+
+Explication:
+
+- PPID = PID du processus parent
+
+<b>Exercice 22 — retrouver la chaîne des parents:</b>
+
+Lancer nano dans un terminal :
+
+```
+nano
+
+```
+
+Dans un autre terminal :
+
+```
+top
+
+```
+
+Repérer :
+
+- PID de nano
+
+- son PPID
+
+- puis chercher ce parent
+
+puis le parent du parent, etc.
+
+Explication:
+
+- chaque processus a un parent
+
+- cela forme un arbre de processus
