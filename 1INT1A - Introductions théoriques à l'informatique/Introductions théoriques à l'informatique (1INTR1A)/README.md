@@ -200,4 +200,4 @@ B
 
 ### Slide 7
 
-![Schéma de la base](<https://github.com/Wextc/ESI_Bachelier/blob/main/Math%C3%A9matiques%20I%20(Math%C3%A9matiques%20discr%C3%A8tes)/Chapitre_1/img/1P5.jpeg>)
+![Schéma de la base](<https://github.com/Wextc/ESI_Bachelier/blob/main/1INT1A%20-%20Introductions%20th%C3%A9oriques%20%C3%A0%20l'informatique/Introductions%20th%C3%A9oriques%20%C3%A0%20l'informatique%20(1INTR1A)/img/ch.2.1.png>)
