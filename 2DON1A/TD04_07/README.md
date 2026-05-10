@@ -100,7 +100,7 @@ desc Test
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/desc_test.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/desc_test.png)
 
 ---
 
@@ -113,7 +113,7 @@ SELECT * FROM Test;
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/contenu_test.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/contenu_test.png)
 
 ---
 
@@ -139,7 +139,7 @@ INSERT INTO Test (tid, tLib, tNb1,tNb2) VALUES (3,'Test',12,NULL);
 
 J ai un érreur. Si je mets une ligne avec le valeur NULL.
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/insert_test.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/insert_test.png)
 
 ---
 
@@ -154,7 +154,7 @@ INSERT INTO Test (tid, tLib, tNb1,tNb2) VALUES (1,'Test',100.3,3.4);
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/exercice6_td4.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/exercice6_td4.png)
 
 ---
 
@@ -219,14 +219,14 @@ SELECT * FROM TEST;
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/EX10_04.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/EX10_04.png)
 
 ```
 DESC Test;
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/EX10_04_2.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/EX10_04_2.png)
 
 ---
 
@@ -254,7 +254,7 @@ ALTER TABLE Test ADD CONSTRAINT pk_tid PRIMARY KEY (tid);
 
 Voici le message d'érreur.
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/EX11_04.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/EX11_04.png)
 
 Supréssion de répétition.
 
@@ -263,7 +263,7 @@ DELETE FROM Test WHERE tid=1;
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/EX11_P2_04.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/EX11_P2_04.png)
 
 ```
 ALTER TABLE Test ADD CONSTRAINT pk_tid PRIMARY KEY (tid);
@@ -272,7 +272,7 @@ ALTER TABLE Test ADD CONSTRAINT pk_tid PRIMARY KEY (tid);
 
 Après avoir rendu la table remplie d'élements uniques. Je peux la transformer en clé primaire.
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/EX11_P3_04.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/EX11_P3_04.png)
 
 ---
 
@@ -296,7 +296,7 @@ DROP TABLE Test;
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/EX13.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/EX13.png)
 
 ---
 
@@ -338,7 +338,7 @@ COMMENT ON COLUMN  client.nom IS 'nom de client';
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/EX_15.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/EX_15.png)
 
 Pour afficher les commentaires.
 
@@ -349,7 +349,7 @@ FROM user_col_comments
 
 ```
 
-![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_06/EX_15_PART2.png)
+![Schéma de la base](https://github.com/Wextc/ESI_Bachelier/blob/main/2DON1A/TD04_07/EX_15_PART2.png)
 
 ---
 
@@ -451,3 +451,12 @@ WHERE LOCALITE = 'Lille';
 Exercice 21:
 
 Supprimer les clients habitant Toulouse avec un compte négatif. Vérifier votre suppression.
+
+```
+DELETE FROM Client
+WHERE Compte < 0
+  AND LOCATIE = 'Toulouse';
+
+```
+
+## TD6 et TD7 – Clefs étrangères - Jointures

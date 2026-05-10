@@ -1,0 +1,23 @@
+/* Style du titre principal */
+h1 {
+  font-size: 4em;
+  color: red;
+  border: solid black;
+  background-color: lightyellow;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Style des sous-titres */
+h2 {
+  color: darkblue;
+  background-color: lightblue;
+  padding: 5px;
+  border-left: solid 5px blue;
+}
+
+/* Style des listes */
+ul {
+  color: gray;
+  font-size: 1.1em;
+}

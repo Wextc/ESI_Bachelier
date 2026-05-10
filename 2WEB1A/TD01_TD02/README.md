@@ -50,11 +50,53 @@ contextuel et choisissez Format Document .
 
 ## CSS
 
-Le langage CSS permet de spécifier le style (l’apparence) des différents éléments de la page.
+Le fichier servira à définir les règles de mise en forme de la page.
 
-Dans le fichier index.html, ajoutez la ligne suivante avant la balise fermante </head>. Elle incorpore le style défini juste avant.
+"link" permet de lier le fichier html au fichier css.
 
 ```
  <link rel="stylesheet" href="style.css">
+
+```
+
+Le html et le css ne permettent que d'afficher les pages.
+
+Pour le user interaction, il faut introduire Javascript.
+
+Le JS permet de déterminer aussi le comportement des pages.
+
+Nous pouvons utiliser un langage plus strict au niveau du typage des variables grâce à use strict.
+
+```
+"use strict";
+
+```
+
+C'est une bonne pratique de le mettre.
+
+<b>scripts:</b>
+
+La balise script permet de lier le fichier html au fichier js.
+
+L'attribut defer permet de lancer le fichier js après que la html ait entièrement chargé.
+
+```
+
+<script src="nom.js" defer></script>
+
+```
+
+<b>Console:</b>
+
+Cela montre que JavaScript peut changer de comportement selon le type de données (nombre ou texte), et qu’il est important de
+
+bien contrôler ces types pour obtenir le résultat attendu.
+
+```
+console.log("Hello, world!");
+
+  3+4 et => 7
+ "3"+"4" concaténation => "34"
+ Number("3")+Number("4") Transformation en int => 7.
 
 ```
