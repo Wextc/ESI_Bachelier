@@ -1516,17 +1516,25 @@ document
 
 <b>Un composant réutilisable:</b>
 
-Il est probable qu’on rencontrera d’autres situations où il sera utile d’avoir un bouton pour afficher ou cacher du texte. Il serait
+Un composant réutilisable est un morceau de code que l’on peut utiliser plusieurs fois sans devoir le réécrire à chaque fois.
 
-possible de copier-coller ou adapter le code écrit pour l’exercice précédent mais cette approche risque de prendre du temps et de générer
+Dans l’exercice précédent, on a créé un bouton pour afficher ou cacher un texte.
 
-de nombreuses erreurs avant d’obtenir une copie adaptée qui fonctionne correctement.
+Si on veut refaire la même chose ailleurs dans le site, on pourrait copier-coller le code. Mais cette méthode pose plusieurs problèmes :
 
-Le but de cet exercice est d’écrire un code qui sera facilement adaptable.
+    elle fait perdre du temps ;
 
-Pour le code HTML, on va supposer, en toute généralité qu’un texte qui peut se cacher a la
+    on risque de faire des erreurs ;
 
-structure suivante.
+    le code devient difficile à modifier et à maintenir.
+
+L’objectif ici est donc de créer un système plus pratique et plus flexible.
+
+On va écrire un code général qui pourra fonctionner pour plusieurs textes différents sans avoir besoin de tout réécrire.
+
+Pour cela, on considère que chaque texte à afficher ou cacher suit la même structure HTML. Ainsi, le composant pourra être réutilisé
+
+facilement partout dans la page.
 
 .html
 
@@ -1550,7 +1558,7 @@ Le contenu ici
 
 ```
 
-2. Écrivez dans un fichier showHide.js une fonction qui :
+<b>exercice: Écrivez dans un fichier showHide.js une fonction qui </b>
 
 (a) Cherche dans le document tous les éléments qui ont la classe show-hide.
 
@@ -1569,6 +1577,46 @@ iii. Associe une fonction hide(event) au clic de l’élément de classe hide-ac
 le bouton de classe hide-action et montre le bouton avec la classe show-action.
 
 Testez ce que vous codez avec une page qui contient 2 éléments de classe show-hide.
+
+<b>Qu est ce que l on demande?</b>
+
+On vous demande de créer un fichier JavaScript appelé showHide.js qui permettra d’afficher ou cacher du texte automatiquement.
+
+Le script doit d’abord rechercher tous les éléments de la page qui possèdent la classe show-hide.
+
+Chaque élément représente une petite zone contenant :
+
+    un bouton pour afficher le contenu ;
+
+    le contenu caché ;
+
+    un bouton pour cacher le contenu.
+
+Au chargement de la page, le contenu et le bouton “cacher” doivent être invisibles.
+
+Seul le bouton “afficher” doit apparaître.
+
+Quand l’utilisateur clique sur le bouton “afficher”, le script doit :
+
+    afficher le texte caché ;
+
+    cacher le bouton “afficher” ;
+
+    afficher le bouton “cacher”.
+
+Puis, quand l’utilisateur clique sur le bouton “cacher”, le script doit faire l’inverse :
+
+    cacher le texte ;
+
+    cacher le bouton “cacher” ;
+
+    réafficher le bouton “afficher”.
+
+Le but principal de l’exercice est de créer un code réutilisable.
+
+Ainsi, le même script pourra fonctionner pour plusieurs blocs différents dans la même page sans recopier le code plusieurs fois.
+
+C’est pour cela qu’on demande aussi de tester avec deux éléments show-hide dans une même page HTML.
 
 <b>Réponse:</b>
 
