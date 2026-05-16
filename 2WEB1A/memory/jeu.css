@@ -1,0 +1,9 @@
+.hidden {
+  display: none;
+}
+
+#seq > * {
+  padding: 7px;
+  margin: 10px;
+  border: solid 2px rgb(0, 0, 0);
+}
